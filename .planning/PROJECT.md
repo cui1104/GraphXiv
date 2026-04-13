@@ -25,15 +25,18 @@ Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, fig
 - [ ] REST API compatible with deepxiv_sdk endpoints: `GET /arxiv/` (search/head/brief/sections), `GET /pmc/` (head/full)
 - [ ] Job queue (Celery + Redis or Ray) for parallel paper processing at small-cluster scale
 - [ ] Benchmark evaluation: compare MinerU vs GROBID vs Docling on a sample of arXiv PDFs (section accuracy, table extraction quality)
-- [ ] Fork deepxiv_sdk, point it at this backend, and verify all existing SDK features work (search, brief, head, sections, agent)
-- [ ] Extend the forked SDK with at least one new capability not in the original (e.g., table access, bulk export, local caching, or new query modes)
+- [ ] Citation graph: `paper_citations` edge table storing (source, target, context_text); REST endpoints for `/references`, `/cited_by`, `/related`
+- [ ] Hybrid search: BM25 + pgvector semantic search on titles/abstracts (same PostgreSQL instance, no extra service)
+- [ ] Fork deepxiv_sdk, point it at this backend, verify all existing SDK features work
+- [ ] SDK fork: citation-aware agent — after reading a paper's sections, agent fetches sections of key cited papers (`in_corpus=True`) and incorporates that context before answering; depth configurable (default 1 hop)
 
 ### Out of Scope
 
 - Full-text web scraping of gated publishers — only Open Access sources via official APIs/feeds
 - Real-time on-demand PDF parsing (all parsing is pre-computed)
-- Kubernetes / production-scale deployment — small cluster (single machine + job queue) is sufficient
-- Semantic search / vector embeddings — purely structured extraction, not RAG
+- [ ] Hybrid search: BM25 (PostgreSQL full-text) + semantic vector search (pgvector extension) on paper titles and abstracts — enables deepxiv-style discovery where agent finds papers by meaning, not just keywords
+- Full RAG (chunked vector store) — chunking papers into fragments loses the structured section context that makes deepxiv's agentic reading work
+- Kubernetes / production-scale deployment — single machine is sufficient for 10k papers
 
 ## Context
 
@@ -67,6 +70,7 @@ Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, fig
 | Fork deepxiv_sdk as the client layer | End-to-end product requires both backend + SDK; forking ensures exact JSON schema compatibility and enables new features | — Pending |
 | PostgreSQL as storage layer | Sufficient for small-cluster scale, good JSON support, easy to query | — Pending |
 | Celery + Redis for job queue | Lightweight, Python-native, sufficient for thousands of papers/day | — Pending |
+| pgvector for semantic search (not full RAG) | deepxiv uses BM25 + vector hybrid search on titles/abstracts; full chunked RAG loses structured section context; pgvector stays in PostgreSQL — no new service | — Pending |
 
 ## Evolution
 

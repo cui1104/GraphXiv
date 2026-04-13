@@ -12,6 +12,7 @@
 - [ ] **INFRA-03**: Redis is configured as both Celery broker and API response cache (TTL 3600s for paper views, 300s for search)
 - [ ] **INFRA-04**: Celery task skeleton exists with `fast` queue (LaTeX/XML tasks, 60s time limit) and `gpu`/`slow` queue (PDF ML tasks, 5min time limit), max_retries=3
 - [ ] **INFRA-05**: Alembic migration tracks initial schema; schema can be rebuilt cleanly from migrations
+- [ ] **INFRA-06**: PostgreSQL schema includes `paper_citations` edge table `(source_paper_id, target_paper_id NULLABLE, target_arxiv_id, target_doi, context_text)` with indexes on both paper ID columns; pgvector extension enabled with `embeddings` column on `papers` table
 
 ### Ingestion
 
@@ -50,12 +51,17 @@
 - [ ] **API-07**: `GET /pmc/{id}/full` returns complete paper object for PMC papers
 - [ ] **API-08**: All endpoints return HTTP 404 with a structured error body when the requested ID is not in the database
 - [ ] **API-09**: Redis caching layer is active on all endpoints; cache keys follow `papers:{canonical_id}:{view}` pattern with appropriate TTLs
+- [ ] **API-10**: `GET /arxiv/search` supports hybrid search — BM25 (PostgreSQL `tsvector`) + semantic vector similarity (pgvector) on paper titles and abstracts; `search_mode` parameter accepts `bm25`, `vector`, or `hybrid`
+- [ ] **API-11**: `GET /arxiv/{id}/references` returns papers this paper cites, each with `in_corpus` flag, `context_text` (sentence where cited), and full head-shape metadata if in corpus
+- [ ] **API-12**: `GET /arxiv/{id}/cited_by` returns papers in the corpus that cite this paper
+- [ ] **API-13**: `GET /arxiv/{id}/related` returns co-cited papers (papers frequently cited alongside this one within the corpus)
 
 ### SDK Fork
 
 - [ ] **SDK-01**: deepxiv_sdk is forked and the default `base_url` is updated to point at this backend; fork is installable via `pip install -e`
 - [ ] **SDK-02**: All existing deepxiv_sdk features work against this backend — `Reader.head()`, `Reader.brief()`, `Reader.sections()`, `Reader.full()`, `Reader.search()` return non-empty content for at least 10 test papers
-- [ ] **SDK-03**: SDK fork adds at least one new capability not present in the original: local response caching (responses cached to disk) or a table-access endpoint and corresponding SDK method
+- [ ] **SDK-03**: SDK fork adds `Reader.references(arxiv_id)` and `Reader.cited_by(arxiv_id)` methods that call the citation graph endpoints
+- [ ] **SDK-04**: SDK fork ships an improved `Agent` that performs citation-aware reading — after reading a paper's sections, the agent automatically identifies key cited works, fetches their sections if `in_corpus=True`, and incorporates that context before generating an answer; depth is configurable (default: 1 hop)
 
 ### Benchmark
 
@@ -112,6 +118,7 @@
 | INFRA-03 | Phase 1 | Pending |
 | INFRA-04 | Phase 1 | Pending |
 | INFRA-05 | Phase 1 | Pending |
+| INFRA-06 | Phase 1 | Pending |
 | INGEST-01 | Phase 2 | Pending |
 | INGEST-02 | Phase 2 | Pending |
 | INGEST-03 | Phase 2 | Pending |
@@ -138,15 +145,20 @@
 | API-07 | Phase 5 | Pending |
 | API-08 | Phase 5 | Pending |
 | API-09 | Phase 5 | Pending |
+| API-10 | Phase 5 | Pending |
+| API-11 | Phase 5 | Pending |
+| API-12 | Phase 5 | Pending |
+| API-13 | Phase 5 | Pending |
 | SDK-01 | Phase 6 | Pending |
 | SDK-02 | Phase 6 | Pending |
 | SDK-03 | Phase 6 | Pending |
+| SDK-04 | Phase 6 | Pending |
 | BENCH-01 | Phase 7 | Pending |
 | BENCH-02 | Phase 7 | Pending |
 | BENCH-03 | Phase 7 | Pending |
 
 **Coverage:**
-- v1 requirements: 36 total
+- v1 requirements: 42 total
 - Mapped to phases: 36
 - Unmapped: 0 ✓
 
