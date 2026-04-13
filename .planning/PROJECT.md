@@ -16,8 +16,8 @@ Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, fig
 
 ### Active
 
-- [ ] Continuous ingestion crawler for arXiv daily submissions feed (new papers auto-downloaded)
-- [ ] Continuous ingestion crawler for PubMed/PMC OAI-PMH feed
+- [ ] Targeted crawler for arXiv deep learning papers (cs.LG, cs.AI, cs.CV, cs.CL, stat.ML categories) producing a corpus of ~10,000 papers
+- [ ] Targeted crawler for PubMed/PMC papers in deep learning / neural networks domain (~subset of the 10k corpus)
 - [ ] Smart routing: arXiv LaTeX source → LaTeXML/s2orc parser (fast path); fallback to PDF → MinerU/GROBID (ML path)
 - [ ] Smart routing: PMC JATS XML → deterministic parser; fallback to PDF → ML path
 - [ ] Structured JSON output schema: title, abstract, authors, sections (heading + text), tables, figures, references, identifiers
@@ -53,7 +53,8 @@ Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, fig
 ## Constraints
 
 - **Timeline:** ~4 weeks (April 2026 DATS5990 submission)
-- **Scale:** Small cluster — thousands of papers, job queue, single machine or small VM; no Kubernetes
+- **Scale:** ~10,000 papers total corpus, single machine + job queue; no Kubernetes
+- **Domain scope:** Deep learning papers only (arXiv categories: cs.LG, cs.AI, cs.CV, cs.CL, stat.ML) — proves the pipeline on a well-defined, high-quality dataset
 - **Data sources:** Only Open Access — arXiv bulk API, PMC OAI-PMH, no gated publisher scraping
 - **API contract:** Backend JSON response schemas must exactly match deepxiv_sdk field names/types — verified by running the SDK's own test suite against this backend
 - **End-to-end:** Project must produce both a working backend AND a working SDK fork — not just one layer

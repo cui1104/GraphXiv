@@ -8,7 +8,9 @@
 
 ## Executive Summary
 
-This is an academic paper processing pipeline: ingest arXiv/PMC papers, route them through appropriate parsers (LaTeX/JATS deterministic first, PDF-ML fallback), normalize output to a fixed JSON schema, store in PostgreSQL, and serve via a FastAPI REST layer that exactly matches the deepxiv_sdk field contract. The central value proposition is pre-computed parsing — all heavy work happens at ingestion, so API responses land under 100ms cached / 500ms cold.
+**Corpus target: ~10,000 deep learning papers** (arXiv categories: cs.LG, cs.AI, cs.CV, cs.CL, stat.ML + PMC deep learning subset). This bounded scope makes the 4-week timeline achievable while producing a complete, demonstrable dataset.
+
+This is an academic paper processing pipeline: ingest arXiv/PMC deep learning papers, route them through appropriate parsers (LaTeX/JATS deterministic first, PDF-ML fallback), normalize output to a fixed JSON schema, store in PostgreSQL, and serve via a FastAPI REST layer that exactly matches the deepxiv_sdk field contract. The central value proposition is pre-computed parsing — all heavy work happens at ingestion, so API responses land under 100ms cached / 500ms cold.
 
 The recommended approach is a tiered routing strategy: ~65% of arXiv papers have LaTeX source (.tar.gz) and can be parsed deterministically in seconds with s2orc-doc2json. PMC papers arrive as JATS XML via OAI-PMH and are equally fast. Only the PDF-only remainder needs MinerU (ML, CPU-slow, GPU-preferred). This three-lane router controls cost, speed, and quality simultaneously.
 
