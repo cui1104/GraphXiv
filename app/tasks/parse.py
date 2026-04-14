@@ -1,7 +1,7 @@
-from app.celery_app import celery_app
+from celery import shared_task
 
 
-@celery_app.task(
+@shared_task(
     bind=True,
     name="app.tasks.parse.parse_latex",
     max_retries=3,
@@ -10,11 +10,11 @@ from app.celery_app import celery_app
     default_retry_delay=10,
 )
 def parse_latex(self, paper_id: str) -> dict:
-    """Stub: Phase 3 implements LaTeX → structured JSON parsing."""
-    return {"status": "stub", "paper_id": paper_id, "parse_source": "latex"}
+    """Stub: Phase 3 implements TEX2JSON via s2orc-doc2json."""
+    return {"status": "stub", "parser": "latex", "paper_id": paper_id}
 
 
-@celery_app.task(
+@shared_task(
     bind=True,
     name="app.tasks.parse.parse_jats",
     max_retries=3,
@@ -23,11 +23,11 @@ def parse_latex(self, paper_id: str) -> dict:
     default_retry_delay=10,
 )
 def parse_jats(self, paper_id: str) -> dict:
-    """Stub: Phase 3 implements JATS XML → structured JSON parsing."""
-    return {"status": "stub", "paper_id": paper_id, "parse_source": "jats"}
+    """Stub: Phase 3 implements JATS2JSON via s2orc-doc2json."""
+    return {"status": "stub", "parser": "jats", "paper_id": paper_id}
 
 
-@celery_app.task(
+@shared_task(
     bind=True,
     name="app.tasks.parse.parse_pdf_mineru",
     max_retries=3,
@@ -36,11 +36,11 @@ def parse_jats(self, paper_id: str) -> dict:
     default_retry_delay=30,
 )
 def parse_pdf_mineru(self, paper_id: str) -> dict:
-    """Stub: Phase 3 implements PDF → structured JSON via MinerU (GPU-accelerated)."""
-    return {"status": "stub", "paper_id": paper_id, "parse_source": "pdf_mineru"}
+    """Stub: Phase 3 implements MinerU PDF parsing on slow/GPU queue."""
+    return {"status": "stub", "parser": "pdf_mineru", "paper_id": paper_id}
 
 
-@celery_app.task(
+@shared_task(
     bind=True,
     name="app.tasks.parse.parse_pdf_grobid",
     max_retries=3,
@@ -49,5 +49,5 @@ def parse_pdf_mineru(self, paper_id: str) -> dict:
     default_retry_delay=30,
 )
 def parse_pdf_grobid(self, paper_id: str) -> dict:
-    """Stub: Phase 3 implements PDF → structured JSON via GROBID."""
-    return {"status": "stub", "paper_id": paper_id, "parse_source": "pdf_grobid"}
+    """Stub: Phase 3 implements GROBID reference extraction."""
+    return {"status": "stub", "parser": "pdf_grobid", "paper_id": paper_id}

@@ -1,7 +1,7 @@
-from app.celery_app import celery_app
+from celery import shared_task
 
 
-@celery_app.task(
+@shared_task(
     bind=True,
     name="app.tasks.normalize.normalize_paper",
     max_retries=3,
@@ -9,6 +9,6 @@ from app.celery_app import celery_app
     soft_time_limit=50,
     default_retry_delay=10,
 )
-def normalize_paper(self, paper_id: str) -> dict:
-    """Stub: Phase 4 implements normalization to deepxiv_sdk JSON contract."""
-    return {"status": "stub", "paper_id": paper_id}
+def normalize_paper(self, paper_id: str, parse_source: str) -> dict:
+    """Stub: Phase 4 implements PaperJSON normalization + upsert."""
+    return {"status": "stub", "paper_id": paper_id, "parse_source": parse_source}
