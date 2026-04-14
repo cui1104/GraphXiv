@@ -9,8 +9,8 @@
 
 - [x] **INFRA-01**: Docker Compose file brings up all services (PostgreSQL 16, Redis 7, Celery workers, Flower, GROBID) with a single `docker compose up`
 - [ ] **INFRA-02**: PostgreSQL schema includes `papers`, `paper_sources`, `id_map`, and `crawl_state` tables with correct indexes and UUID canonical IDs
-- [ ] **INFRA-03**: Redis is configured as both Celery broker and API response cache (TTL 3600s for paper views, 300s for search)
-- [ ] **INFRA-04**: Celery task skeleton exists with `fast` queue (LaTeX/XML tasks, 60s time limit) and `gpu`/`slow` queue (PDF ML tasks, 5min time limit), max_retries=3
+- [x] **INFRA-03**: Redis is configured as both Celery broker and API response cache (TTL 3600s for paper views, 300s for search)
+- [x] **INFRA-04**: Celery task skeleton exists with `fast` queue (LaTeX/XML tasks, 60s time limit) and `gpu`/`slow` queue (PDF ML tasks, 5min time limit), max_retries=3
 - [ ] **INFRA-05**: Alembic migration tracks initial schema; schema can be rebuilt cleanly from migrations
 - [ ] **INFRA-06**: PostgreSQL schema includes `paper_citations` edge table `(source_paper_id, target_paper_id NULLABLE, target_arxiv_id, target_doi, context_text)` with indexes on both paper ID columns; pgvector extension enabled with `embeddings` column on `papers` table
 
@@ -115,8 +115,8 @@
 |-------------|-------|--------|
 | INFRA-01 | Phase 1 | Pending |
 | INFRA-02 | Phase 1 | Pending |
-| INFRA-03 | Phase 1 | Pending |
-| INFRA-04 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Complete |
+| INFRA-04 | Phase 1 | Complete |
 | INFRA-05 | Phase 1 | Pending |
 | INFRA-06 | Phase 1 | Pending |
 | INGEST-01 | Phase 2 | Pending |

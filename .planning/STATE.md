@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in_progress
-last_updated: "2026-04-14T16:39:00.000Z"
+status: unknown
+last_updated: "2026-04-14T16:44:16.795Z"
 progress:
   total_phases: 7
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 3
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 01 — Foundation (1/3 plans complete)
-**Last Action:** Completed 01-01 — Docker Compose infrastructure and project scaffold (2026-04-14)
+**Active Phase:** Phase 01 — Foundation (3/3 plans complete)
+**Last Action:** Completed 01-03 — Celery skeleton with fast/slow queues and stub tasks (2026-04-14)
 
 ## Phase Progress
 
@@ -49,12 +49,16 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - pyproject.toml [project] format (not Poetry) — simpler, no lock file format difference, Docker-friendly (01-01)
 - app/models.py created in Plan 01 to allow alembic/env.py to reference Base.metadata before Plan 02 (01-01)
 - worker_prefetch_multiplier=1 to prevent GPU task starvation on slow queue (01-01)
+- shared_task decorator for all Celery tasks (not celery_app.task) to avoid circular imports and enable auto-registration via include list (01-03)
+- ingest_paper uses paper_id (not arxiv_id) for source-agnostic pipeline; normalize_paper takes parse_source param for Phase 4 routing (01-03)
 
 ## Performance Metrics
 
 | Phase | Plan | Duration | Tasks | Files |
 |-------|------|----------|-------|-------|
 | 01    | 01   | 4min     | 2     | 19    |
+| Phase 01 P03 | 8min | 1 tasks | 4 files |
+| Phase 01 P02 | 8min | 2 tasks | 2 files |
 
 ## Next Step
 
