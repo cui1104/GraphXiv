@@ -30,7 +30,7 @@ Seven phases on a strict critical path: stand up the infrastructure, crawl the c
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Docker Compose services — write `docker-compose.yml` for PostgreSQL 16, Redis 7, Celery worker (fast + slow queues), Flower, and GROBID 0.8; verify all services start and pass health checks
+- [x] 01-01: Docker Compose services — write `docker-compose.yml` for PostgreSQL 16, Redis 7, Celery worker (fast + slow queues), Flower, and GROBID 0.8; verify all services start and pass health checks
 - [ ] 01-02: Database schema — write Alembic migration for `papers` (hybrid schema: structured columns + JSONB content blob), `paper_sources`, `id_map`, and `crawl_state`; add all indexes (arxiv_id, pmcid, doi, GIN on tsvector for title+abstract)
 - [ ] 01-03: Celery skeleton — configure Celery app with Redis broker, `fast` and `slow`/`gpu` task queues, `task_routes`, `max_retries=3`, and per-queue `time_limit`; write stub tasks for each pipeline stage; verify task routing with Flower
 
@@ -158,7 +158,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Not started | - |
+| 1. Foundation | 1/3 | In progress | - |
 | 2. Ingestion | 0/4 | Not started | - |
 | 3. Parser Layer | 0/4 | Not started | - |
 | 4. Normalizer + Storage | 0/3 | Not started | - |

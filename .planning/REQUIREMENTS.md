@@ -7,7 +7,7 @@
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Docker Compose file brings up all services (PostgreSQL 16, Redis 7, Celery workers, Flower, GROBID) with a single `docker compose up`
+- [x] **INFRA-01**: Docker Compose file brings up all services (PostgreSQL 16, Redis 7, Celery workers, Flower, GROBID) with a single `docker compose up`
 - [ ] **INFRA-02**: PostgreSQL schema includes `papers`, `paper_sources`, `id_map`, and `crawl_state` tables with correct indexes and UUID canonical IDs
 - [ ] **INFRA-03**: Redis is configured as both Celery broker and API response cache (TTL 3600s for paper views, 300s for search)
 - [ ] **INFRA-04**: Celery task skeleton exists with `fast` queue (LaTeX/XML tasks, 60s time limit) and `gpu`/`slow` queue (PDF ML tasks, 5min time limit), max_retries=3
