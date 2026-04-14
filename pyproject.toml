@@ -1,0 +1,24 @@
+[project]
+name = "dats5990-papers"
+version = "0.1.0"
+description = "Research knowledge graph platform for academic papers"
+requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy==2.0.49",
+    "alembic==1.18.4",
+    "celery[redis]==5.4.0",
+    "redis==7.4.0",
+    "psycopg2-binary==2.9.11",
+    "pgvector==0.4.2",
+    "pydantic-settings==2.13.1",
+    "flower==2.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-timeout",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
