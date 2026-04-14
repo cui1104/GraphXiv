@@ -18,7 +18,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Core value:** Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, figures, metadata) in under a second — by doing all parsing work ahead of time via a continuous ingestion pipeline.
-**Current focus:** Phase 01 — foundation (Plan 2 of 3 next)
+**Current focus:** Phase 01 — foundation (all 3 plans complete)
 
 ## Current Status
 
@@ -51,6 +51,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - worker_prefetch_multiplier=1 to prevent GPU task starvation on slow queue (01-01)
 - shared_task decorator for all Celery tasks (not celery_app.task) to avoid circular imports and enable auto-registration via include list (01-03)
 - ingest_paper uses paper_id (not arxiv_id) for source-agnostic pipeline; normalize_paper takes parse_source param for Phase 4 routing (01-03)
+- PaperSource/IdMap/CrawlState/PaperCitation use Integer autoincrement PKs per schema spec (01-02)
+- SQLAlchemy 2.0.49 removed TIMESTAMPTZ alias; use TIMESTAMP(timezone=True) instead (01-02)
+- Hand-written Alembic migration avoids GIN index autogenerate false-positive bug alembic#1390 (01-02)
 
 ## Performance Metrics
 
