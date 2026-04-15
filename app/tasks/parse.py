@@ -288,8 +288,113 @@ def parse_jats(self, paper_id: str) -> dict:
     default_retry_delay=30,
 )
 def parse_pdf_mineru(self, paper_id: str) -> dict:
-    """Stub: Phase 3 implements MinerU PDF parsing on slow/GPU queue."""
-    return {"status": "stub", "parser": "pdf_mineru", "paper_id": paper_id}
+    """Parse PDF via MinerU (magic-pdf) on slow/GPU queue. Per PARSE-03."""
+    import json
+    import os
+    import shutil
+    import tempfile
+
+    from app.db import SessionLocal
+    from app.models import Paper, PaperSource
+
+    session = SessionLocal()
+    try:
+        paper = session.query(Paper).filter(Paper.canonical_id == paper_id).first()
+        if not paper:
+            return {"status": "failed", "reason": "paper_not_found", "paper_id": paper_id}
+
+        ps = session.query(PaperSource).filter(
+            PaperSource.canonical_id == paper_id,
+            PaperSource.source_type.in_(["arxiv_pdf", "pmc_pdf", "pdf"]),
+        ).first()
+        if not ps or not ps.asset_path:
+            return {"status": "failed", "reason": "no_pdf_asset", "paper_id": paper_id}
+
+        asset_path = ps.asset_path
+        if not os.path.isabs(asset_path):
+            asset_path = os.path.join("/data", asset_path)
+
+        # Step 1: pymupdf text-layer pre-check (per PARSE-03)
+        if not _has_text_layer(asset_path, threshold=100):
+            ps.parse_status = "scanned_skip"
+            paper.parse_quality = "scanned"
+            session.commit()
+            return {"status": "scanned_skip", "reason": "text_layer_below_100_chars", "paper_id": paper_id}
+
+        # Step 2: Run MinerU -- LAZY IMPORTS (Pitfall 3: prevent ImportError on fast workers)
+        from magic_pdf.config.enums import SupportedPdfParseMethod
+        from magic_pdf.data.data_reader_writer import FileBasedDataWriter
+        from magic_pdf.data.dataset import PymuDocDataset
+        from magic_pdf.model.doc_analyze_by_custom_model import doc_analyze
+
+        output_dir = tempfile.mkdtemp(prefix="mineru_")
+        try:
+            image_dir = os.path.join(output_dir, "images")
+            os.makedirs(image_dir, exist_ok=True)
+
+            image_writer = FileBasedDataWriter(image_dir)
+            output_writer = FileBasedDataWriter(output_dir)
+
+            with open(asset_path, "rb") as f:
+                pdf_bytes = f.read()
+
+            ds = PymuDocDataset(pdf_bytes)
+            if ds.classify() == SupportedPdfParseMethod.OCR:
+                infer_result = ds.apply(doc_analyze, ocr=True)
+                pipe_result = infer_result.pipe_ocr_mode(image_writer)
+            else:
+                infer_result = ds.apply(doc_analyze, ocr=False)
+                pipe_result = infer_result.pipe_txt_mode(image_writer)
+
+            pipe_result.dump_content_list(output_writer, "content_list.json", "images")
+            content_list_path = os.path.join(output_dir, "content_list.json")
+
+            with open(content_list_path) as f:
+                content_list = json.load(f)
+
+            if not content_list:
+                ps.parse_status = "failed"
+                session.commit()
+                return {"status": "failed", "reason": "mineru_empty_result", "paper_id": paper_id}
+
+            # Step 3: Post-parse sentence-length degradation check (per PARSE-05)
+            all_text = " ".join(
+                item.get("text", "") for item in content_list if item.get("type") == "text"
+            )
+            quality = "ok"
+            if _sentence_length_degraded(all_text, threshold=80):
+                quality = "degraded"
+
+            # Step 4: Update DB -- store raw content_list (Phase 4 normalizes)
+            # NOTE: text_level is always 1 in OSS MinerU (Pitfall 5) -- Phase 4 must handle this
+            paper.parse_source = "pdf_mineru"
+            paper.parse_quality = quality
+            paper.content = {"content_list": content_list, "parser": "mineru", "text_level_broken": True}
+            ps.parse_status = "success"
+            session.commit()
+
+            return {
+                "status": "success",
+                "parse_source": "pdf_mineru",
+                "parse_quality": quality,
+                "paper_id": paper_id,
+            }
+        finally:
+            shutil.rmtree(output_dir, ignore_errors=True)
+    except Exception as exc:
+        session.rollback()
+        try:
+            ps_row = session.query(PaperSource).filter(
+                PaperSource.canonical_id == paper_id
+            ).first()
+            if ps_row:
+                ps_row.parse_status = "failed"
+                session.commit()
+        except Exception:
+            pass
+        self.retry(exc=exc)
+    finally:
+        session.close()
 
 
 @shared_task(

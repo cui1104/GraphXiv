@@ -68,8 +68,15 @@ def test_strip_doctype_with_internal_subset():
 
 def test_scanned_pdf_detection():
     """PARSE-03: Scanned PDFs detected by text layer check"""
-    # Will use tests/fixtures/sample_scanned.pdf
-    pytest.skip("Requires sample_scanned.pdf fixture -- implement after fixture created")
+    pytest.importorskip("pymupdf", reason="Requires PyMuPDF installed")
+    from app.tasks.parse_helpers import _has_text_layer
+
+    scanned_path = "tests/fixtures/sample_scanned.pdf"
+    result = _has_text_layer(scanned_path, threshold=100)
+    assert result is False, (
+        f"sample_scanned.pdf should have < 100 chars of text (got True), "
+        "ensure the fixture is a minimal blank/image-only PDF"
+    )
 
 
 def test_sentence_length_check():
