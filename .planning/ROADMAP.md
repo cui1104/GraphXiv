@@ -12,7 +12,7 @@ Seven phases on a strict critical path: stand up the infrastructure, crawl the c
 - [ ] **Phase 4: Normalizer + Storage** - All parser outputs mapped to unified deepxiv_sdk JSON schema and upserted to PostgreSQL
 - [ ] **Phase 5: REST API** - All 7 FastAPI endpoints serving correct JSON with Redis caching
 - [ ] **Phase 6: SDK Fork + Verification** - Forked deepxiv_sdk passes full test suite against this backend and ships one new capability
-- [ ] **Phase 7: Benchmark** - MinerU vs GROBID vs Docling evaluated on 100–200 DL papers with written findings report
+- [ ] **Phase 7: Benchmark** - MinerU vs GROBID vs Docling vs this system's router evaluated on 150 DL papers with written findings report
 
 ---
 
@@ -138,16 +138,16 @@ Plans:
 **Depends on**: Phase 3 (can run in parallel with Phases 4–6)
 **Requirements**: BENCH-01, BENCH-02, BENCH-03
 **Success Criteria** (what must be TRUE):
-  1. Benchmark sample of 100–200 DL papers is selected, including at least 30 two-column IEEE/ACM-format papers; all three parsers run on the same sample without crashing
-  2. Section extraction accuracy is measured: for each parser, the number of correctly identified section headings and percentage of sections with coherent (non-garbled) body text is recorded
-  3. Table extraction quality is measured: for each parser, the presence and structural completeness (caption, headers, row content) of tables is recorded
-  4. Findings report documents sample composition, methodology, per-parser scores, two-column performance gap, and a recommendation on which parser to use as MinerU fallback
+  1. Benchmark sample of exactly 150 DL papers is selected, including at least 30 two-column IEEE/ACM-format papers; all three standalone parsers (MinerU, GROBID, Docling) plus the pipeline router run on the same sample without crashing
+  2. Section extraction accuracy is measured: for each of the four conditions (MinerU, GROBID, Docling, Router), the number of correctly identified section headings and percentage of sections with coherent (non-garbled) body text is recorded
+  3. Table extraction quality is measured: for each condition, the presence and structural completeness (caption, headers, row content) of tables is recorded
+  4. Findings report documents sample composition, methodology, per-condition scores in a comparison table, two-column performance gap, and a recommendation on which parser to use as MinerU fallback
 **Plans**: 3 plans
 
 Plans:
-- [ ] 07-01: Benchmark sample selection and Docling setup — select 100–200 DL papers from the stored corpus (stratified: single-column arXiv, two-column IEEE/ACM/Nature-style, mixed); install Docling; verify all three parsers (MinerU, GROBID, Docling) run on the benchmark sample without crashes or missing dependencies
-- [ ] 07-02: Automated evaluation — for each parser and each sample paper, extract sections and tables; compute section heading match rate against ground truth (LaTeX-sourced papers as reference where available); compute sentence-length distribution to detect multi-column interleaving; record table presence rate and structural completeness score; output results to a CSV
-- [ ] 07-03: Findings report — analyze CSV results; compute per-parser aggregate scores; characterize multi-column failure modes; write benchmark report documenting methodology, sample composition, results table, and recommendation for which parser to use as MinerU fallback for papers without LaTeX source
+- [ ] 07-01: Benchmark sample selection and Docling setup — select exactly 150 DL papers from the stored corpus (stratified: ~75 single-column arXiv LaTeX-sourced, ~50 two-column IEEE/ACM/Nature-style PDF-only, ~25 mixed); install Docling; verify MinerU, GROBID, Docling, and the pipeline router all run on the benchmark sample without crashes or missing dependencies
+- [ ] 07-02: Automated evaluation — for each of four conditions (MinerU standalone, GROBID standalone, Docling standalone, Router) and each sample paper, extract sections and tables; compute section heading match rate against ground truth (LaTeX-sourced papers as reference); compute sentence-length distribution to detect multi-column interleaving; record table presence rate and structural completeness score; output all four conditions to a single CSV with condition column
+- [ ] 07-03: Findings report — analyze CSV; compute per-condition aggregate scores; produce comparison table (MinerU | GROBID | Docling | Router) across all metrics; characterize multi-column failure modes; write benchmark report documenting methodology, sample composition, results table, and recommendation for which parser to use as MinerU fallback
 
 ---
 

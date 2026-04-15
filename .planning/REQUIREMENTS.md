@@ -65,9 +65,9 @@
 
 ### Benchmark
 
-- [ ] **BENCH-01**: Benchmark evaluates MinerU vs GROBID vs Docling on a sample of 100-200 arXiv DL papers, including at least 30 two-column IEEE/ACM-format papers
-- [ ] **BENCH-02**: Benchmark measures section extraction accuracy (number of correctly identified sections, section heading match rate) and table extraction quality (presence and structural completeness of table content)
-- [ ] **BENCH-03**: Benchmark findings are written up as a structured report documenting parser comparison results, sample selection methodology, and recommendation for which parser to use as MinerU fallback
+- [ ] **BENCH-01**: Benchmark evaluates four conditions — MinerU standalone, GROBID standalone, Docling standalone, and this system's router — on exactly 150 arXiv DL papers, including at least 30 two-column IEEE/ACM-format papers
+- [ ] **BENCH-02**: Benchmark measures section extraction accuracy (heading match rate, coherent body text %) and table extraction quality (presence rate, structural completeness) for all four conditions; results output to a single CSV with a condition column
+- [ ] **BENCH-03**: Benchmark findings are written up as a structured report with a four-column comparison table (MinerU | GROBID | Docling | Router), sample selection methodology, multi-column failure characterization, and parser recommendation
 
 ---
 
