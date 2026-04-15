@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T16:38:00.011Z"
+last_updated: "2026-04-15T17:26:22.000Z"
 progress:
   total_phases: 7
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 7
+  completed_plans: 4
 ---
 
 # Project State
@@ -18,13 +18,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Core value:** Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, figures, metadata) in under a second — by doing all parsing work ahead of time via a continuous ingestion pipeline.
-**Current focus:** Phase 01 — foundation (all 3 plans complete)
+**Current focus:** Phase 02 — ingestion
 
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 01 — Foundation (3/3 plans complete)
-**Last Action:** Completed 01-03 — Celery skeleton with fast/slow queues and stub tasks (2026-04-14)
+**Active Phase:** Phase 02 — Ingestion (1/4 plans complete)
+**Last Action:** Completed 02-01 — Crawl state migration, crawler utils, test scaffold (2026-04-15)
 
 ## Phase Progress
 
@@ -54,6 +54,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - PaperSource/IdMap/CrawlState/PaperCitation use Integer autoincrement PKs per schema spec (01-02)
 - SQLAlchemy 2.0.49 removed TIMESTAMPTZ alias; use TIMESTAMP(timezone=True) instead (01-02)
 - Hand-written Alembic migration avoids GIN index autogenerate false-positive bug alembic#1390 (01-02)
+- mock_db_session uses raw SQL DDL (not Base.metadata.create_all) because Paper model contains JSONB/Vector types incompatible with SQLite (02-01)
+- ARXIV_OAI_BASE uses new March 2025 endpoint oaipmh.arxiv.org/oai; ARXIV_SETS uses colon format cs:cs:LG (02-01)
+- crawl_state upsert uses pg_insert().on_conflict_do_update(index_elements=["source"]) (02-01)
 
 ## Performance Metrics
 
@@ -63,6 +66,12 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 01 P03 | 8min | 1 tasks | 4 files |
 | Phase 01 P02 | 8min | 2 tasks | 2 files |
 
+## Performance Metrics (continued)
+
+| Phase | Plan | Duration | Tasks | Files |
+|-------|------|----------|-------|-------|
+| 02    | 01   | 3min     | 2     | 6     |
+
 ## Next Step
 
-Execute 01-02-PLAN.md — PostgreSQL schema Alembic migration and 01-03-PLAN.md — Celery skeleton (can run in parallel).
+Execute 02-02-PLAN.md — arXiv OAI-PMH crawler.
