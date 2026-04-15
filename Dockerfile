@@ -18,6 +18,9 @@ RUN echo '{"device-mode": "cuda", "models-dir": "/models"}' > /root/magic-pdf.js
 COPY pyproject.toml .
 RUN pip install --no-cache-dir ".[dev]"
 
+# Pre-cache tiktoken cl100k_base encoding to avoid first-run network download inside Docker
+RUN python -c "import tiktoken; tiktoken.get_encoding('cl100k_base')"
+
 COPY . .
 
 CMD ["celery", "-A", "app.celery_app", "worker", "-Q", "fast,slow", "--concurrency=4", "--loglevel=info"]
