@@ -57,8 +57,8 @@ def _build_parse_chain(paper_id: str, source_type: str):
         return None
 
 
-@shared_task(bind=True, name="app.tasks.router.route_paper", max_retries=0, time_limit=30)
-def route_paper(self, paper_id: str) -> dict:
+@shared_task(name="app.tasks.router.route_paper", max_retries=0, time_limit=30)
+def route_paper(paper_id: str) -> dict:
     """Route a single paper to the correct parser chain.
 
     Reads paper_sources to determine asset type, builds chain, dispatches.
@@ -105,8 +105,8 @@ def route_paper(self, paper_id: str) -> dict:
         session.close()
 
 
-@shared_task(bind=True, name="app.tasks.router.dispatch_pending_batch", max_retries=0, time_limit=120)
-def dispatch_pending_batch(self) -> dict:
+@shared_task(name="app.tasks.router.dispatch_pending_batch", max_retries=0, time_limit=120)
+def dispatch_pending_batch() -> dict:
     """Fan-out all pending papers in parallel via celery.group (D-12).
 
     Reads all paper_sources with parse_status=pending, groups by source_type,
