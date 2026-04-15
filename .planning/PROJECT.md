@@ -16,6 +16,9 @@ Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, fig
 - [x] SQLAlchemy ORM models for all 5 tables (papers, paper_sources, id_map, crawl_state, paper_citations) with pgvector embeddings column — Validated in Phase 01: Foundation
 - [x] Celery + Redis job queue with fast/slow queues and task routing — Validated in Phase 01: Foundation
 - [x] Alembic migration applies cleanly against live PostgreSQL with pgvector extension — Validated in Phase 01: Foundation
+- [x] Parser outputs (TEX2JSON S2ORC, JATS2JSON S2ORC, MinerU, GROBID) mapped to unified PaperJSON schema — Validated in Phase 04: Normalizer + Storage
+- [x] token_count (tiktoken cl100k_base), tldr (abstract first sentences), dedup fingerprint (SHA-256) populated on every paper — Validated in Phase 04: Normalizer + Storage
+- [x] PostgreSQL upsert via ON CONFLICT DO UPDATE keyed on canonical_id; cross-source linking via id_map — Validated in Phase 04: Normalizer + Storage
 
 ### Active
 
@@ -93,4 +96,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-15 — Phase 01 Foundation complete*
+*Last updated: 2026-04-15 — Phase 04 Normalizer + Storage complete*
