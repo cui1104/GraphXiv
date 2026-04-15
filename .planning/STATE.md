@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T19:21:11.157Z"
+last_updated: "2026-04-15T19:29:48.495Z"
 progress:
   total_phases: 7
   completed_phases: 2
   total_plans: 11
-  completed_plans: 7
+  completed_plans: 9
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Milestone:** v1 — End-to-End Platform
 **Active Phase:** Phase 03 — Parser Layer (1/4 plans complete)
-**Last Action:** Completed 03-01 — parse_latex task, parse_helpers.py shared module, Wave 0 test infrastructure, Dockerfile + pyproject.toml updated (2026-04-15)
+**Last Action:** Completed 03-02 — parse_jats task implementing JATS2JSON via process_jats_stream with DOCTYPE stripping and D-04 cascade logic (2026-04-15)
 
 ## Phase Progress
 
@@ -67,6 +67,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - D-01 arXiv ID stem matching strips version suffix (2401.12345v2 -> 2401.12345) before filename comparison (03-01)
 - PyMuPDF added in 03-01 (not 03-03) because D-03 table-count heuristic needed by parse_latex (03-01)
 - process_tex_stream lazily imported inside task body to prevent ImportError at worker startup (03-01)
+- process_jats_stream lazily imported inside parse_jats task body; _strip_jats_doctype from parse_helpers prevents lxml DTD fetch hangs; D-04 cascade queries pmc_pdf/arxiv_pdf/pdf source_types (03-02)
 
 ## Performance Metrics
 
@@ -77,6 +78,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 01 P02 | 8min | 2 tasks | 2 files |
 | Phase 02 P03 | 2min | 2 tasks | 2 files |
 | Phase 02 P02 | 8min | 2 tasks | 4 files |
+| Phase 03 P02 | 5min | 1 tasks | 2 files |
 
 ## Performance Metrics (continued)
 
@@ -88,4 +90,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Execute Phase 03 — Parser Layer (03-02-PLAN.md next: JATS2JSON parser task).
+Execute Phase 03 — Parser Layer (03-03-PLAN.md next: MinerU PDF parser task).

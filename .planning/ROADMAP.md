@@ -71,7 +71,7 @@ Plans:
 
 Plans:
 - [x] 03-01: TEX2JSON parser task — install s2orc-doc2json from GitHub HEAD; implement Celery task that unpacks `.tar.gz`, detects main `.tex` file by `\documentclass` heuristic, runs TEX2JSON, and returns raw S2ORC JSON dict; add post-parse backslash-token check; set `parse_source=latex`
-- [ ] 03-02: JATS2JSON parser task — implement Celery task that reads PMC JATS XML (inline or from file), detects DOCTYPE/schema version, applies NLM 2.x normalization if needed, runs JATS2JSON, and returns raw S2ORC JSON dict; set `parse_source=jats`
+- [x] 03-02: JATS2JSON parser task — implement Celery task that reads PMC JATS XML (inline or from file), detects DOCTYPE/schema version, applies NLM 2.x normalization if needed, runs JATS2JSON, and returns raw S2ORC JSON dict; set `parse_source=jats`
 - [ ] 03-03: MinerU PDF parser task — install `magic-pdf[full]` (verify PyPI version); implement Celery task on `slow` queue that pre-checks PDF text layer with pymupdf, routes scanned PDFs to a `parse_status=scanned_skip` status, and runs MinerU on born-digital PDFs; post-parse sentence-length degradation check; set `parse_source=pdf_mineru`
 - [ ] 03-04: GROBID reference extraction and smart router — implement GROBID client task that calls `/api/processReferences` and merges citation data; implement smart router that selects the correct parser Celery chain (TEX2JSON → GROBID → store, JATS2JSON → GROBID → store, MinerU → GROBID → store) based on available asset type in `paper_sources`
 
@@ -160,7 +160,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-04-14 |
 | 2. Ingestion | 4/4 | Complete   | 2026-04-15 |
-| 3. Parser Layer | 1/4 | In Progress|  |
+| 3. Parser Layer | 2/4 | In Progress|  |
 | 4. Normalizer + Storage | 0/3 | Not started | - |
 | 5. REST API | 0/3 | Not started | - |
 | 6. SDK Fork + Verification | 0/3 | Not started | - |

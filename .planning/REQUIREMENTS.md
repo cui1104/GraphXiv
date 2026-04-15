@@ -25,8 +25,8 @@
 
 ### Parsing
 
-- [ ] **PARSE-01**: TEX2JSON fast path — arXiv `.tar.gz` archives are unpacked and fed to s2orc-doc2json to produce S2ORC-format JSON; main `.tex` file is detected by `\documentclass` heuristic; post-parse check flags `parse_quality=degraded` if >2% of tokens are raw backslash commands
-- [ ] **PARSE-02**: JATS2JSON fast path — PMC JATS XML (inline from OAI response or from `.nxml` in FTP archive) is parsed by s2orc-doc2json JATS2JSON; JATS schema version is detected from `<!DOCTYPE>` and normalized before parsing
+- [x] **PARSE-01**: TEX2JSON fast path — arXiv `.tar.gz` archives are unpacked and fed to s2orc-doc2json to produce S2ORC-format JSON; main `.tex` file is detected by `\documentclass` heuristic; post-parse check flags `parse_quality=degraded` if >2% of tokens are raw backslash commands
+- [x] **PARSE-02**: JATS2JSON fast path — PMC JATS XML (inline from OAI response or from `.nxml` in FTP archive) is parsed by s2orc-doc2json JATS2JSON; JATS schema version is detected from `<!DOCTYPE>` and normalized before parsing
 - [ ] **PARSE-03**: MinerU PDF path — for arXiv or PMC papers with no source available, PDF is pre-checked for text layer with pymupdf (scanned PDFs flagged separately), then routed to MinerU (`magic-pdf`) for structured JSON extraction
 - [ ] **PARSE-04**: GROBID reference extraction — GROBID 0.8 runs as a Docker companion service and is called via `/api/processReferences` on any parsed paper to extract and enrich the citations list; GROBID is not used as a primary parser
 - [ ] **PARSE-05**: Parser routing logic selects TEX2JSON → JATS2JSON → MinerU → GROBID in priority order; `parse_source` is recorded as `latex`, `jats`, `pdf_mineru`, or `pdf_grobid`; multi-column PDF parse degradation is detected by avg sentence length >80 tokens
@@ -125,8 +125,8 @@
 | INGEST-04 | Phase 2 | Complete (02-01) |
 | INGEST-05 | Phase 2 | Complete (02-01) |
 | INGEST-06 | Phase 2 | Complete |
-| PARSE-01 | Phase 3 | Pending |
-| PARSE-02 | Phase 3 | Pending |
+| PARSE-01 | Phase 3 | Complete |
+| PARSE-02 | Phase 3 | Complete |
 | PARSE-03 | Phase 3 | Pending |
 | PARSE-04 | Phase 3 | Pending |
 | PARSE-05 | Phase 3 | Pending |
