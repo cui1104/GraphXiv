@@ -30,6 +30,7 @@ services:
 
   grobid:
     image: grobid/grobid:0.8.0
+    platform: linux/amd64
     mem_limit: 8g
     ports:
       - "8070:8070"
@@ -42,10 +43,6 @@ services:
 
   worker:
     build: .
-    runtime: nvidia
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     env_file: .env
     volumes:
       - ./data:/data
