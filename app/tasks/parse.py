@@ -274,7 +274,7 @@ def parse_jats(self, paper_id: str) -> dict:
                 session.commit()
         except Exception:
             pass
-        self.retry(exc=exc)
+        raise self.retry(exc=exc)
     finally:
         session.close()
 
@@ -392,7 +392,7 @@ def parse_pdf_mineru(self, paper_id: str) -> dict:
                 session.commit()
         except Exception:
             pass
-        self.retry(exc=exc)
+        raise self.retry(exc=exc)
     finally:
         session.close()
 
@@ -406,5 +406,80 @@ def parse_pdf_mineru(self, paper_id: str) -> dict:
     default_retry_delay=30,
 )
 def parse_pdf_grobid(self, paper_id: str) -> dict:
-    """Stub: Phase 3 implements GROBID reference extraction."""
-    return {"status": "stub", "parser": "pdf_grobid", "paper_id": paper_id}
+    """Extract references via GROBID and merge into paper content. Per PARSE-04.
+
+    Called as part of a Celery chain AFTER the primary parser (parse_latex/jats/mineru).
+    Also called directly by parse_latex's D-03 branch when no \\documentclass found
+    and PDF has <=3 tables -- in that case, this is the PRIMARY parser, not just
+    citation enrichment.
+
+    Non-blocking: GROBID failure stores citations=[] but does NOT fail the chain (D-07).
+    """
+    import logging
+    import os
+
+    from app.db import SessionLocal
+    from app.models import Paper, PaperSource
+    from app.parsers.grobid import extract_references
+
+    session = SessionLocal()
+    try:
+        paper = session.query(Paper).filter(Paper.canonical_id == paper_id).first()
+        if not paper:
+            return {"status": "skipped", "reason": "paper_not_found", "paper_id": paper_id}
+
+        # Find PDF asset for GROBID (GROBID always needs the original PDF)
+        ps = session.query(PaperSource).filter(
+            PaperSource.canonical_id == paper_id,
+            PaperSource.source_type.in_(["arxiv_pdf", "arxiv_tar", "pmc_pdf", "pdf", "pmc_jats", "pmc", "arxiv"]),
+        ).first()
+
+        # Only call GROBID if we have a PDF asset path
+        pdf_path = None
+        if ps and ps.asset_path:
+            asset_path = ps.asset_path
+            if not os.path.isabs(asset_path):
+                asset_path = os.path.join("/data", asset_path)
+            # Check if it's actually a PDF (not tar.gz or XML)
+            if asset_path.endswith(".pdf"):
+                pdf_path = asset_path
+
+        citations = []
+        if pdf_path:
+            citations = extract_references(pdf_path, timeout=30)
+
+        # Check if this was called as PRIMARY parser via D-03 (cascade_to_pdf_grobid)
+        # In that case, record parse_source as pdf_grobid
+        if ps and ps.parse_status == "cascade_to_pdf_grobid":
+            paper.parse_source = "pdf_grobid"
+            paper.parse_quality = "ok"
+
+        # Merge citations into existing content (non-destructive)
+        content = paper.content or {}
+        content["grobid_citations"] = citations
+        paper.content = content
+        session.commit()
+
+        return {
+            "status": "success",
+            "citation_count": len(citations),
+            "paper_id": paper_id,
+        }
+    except Exception as exc:
+        session.rollback()
+        # Non-blocking: log but don't fail (per D-07)
+        logger_msg = f"GROBID task error for {paper_id}: {exc}"
+        logging.getLogger(__name__).warning(logger_msg)
+        # Still store empty citations
+        try:
+            p = session.query(Paper).filter(Paper.canonical_id == paper_id).first()
+            if p:
+                content = p.content or {}
+                content["grobid_citations"] = []
+                p.content = content
+                session.commit()
+        except Exception:
+            pass
+        return {"status": "grobid_failed", "citations": [], "paper_id": paper_id}
+    finally:
+        session.close()

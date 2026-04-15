@@ -127,8 +127,30 @@ def test_mineru_pdf():
 
 
 def test_grobid_references():
-    """PARSE-04: GROBID processReferences returns citation list"""
-    pytest.skip("Integration test -- requires GROBID service running")
+    """PARSE-04: GROBID _parse_tei_references extracts citations from TEI XML."""
+    from app.parsers.grobid import _parse_tei_references
+
+    tei_xml = b'''<?xml version="1.0" encoding="UTF-8"?>
+    <TEI xmlns="http://www.tei-c.org/ns/1.0">
+      <text><back><div type="references">
+        <listBibl>
+          <biblStruct>
+            <analytic>
+              <title>Attention Is All You Need</title>
+              <author><persName><forename>Ashish</forename><surname>Vaswani</surname></persName></author>
+            </analytic>
+            <monogr><imprint><date type="published" when="2017"/></imprint></monogr>
+            <idno type="DOI">10.5555/3295222.3295349</idno>
+          </biblStruct>
+        </listBibl>
+      </div></back></text>
+    </TEI>'''
+    citations = _parse_tei_references(tei_xml)
+    assert len(citations) == 1
+    assert citations[0]["title"] == "Attention Is All You Need"
+    assert citations[0]["authors"] == ["Ashish Vaswani"]
+    assert citations[0]["year"] == 2017
+    assert citations[0]["doi"] == "10.5555/3295222.3295349"
 
 
 def test_router_dispatch():
