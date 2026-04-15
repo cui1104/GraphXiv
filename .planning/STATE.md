@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T17:30:54.162Z"
+last_updated: "2026-04-15T17:33:36.832Z"
 progress:
   total_phases: 7
   completed_phases: 1
   total_plans: 7
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -59,6 +59,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - crawl_state upsert uses pg_insert().on_conflict_do_update(index_elements=["source"]) (02-01)
 - Use pmc_fm metadataPrefix for PMC OAI harvest (front-matter only, avoids token timeout during slow full-JATS iteration) (02-03)
 - Two-phase PMC crawler: bulk ID collection (harvest_pmc_ids) then per-record DL keyword filter + insert (process_pmc_record) (02-03)
+- Lazy import of pmc_oai.harvest_pmc inside ingest_paper function body avoids ImportError at module load time, allowing parallel development of 02-02 and 02-03 (02-02)
+- lxml {*} wildcard namespace matching in _parse_arxiv_records is robust to both OAI-namespace-qualified and bare arXivRaw child elements (02-02)
 
 ## Performance Metrics
 
@@ -68,6 +70,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 01 P03 | 8min | 1 tasks | 4 files |
 | Phase 01 P02 | 8min | 2 tasks | 2 files |
 | Phase 02 P03 | 2min | 2 tasks | 2 files |
+| Phase 02 P02 | 8min | 2 tasks | 4 files |
 
 ## Performance Metrics (continued)
 

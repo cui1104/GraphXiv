@@ -16,8 +16,8 @@
 
 ### Ingestion
 
-- [ ] **INGEST-01**: arXiv OAI-PMH crawler harvests metadata for cs.LG, cs.AI, cs.CV, cs.CL, and stat.ML categories using `export.arxiv.org/oai2`, respects 3 req/sec rate limit with token-bucket enforcement and User-Agent header
-- [ ] **INGEST-02**: arXiv asset downloader fetches `.tar.gz` (LaTeX source) or `.pdf` from `export.arxiv.org/e-print/{id}` based on `Content-Type` response header, saves to local disk
+- [x] **INGEST-01**: arXiv OAI-PMH crawler harvests metadata for cs.LG, cs.AI, cs.CV, cs.CL, and stat.ML categories using `export.arxiv.org/oai2`, respects 3 req/sec rate limit with token-bucket enforcement and User-Agent header
+- [x] **INGEST-02**: arXiv asset downloader fetches `.tar.gz` (LaTeX source) or `.pdf` from `export.arxiv.org/e-print/{id}` based on `Content-Type` response header, saves to local disk
 - [x] **INGEST-03**: PMC OAI-PMH crawler harvests JATS XML from `ncbi.nlm.nih.gov/pmc/oai` for the deep learning subset, with resumptionToken persisted to `crawl_state` after every page
 - [x] **INGEST-04**: Crawl state is resumable — harvesting arXiv or PMC can be stopped and restarted without re-harvesting already-processed IDs
 - [x] **INGEST-05**: arXiv IDs are normalized on ingest (version suffix stripped, canonical form stored); duplicate versions update existing record rather than creating a new one
@@ -119,8 +119,8 @@
 | INFRA-04 | Phase 1 | Complete |
 | INFRA-05 | Phase 1 | Complete |
 | INFRA-06 | Phase 1 | Complete |
-| INGEST-01 | Phase 2 | Pending |
-| INGEST-02 | Phase 2 | Pending |
+| INGEST-01 | Phase 2 | Complete |
+| INGEST-02 | Phase 2 | Complete |
 | INGEST-03 | Phase 2 | Complete |
 | INGEST-04 | Phase 2 | Complete (02-01) |
 | INGEST-05 | Phase 2 | Complete (02-01) |
