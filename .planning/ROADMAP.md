@@ -108,9 +108,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [x] 05-01: FastAPI app structure and Pydantic response schemas — scaffold FastAPI app with Uvicorn; define Pydantic v2 response models for all 7 endpoint shapes (HeadResponse, BriefResponse, SectionsResponse, FullResponse, SearchResponse, PmcHeadResponse, PmcFullResponse); field names must exactly match deepxiv_sdk contract verified in Phase 4
-- [ ] 05-02: Endpoint implementations — implement all 7 route handlers using SQLAlchemy 2.x async queries; implement `id_map` resolution so any input ID (arxiv_id, pmcid, doi) resolves to a canonical paper row; implement keyword search using PostgreSQL full-text search index on title+abstract; return 404 with structured body for missing IDs (completed 2026-04-15)
-- [ ] 05-03: Redis caching layer — implement cache-aside pattern for all endpoints; cache key format `papers:{canonical_id}:{view}`, TTL 3600s for paper views, 300s for search results; cache invalidation on paper upsert; verify cache hit/miss behavior manually and via Flower task logs
+- [ ] 05-01-PLAN.md — FastAPI app scaffold, Pydantic v2 response schemas (all 10+ models), deps.py, Docker api service, Alembic migration (embeddings vector(768)->vector(384)), test stubs
+- [ ] 05-02-PLAN.md — All 10 endpoint implementations (7 arXiv + 2 PMC + 1 search), ID resolution with version stripping, hybrid BM25/vector/hybrid search, citation graph queries, 404 handling, embedding write in normalize_paper
+- [ ] 05-03-PLAN.md — Redis cache-aside on all endpoints (papers:{canonical_id}:{view} keys, 3600s/300s TTLs), cache invalidation in normalize_paper via SCAN, cache behavior tests
 
 ---
 
