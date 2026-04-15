@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T19:29:48.495Z"
+last_updated: "2026-04-15T19:31:06.945Z"
 progress:
   total_phases: 7
   completed_phases: 2
   total_plans: 11
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 # Project State
@@ -68,6 +68,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - PyMuPDF added in 03-01 (not 03-03) because D-03 table-count heuristic needed by parse_latex (03-01)
 - process_tex_stream lazily imported inside task body to prevent ImportError at worker startup (03-01)
 - process_jats_stream lazily imported inside parse_jats task body; _strip_jats_doctype from parse_helpers prevents lxml DTD fetch hangs; D-04 cascade queries pmc_pdf/arxiv_pdf/pdf source_types (03-02)
+- All magic-pdf imports are lazy inside parse_pdf_mineru body to prevent ImportError on fast workers (03-03)
+- text_level_broken=True flag stored in content dict to warn Phase 4 that OSS MinerU always returns text_level=1 with no heading hierarchy (03-03)
 
 ## Performance Metrics
 
@@ -79,6 +81,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 02 P03 | 2min | 2 tasks | 2 files |
 | Phase 02 P02 | 8min | 2 tasks | 4 files |
 | Phase 03 P02 | 5min | 1 tasks | 2 files |
+| Phase 03 P03 | 2min | 2 tasks | 4 files |
 
 ## Performance Metrics (continued)
 
@@ -90,4 +93,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Execute Phase 03 — Parser Layer (03-03-PLAN.md next: MinerU PDF parser task).
+Execute Phase 03 — Parser Layer (03-04-PLAN.md next: GROBID reference extraction + parser routing).
