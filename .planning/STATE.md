@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T21:15:00.000Z"
+last_updated: "2026-04-15T21:03:18.431Z"
 progress:
   total_phases: 7
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 13
-  completed_plans: 12
+  completed_plans: 13
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 04 — Normalizer + Storage (1/3 plans complete)
-**Last Action:** Completed 04-01 — GROBID extract_fulltext with TEI XML section parsing, parse_pdf_grobid primary/secondary mode, 12 test stubs for NORM-01 to NORM-06, tiktoken dependency, UNIQUE migration on paper_citations (2026-04-15)
+**Active Phase:** Phase 04 — Normalizer + Storage (2/3 plans complete)
+**Last Action:** Completed 04-02 — normalize_paper Celery task with S2ORC/MinerU/GROBID branches, tiktoken token counting, SHA-256 dedup fingerprint, pg upsert, citation edges; normalize_paper.si() wired into all three router chains (2026-04-15)
 
 ## Phase Progress
 
@@ -76,6 +76,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - tiktoken>=0.7.0 (not pinned to 0.12.0) for broad compatibility; cl100k_base pre-cached in Docker layer (04-01)
 - extract_fulltext timeout=60 (vs 30 for extract_references) because processFulltextDocument processes entire PDF document (04-01)
 - parse_pdf_grobid branches on cascade_to_pdf_grobid for primary (extract_fulltext -> grobid_sections + grobid_citations) vs secondary (extract_references -> grobid_citations only) mode (04-01)
+- _normalize_s2orc signature takes (raw, parse_quality=None) not (raw, paper) to match pre-written test stubs from 04-01; pure _compute_* helpers alongside in-place _add_* wrappers for test/task interface separation (04-02)
+- normalize_paper reads actual_parse_source from paper.parse_source (DB) not from router argument — handles D-03 cascade staleness (Pitfall 1) (04-02)
 
 ## Performance Metrics
 
@@ -90,6 +92,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 03 P03 | 2min | 2 tasks | 4 files |
 | Phase 03 P04 | 2min | 2 tasks | 6 files |
 | Phase 04 P01 | 15 | 2 tasks | 6 files |
+| Phase 04 P02 | 15 | 2 tasks | 2 files |
 
 ## Performance Metrics (continued)
 
@@ -101,4 +104,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 04 Plan 01 complete. Execute Phase 04 Plan 02 — normalize_paper implementation (S2ORC, MinerU, GROBID normalization + upsert + citation edges).
+Phase 04 Plan 02 complete. Execute Phase 04 Plan 03 — final plan in Phase 4 (normalizer-storage).

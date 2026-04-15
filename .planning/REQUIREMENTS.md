@@ -34,9 +34,9 @@
 ### Normalization
 
 - [x] **NORM-01**: Normalizer maps all parser outputs (S2ORC JSON from TEX2JSON/JATS2JSON, MinerU JSON, GROBID TEI XML) to the unified PaperJSON schema with exact deepxiv_sdk field names: `title`, `abstract`, `authors`, `sections`, `citations`, `tldr`, `src_url`, `token_count`, `parse_source`
-- [ ] **NORM-02**: `token_count` is always populated using tiktoken (cl100k_base) on the full extracted text; key is never omitted from responses
-- [ ] **NORM-03**: `tldr` is always present as a key in responses (value may be null or first 2-3 sentences of abstract as deterministic fallback)
-- [ ] **NORM-04**: Dedup fingerprint (SHA-256 of normalized title + first author + year) is computed and stored; papers with matching fingerprint across arXiv and PMC sources are linked via `id_map` rather than duplicated
+- [x] **NORM-02**: `token_count` is always populated using tiktoken (cl100k_base) on the full extracted text; key is never omitted from responses
+- [x] **NORM-03**: `tldr` is always present as a key in responses (value may be null or first 2-3 sentences of abstract as deterministic fallback)
+- [x] **NORM-04**: Dedup fingerprint (SHA-256 of normalized title + first author + year) is computed and stored; papers with matching fingerprint across arXiv and PMC sources are linked via `id_map` rather than duplicated
 - [x] **NORM-05**: Section objects conform exactly to the SDK shape: `{heading, sec_num, text, paragraphs, token_count}`; citation objects conform to `{ref_id, title, authors, year, venue, doi, arxiv_id, raw_text}`
 - [x] **NORM-06**: `parse_quality` field is stored for every paper with degradation flags from all parse paths (macro expansion failures, multi-column detection, scanned PDF detection)
 
@@ -131,9 +131,9 @@
 | PARSE-04 | Phase 3 | Complete |
 | PARSE-05 | Phase 3 | Complete |
 | NORM-01 | Phase 4 | Complete |
-| NORM-02 | Phase 4 | Pending |
-| NORM-03 | Phase 4 | Pending |
-| NORM-04 | Phase 4 | Pending |
+| NORM-02 | Phase 4 | Complete |
+| NORM-03 | Phase 4 | Complete |
+| NORM-04 | Phase 4 | Complete |
 | NORM-05 | Phase 4 | Complete |
 | NORM-06 | Phase 4 | Complete |
 | API-01 | Phase 5 | Pending |
