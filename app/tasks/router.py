@@ -33,6 +33,7 @@ def _build_parse_chain(paper_id: str, source_type: str):
         Celery chain (or single task signature if no GROBID step).
     """
     from app.tasks.parse import parse_latex, parse_jats, parse_pdf_mineru, parse_pdf_grobid
+    from app.tasks.normalize import normalize_paper
 
     if source_type in ("arxiv_tar", "arxiv"):
         # parse_latex handles D-01 (arXiv ID filename match), D-02 (largest .tex),
@@ -41,16 +42,19 @@ def _build_parse_chain(paper_id: str, source_type: str):
         return chain(
             parse_latex.si(paper_id),
             parse_pdf_grobid.si(paper_id),
+            normalize_paper.si(paper_id, "latex"),
         )
     elif source_type in ("pmc_jats", "pmc"):
         return chain(
             parse_jats.si(paper_id),
             parse_pdf_grobid.si(paper_id),
+            normalize_paper.si(paper_id, "jats"),
         )
     elif source_type in ("arxiv_pdf", "pmc_pdf", "pdf"):
         return chain(
             parse_pdf_mineru.si(paper_id),
             parse_pdf_grobid.si(paper_id),
+            normalize_paper.si(paper_id, "pdf_mineru"),
         )
     else:
         logger.warning("Unknown source_type %s for paper %s", source_type, paper_id)
