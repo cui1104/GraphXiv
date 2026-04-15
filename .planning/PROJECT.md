@@ -12,7 +12,10 @@ Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, fig
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Docker Compose stack with pgvector, Redis, Grobid, Celery worker, Flower — Validated in Phase 01: Foundation
+- [x] SQLAlchemy ORM models for all 5 tables (papers, paper_sources, id_map, crawl_state, paper_citations) with pgvector embeddings column — Validated in Phase 01: Foundation
+- [x] Celery + Redis job queue with fast/slow queues and task routing — Validated in Phase 01: Foundation
+- [x] Alembic migration applies cleanly against live PostgreSQL with pgvector extension — Validated in Phase 01: Foundation
 
 ### Active
 
@@ -69,7 +72,7 @@ Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, fig
 | Prioritize LaTeX/XML over PDF parsing | Deterministic, free, higher fidelity — PDFs are the fallback not the primary path | — Pending |
 | Fork deepxiv_sdk as the client layer | End-to-end product requires both backend + SDK; forking ensures exact JSON schema compatibility and enables new features | — Pending |
 | PostgreSQL as storage layer | Sufficient for small-cluster scale, good JSON support, easy to query | — Pending |
-| Celery + Redis for job queue | Lightweight, Python-native, sufficient for thousands of papers/day | — Pending |
+| Celery + Redis for job queue | Lightweight, Python-native, sufficient for thousands of papers/day | Confirmed — stack running, 19/19 infra tests pass |
 | pgvector for semantic search (not full RAG) | deepxiv uses BM25 + vector hybrid search on titles/abstracts; full chunked RAG loses structured section context; pgvector stays in PostgreSQL — no new service | — Pending |
 
 ## Evolution
@@ -90,4 +93,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-13 after initialization*
+*Last updated: 2026-04-15 — Phase 01 Foundation complete*
