@@ -171,9 +171,9 @@ class TestCeleryQueues:
         assert len(routes) > 0, "task_routes is empty"
 
     def test_fast_task_time_limit(self):
-        """Ingest stub task must have time_limit=60."""
+        """Ingest task must have time_limit=300 (real harvest replaced stub in Phase 2)."""
         from app.tasks.ingest import ingest_paper
-        assert ingest_paper.time_limit == 60, f"ingest_paper time_limit is {ingest_paper.time_limit}, expected 60"
+        assert ingest_paper.time_limit == 300, f"ingest_paper time_limit is {ingest_paper.time_limit}, expected 300"
 
     def test_slow_task_time_limit(self):
         """PDF parse stub task must have time_limit=300."""

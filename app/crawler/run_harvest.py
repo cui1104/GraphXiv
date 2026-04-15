@@ -14,6 +14,7 @@ import sys
 
 from sqlalchemy import func, select, text
 
+import app.celery_app  # noqa: F401 — initializes Celery with Redis broker before any task imports
 from app.db import SessionLocal
 from app.models import CrawlState, Paper, PaperSource
 

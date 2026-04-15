@@ -23,7 +23,7 @@ from app.models import Paper, PaperSource
     soft_time_limit=280,
     default_retry_delay=30,
 )
-def ingest_paper(self, paper_id: str, source: str = "arxiv") -> dict:
+def ingest_paper(self, paper_id: str, source: str = "arxiv") -> dict | None:
     """Harvest metadata for one arXiv set or a PMC date range.
 
     Args:
@@ -58,7 +58,7 @@ def ingest_paper(self, paper_id: str, source: str = "arxiv") -> dict:
     soft_time_limit=110,
     default_retry_delay=15,
 )
-def download_asset(self, paper_id: str, source_type: str) -> dict:
+def download_asset(self, paper_id: str, source_type: str) -> dict | None:
     """Download e-print asset for *paper_id* and update PaperSource row.
 
     Args:
