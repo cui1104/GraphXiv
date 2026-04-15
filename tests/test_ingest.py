@@ -98,3 +98,102 @@ def test_constants():
     assert "cs:cs:CV" in ARXIV_SETS
     assert "cs:cs:CL" in ARXIV_SETS
     assert "stat:stat:ML" in ARXIV_SETS
+
+
+# ---------------------------------------------------------------------------
+# PMC crawler tests
+# ---------------------------------------------------------------------------
+
+
+def test_extract_pmc_id():
+    """PMC ID is correctly extracted from the OAI identifier string."""
+    from app.crawler.pmc_oai import _extract_pmc_id
+
+    assert _extract_pmc_id("oai:pubmedcentral.nih.gov:PMC1234567") == "PMC1234567"
+    assert _extract_pmc_id("oai:pubmedcentral.nih.gov:PMC99") == "PMC99"
+
+
+def test_is_dl_paper_positive():
+    """DL keyword filter matches deep learning / neural network titles and abstracts."""
+    from app.crawler.pmc_oai import _is_dl_paper
+
+    assert _is_dl_paper("Deep Learning for Medical Imaging", None) is True
+    assert _is_dl_paper(None, "We use a transformer model to...") is True
+    assert _is_dl_paper("A neural network approach", "Some abstract") is True
+
+
+def test_is_dl_paper_negative():
+    """DL keyword filter correctly rejects non-DL papers and None/None inputs."""
+    from app.crawler.pmc_oai import _is_dl_paper
+
+    assert _is_dl_paper("Clinical trial of aspirin", "Randomized controlled trial") is False
+    assert _is_dl_paper(None, None) is False
+
+
+def test_process_pmc_record_inserts():
+    """process_pmc_record inserts a Paper + PaperSource row for a new DL paper."""
+    from unittest.mock import MagicMock, patch
+    from app.crawler.pmc_oai import process_pmc_record
+    from app.models import Paper, PaperSource
+
+    mock_session = MagicMock()
+
+    # Mock pg_insert and is_already_ingested
+    with (
+        patch("app.crawler.pmc_oai.pg_insert") as mock_pg_insert,
+        patch("app.crawler.pmc_oai.is_already_ingested", return_value=False),
+    ):
+        # Simulate the Paper row being returned after insert
+        import uuid
+        fake_uuid = uuid.uuid4()
+        mock_session.execute.return_value.first.return_value = (fake_uuid,)
+
+        # Set up mock_pg_insert chain: pg_insert(Paper).values(...).on_conflict_do_nothing(...)
+        mock_stmt = MagicMock()
+        mock_pg_insert.return_value.values.return_value.on_conflict_do_nothing.return_value = mock_stmt
+
+        result = process_pmc_record(
+            mock_session,
+            "PMC1234567",
+            "Deep Learning Paper",
+            "Uses neural networks",
+        )
+
+        # pg_insert was called with Paper model
+        mock_pg_insert.assert_called_with(Paper)
+        # session.execute was called (i.e., the insert was attempted)
+        assert mock_session.execute.called
+        # Result is True (paper was inserted)
+        assert result is True
+        # PaperSource was added to session with source_type="pmc"
+        add_calls = mock_session.add.call_args_list
+        assert len(add_calls) == 1
+        paper_source = add_calls[0].args[0]
+        assert isinstance(paper_source, PaperSource)
+        assert paper_source.source_type == "pmc"
+        assert paper_source.canonical_id == fake_uuid
+
+
+def test_process_pmc_record_skips_non_dl():
+    """process_pmc_record returns False for papers that don't match DL keywords."""
+    from unittest.mock import MagicMock, patch
+    from app.crawler.pmc_oai import process_pmc_record
+
+    mock_session = MagicMock()
+
+    with patch("app.crawler.pmc_oai.is_already_ingested", return_value=False):
+        result = process_pmc_record(
+            mock_session,
+            "PMC999",
+            "Clinical trial results",
+            "Aspirin study",
+        )
+
+    assert result is False
+
+
+def test_pmc_constants():
+    """PMC_OAI_BASE points at the new PMC OAI endpoint (not the old NLM URL)."""
+    from app.crawler.utils import PMC_OAI_BASE
+
+    assert PMC_OAI_BASE == "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/"
