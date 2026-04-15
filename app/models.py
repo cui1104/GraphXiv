@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import Integer, Text, Index, ForeignKey, func
+from sqlalchemy import Integer, Text, Index, ForeignKey, func, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID, JSONB, TIMESTAMP
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from pgvector.sqlalchemy import Vector
@@ -88,6 +88,10 @@ class CrawlState(Base):
     resumption_token: Mapped[str | None] = mapped_column(Text, nullable=True)
     last_harvested_at: Mapped[datetime | None] = mapped_column(TIMESTAMPTZ, nullable=True)
     record_count: Mapped[int | None] = mapped_column(Integer, nullable=True, default=0)
+
+    __table_args__ = (
+        UniqueConstraint("source", name="uq_crawl_state_source"),
+    )
 
 
 class PaperCitation(Base):
