@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T17:26:22.000Z"
+last_updated: "2026-04-15T17:30:54.162Z"
 progress:
   total_phases: 7
   completed_phases: 1
   total_plans: 7
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 02 — Ingestion (1/4 plans complete)
-**Last Action:** Completed 02-01 — Crawl state migration, crawler utils, test scaffold (2026-04-15)
+**Active Phase:** Phase 02 — Ingestion (3/4 plans complete)
+**Last Action:** Completed 02-03 — PMC OAI-PMH crawler with sickle, DL keyword filter, token checkpointing (2026-04-15)
 
 ## Phase Progress
 
@@ -57,6 +57,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - mock_db_session uses raw SQL DDL (not Base.metadata.create_all) because Paper model contains JSONB/Vector types incompatible with SQLite (02-01)
 - ARXIV_OAI_BASE uses new March 2025 endpoint oaipmh.arxiv.org/oai; ARXIV_SETS uses colon format cs:cs:LG (02-01)
 - crawl_state upsert uses pg_insert().on_conflict_do_update(index_elements=["source"]) (02-01)
+- Use pmc_fm metadataPrefix for PMC OAI harvest (front-matter only, avoids token timeout during slow full-JATS iteration) (02-03)
+- Two-phase PMC crawler: bulk ID collection (harvest_pmc_ids) then per-record DL keyword filter + insert (process_pmc_record) (02-03)
 
 ## Performance Metrics
 
@@ -65,6 +67,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | 01    | 01   | 4min     | 2     | 19    |
 | Phase 01 P03 | 8min | 1 tasks | 4 files |
 | Phase 01 P02 | 8min | 2 tasks | 2 files |
+| Phase 02 P03 | 2min | 2 tasks | 2 files |
 
 ## Performance Metrics (continued)
 
@@ -74,4 +77,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Execute 02-02-PLAN.md — arXiv OAI-PMH crawler.
+Execute 02-04-PLAN.md — remaining ingestion work (bulk harvest orchestration or Celery task wiring).
