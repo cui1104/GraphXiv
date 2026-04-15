@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T19:31:06.945Z"
+last_updated: "2026-04-15T19:35:09.416Z"
 progress:
   total_phases: 7
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
 ---
 
 # Project State
@@ -70,6 +70,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - process_jats_stream lazily imported inside parse_jats task body; _strip_jats_doctype from parse_helpers prevents lxml DTD fetch hangs; D-04 cascade queries pmc_pdf/arxiv_pdf/pdf source_types (03-02)
 - All magic-pdf imports are lazy inside parse_pdf_mineru body to prevent ImportError on fast workers (03-03)
 - text_level_broken=True flag stored in content dict to warn Phase 4 that OSS MinerU always returns text_level=1 with no heading hierarchy (03-03)
+- GROBID non-blocking (D-07): extract_references returns [] on any exception -- never fails parse chain (03-04)
+- parse_pdf_grobid sets parse_source=pdf_grobid only when ps.parse_status==cascade_to_pdf_grobid (D-03 cascade path is PRIMARY parser, not enrichment) (03-04)
+- Router does NOT have D-03 branch -- parse_latex handles it internally; app/parsers/ package established for parser HTTP client modules (03-04)
 
 ## Performance Metrics
 
@@ -82,6 +85,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 02 P02 | 8min | 2 tasks | 4 files |
 | Phase 03 P02 | 5min | 1 tasks | 2 files |
 | Phase 03 P03 | 2min | 2 tasks | 4 files |
+| Phase 03 P04 | 2min | 2 tasks | 6 files |
 
 ## Performance Metrics (continued)
 
@@ -93,4 +97,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Execute Phase 03 — Parser Layer (03-04-PLAN.md next: GROBID reference extraction + parser routing).
+Phase 03 Parser Layer complete (all 4 plans done). Execute Phase 04 — Normalizer + Storage.
