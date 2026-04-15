@@ -90,7 +90,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Test scaffold (12 stubs for NORM-01 through NORM-06), Alembic migration for paper_citations UNIQUE constraint, tiktoken dependency + Dockerfile pre-cache, GROBID extract_fulltext function + parse_pdf_grobid primary/secondary mode detection
+- [x] 04-01-PLAN.md — Test scaffold (12 stubs for NORM-01 through NORM-06), Alembic migration for paper_citations UNIQUE constraint, tiktoken dependency + Dockerfile pre-cache, GROBID extract_fulltext function + parse_pdf_grobid primary/secondary mode detection
 - [ ] 04-02-PLAN.md — Complete normalize_paper implementation (S2ORC/MinerU/GROBID branches, token count, tldr, dedup fingerprint, PostgreSQL upsert, citation graph population) + wire normalize_paper.si() into all router chains
 
 ---
@@ -160,7 +160,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 1. Foundation | 3/3 | Complete   | 2026-04-14 |
 | 2. Ingestion | 4/4 | Complete   | 2026-04-15 |
 | 3. Parser Layer | 4/4 | Complete   | 2026-04-15 |
-| 4. Normalizer + Storage | 0/2 | Not started | - |
+| 4. Normalizer + Storage | 1/2 | In Progress|  |
 | 5. REST API | 0/3 | Not started | - |
 | 6. SDK Fork + Verification | 0/3 | Not started | - |
 | 7. Benchmark | 0/3 | Not started | - |

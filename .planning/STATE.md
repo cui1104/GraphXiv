@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T19:42:21.102Z"
+last_updated: "2026-04-15T21:15:00.000Z"
 progress:
   total_phases: 7
   completed_phases: 3
-  total_plans: 11
-  completed_plans: 11
+  total_plans: 13
+  completed_plans: 12
 ---
 
 # Project State
@@ -18,13 +18,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Core value:** Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, figures, metadata) in under a second — by doing all parsing work ahead of time via a continuous ingestion pipeline.
-**Current focus:** Phase 03 — parser-layer
+**Current focus:** Phase 04 — normalizer-storage
 
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 03 — Parser Layer (1/4 plans complete)
-**Last Action:** Completed 03-02 — parse_jats task implementing JATS2JSON via process_jats_stream with DOCTYPE stripping and D-04 cascade logic (2026-04-15)
+**Active Phase:** Phase 04 — Normalizer + Storage (1/3 plans complete)
+**Last Action:** Completed 04-01 — GROBID extract_fulltext with TEI XML section parsing, parse_pdf_grobid primary/secondary mode, 12 test stubs for NORM-01 to NORM-06, tiktoken dependency, UNIQUE migration on paper_citations (2026-04-15)
 
 ## Phase Progress
 
@@ -73,6 +73,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - GROBID non-blocking (D-07): extract_references returns [] on any exception -- never fails parse chain (03-04)
 - parse_pdf_grobid sets parse_source=pdf_grobid only when ps.parse_status==cascade_to_pdf_grobid (D-03 cascade path is PRIMARY parser, not enrichment) (03-04)
 - Router does NOT have D-03 branch -- parse_latex handles it internally; app/parsers/ package established for parser HTTP client modules (03-04)
+- tiktoken>=0.7.0 (not pinned to 0.12.0) for broad compatibility; cl100k_base pre-cached in Docker layer (04-01)
+- extract_fulltext timeout=60 (vs 30 for extract_references) because processFulltextDocument processes entire PDF document (04-01)
+- parse_pdf_grobid branches on cascade_to_pdf_grobid for primary (extract_fulltext -> grobid_sections + grobid_citations) vs secondary (extract_references -> grobid_citations only) mode (04-01)
 
 ## Performance Metrics
 
@@ -86,6 +89,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 03 P02 | 5min | 1 tasks | 2 files |
 | Phase 03 P03 | 2min | 2 tasks | 4 files |
 | Phase 03 P04 | 2min | 2 tasks | 6 files |
+| Phase 04 P01 | 15 | 2 tasks | 6 files |
 
 ## Performance Metrics (continued)
 
@@ -97,4 +101,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 03 Parser Layer complete (all 4 plans done). Execute Phase 04 — Normalizer + Storage.
+Phase 04 Plan 01 complete. Execute Phase 04 Plan 02 — normalize_paper implementation (S2ORC, MinerU, GROBID normalization + upsert + citation edges).
