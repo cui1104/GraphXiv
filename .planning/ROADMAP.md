@@ -87,12 +87,11 @@ Plans:
   3. `tldr` key is present in every response (value is string or null, never absent)
   4. A paper ingested first as arXiv and then found in PMC is linked via `id_map` rather than stored as a duplicate; dedup fingerprint matches prevent double-counting
   5. Section objects have `{heading, sec_num, text, paragraphs, token_count}` shape; citation objects have `{ref_id, title, authors, year, venue, doi, arxiv_id, raw_text}` shape — verified by running deepxiv_sdk `Reader` field accesses against at least 5 stored papers before Phase 5 begins
-**Plans**: 3 plans
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: PaperJSON normalizer — before writing any code, clone deepxiv_sdk and run `grep -r "title\|abstract\|sections\|citations\|token_count\|src_url\|tldr\|parse_source\|heading\|text\|ref_id" deepxiv_sdk/` to extract every accessed field name; write normalizer that maps S2ORC JSON (from TEX2JSON/JATS2JSON) and MinerU JSON to the verified PaperJSON schema; handle JATS optional-field variance gracefully
-- [ ] 04-02: Token count, tldr, and quality fields — implement tiktoken (cl100k_base) token count computation on full section text; implement tldr fallback (first 2 sentences of abstract via sentence splitter); populate `parse_quality` and `parse_source` fields; ensure `tldr` and `token_count` keys are always present (never omitted) in the serialized JSON
-- [ ] 04-03: PostgreSQL upsert and ID cross-linking — implement `ON CONFLICT DO UPDATE` upsert to `papers` table keyed on `canonical_id`; insert into `paper_sources` with `parse_status=success/failed`; compute SHA-256 dedup fingerprint; look up incoming DOI in `id_map` to detect cross-source matches (same paper as both arXiv and PMC record); link via `id_map` and update existing canonical record
+- [ ] 04-01-PLAN.md — Test scaffold (12 stubs for NORM-01 through NORM-06), Alembic migration for paper_citations UNIQUE constraint, tiktoken dependency + Dockerfile pre-cache, GROBID extract_fulltext function + parse_pdf_grobid primary/secondary mode detection
+- [ ] 04-02-PLAN.md — Complete normalize_paper implementation (S2ORC/MinerU/GROBID branches, token count, tldr, dedup fingerprint, PostgreSQL upsert, citation graph population) + wire normalize_paper.si() into all router chains
 
 ---
 
@@ -161,7 +160,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 1. Foundation | 3/3 | Complete   | 2026-04-14 |
 | 2. Ingestion | 4/4 | Complete   | 2026-04-15 |
 | 3. Parser Layer | 4/4 | Complete   | 2026-04-15 |
-| 4. Normalizer + Storage | 0/3 | Not started | - |
+| 4. Normalizer + Storage | 0/2 | Not started | - |
 | 5. REST API | 0/3 | Not started | - |
 | 6. SDK Fork + Verification | 0/3 | Not started | - |
 | 7. Benchmark | 0/3 | Not started | - |
