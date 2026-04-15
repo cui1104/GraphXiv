@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+# MinerU GPU config -- required for magic-pdf to use CUDA
+RUN echo '{"device-mode": "cuda", "models-dir": "/models"}' > /root/magic-pdf.json
+
 COPY pyproject.toml .
 RUN pip install --no-cache-dir ".[dev]"
 
