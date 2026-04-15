@@ -5,6 +5,13 @@ from sqlalchemy.orm import sessionmaker
 from app.models import Base
 
 
+def pytest_configure(config):
+    config.addinivalue_line(
+        "markers",
+        "integration: marks tests as integration tests (deselect with '-m not integration')",
+    )
+
+
 @pytest.fixture(scope="session")
 def db_engine():
     """SQLAlchemy engine connected to test database.

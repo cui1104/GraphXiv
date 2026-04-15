@@ -475,3 +475,17 @@ def test_upsert_on_version_update():
         session.commit()
         session.close()
         engine.dispose()
+
+
+# ---------------------------------------------------------------------------
+# Harvest runner integration test (02-04)
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.integration
+def test_harvest_runner_status(db_session):
+    """Verify the status command works against a real DB."""
+    from app.crawler.run_harvest import show_status
+
+    # Should not raise; just prints status to stdout
+    show_status()
