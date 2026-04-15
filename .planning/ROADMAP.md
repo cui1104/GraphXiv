@@ -52,7 +52,7 @@ Plans:
 Plans:
 - [x] 02-01-PLAN.md — Schema migration (crawl_state UNIQUE), shared crawler utilities (ID normalization, crawl state persistence, dedup), new dependencies, test scaffold (completed 2026-04-15)
 - [ ] 02-02-PLAN.md — arXiv OAI-PMH harvester (httpx + aiolimiter, 5 DL sets) and e-print asset downloader (Content-Type routing), replace Celery stubs
-- [ ] 02-03-PLAN.md — PMC OAI-PMH harvester (sickle, pmc-open set, DL keyword filter, token checkpointing)
+- [x] 02-03-PLAN.md — PMC OAI-PMH harvester (sickle, pmc-open set, DL keyword filter, token checkpointing)
 - [ ] 02-04-PLAN.md — CLI harvest runner, 100-paper smoke test, resumability verification, human sign-off
 
 ---
@@ -159,7 +159,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-04-14 |
-| 2. Ingestion | 1/4 | In progress | - |
+| 2. Ingestion | 2/4 | In Progress|  |
 | 3. Parser Layer | 0/4 | Not started | - |
 | 4. Normalizer + Storage | 0/3 | Not started | - |
 | 5. REST API | 0/3 | Not started | - |
