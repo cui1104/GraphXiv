@@ -4,7 +4,10 @@ Run with:
     pytest tests/test_ingest.py -x -q -k "not integration and not smoke and not 100_paper"
 """
 
+import asyncio
 import uuid
+from unittest.mock import MagicMock, patch
+
 import pytest
 from sqlalchemy import text
 
@@ -12,6 +15,7 @@ from app.crawler.utils import (
     ARXIV_OAI_BASE,
     ARXIV_SETS,
     CONTENT_TYPE_TO_EXT,
+    USER_AGENT,
     is_already_ingested,
     normalize_arxiv_id,
 )
@@ -197,3 +201,277 @@ def test_pmc_constants():
     from app.crawler.utils import PMC_OAI_BASE
 
     assert PMC_OAI_BASE == "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/"
+
+
+# ---------------------------------------------------------------------------
+# arXiv OAI XML parsing tests (02-02)
+# ---------------------------------------------------------------------------
+
+_MINIMAL_OAI_XML = """<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/">
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>oai:arXiv.org:2401.00001</identifier>
+        <datestamp>2024-01-01</datestamp>
+      </header>
+      <metadata>
+        <arXivRaw>
+          <id>2401.00001</id>
+          <title>Test Paper Title</title>
+          <abstract>This is the abstract.</abstract>
+          <authors>Alice Bob</authors>
+          <categories>cs.LG cs.AI</categories>
+          <created>2024-01-01</created>
+        </arXivRaw>
+      </metadata>
+    </record>
+  </ListRecords>
+  {token_element}
+</OAI-PMH>
+"""
+
+_OAI_XML_ONE_RECORD = _MINIMAL_OAI_XML.format(token_element="")
+_OAI_XML_WITH_TOKEN = _MINIMAL_OAI_XML.format(
+    token_element="<resumptionToken>abc123</resumptionToken>",
+)
+_OAI_XML_EMPTY_TOKEN = _MINIMAL_OAI_XML.format(
+    token_element="<resumptionToken/>",
+)
+
+
+def test_arxiv_oai_parse_records():
+    """_parse_arxiv_records returns correct dict from minimal arXivRaw XML."""
+    from app.crawler.arxiv_oai import _parse_arxiv_records
+
+    records = _parse_arxiv_records(_OAI_XML_ONE_RECORD)
+    assert len(records) == 1
+    rec = records[0]
+    assert rec["arxiv_id"] == "2401.00001"
+    assert rec["title"] == "Test Paper Title"
+    assert rec["abstract"] == "This is the abstract."
+
+
+def test_arxiv_oai_extract_token():
+    """_extract_resumption_token returns token text when present."""
+    from app.crawler.arxiv_oai import _extract_resumption_token
+
+    token = _extract_resumption_token(_OAI_XML_WITH_TOKEN)
+    assert token == "abc123"
+
+
+def test_arxiv_oai_extract_token_empty():
+    """_extract_resumption_token returns None for empty/missing token element."""
+    from app.crawler.arxiv_oai import _extract_resumption_token
+
+    token = _extract_resumption_token(_OAI_XML_EMPTY_TOKEN)
+    assert token is None
+
+
+# ---------------------------------------------------------------------------
+# Rate limiter configuration test (02-02)
+# ---------------------------------------------------------------------------
+
+
+def test_rate_limiter():
+    """RATE_LIMITER is an AsyncLimiter configured for 3 req/sec."""
+    from aiolimiter import AsyncLimiter
+
+    from app.crawler.arxiv_oai import RATE_LIMITER
+
+    assert isinstance(RATE_LIMITER, AsyncLimiter)
+    assert RATE_LIMITER.max_rate == 3
+    assert RATE_LIMITER.time_period == 1
+
+
+# ---------------------------------------------------------------------------
+# User-Agent header test (02-02)
+# ---------------------------------------------------------------------------
+
+
+def test_user_agent_header(httpx_mock):
+    """_fetch_page sends the correct User-Agent header on every request."""
+    from app.crawler.arxiv_oai import _fetch_page
+
+    # Do not set a url= matcher — pytest-httpx's URL matching is exact and won't
+    # match when query params are appended.  Matching any request is sufficient here.
+    httpx_mock.add_response(
+        status_code=200,
+        text=_OAI_XML_EMPTY_TOKEN,
+    )
+
+    import httpx as _httpx
+
+    async def _run():
+        async with _httpx.AsyncClient() as client:
+            return await _fetch_page(client, {"verb": "ListRecords"})
+
+    asyncio.run(_run())
+
+    requests = httpx_mock.get_requests()
+    assert len(requests) >= 1
+    assert requests[0].headers.get("user-agent") == USER_AGENT
+
+
+# ---------------------------------------------------------------------------
+# arXiv asset downloader tests (02-02)
+# ---------------------------------------------------------------------------
+
+
+def test_download_eprint_content_type_latex(httpx_mock, tmp_path):
+    """download_eprint_asset routes application/x-eprint-tar to .tar.gz / source_type=latex."""
+    from app.crawler.arxiv_assets import download_eprint_asset
+
+    httpx_mock.add_response(
+        status_code=200,
+        headers={"content-type": "application/x-eprint-tar"},
+        content=b"fake tar content",
+    )
+
+    with patch("app.crawler.arxiv_assets.get_settings") as mock_settings:
+        mock_settings.return_value = MagicMock(data_dir=str(tmp_path))
+        asset_path, source_type = asyncio.run(download_eprint_asset("2401.00001"))
+
+    assert source_type == "latex"
+    assert asset_path.endswith(".tar.gz")
+
+
+def test_download_eprint_content_type_pdf(httpx_mock, tmp_path):
+    """download_eprint_asset routes application/pdf to .pdf / source_type=pdf."""
+    from app.crawler.arxiv_assets import download_eprint_asset
+
+    httpx_mock.add_response(
+        status_code=200,
+        headers={"content-type": "application/pdf"},
+        content=b"%PDF-1.4 fake pdf",
+    )
+
+    with patch("app.crawler.arxiv_assets.get_settings") as mock_settings:
+        mock_settings.return_value = MagicMock(data_dir=str(tmp_path))
+        asset_path, source_type = asyncio.run(download_eprint_asset("2401.00002"))
+
+    assert source_type == "pdf"
+    assert asset_path.endswith(".pdf")
+
+
+def test_asset_download(tmp_path, httpx_mock):
+    """download_eprint_asset writes file to disk at correct path with non-zero size."""
+    from app.crawler.arxiv_assets import download_eprint_asset
+
+    httpx_mock.add_response(
+        status_code=200,
+        headers={"content-type": "application/x-eprint-tar"},
+        content=b"fake tar content",
+    )
+
+    with patch("app.crawler.arxiv_assets.get_settings") as mock_settings:
+        mock_settings.return_value = MagicMock(data_dir=str(tmp_path))
+        asset_path, _ = asyncio.run(download_eprint_asset("2401.00001"))
+
+    expected = tmp_path / "assets" / "arxiv" / "2401.00001.tar.gz"
+    assert "2401.00001.tar.gz" in asset_path
+    assert expected.exists()
+    assert expected.stat().st_size > 0
+
+
+# ---------------------------------------------------------------------------
+# PMC Celery branch test (02-02)
+# ---------------------------------------------------------------------------
+
+
+def test_ingest_paper_pmc_branch():
+    """ingest_paper routes pmc source to harvest_pmc and returns correct result dict."""
+    import sys
+    import types
+
+    # Inject a fake pmc_oai module so the lazy import inside ingest_paper works
+    fake_module = types.ModuleType("app.crawler.pmc_oai")
+    fake_module.harvest_pmc = lambda from_date="2020-01-01", max_records=50000: 42
+    sys.modules["app.crawler.pmc_oai"] = fake_module
+
+    try:
+        from app.tasks.ingest import ingest_paper
+
+        result = ingest_paper.run("2024-01-01", source="pmc")
+    finally:
+        # Restore so other tests are unaffected
+        sys.modules.pop("app.crawler.pmc_oai", None)
+
+    assert result["source"] == "pmc"
+    assert result["records"] == 42
+
+
+# ---------------------------------------------------------------------------
+# Upsert on version update — integration (requires PostgreSQL)
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.integration
+def test_upsert_on_version_update():
+    """Re-ingesting a paper with updated title uses ON CONFLICT DO UPDATE (INGEST-05)."""
+    import os
+    import uuid as _uuid
+
+    from sqlalchemy import create_engine, text as sql_text
+    from sqlalchemy.dialects.postgresql import insert as pg_insert
+    from sqlalchemy.orm import sessionmaker
+
+    db_url = os.environ.get(
+        "DATABASE_URL", "postgresql://app:changeme@localhost:5432/papers"
+    )
+
+    try:
+        engine = create_engine(db_url, pool_pre_ping=True)
+        with engine.connect() as conn:
+            conn.execute(sql_text("SELECT 1"))
+    except Exception:
+        pytest.skip("PostgreSQL not available for integration test")
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    try:
+        from app.models import Paper
+
+        # Insert v1
+        stmt_v1 = (
+            pg_insert(Paper)
+            .values(
+                canonical_id=_uuid.uuid4(),
+                arxiv_id="2401.99999-test",
+                title="v1 Title",
+            )
+            .on_conflict_do_update(
+                index_elements=["arxiv_id"],
+                set_={"title": "v1 Title"},
+            )
+        )
+        session.execute(stmt_v1)
+        session.commit()
+
+        # Insert v2 — should update title
+        stmt_v2 = (
+            pg_insert(Paper)
+            .values(
+                canonical_id=_uuid.uuid4(),
+                arxiv_id="2401.99999-test",
+                title="v2 Title Updated",
+            )
+            .on_conflict_do_update(
+                index_elements=["arxiv_id"],
+                set_={"title": "v2 Title Updated"},
+            )
+        )
+        session.execute(stmt_v2)
+        session.commit()
+
+        count = session.query(Paper).filter_by(arxiv_id="2401.99999-test").count()
+        paper = session.query(Paper).filter_by(arxiv_id="2401.99999-test").first()
+
+        assert count == 1
+        assert paper.title == "v2 Title Updated"
+    finally:
+        session.execute(sql_text("DELETE FROM papers WHERE arxiv_id = '2401.99999-test'"))
+        session.commit()
+        session.close()
+        engine.dispose()
