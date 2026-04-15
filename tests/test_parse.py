@@ -56,10 +56,18 @@ def test_strip_doctype():
     assert _strip_jats_doctype(clean_xml) == clean_xml
 
 
+def test_strip_doctype_with_internal_subset():
+    """PARSE-02: DOCTYPE with internal subset [...] stripped (DOTALL regex)"""
+    from app.tasks.parse_helpers import _strip_jats_doctype
+
+    raw = b'<?xml version="1.0"?><!DOCTYPE article PUBLIC "-//NLM//DTD" "url" [\n<!ENTITY foo "bar">\n]><article/>'
+    cleaned = _strip_jats_doctype(raw)
+    assert b"<!DOCTYPE" not in cleaned
+    assert b"<article/>" in cleaned
+
+
 def test_scanned_pdf_detection():
     """PARSE-03: Scanned PDFs detected by text layer check"""
-    from app.tasks.parse_helpers import _has_text_layer
-
     # Will use tests/fixtures/sample_scanned.pdf
     pytest.skip("Requires sample_scanned.pdf fixture -- implement after fixture created")
 
@@ -86,8 +94,6 @@ def test_sentence_length_check():
 
 def test_count_pdf_tables():
     """D-03: _count_pdf_tables counts tables in a PDF via pymupdf heuristic"""
-    from app.tasks.parse_helpers import _count_pdf_tables
-
     # Stub -- requires a PDF fixture with known table count
     pytest.skip("Requires PDF fixture with tables -- implement with real fixture")
 

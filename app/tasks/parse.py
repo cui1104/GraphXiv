@@ -187,7 +187,7 @@ def parse_latex(self, paper_id: str) -> dict:
                 session.commit()
         except Exception:
             pass
-        self.retry(exc=exc)
+        raise self.retry(exc=exc)
     finally:
         session.close()
 
@@ -201,8 +201,82 @@ def parse_latex(self, paper_id: str) -> dict:
     default_retry_delay=10,
 )
 def parse_jats(self, paper_id: str) -> dict:
-    """Stub: Phase 3 implements JATS2JSON via s2orc-doc2json."""
-    return {"status": "stub", "parser": "jats", "paper_id": paper_id}
+    """Parse PMC JATS XML via s2orc-doc2json JATS2JSON. Per PARSE-02."""
+    import os
+    import shutil
+    import tempfile
+
+    from doc2json.jats2json.process_jats import process_jats_stream
+
+    from app.db import SessionLocal
+    from app.models import Paper, PaperSource
+
+    session = SessionLocal()
+    try:
+        paper = session.query(Paper).filter(Paper.canonical_id == paper_id).first()
+        if not paper:
+            return {"status": "failed", "reason": "paper_not_found", "paper_id": paper_id}
+
+        ps = session.query(PaperSource).filter(
+            PaperSource.canonical_id == paper_id,
+            PaperSource.source_type.in_(["pmc_jats", "pmc"]),
+        ).first()
+        if not ps or not ps.asset_path:
+            return {"status": "failed", "reason": "no_jats_asset", "paper_id": paper_id}
+
+        asset_path = ps.asset_path
+        if not os.path.isabs(asset_path):
+            asset_path = os.path.join("/data", asset_path)
+
+        temp_dir = tempfile.mkdtemp(prefix="jats2json_")
+        try:
+            with open(asset_path, "rb") as f:
+                raw = f.read()
+
+            # MANDATORY: Strip DOCTYPE to prevent lxml DTD fetch hangs (Pitfall 6)
+            raw = _strip_jats_doctype(raw)
+
+            fname = os.path.basename(asset_path)
+            result = process_jats_stream(fname, raw, temp_dir=temp_dir)
+
+            if not isinstance(result, dict) or not result:
+                # JATS2JSON failed -- cascade to MinerU if PDF exists (per D-04)
+                pdf_ps = session.query(PaperSource).filter(
+                    PaperSource.canonical_id == paper_id,
+                    PaperSource.source_type.in_(["arxiv_pdf", "pmc_pdf", "pdf"]),
+                ).first()
+                if pdf_ps:
+                    ps.parse_status = "cascade_to_pdf"
+                    session.commit()
+                    return {"status": "cascade", "reason": "jats2json_empty_result", "paper_id": paper_id}
+                ps.parse_status = "failed"
+                session.commit()
+                return {"status": "failed", "reason": "jats2json_empty_result", "paper_id": paper_id}
+
+            # Update DB
+            paper.parse_source = "jats"
+            paper.parse_quality = "ok"
+            paper.content = result
+            ps.parse_status = "success"
+            session.commit()
+
+            return {"status": "success", "parse_source": "jats", "parse_quality": "ok", "paper_id": paper_id}
+        finally:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+    except Exception as exc:
+        session.rollback()
+        try:
+            ps_row = session.query(PaperSource).filter(
+                PaperSource.canonical_id == paper_id
+            ).first()
+            if ps_row:
+                ps_row.parse_status = "failed"
+                session.commit()
+        except Exception:
+            pass
+        self.retry(exc=exc)
+    finally:
+        session.close()
 
 
 @shared_task(
