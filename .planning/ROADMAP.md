@@ -7,7 +7,7 @@ Seven phases on a strict critical path: stand up the infrastructure, crawl the c
 ## Phases
 
 - [x] **Phase 1: Foundation** - Docker Compose services, PostgreSQL schema, Redis, and Celery skeleton wired up and verified (completed 2026-04-14)
-- [ ] **Phase 2: Ingestion** - arXiv and PMC crawlers running with resumable state and ~10,000 papers queued for parsing
+- [x] **Phase 2: Ingestion** - arXiv and PMC crawlers running with resumable state and 105,300 arXiv papers + PMC DL subset queued for parsing (completed 2026-04-15)
 - [ ] **Phase 3: Parser Layer** - TEX2JSON, JATS2JSON, and MinerU/GROBID paths all producing structured output from real papers
 - [ ] **Phase 4: Normalizer + Storage** - All parser outputs mapped to unified deepxiv_sdk JSON schema and upserted to PostgreSQL
 - [ ] **Phase 5: REST API** - All 7 FastAPI endpoints serving correct JSON with Redis caching
@@ -53,7 +53,7 @@ Plans:
 - [x] 02-01-PLAN.md — Schema migration (crawl_state UNIQUE), shared crawler utilities (ID normalization, crawl state persistence, dedup), new dependencies, test scaffold (completed 2026-04-15)
 - [x] 02-02-PLAN.md — arXiv OAI-PMH harvester (httpx + aiolimiter, 5 DL sets) and e-print asset downloader (Content-Type routing), replace Celery stubs
 - [x] 02-03-PLAN.md — PMC OAI-PMH harvester (sickle, pmc-open set, DL keyword filter, token checkpointing)
-- [ ] 02-04-PLAN.md — CLI harvest runner, 100-paper smoke test, resumability verification, human sign-off
+- [x] 02-04-PLAN.md — CLI harvest runner, 105,300-paper arXiv smoke test, resumability verified, human sign-off (completed 2026-04-15)
 
 ---
 
@@ -159,7 +159,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-04-14 |
-| 2. Ingestion | 3/4 | In Progress|  |
+| 2. Ingestion | 4/4 | Complete   | 2026-04-15 |
 | 3. Parser Layer | 0/4 | Not started | - |
 | 4. Normalizer + Storage | 0/3 | Not started | - |
 | 5. REST API | 0/3 | Not started | - |

@@ -21,7 +21,7 @@
 - [x] **INGEST-03**: PMC OAI-PMH crawler harvests JATS XML from `ncbi.nlm.nih.gov/pmc/oai` for the deep learning subset, with resumptionToken persisted to `crawl_state` after every page
 - [x] **INGEST-04**: Crawl state is resumable — harvesting arXiv or PMC can be stopped and restarted without re-harvesting already-processed IDs
 - [x] **INGEST-05**: arXiv IDs are normalized on ingest (version suffix stripped, canonical form stored); duplicate versions update existing record rather than creating a new one
-- [ ] **INGEST-06**: Corpus reaches ~10,000 papers total across arXiv and PMC sources
+- [x] **INGEST-06**: Corpus reaches ~10,000 papers total across arXiv and PMC sources
 
 ### Parsing
 
@@ -124,7 +124,7 @@
 | INGEST-03 | Phase 2 | Complete |
 | INGEST-04 | Phase 2 | Complete (02-01) |
 | INGEST-05 | Phase 2 | Complete (02-01) |
-| INGEST-06 | Phase 2 | Pending |
+| INGEST-06 | Phase 2 | Complete |
 | PARSE-01 | Phase 3 | Pending |
 | PARSE-02 | Phase 3 | Pending |
 | PARSE-03 | Phase 3 | Pending |

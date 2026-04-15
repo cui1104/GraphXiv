@@ -8,7 +8,7 @@ progress:
   total_phases: 7
   completed_phases: 1
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 02 — Ingestion (3/4 plans complete)
-**Last Action:** Completed 02-03 — PMC OAI-PMH crawler with sickle, DL keyword filter, token checkpointing (2026-04-15)
+**Active Phase:** Phase 02 — Ingestion (4/4 plans complete)
+**Last Action:** Completed 02-04 — CLI harvest runner, 105,300-paper arXiv smoke test, resumability verified (2026-04-15)
 
 ## Phase Progress
 
@@ -61,6 +61,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - Two-phase PMC crawler: bulk ID collection (harvest_pmc_ids) then per-record DL keyword filter + insert (process_pmc_record) (02-03)
 - Lazy import of pmc_oai.harvest_pmc inside ingest_paper function body avoids ImportError at module load time, allowing parallel development of 02-02 and 02-03 (02-02)
 - lxml {*} wildcard namespace matching in _parse_arxiv_records is robust to both OAI-namespace-qualified and bare arXivRaw child elements (02-02)
+- import app.celery_app at top of run_harvest.py to force broker initialization before any task imports — without this Redis broker raises ImportError on task dispatch (02-04)
+- UNIQUE constraint on crawl_state.source applied via migration 0002; full arXiv cs:LG harvest yielded 105,300 papers since 2024-01-01 (far exceeds 10k target) (02-04)
 
 ## Performance Metrics
 
@@ -77,7 +79,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase | Plan | Duration | Tasks | Files |
 |-------|------|----------|-------|-------|
 | 02    | 01   | 3min     | 2     | 6     |
+| 02    | 04   | ~2h      | 2     | 2     |
 
 ## Next Step
 
-Execute 02-04-PLAN.md — remaining ingestion work (bulk harvest orchestration or Celery task wiring).
+Execute Phase 03 — Parser Layer (03-01-PLAN.md first: TEX2JSON parser task).
