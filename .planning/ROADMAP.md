@@ -50,10 +50,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: arXiv OAI-PMH crawler — implement OAI-PMH `ListRecords` harvester for all 5 categories using httpx + tenacity; enforce 3 req/sec token-bucket; set User-Agent; persist resumptionToken and last harvest date to `crawl_state`; normalize arXiv IDs on insert
-- [ ] 02-02: arXiv asset downloader — for each harvested arXiv ID, fetch `export.arxiv.org/e-print/{id}`; detect `Content-Type` to distinguish LaTeX `.tar.gz` from PDF; save asset to disk; record asset path and type in `paper_sources`; enqueue Celery parse task
-- [ ] 02-03: PMC OAI-PMH crawler — implement PMC OAI-PMH harvester using sickle for `metadataPrefix=pmc` on the deep learning subset; separate harvest phase (page all IDs without pausing) from processing phase to prevent resumptionToken expiry; persist token to `crawl_state` after every page
-- [ ] 02-04: Crawl state and dedup — implement crawl resumability check (skip IDs already in `paper_sources` with `parse_status != failed`); add arXiv version normalization; verify end-to-end with a 100-paper test run before full corpus harvest
+- [ ] 02-01-PLAN.md — Schema migration (crawl_state UNIQUE), shared crawler utilities (ID normalization, crawl state persistence, dedup), new dependencies, test scaffold
+- [ ] 02-02-PLAN.md — arXiv OAI-PMH harvester (httpx + aiolimiter, 5 DL sets) and e-print asset downloader (Content-Type routing), replace Celery stubs
+- [ ] 02-03-PLAN.md — PMC OAI-PMH harvester (sickle, pmc-open set, DL keyword filter, token checkpointing)
+- [ ] 02-04-PLAN.md — CLI harvest runner, 100-paper smoke test, resumability verification, human sign-off
 
 ---
 
