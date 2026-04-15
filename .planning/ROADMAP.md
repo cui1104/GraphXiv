@@ -108,8 +108,8 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: FastAPI app structure and Pydantic response schemas — scaffold FastAPI app with Uvicorn; define Pydantic v2 response models for all 7 endpoint shapes (HeadResponse, BriefResponse, SectionsResponse, FullResponse, SearchResponse, PmcHeadResponse, PmcFullResponse); field names must exactly match deepxiv_sdk contract verified in Phase 4
-- [ ] 05-02: Endpoint implementations — implement all 7 route handlers using SQLAlchemy 2.x async queries; implement `id_map` resolution so any input ID (arxiv_id, pmcid, doi) resolves to a canonical paper row; implement keyword search using PostgreSQL full-text search index on title+abstract; return 404 with structured body for missing IDs
+- [x] 05-01: FastAPI app structure and Pydantic response schemas — scaffold FastAPI app with Uvicorn; define Pydantic v2 response models for all 7 endpoint shapes (HeadResponse, BriefResponse, SectionsResponse, FullResponse, SearchResponse, PmcHeadResponse, PmcFullResponse); field names must exactly match deepxiv_sdk contract verified in Phase 4
+- [ ] 05-02: Endpoint implementations — implement all 7 route handlers using SQLAlchemy 2.x async queries; implement `id_map` resolution so any input ID (arxiv_id, pmcid, doi) resolves to a canonical paper row; implement keyword search using PostgreSQL full-text search index on title+abstract; return 404 with structured body for missing IDs (completed 2026-04-15)
 - [ ] 05-03: Redis caching layer — implement cache-aside pattern for all endpoints; cache key format `papers:{canonical_id}:{view}`, TTL 3600s for paper views, 300s for search results; cache invalidation on paper upsert; verify cache hit/miss behavior manually and via Flower task logs
 
 ---
@@ -160,7 +160,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 1. Foundation | 3/3 | Complete   | 2026-04-14 |
 | 2. Ingestion | 4/4 | Complete   | 2026-04-15 |
 | 3. Parser Layer | 4/4 | Complete   | 2026-04-15 |
-| 4. Normalizer + Storage | 2/2 | Complete   | 2026-04-15 |
+| 4. Normalizer + Storage | 2/2 | Complete    | 2026-04-15 |
 | 5. REST API | 0/3 | Not started | - |
 | 6. SDK Fork + Verification | 0/3 | Not started | - |
 | 7. Benchmark | 0/3 | Not started | - |
