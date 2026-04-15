@@ -3,11 +3,11 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T17:54:22.967Z"
+last_updated: "2026-04-15T19:21:11.157Z"
 progress:
   total_phases: 7
   completed_phases: 2
-  total_plans: 7
+  total_plans: 11
   completed_plans: 7
 ---
 
@@ -18,13 +18,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Core value:** Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, figures, metadata) in under a second — by doing all parsing work ahead of time via a continuous ingestion pipeline.
-**Current focus:** Phase 02 — ingestion
+**Current focus:** Phase 03 — parser-layer
 
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 02 — Ingestion (4/4 plans complete)
-**Last Action:** Completed 02-04 — CLI harvest runner, 105,300-paper arXiv smoke test, resumability verified (2026-04-15)
+**Active Phase:** Phase 03 — Parser Layer (1/4 plans complete)
+**Last Action:** Completed 03-01 — parse_latex task, parse_helpers.py shared module, Wave 0 test infrastructure, Dockerfile + pyproject.toml updated (2026-04-15)
 
 ## Phase Progress
 
@@ -63,6 +63,10 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - lxml {*} wildcard namespace matching in _parse_arxiv_records is robust to both OAI-namespace-qualified and bare arXivRaw child elements (02-02)
 - import app.celery_app at top of run_harvest.py to force broker initialization before any task imports — without this Redis broker raises ImportError on task dispatch (02-04)
 - UNIQUE constraint on crawl_state.source applied via migration 0002; full arXiv cs:LG harvest yielded 105,300 papers since 2024-01-01 (far exceeds 10k target) (02-04)
+- parse_helpers.py is shared helper module consumed by all Phase 3 tasks (03-01); not inline per-task
+- D-01 arXiv ID stem matching strips version suffix (2401.12345v2 -> 2401.12345) before filename comparison (03-01)
+- PyMuPDF added in 03-01 (not 03-03) because D-03 table-count heuristic needed by parse_latex (03-01)
+- process_tex_stream lazily imported inside task body to prevent ImportError at worker startup (03-01)
 
 ## Performance Metrics
 
@@ -80,7 +84,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 |-------|------|----------|-------|-------|
 | 02    | 01   | 3min     | 2     | 6     |
 | 02    | 04   | ~2h      | 2     | 2     |
+| 03    | 01   | 3min     | 3     | 7     |
 
 ## Next Step
 
-Execute Phase 03 — Parser Layer (03-01-PLAN.md first: TEX2JSON parser task).
+Execute Phase 03 — Parser Layer (03-02-PLAN.md next: JATS2JSON parser task).
