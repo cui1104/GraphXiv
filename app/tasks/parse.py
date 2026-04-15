@@ -420,7 +420,6 @@ def parse_pdf_grobid(self, paper_id: str) -> dict:
 
     from app.db import SessionLocal
     from app.models import Paper, PaperSource
-    from app.parsers.grobid import extract_references
 
     session = SessionLocal()
     try:
@@ -444,27 +443,49 @@ def parse_pdf_grobid(self, paper_id: str) -> dict:
             if asset_path.endswith(".pdf"):
                 pdf_path = asset_path
 
-        citations = []
-        if pdf_path:
-            citations = extract_references(pdf_path, timeout=30)
-
         # Check if this was called as PRIMARY parser via D-03 (cascade_to_pdf_grobid)
-        # In that case, record parse_source as pdf_grobid
         if ps and ps.parse_status == "cascade_to_pdf_grobid":
+            # PRIMARY MODE: use extract_fulltext for sections + citations
+            from app.parsers.grobid import extract_fulltext
+            if pdf_path:
+                sections, fulltext_citations = extract_fulltext(pdf_path, timeout=60)
+            else:
+                sections, fulltext_citations = [], []
+
             paper.parse_source = "pdf_grobid"
             paper.parse_quality = "ok"
-
-        # Merge citations into existing content (non-destructive)
-        content = paper.content or {}
-        content["grobid_citations"] = citations
-        paper.content = content
-        session.commit()
-
-        return {
-            "status": "success",
-            "citation_count": len(citations),
-            "paper_id": paper_id,
-        }
+            content = paper.content or {}
+            content["grobid_sections"] = sections
+            content["grobid_citations"] = fulltext_citations
+            paper.content = content
+            if sections:
+                ps.parse_status = "success"
+            else:
+                ps.parse_status = "failed"
+                paper.parse_quality = "degraded"
+            session.commit()
+            return {
+                "status": "success" if sections else "failed",
+                "parse_source": "pdf_grobid",
+                "section_count": len(sections),
+                "citation_count": len(fulltext_citations),
+                "paper_id": paper_id,
+            }
+        else:
+            # SECONDARY MODE: existing behavior -- extract references only
+            from app.parsers.grobid import extract_references
+            citations = []
+            if pdf_path:
+                citations = extract_references(pdf_path, timeout=30)
+            content = paper.content or {}
+            content["grobid_citations"] = citations
+            paper.content = content
+            session.commit()
+            return {
+                "status": "success",
+                "citation_count": len(citations),
+                "paper_id": paper_id,
+            }
     except Exception as exc:
         session.rollback()
         # Non-blocking: log but don't fail (per D-07)

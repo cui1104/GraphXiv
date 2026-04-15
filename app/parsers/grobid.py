@@ -45,6 +45,84 @@ def extract_references(pdf_path: str, timeout: int = 30) -> list[dict]:
         return []
 
 
+def extract_fulltext(pdf_path: str, timeout: int = 60) -> tuple[list[dict], list[dict]]:
+    """POST PDF to GROBID /api/processFulltextDocument, return (sections, citations).
+
+    PRIMARY parser mode for D-03 cascade path (parse_pdf_grobid as primary).
+    Returns ([], []) on any failure -- non-blocking per D-07.
+
+    Args:
+        pdf_path: Absolute path to PDF file on disk.
+        timeout: HTTP timeout in seconds (default 60 -- fulltext is heavier than refs-only).
+
+    Returns:
+        Tuple of (sections, citations):
+          sections: list of dicts with keys heading, sec_num, text, paragraphs, token_count
+          citations: list of dicts with keys title, authors, year, doi, raw_text
+        Both empty on any failure.
+    """
+    try:
+        with open(pdf_path, "rb") as f:
+            pdf_bytes = f.read()
+        with httpx.Client(timeout=timeout) as client:
+            resp = client.post(
+                f"{GROBID_URL}/api/processFulltextDocument",
+                files={"input": ("paper.pdf", pdf_bytes, "application/pdf")},
+                data={"includeRawCitations": "1", "consolidateCitations": "0"},
+            )
+        if resp.status_code != 200:
+            logger.warning(
+                "GROBID processFulltextDocument returned status %d for %s",
+                resp.status_code,
+                pdf_path,
+            )
+            return [], []
+        sections = _parse_tei_fulltext_sections(resp.content)
+        citations = _parse_tei_references(resp.content)
+        return sections, citations
+    except Exception as exc:
+        logger.warning("GROBID fulltext call failed for %s: %s", pdf_path, exc)
+        return [], []
+
+
+def _parse_tei_fulltext_sections(tei_xml: bytes) -> list[dict]:
+    """Parse TEI XML body from GROBID processFulltextDocument into section dicts.
+
+    Each section dict has keys: heading, sec_num, text, paragraphs, token_count.
+    paragraphs is a list of dicts: {text, cite_spans, ref_spans}.
+    token_count is 0 (filled in by normalizer using tiktoken).
+
+    Returns empty list if body element is missing or parsing fails.
+    """
+    try:
+        root = etree.fromstring(tei_xml)
+        body = root.find(f".//{{{TEI_NS}}}body")
+        if body is None:
+            return []
+        sections = []
+        for div in body.findall(f"{{{TEI_NS}}}div"):
+            sec_num = div.get("n")
+            head_el = div.find(f"{{{TEI_NS}}}head")
+            heading = head_el.text.strip() if head_el is not None and head_el.text else ""
+            paras = []
+            for p_el in div.findall(f"{{{TEI_NS}}}p"):
+                text = "".join(p_el.itertext()).strip()
+                if text:
+                    paras.append({"text": text, "cite_spans": [], "ref_spans": []})
+            full_text = " ".join(p["text"] for p in paras)
+            sections.append({
+                "heading": heading,
+                "sec_num": sec_num,
+                "text": full_text,
+                "paragraphs": paras,
+                "token_count": 0,
+            })
+        return sections
+    except Exception as exc:
+        logger.warning("TEI fulltext section parse failed: %s", exc)
+        return []
+
+
 def _parse_tei_references(tei_xml: bytes) -> list[dict]:
     """Parse TEI XML from GROBID into citation dicts."""
     root = etree.fromstring(tei_xml)
