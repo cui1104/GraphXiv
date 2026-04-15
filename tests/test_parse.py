@@ -154,5 +154,15 @@ def test_grobid_references():
 
 
 def test_router_dispatch():
-    """PARSE-05: Router dispatches correct parser chain by asset type"""
-    pytest.skip("Integration test -- requires all parsers available")
+    """PARSE-05: _build_parse_chain returns correct chain for each source_type."""
+    from app.tasks.router import _build_parse_chain
+
+    # Test that chain is built for each source type (not None)
+    assert _build_parse_chain("test-id", "arxiv_tar") is not None
+    assert _build_parse_chain("test-id", "arxiv") is not None
+    assert _build_parse_chain("test-id", "pmc_jats") is not None
+    assert _build_parse_chain("test-id", "pmc") is not None
+    assert _build_parse_chain("test-id", "arxiv_pdf") is not None
+    assert _build_parse_chain("test-id", "pdf") is not None
+    # Unknown type returns None
+    assert _build_parse_chain("test-id", "unknown") is None

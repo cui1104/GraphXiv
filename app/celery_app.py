@@ -6,7 +6,7 @@ settings = get_settings()
 
 celery_app = Celery(
     "app",
-    include=["app.tasks.ingest", "app.tasks.parse", "app.tasks.normalize"],
+    include=["app.tasks.ingest", "app.tasks.parse", "app.tasks.normalize", "app.tasks.router"],
 )
 
 celery_app.conf.update(
@@ -27,6 +27,7 @@ celery_app.conf.update(
         "app.tasks.parse.parse_pdf_mineru": {"queue": "slow"},
         "app.tasks.parse.parse_pdf_grobid": {"queue": "slow"},
         "app.tasks.normalize.*": {"queue": "fast"},
+        "app.tasks.router.*": {"queue": "fast"},
     },
     worker_prefetch_multiplier=1,
     task_acks_late=True,
