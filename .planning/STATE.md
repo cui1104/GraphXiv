@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-16T01:33:03.455Z"
+last_updated: "2026-04-16T05:47:44.735Z"
 progress:
   total_phases: 7
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 16
-  completed_plans: 15
+  completed_plans: 16
 ---
 
 # Project State
@@ -18,13 +18,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Core value:** Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, figures, metadata) in under a second — by doing all parsing work ahead of time via a continuous ingestion pipeline.
-**Current focus:** Phase 05 — rest-api
+**Current focus:** Phase 06 — sdk-fork-verification
 
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 05 — REST API (2/3 plans complete)
-**Last Action:** Completed 05-02 — All 10 endpoint handlers with real DB queries: arXiv ID resolution (version stripping + id_map fallback), citation graph queries (references/cited_by/related), hybrid BM25/pgvector search, _write_embedding in normalize_paper, 9/9 non-integration tests passing (2026-04-16)
+**Active Phase:** Phase 06 — SDK Fork + Verification (0/3 plans complete)
+**Last Action:** Completed 05-03 — Redis cache-aside layer on all 9 endpoints (PAPER_TTL=3600s, SEARCH_TTL=300s), SCAN-based invalidation in normalize_paper, MockRedis test fixture, 70/70 non-integration tests passing (2026-04-15)
 
 ## Phase Progress
 
@@ -34,7 +34,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | 2 - Ingestion | ○ Pending | 4 | arXiv + PMC crawlers, ~10k DL papers |
 | 3 - Parser Layer | ○ Pending | 4 | TEX2JSON, JATS2JSON, MinerU, GROBID |
 | 4 - Normalizer + Storage | ○ Pending | 3 | deepxiv_sdk JSON contract, upsert |
-| 5 - REST API | ○ Pending | 3 | FastAPI, Redis caching, all 7 endpoints |
+| 5 - REST API | ✓ Complete | 3 | FastAPI, Redis caching, all 9 endpoints |
 | 6 - SDK Fork + Verification | ○ Pending | 3 | Fork deepxiv_sdk, test suite, new feature |
 | 7 - Benchmark | ○ Pending | 3 | MinerU vs GROBID vs Docling |
 
@@ -85,6 +85,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - _paper_to_head imported from arxiv.py into pmc.py — shared helper, single source of truth (05-02)
 - vec_str built as Python string [v1,v2,...] for pgvector CAST(:vec AS vector) — avoids psycopg2 array binding issues (05-02)
 - Hybrid/vector search falls back to BM25 when no embeddings in DB — graceful degradation without failure (05-02)
+- All route handlers converted to async def; sync SQLAlchemy calls wrapped in asyncio.to_thread() — no asyncpg introduced (05-03)
+- _invalidate_cache in normalize_paper uses sync redis.Redis (Celery safe) with SCAN cursor loop, wrapped in try/except (05-03)
+- MockRedis autouse pytest fixture injects async dict store for all API tests — no live Redis needed in CI (05-03)
 
 ## Performance Metrics
 
@@ -102,6 +105,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 04 P02 | 15 | 2 tasks | 2 files |
 | Phase 05 P01 | 3 | 2 tasks | 13 files |
 | Phase 05 P02 | 10 | 2 tasks | 5 files |
+| Phase 05 P03 | 8min | 2 tasks | 5 files |
 
 ## Performance Metrics (continued)
 
@@ -113,4 +117,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 05 Plan 02 complete. Execute Phase 05 Plan 03 — Redis cache-aside layer for all endpoints.
+Phase 05 complete (3/3 plans done). Execute Phase 06 — Fork deepxiv_sdk, point at this backend, verify all SDK features work.

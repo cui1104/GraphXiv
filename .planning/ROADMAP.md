@@ -10,7 +10,7 @@ Seven phases on a strict critical path: stand up the infrastructure, crawl the c
 - [x] **Phase 2: Ingestion** - arXiv and PMC crawlers running with resumable state and 105,300 arXiv papers + PMC DL subset queued for parsing (completed 2026-04-15)
 - [x] **Phase 3: Parser Layer** - TEX2JSON, JATS2JSON, and MinerU/GROBID paths all producing structured output from real papers (completed 2026-04-15)
 - [x] **Phase 4: Normalizer + Storage** - All parser outputs mapped to unified deepxiv_sdk JSON schema and upserted to PostgreSQL (completed 2026-04-15)
-- [ ] **Phase 5: REST API** - All 7 FastAPI endpoints serving correct JSON with Redis caching
+- [x] **Phase 5: REST API** - All 7 FastAPI endpoints serving correct JSON with Redis caching (completed 2026-04-16)
 - [ ] **Phase 6: SDK Fork + Verification** - Forked deepxiv_sdk passes full test suite against this backend and ships one new capability
 - [ ] **Phase 7: Benchmark** - MinerU vs GROBID vs Docling vs this system's router evaluated on 150 DL papers with written findings report
 
@@ -110,7 +110,7 @@ Plans:
 Plans:
 - [x] 05-01-PLAN.md — FastAPI app scaffold, Pydantic v2 response schemas (all 10+ models), deps.py, Docker api service, Alembic migration (embeddings vector(768)->vector(384)), test stubs
 - [x] 05-02-PLAN.md — All 10 endpoint implementations (7 arXiv + 2 PMC + 1 search), ID resolution with version stripping, hybrid BM25/vector/hybrid search, citation graph queries, 404 handling, embedding write in normalize_paper
-- [ ] 05-03-PLAN.md — Redis cache-aside on all endpoints (papers:{canonical_id}:{view} keys, 3600s/300s TTLs), cache invalidation in normalize_paper via SCAN, cache behavior tests
+- [x] 05-03-PLAN.md — Redis cache-aside on all endpoints (papers:{canonical_id}:{view} keys, 3600s/300s TTLs), cache invalidation in normalize_paper via SCAN, cache behavior tests
 
 ---
 
@@ -161,6 +161,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 2. Ingestion | 4/4 | Complete   | 2026-04-15 |
 | 3. Parser Layer | 4/4 | Complete   | 2026-04-15 |
 | 4. Normalizer + Storage | 2/2 | Complete    | 2026-04-15 |
-| 5. REST API | 2/3 | In Progress|  |
+| 5. REST API | 3/3 | Complete   | 2026-04-16 |
 | 6. SDK Fork + Verification | 0/3 | Not started | - |
 | 7. Benchmark | 0/3 | Not started | - |
