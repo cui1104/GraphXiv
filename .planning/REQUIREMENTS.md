@@ -51,10 +51,10 @@
 - [x] **API-07**: `GET /pmc/{id}/full` returns complete paper object for PMC papers
 - [x] **API-08**: All endpoints return HTTP 404 with a structured error body when the requested ID is not in the database
 - [ ] **API-09**: Redis caching layer is active on all endpoints; cache keys follow `papers:{canonical_id}:{view}` pattern with appropriate TTLs
-- [ ] **API-10**: `GET /arxiv/search` supports hybrid search — BM25 (PostgreSQL `tsvector`) + semantic vector similarity (pgvector) on paper titles and abstracts; `search_mode` parameter accepts `bm25`, `vector`, or `hybrid`
-- [ ] **API-11**: `GET /arxiv/{id}/references` returns papers this paper cites, each with `in_corpus` flag, `context_text` (sentence where cited), and full head-shape metadata if in corpus
-- [ ] **API-12**: `GET /arxiv/{id}/cited_by` returns papers in the corpus that cite this paper
-- [ ] **API-13**: `GET /arxiv/{id}/related` returns co-cited papers (papers frequently cited alongside this one within the corpus)
+- [x] **API-10**: `GET /arxiv/search` supports hybrid search — BM25 (PostgreSQL `tsvector`) + semantic vector similarity (pgvector) on paper titles and abstracts; `search_mode` parameter accepts `bm25`, `vector`, or `hybrid`
+- [x] **API-11**: `GET /arxiv/{id}/references` returns papers this paper cites, each with `in_corpus` flag, `context_text` (sentence where cited), and full head-shape metadata if in corpus
+- [x] **API-12**: `GET /arxiv/{id}/cited_by` returns papers in the corpus that cite this paper
+- [x] **API-13**: `GET /arxiv/{id}/related` returns co-cited papers (papers frequently cited alongside this one within the corpus)
 
 ### SDK Fork
 
@@ -145,10 +145,10 @@
 | API-07 | Phase 5 | Complete |
 | API-08 | Phase 5 | Complete |
 | API-09 | Phase 5 | Pending |
-| API-10 | Phase 5 | Pending |
-| API-11 | Phase 5 | Pending |
-| API-12 | Phase 5 | Pending |
-| API-13 | Phase 5 | Pending |
+| API-10 | Phase 5 | Complete |
+| API-11 | Phase 5 | Complete |
+| API-12 | Phase 5 | Complete |
+| API-13 | Phase 5 | Complete |
 | SDK-01 | Phase 6 | Pending |
 | SDK-02 | Phase 6 | Pending |
 | SDK-03 | Phase 6 | Pending |

@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-16T01:27:16.237Z"
+last_updated: "2026-04-16T01:33:03.455Z"
 progress:
   total_phases: 7
   completed_phases: 4
   total_plans: 16
-  completed_plans: 14
+  completed_plans: 15
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 05 — REST API (1/3 plans complete)
-**Last Action:** Completed 05-01 — FastAPI skeleton with 14 Pydantic v2 schemas, 10 stub endpoints (7 arXiv + 2 PMC + 1 search), Docker api service, Alembic migration 0004 (Vector 768→384), test scaffold 9/9 passing (2026-04-15)
+**Active Phase:** Phase 05 — REST API (2/3 plans complete)
+**Last Action:** Completed 05-02 — All 10 endpoint handlers with real DB queries: arXiv ID resolution (version stripping + id_map fallback), citation graph queries (references/cited_by/related), hybrid BM25/pgvector search, _write_embedding in normalize_paper, 9/9 non-integration tests passing (2026-04-16)
 
 ## Phase Progress
 
@@ -82,6 +82,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - BriefResponse = HeadResponse alias (not subclass) — schema identical, distinction is routing-only (05-01)
 - Sync def route handlers for all DB-touching endpoints — FastAPI threadpool handles sync SQLAlchemy safely (05-01)
 - exclude_none=True NOT used on model_config — deepxiv_sdk expects tldr key present as null, not omitted (05-01)
+- _paper_to_head imported from arxiv.py into pmc.py — shared helper, single source of truth (05-02)
+- vec_str built as Python string [v1,v2,...] for pgvector CAST(:vec AS vector) — avoids psycopg2 array binding issues (05-02)
+- Hybrid/vector search falls back to BM25 when no embeddings in DB — graceful degradation without failure (05-02)
 
 ## Performance Metrics
 
@@ -98,6 +101,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 04 P01 | 15 | 2 tasks | 6 files |
 | Phase 04 P02 | 15 | 2 tasks | 2 files |
 | Phase 05 P01 | 3 | 2 tasks | 13 files |
+| Phase 05 P02 | 10 | 2 tasks | 5 files |
 
 ## Performance Metrics (continued)
 
@@ -109,4 +113,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 05 Plan 01 complete. Execute Phase 05 Plan 02 — endpoint logic (real DB queries replacing 501 stubs).
+Phase 05 Plan 02 complete. Execute Phase 05 Plan 03 — Redis cache-aside layer for all endpoints.
