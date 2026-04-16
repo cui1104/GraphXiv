@@ -1,0 +1,827 @@
+"""
+Tools for the ReAct agent to interact with arXiv papers.
+"""
+import json
+from typing import Dict, Optional, List
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+
+def get_tools_definition() -> List[Dict]:
+    """
+    Get tools definition for OpenAI-compatible APIs.
+
+    Returns:
+        List of tool definitions in OpenAI function calling format
+    """
+    return [
+        {
+            "type": "function",
+            "function": {
+                "name": "search_papers",
+                "description": "Search for papers using Elasticsearch hybrid search (BM25 + Vector). Supports multiple search modes and advanced filtering by categories, authors, citations, and publication dates. Returns a list of papers with their arXiv IDs, titles, abstracts, authors, categories, and citation counts.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "The search query (e.g., 'agent memory', 'transformer models')"
+                        },
+                        "size": {
+                            "type": "integer",
+                            "description": "Number of results to return (default: 10, max: 100)",
+                            "default": 10
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "description": "Result offset for pagination (default: 0)",
+                            "default": 0
+                        },
+                        "search_mode": {
+                            "type": "string",
+                            "enum": ["bm25", "vector", "hybrid"],
+                            "description": "Search mode: 'bm25' for keyword matching, 'vector' for semantic search, 'hybrid' for combined (default: 'hybrid')",
+                            "default": "hybrid"
+                        },
+                        "bm25_weight": {
+                            "type": "number",
+                            "description": "BM25 weight for hybrid search (default: 0.5, range: 0-1)",
+                            "default": 0.5
+                        },
+                        "vector_weight": {
+                            "type": "number",
+                            "description": "Vector weight for hybrid search (default: 0.5, range: 0-1)",
+                            "default": 0.5
+                        },
+                        "authors": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "Filter by author names (e.g., ['John Doe'])"
+                        },
+                        "min_citation": {
+                            "type": "integer",
+                            "description": "Minimum citation count filter"
+                        },
+                        "date_from": {
+                            "type": "string",
+                            "description": "Publication date from (format: YYYY-MM-DD)"
+                        },
+                        "date_to": {
+                            "type": "string",
+                            "description": "Publication date to (format: YYYY-MM-DD)"
+                        }
+                    },
+                    "required": ["query"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "load_paper",
+                "description": "Load a paper's metadata and structure. This must be called before reading sections or getting full content. Returns paper title, abstract, authors, available sections with TLDRs.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_id": {
+                            "type": "string",
+                            "description": "The arXiv ID of the paper (e.g., '2503.04975')"
+                        }
+                    },
+                    "required": ["arxiv_id"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "read_section",
+                "description": "Read the full content of a specific section from a loaded paper. Use this when you need detailed information beyond the section TLDR. The section_name must match one of the available sections shown in the paper metadata.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_id": {
+                            "type": "string",
+                            "description": "The arXiv ID of the paper (e.g., '2503.04975')"
+                        },
+                        "section_name": {
+                            "type": "string",
+                            "description": "The exact name of the section to read (must match section names from paper metadata, e.g., 'Introduction', 'Method', 'Results')"
+                        }
+                    },
+                    "required": ["arxiv_id", "section_name"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_full_paper",
+                "description": "Get the complete full text of a paper in markdown format. This includes ALL sections and content. Use this when you need to analyze the entire paper comprehensively or when multiple sections are needed. Note: This may return a very large amount of text.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_id": {
+                            "type": "string",
+                            "description": "The arXiv ID of the paper (e.g., '2503.04975')"
+                        }
+                    },
+                    "required": ["arxiv_id"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_paper_preview",
+                "description": "Get a preview of the paper with limited tokens. Good for quick overview without loading the full paper.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_id": {
+                            "type": "string",
+                            "description": "The arXiv ID of the paper (e.g., '2503.04975')"
+                        }
+                    },
+                    "required": ["arxiv_id"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "quick_preview",
+                "description": "Quickly fetch brief metadata for multiple papers concurrently. Returns title, TLDR, keywords, citations, publication date, and GitHub URL when available for each paper. Does NOT include section information. Perfect for scanning multiple papers to decide which ones to investigate in detail.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_ids": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "List of arXiv IDs to fetch brief information for (e.g., ['2503.04975', '2512.20651'])"
+                        }
+                    },
+                    "required": ["arxiv_ids"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_references",
+                "description": "Get the list of papers referenced (cited) by a given arXiv paper. Shows which references are available in the local corpus for deeper reading. Use this after reading a paper to discover its key cited works.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_id": {
+                            "type": "string",
+                            "description": "The arXiv ID of the paper whose references to retrieve"
+                        }
+                    },
+                    "required": ["arxiv_id"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_cited_by",
+                "description": "Get papers in the local corpus that cite a given arXiv paper. Use this to find follow-up work and papers that build on this one.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_id": {
+                            "type": "string",
+                            "description": "The arXiv ID of the paper to find citations for"
+                        }
+                    },
+                    "required": ["arxiv_id"]
+                }
+            }
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "fetch_cited_paper_sections",
+                "description": "After reading a paper's sections, use this tool to fetch the full sections of papers it cites that are available in the local corpus. This enables citation-aware reading: understanding the context of key cited works before generating an answer. Only fetches papers confirmed to be in the corpus.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "arxiv_id": {
+                            "type": "string",
+                            "description": "The arXiv ID of the paper whose cited works should be fetched"
+                        }
+                    },
+                    "required": ["arxiv_id"]
+                }
+            }
+        }
+    ]
+
+
+class ToolExecutor:
+    """Executor for agent tools."""
+
+    def __init__(self, reader, citation_depth: int = 1):
+        """
+        Initialize the tool executor.
+
+        Args:
+            reader: Reader instance for API access
+            citation_depth: Maximum citation hop depth for fetch_cited_paper_sections (default: 1)
+        """
+        self.reader = reader
+        self.citation_depth = citation_depth
+
+    def search_papers(
+        self,
+        query: str,
+        size: int = 10,
+        offset: int = 0,
+        search_mode: str = "hybrid",
+        bm25_weight: float = 0.5,
+        vector_weight: float = 0.5,
+        authors: Optional[List[str]] = None,
+        min_citation: Optional[int] = None,
+        date_from: Optional[str] = None,
+        date_to: Optional[str] = None,
+        state_cache: Dict = None
+    ) -> str:
+        """
+        Search for papers with advanced filtering.
+
+        Args:
+            query: Search query
+            size: Number of results to return
+            offset: Result offset for pagination
+            search_mode: Search mode ('bm25', 'vector', or 'hybrid')
+            bm25_weight: BM25 weight for hybrid search
+            vector_weight: Vector weight for hybrid search
+            authors: Filter by author names
+            min_citation: Minimum citation count
+            date_from: Publication date from (YYYY-MM-DD)
+            date_to: Publication date to (YYYY-MM-DD)
+            state_cache: State cache for storing results
+
+        Returns:
+            Formatted search results
+        """
+        # Build search parameters
+        search_params = {
+            "size": size,
+            "offset": offset,
+            "search_mode": search_mode,
+        }
+
+        # Add hybrid search weights if applicable
+        if search_mode == "hybrid":
+            search_params["bm25_weight"] = bm25_weight
+            search_params["vector_weight"] = vector_weight
+
+        # Add optional filters
+        if authors:
+            search_params["authors"] = authors
+        if min_citation is not None:
+            search_params["min_citation"] = min_citation
+        if date_from:
+            search_params["date_from"] = date_from
+        if date_to:
+            search_params["date_to"] = date_to
+
+        # Execute search
+        results = self.reader.search(query=query, **search_params)
+
+        if not results:
+            return f"Error: Failed to search for papers with query '{query}'."
+
+        # Cache results
+        if state_cache is not None:
+            state_cache["search_results"] = results
+
+        # Format results
+        total = results.get("total", 0) if isinstance(results, dict) else len(results)
+        result_list = results.get("results", results) if isinstance(results, dict) else results
+
+        output = [f"=== Search Results for '{query}' ==="]
+        output.append(f"Total: {total} papers found | Showing: {len(result_list)} results")
+        output.append(f"Mode: {search_mode.upper()}")
+
+        # Show active filters
+        filters = []
+        if authors:
+            # Handle authors as both list and str
+            auth_str = ', '.join(authors) if isinstance(authors, list) else str(authors)
+            filters.append(f"Authors: {auth_str}")
+        if min_citation is not None:
+            filters.append(f"Min Citations: {min_citation}")
+        if date_from or date_to:
+            date_range = f"{date_from or '*'} to {date_to or '*'}"
+            filters.append(f"Date Range: {date_range}")
+
+        if filters:
+            output.append(f"Filters: {' | '.join(filters)}")
+
+        output.append("")
+
+        for i, paper in enumerate(result_list, offset + 1):
+            arxiv_id = paper.get("arxiv_id", "Unknown")
+            title = paper.get("title", "No title")
+            abstract = paper.get("abstract", "No abstract")[:300]
+            score = paper.get("score", 0)
+            citation = paper.get("citation", 0)
+            paper_categories = paper.get("categories", [])
+
+            output.append(f"{i}. {title}")
+            output.append(f"   arXiv ID: {arxiv_id} | Score: {score:.3f} | Citations: {citation}")
+
+            if paper_categories:
+                # Handle categories as both list and str
+                if isinstance(paper_categories, list):
+                    categories_str = ', '.join(paper_categories[:3])
+                else:
+                    categories_str = str(paper_categories)
+                output.append(f"   Categories: {categories_str}")
+
+            output.append(f"   Abstract: {abstract}...")
+            output.append("")
+
+        return "\n".join(output)
+
+    def load_paper(
+        self,
+        arxiv_id: str,
+        state_papers: Dict
+    ) -> str:
+        """
+        Load a paper's metadata.
+
+        Args:
+            arxiv_id: arXiv ID
+            state_papers: Papers dict in state
+
+        Returns:
+            Formatted paper information
+        """
+        # Check if already loaded
+        if arxiv_id in state_papers:
+            paper = state_papers[arxiv_id]
+            return f"Paper {arxiv_id} is already loaded: {paper['title']}"
+
+        # Load paper
+        head_info = self.reader.head(arxiv_id)
+
+        if not head_info:
+            return f"Error: Failed to load paper {arxiv_id}."
+
+        # Store in state (handle None values)
+        state_papers[arxiv_id] = {
+            "arxiv_id": arxiv_id,
+            "title": head_info.get("title", ""),
+            "abstract": head_info.get("abstract", ""),
+            "authors": head_info.get("authors") or [],
+            "sections": head_info.get("sections") or {},
+            "token_count": head_info.get("token_count", 0),
+            "categories": head_info.get("categories") or [],
+            "publish_at": head_info.get("publish_at", ""),
+            "loaded_sections": {}
+        }
+
+        # Format output
+        paper = state_papers[arxiv_id]
+        output = [f"=== Paper Loaded: {arxiv_id} ===\n"]
+        output.append(f"Title: {paper['title']}")
+
+        # Handle authors - could be list of dicts, list of strings, or a single string
+        authors = paper['authors']
+        if isinstance(authors, str):
+            # Split comma-separated string into list
+            authors = [a.strip() for a in authors.split(',') if a.strip()]
+
+        output.append(f"\nAuthors ({len(authors)} total):")
+        for i, author in enumerate(authors[:5], 1):
+            # Handle both dict and str formats
+            if isinstance(author, dict):
+                name = author.get('name', 'Unknown')
+                orgs = author.get('orgs', [])
+                # Handle orgs as both list and str
+                if isinstance(orgs, list):
+                    orgs_str = ', '.join(orgs) if orgs else 'N/A'
+                else:
+                    orgs_str = str(orgs) if orgs else 'N/A'
+                output.append(f"  {i}. {name} ({orgs_str})")
+            else:
+                # author is a string
+                output.append(f"  {i}. {author}")
+
+        if len(authors) > 5:
+            output.append(f"  ... and {len(authors) - 5} more authors")
+
+        # Handle categories as both list and str
+        categories = paper['categories']
+        if isinstance(categories, list):
+            categories_str = ', '.join(categories) if categories else 'N/A'
+        else:
+            categories_str = str(categories) if categories else 'N/A'
+        output.append(f"\nCategories: {categories_str}")
+        output.append(f"Published: {paper.get('publish_at', 'N/A')}")
+        output.append(f"\nAbstract:\n{paper['abstract']}\n")
+
+        # Show section TLDRs
+        sections = paper.get("sections") or []
+        if sections:
+            output.append("Available Sections (with TLDRs):")
+            for section_info in sections:
+                section_name = section_info.get('name', 'N/A')
+                tldr = section_info.get('tldr', 'N/A')
+                tokens = section_info.get('token_count', 0)
+                output.append(f"  - {section_name} ({tokens} tokens):")
+                output.append(f"    {tldr}")
+        else:
+            output.append("Note: Section information not available for this paper.")
+
+        output.append(f"\nTotal paper tokens: {paper['token_count']}")
+
+        return "\n".join(output)
+
+    def read_section(
+        self,
+        arxiv_id: str,
+        section_name: str,
+        state_papers: Dict,
+        sections_cache: Dict
+    ) -> str:
+        """
+        Read a specific section from a paper.
+
+        Args:
+            arxiv_id: arXiv ID
+            section_name: Name of the section
+            state_papers: Papers dict in state
+            sections_cache: Cache for loaded sections
+
+        Returns:
+            Section content or error message
+        """
+        # Check if paper is loaded
+        if arxiv_id not in state_papers:
+            return f"Error: Paper {arxiv_id} is not loaded. Please use load_paper first."
+
+        paper = state_papers[arxiv_id]
+
+        # Check if sections are available
+        sections = paper.get("sections") or []
+        if not sections:
+            return f"Error: Section information is not available for paper {arxiv_id}. This paper may not have structured sections."
+
+        # Extract section names from list of dicts
+        section_names = [s.get('name', '') for s in sections if s.get('name')]
+        
+        # Check if section exists
+        if section_name not in section_names:
+            available = ", ".join(section_names)
+            return f"Error: Section '{section_name}' not found in paper {arxiv_id}. Available sections: {available}"
+
+        # Check cache
+        if arxiv_id in sections_cache and section_name in sections_cache[arxiv_id]:
+            content = sections_cache[arxiv_id][section_name]
+            return f"=== Section: {section_name} (Paper: {arxiv_id}) ===\n\n{content}\n\n=== End of Section ==="
+
+        # Fetch section
+        content = self.reader.section(arxiv_id, section_name)
+
+        if not content:
+            return f"Error: Failed to fetch section '{section_name}' from paper {arxiv_id}."
+
+        # Cache it
+        if arxiv_id not in sections_cache:
+            sections_cache[arxiv_id] = {}
+        sections_cache[arxiv_id][section_name] = content
+
+        # Also update paper's loaded_sections
+        paper["loaded_sections"][section_name] = content
+
+        return f"=== Section: {section_name} (Paper: {arxiv_id}) ===\n\n{content}\n\n=== End of Section ==="
+
+    def get_full_paper(
+        self,
+        arxiv_id: str,
+        state_papers: Dict,
+        full_paper_cache: Dict
+    ) -> str:
+        """
+        Get the full paper content.
+
+        Args:
+            arxiv_id: arXiv ID
+            state_papers: Papers dict in state
+            full_paper_cache: Cache for full paper content
+
+        Returns:
+            Full paper content or error message
+        """
+        # Check if paper is loaded
+        if arxiv_id not in state_papers:
+            return f"Error: Paper {arxiv_id} is not loaded. Please use load_paper first."
+
+        # Check cache
+        if arxiv_id in full_paper_cache:
+            content = full_paper_cache[arxiv_id]
+            return f"=== Full Paper: {arxiv_id} ===\n\n{content}\n\n=== End of Full Paper ==="
+
+        # Fetch full paper
+        content = self.reader.raw(arxiv_id)
+
+        if not content:
+            return f"Error: Failed to fetch full paper content for {arxiv_id}."
+
+        # Cache it
+        full_paper_cache[arxiv_id] = content
+
+        return f"=== Full Paper: {arxiv_id} ===\n\n{content}\n\n=== End of Full Paper ==="
+
+    def get_paper_preview(
+        self,
+        arxiv_id: str,
+    ) -> str:
+        """
+        Get a preview of the paper.
+
+        Args:
+            arxiv_id: arXiv ID
+            max_tokens: Maximum tokens to return
+
+        Returns:
+            Paper preview or error message
+        """
+        preview = self.reader.preview(arxiv_id)
+
+        if not preview:
+            return f"Error: Failed to fetch preview for {arxiv_id}."
+
+        output = [f"=== Preview: {arxiv_id} ===\n"]
+        output.append(preview.get("content", "No content available"))
+        output.append("\n=== End of Preview ===")
+
+        return "\n".join(output)
+
+    def quick_preview(
+        self,
+        arxiv_ids: List[str],
+        max_workers: int = 5
+    ) -> str:
+        """
+        Quickly fetch brief metadata for multiple papers concurrently.
+
+        Args:
+            arxiv_ids: List of arXiv IDs
+            max_workers: Maximum number of concurrent workers
+
+        Returns:
+            Formatted brief information for all papers
+        """
+        if not arxiv_ids:
+            return "Error: No arXiv IDs provided."
+
+        def fetch_brief(arxiv_id: str) -> Dict:
+            """Fetch brief info for a single paper."""
+            try:
+                brief = self.reader.brief(arxiv_id)
+                if brief:
+                    return {"arxiv_id": arxiv_id, "data": brief, "error": None}
+                else:
+                    return {"arxiv_id": arxiv_id, "data": None, "error": "Failed to fetch"}
+            except Exception as e:
+                return {"arxiv_id": arxiv_id, "data": None, "error": str(e)}
+
+        # Fetch all papers concurrently
+        results = []
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_id = {executor.submit(fetch_brief, arxiv_id): arxiv_id for arxiv_id in arxiv_ids}
+            for future in as_completed(future_to_id):
+                results.append(future.result())
+
+        # Sort results by original order
+        results_dict = {r["arxiv_id"]: r for r in results}
+        sorted_results = [results_dict[arxiv_id] for arxiv_id in arxiv_ids if arxiv_id in results_dict]
+
+        # Format output
+        output = [f"=== Quick Preview of {len(arxiv_ids)} Papers ===\n"]
+
+        for i, result in enumerate(sorted_results, 1):
+            arxiv_id = result["arxiv_id"]
+            
+            if result["error"]:
+                output.append(f"{i}. arXiv ID: {arxiv_id}")
+                output.append(f"   ❌ Error: {result['error']}\n")
+                continue
+
+            data = result["data"]
+            title = data.get("title", "No title")
+            tldr = data.get("tldr", "No TLDR available")
+            keywords = data.get("keywords", [])
+            citations = data.get("citations", 0)
+            publish_at = data.get("publish_at", "N/A")
+            src_url = data.get("src_url", "")
+            github_url = data.get("github_url", "")
+
+            output.append(f"{i}. {title}")
+            output.append(f"   arXiv ID: {arxiv_id}")
+            output.append(f"   Citations: {citations} | Published: {publish_at}")
+            
+            if keywords:
+                keywords_str = ', '.join(keywords[:5])
+                output.append(f"   Keywords: {keywords_str}")
+            
+            output.append(f"   TLDR: {tldr}")
+            
+            if src_url:
+                output.append(f"   URL: {src_url}")
+
+            if github_url:
+                output.append(f"   GitHub: {github_url}")
+            
+            output.append("")
+
+        success_count = sum(1 for r in sorted_results if not r["error"])
+        output.append(f"Successfully fetched: {success_count}/{len(arxiv_ids)} papers")
+
+        return "\n".join(output)
+
+    def get_tools_definition(self) -> List[Dict]:
+        """Get tools definition for OpenAI-compatible APIs (instance method wrapper)."""
+        return get_tools_definition()
+
+    def get_references(self, arxiv_id: str, state: Dict = None) -> str:
+        """Get papers referenced by the given arXiv paper.
+
+        Returns formatted string listing references with in_corpus flag.
+        Use this after reading a paper to discover its key cited works.
+        """
+        result = self.reader.references(arxiv_id)
+        refs = result.get("references", [])
+        in_corpus = [r for r in refs if r.get("in_corpus")]
+        out_corpus = len(refs) - len(in_corpus)
+        lines = [f"Paper {arxiv_id} has {len(refs)} references ({len(in_corpus)} in corpus, {out_corpus} external)."]
+        for r in in_corpus[:20]:
+            lines.append(f"  [IN CORPUS] {r.get('arxiv_id', '?')}: {r.get('title', '(no title)')}")
+        for r in refs[:10]:
+            if not r.get("in_corpus"):
+                lines.append(f"  [EXTERNAL] {r.get('target_arxiv_id') or r.get('target_doi', '?')}: {r.get('title', '(no title)')}")
+        return "\n".join(lines)
+
+    def get_cited_by(self, arxiv_id: str, state: Dict = None) -> str:
+        """Get papers in the corpus that cite the given arXiv paper.
+
+        Use this to find follow-up work and papers that build on this one.
+        """
+        result = self.reader.cited_by(arxiv_id)
+        citing = result.get("cited_by", [])
+        lines = [f"Paper {arxiv_id} is cited by {len(citing)} papers in the corpus."]
+        for c in citing[:20]:
+            lines.append(f"  {c.get('arxiv_id', '?')}: {c.get('title', '(no title)')}")
+        return "\n".join(lines)
+
+    def fetch_cited_paper_sections(self, arxiv_id: str, state: Dict = None) -> str:
+        """Fetch sections of papers cited by arxiv_id that are in the corpus.
+
+        Respects self.citation_depth to cap the number of papers fetched.
+        Only fetches papers where in_corpus=True. This enables citation-aware
+        reading: understanding the context of key cited works before generating
+        an answer.
+        """
+        result = self.reader.references(arxiv_id)
+        refs = result.get("references", [])
+        in_corpus_refs = [r for r in refs if r.get("in_corpus") and r.get("arxiv_id")]
+        max_papers = self.citation_depth * 5  # cap at 5 papers per hop depth
+        sections_gathered = []
+        for ref in in_corpus_refs[:max_papers]:
+            cited_id = ref["arxiv_id"]
+            try:
+                sec_result = self.reader.sections(cited_id)
+                secs = sec_result.get("sections", [])
+                if secs:  # only include if paper has sections
+                    sec_summary = "; ".join(
+                        f"[{s.get('heading', 'untitled')}] {s.get('text', '')[:200]}"
+                        for s in secs[:5]
+                    )
+                    sections_gathered.append(f"== {cited_id}: {ref.get('title', '?')} ==\n{sec_summary}")
+            except Exception:
+                continue  # silently skip on error
+        if not sections_gathered:
+            return f"No in-corpus cited papers with sections found for {arxiv_id}."
+        return f"Sections from {len(sections_gathered)} cited papers:\n\n" + "\n\n".join(sections_gathered)
+
+    def execute_tool_call(
+        self,
+        tool_name: str,
+        tool_args: Dict,
+        state: Dict
+    ) -> str:
+        """
+        Execute a single tool call.
+
+        Args:
+            tool_name: Name of the tool
+            tool_args: Arguments for the tool
+            state: Current agent state
+
+        Returns:
+            Tool execution result
+        """
+        try:
+            if tool_name == "search_papers":
+                query = tool_args.get("query", "")
+                size = tool_args.get("size", 10)
+                offset = tool_args.get("offset", 0)
+                search_mode = tool_args.get("search_mode", "hybrid")
+                bm25_weight = tool_args.get("bm25_weight", 0.5)
+                vector_weight = tool_args.get("vector_weight", 0.5)
+                authors = tool_args.get("authors")
+                min_citation = tool_args.get("min_citation")
+                date_from = tool_args.get("date_from")
+                date_to = tool_args.get("date_to")
+
+                return self.search_papers(
+                    query=query,
+                    size=size,
+                    offset=offset,
+                    search_mode=search_mode,
+                    bm25_weight=bm25_weight,
+                    vector_weight=vector_weight,
+                    authors=authors,
+                    min_citation=min_citation,
+                    date_from=date_from,
+                    date_to=date_to,
+                    state_cache=state
+                )
+
+            elif tool_name == "load_paper":
+                arxiv_id = tool_args.get("arxiv_id", "")
+                return self.load_paper(arxiv_id, state["papers"])
+
+            elif tool_name == "read_section":
+                arxiv_id = tool_args.get("arxiv_id", "")
+                section_name = tool_args.get("section_name", "")
+                return self.read_section(
+                    arxiv_id,
+                    section_name,
+                    state["papers"],
+                    state["paper_sections_cache"]
+                )
+
+            elif tool_name == "get_full_paper":
+                arxiv_id = tool_args.get("arxiv_id", "")
+                return self.get_full_paper(
+                    arxiv_id,
+                    state["papers"],
+                    state["full_paper_cache"]
+                )
+
+            elif tool_name == "get_paper_preview":
+                arxiv_id = tool_args.get("arxiv_id", "")
+                return self.get_paper_preview(arxiv_id)
+
+            elif tool_name == "quick_preview":
+                arxiv_ids = tool_args.get("arxiv_ids", [])
+                return self.quick_preview(arxiv_ids)
+
+            elif tool_name == "get_references":
+                arxiv_id = tool_args.get("arxiv_id", "")
+                return self.get_references(arxiv_id, state)
+
+            elif tool_name == "get_cited_by":
+                arxiv_id = tool_args.get("arxiv_id", "")
+                return self.get_cited_by(arxiv_id, state)
+
+            elif tool_name == "fetch_cited_paper_sections":
+                arxiv_id = tool_args.get("arxiv_id", "")
+                return self.fetch_cited_paper_sections(arxiv_id, state)
+
+            else:
+                return f"Error: Unknown tool '{tool_name}'"
+
+        except Exception as e:
+            return f"Error executing {tool_name}: {e}"
+
+
+def format_paper_context(papers: Dict[str, Dict]) -> str:
+    """
+    Format loaded papers for context.
+
+    Args:
+        papers: Dictionary of loaded papers
+
+    Returns:
+        Formatted context string
+    """
+    if not papers:
+        return "No papers have been loaded yet."
+
+    context_parts = ["=== Loaded Papers ===\n"]
+
+    for arxiv_id, paper in papers.items():
+        context_parts.append(f"## Paper: {arxiv_id}")
+        context_parts.append(f"Title: {paper['title']}")
+        context_parts.append(f"Abstract: {paper['abstract'][:200]}...")
+        context_parts.append("")
+
+    return "\n".join(context_parts)
