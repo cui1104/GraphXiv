@@ -1,0 +1,72 @@
+[project]
+name = "deepxiv-sdk"
+version = "0.2.0.dev0"
+description = "A Python package for arXiv paper access with CLI and MCP server support (local backend fork)"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+dependencies = [
+    "requests>=2.31.0",
+    "click>=8.0.0",
+    "python-dotenv>=0.19.0",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp[cli]>=1.2.0"]
+agent = [
+    "openai>=1.0.0",
+    "langgraph>=0.0.20",
+    "langchain-core>=0.1.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+]
+
+[project.scripts]
+deepxiv = "deepxiv_sdk.cli:main"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["deepxiv_sdk*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = ["integration: marks integration tests (deselect with '-m not integration')"]
+
+[tool.coverage.run]
+source = ["deepxiv_sdk"]
+omit = ["*/tests/*", "*/site-packages/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.isort]
+profile = "black"
+line_length = 100
