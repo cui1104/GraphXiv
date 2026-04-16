@@ -93,6 +93,9 @@ def normalize_paper(self, paper_id: str, parse_source: str) -> dict:
         # Upsert paper row
         _upsert_paper(session, paper, paper_json)
 
+        # Write embedding vector to papers.embeddings column
+        _write_embedding(session, paper, paper_json)
+
         # Update parse_status on active paper_source
         active_source = session.query(PaperSource).filter(
             PaperSource.canonical_id == paper_id,
@@ -590,6 +593,39 @@ def _build_src_url(paper) -> str:
     if paper.pmc_id:
         return f"https://www.ncbi.nlm.nih.gov/pmc/articles/{paper.pmc_id}/"
     return ""
+
+
+# ---------------------------------------------------------------------------
+# Embedding helper
+# ---------------------------------------------------------------------------
+
+_EMBEDDING_MODEL: dict = {}  # module-level cache to avoid reloading per task invocation
+
+
+def _write_embedding(session, paper, paper_json: dict) -> None:
+    """Compute and store sentence-transformer embedding for paper.
+
+    Uses module-level _EMBEDDING_MODEL cache to avoid 2-5s reload per task.
+    Skips if combined title+abstract is empty.
+
+    Args:
+        session: SQLAlchemy session.
+        paper: Paper ORM object.
+        paper_json: Normalized paper dict with title and abstract keys.
+    """
+    from app.config import get_settings
+    settings = get_settings()
+    model_name = settings.embedding_model
+    if model_name not in _EMBEDDING_MODEL:
+        from sentence_transformers import SentenceTransformer
+        _EMBEDDING_MODEL[model_name] = SentenceTransformer(model_name)
+    model = _EMBEDDING_MODEL[model_name]
+    text_input = f"{paper_json.get('title', '')} {paper_json.get('abstract', '')}"
+    if not text_input.strip():
+        return
+    vec = model.encode(text_input).tolist()
+    paper.embeddings = vec
+    session.add(paper)
 
 
 # ---------------------------------------------------------------------------
