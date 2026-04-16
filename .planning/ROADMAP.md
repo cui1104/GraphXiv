@@ -11,7 +11,7 @@ Seven phases on a strict critical path: stand up the infrastructure, crawl the c
 - [x] **Phase 3: Parser Layer** - TEX2JSON, JATS2JSON, and MinerU/GROBID paths all producing structured output from real papers (completed 2026-04-15)
 - [x] **Phase 4: Normalizer + Storage** - All parser outputs mapped to unified deepxiv_sdk JSON schema and upserted to PostgreSQL (completed 2026-04-15)
 - [x] **Phase 5: REST API** - All 7 FastAPI endpoints serving correct JSON with Redis caching (completed 2026-04-16)
-- [ ] **Phase 6: SDK Fork + Verification** - Forked deepxiv_sdk passes full test suite against this backend and ships one new capability
+- [x] **Phase 6: SDK Fork + Verification** - Forked deepxiv_sdk passes full test suite against this backend and ships one new capability (completed 2026-04-16)
 - [ ] **Phase 7: Benchmark** - MinerU vs GROBID vs Docling vs this system's router evaluated on 150 DL papers with written findings report
 
 ---
@@ -128,7 +128,7 @@ Plans:
 Plans:
 - [x] 06-01-PLAN.md — Fork deepxiv_sdk into sdk/, rewrite Reader URL construction (query-param to path-param), stub unmapped methods as NotImplementedError, establish test infrastructure with unit tests
 - [x] 06-02-PLAN.md — Contract verification unit tests for all Reader methods (response shape validation), integration tests for 10-paper SDK-02 coverage, field mismatch fixes
-- [ ] 06-03-PLAN.md — Citation-aware Agent tools (get_references, get_cited_by, fetch_cited_paper_sections in ToolExecutor), Agent citation_depth parameter, unit + integration tests for SDK-03/SDK-04
+- [x] 06-03-PLAN.md — Citation-aware Agent tools (get_references, get_cited_by, fetch_cited_paper_sections in ToolExecutor), Agent citation_depth parameter, unit + integration tests for SDK-03/SDK-04
 
 ---
 
@@ -162,5 +162,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 3. Parser Layer | 4/4 | Complete   | 2026-04-15 |
 | 4. Normalizer + Storage | 2/2 | Complete    | 2026-04-15 |
 | 5. REST API | 3/3 | Complete   | 2026-04-16 |
-| 6. SDK Fork + Verification | 2/3 | In Progress|  |
+| 6. SDK Fork + Verification | 3/3 | Complete   | 2026-04-16 |
 | 7. Benchmark | 0/3 | Not started | - |

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 06-02-PLAN.md
-last_updated: "2026-04-16T21:49:58.526Z"
+stopped_at: Completed 06-03-PLAN.md
+last_updated: "2026-04-16T21:54:11.094Z"
 progress:
   total_phases: 7
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 19
-  completed_plans: 18
+  completed_plans: 19
 ---
 
 # Project State
@@ -95,6 +95,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - search() uses 'size' kwarg mapped to 'limit' query param — integration test fixtures use size=10 not limit=10 (06-02)
 - test_mcp_server.py gains pytest.importorskip("mcp") — skips gracefully when mcp package absent (06-02)
 - test_trending.py marked skip at module level — trending/social_impact are upstream-only stubs raising NotImplementedError in fork (06-02)
+- get_tools_definition() added as instance method on ToolExecutor delegating to module-level function — test API required te.get_tools_definition(); ReAct graph imports standalone (06-03)
+- test_agent.py force-tracked via git add -f — upstream SDK .gitignore explicitly excludes it; project tests must be version-controlled (06-03)
 
 ## Performance Metrics
 
@@ -115,6 +117,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 05 P03 | 8min | 2 tasks | 5 files |
 | Phase 06 P01 | 5min | 2 tasks | 7 files |
 | Phase 06 P02 | 3min | 2 tasks | 4 files |
+| Phase 06 P03 | 5min | 2 tasks | 4 files |
 
 ## Performance Metrics (continued)
 
@@ -126,9 +129,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 06 Plan 02 complete. Execute 06-03 — Citation-aware agent feature.
+Phase 06 complete (3/3 plans). Execute Phase 07 — Benchmark (MinerU vs GROBID vs Docling).
 
 ## Session
 
 Last updated: 2026-04-16
-Stopped at: Completed 06-02-PLAN.md
+Stopped at: Completed 06-03-PLAN.md
