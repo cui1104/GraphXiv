@@ -22,10 +22,42 @@ def reader():
 
 @pytest.fixture(scope="module")
 def test_papers(reader):
-    """Find 10 papers via search to use as test subjects."""
-    result = reader.search("deep learning", size=10)
-    assert result["total"] >= 10, f"Need >=10 papers in DB, got {result['total']}"
-    return [r["arxiv_id"] for r in result["results"] if r.get("arxiv_id")]
+    """Return 10 papers that have been fully normalized (token_count > 0).
+
+    Checks known-seeded IDs first, then falls back to a broad search for
+    any papers the backend has processed through the normalize pipeline.
+    """
+    _SEEDED_IDS = [
+        "2006.02854", "2105.11598", "2110.03585", "2110.11144", "2110.13369",
+        "2111.13646", "2205.10019", "2205.11638", "2208.05767", "2210.13785",
+    ]
+    found: list[str] = []
+    for arxiv_id in _SEEDED_IDS:
+        try:
+            head = reader.head(arxiv_id)
+            if head.get("token_count", 0) > 0:
+                found.append(arxiv_id)
+        except Exception:
+            pass
+
+    # Supplement via search if seeded papers aren't enough
+    if len(found) < 10:
+        for query in ("machine learning", "deep learning", "neural network"):
+            result = reader.search(query, size=20)
+            for r in result.get("results", []):
+                arxiv_id = r.get("arxiv_id")
+                if arxiv_id and arxiv_id not in found:
+                    head = reader.head(arxiv_id)
+                    if head.get("token_count", 0) > 0:
+                        found.append(arxiv_id)
+            if len(found) >= 10:
+                break
+
+    assert len(found) >= 10, (
+        f"Need >=10 fully-normalized papers in DB, found {len(found)}. "
+        "Run the normalize pipeline or seed test data first."
+    )
+    return found[:10]
 
 
 class TestSDK02AllMethodsNonEmpty:
