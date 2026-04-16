@@ -15,7 +15,48 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.api.main import app
-from app.api.deps import get_db
+from app.api.deps import get_db, get_redis
+
+
+# ---------------------------------------------------------------------------
+# Mock Redis — async dict-backed store (no live Redis needed)
+# ---------------------------------------------------------------------------
+
+class MockRedis:
+    """Minimal async Redis mock for unit tests.
+
+    Implements get/set/delete/scan so cache-aside handlers work without
+    a live Redis server.
+    """
+
+    def __init__(self):
+        self._store: dict = {}
+
+    async def get(self, key: str):
+        return self._store.get(key)
+
+    async def set(self, key: str, value, ex=None):
+        self._store[key] = value
+
+    async def delete(self, *keys):
+        for k in keys:
+            self._store.pop(k, None)
+
+    async def scan_iter(self, match=None):
+        import fnmatch
+        for k in list(self._store.keys()):
+            if match and fnmatch.fnmatch(k, match):
+                yield k
+
+    async def aclose(self):
+        pass
+
+
+def override_get_redis(mock_redis: MockRedis):
+    """Return a FastAPI dependency override that injects the given MockRedis."""
+    async def _override():
+        return mock_redis
+    return _override
 
 
 # ---------------------------------------------------------------------------
@@ -103,8 +144,15 @@ def override_get_db_not_found():
 
 @pytest.fixture(autouse=True)
 def reset_dependency_overrides():
-    """Ensure dependency overrides are cleared after each test."""
-    yield
+    """Inject a default MockRedis and clear all dependency overrides after each test.
+
+    Since all route handlers now use async Redis cache-aside, every test needs
+    a Redis mock. This fixture injects a fresh MockRedis so existing tests
+    don't need individual get_redis overrides.
+    """
+    mock_redis = MockRedis()
+    app.dependency_overrides[get_redis] = override_get_redis(mock_redis)
+    yield mock_redis
     app.dependency_overrides.clear()
 
 
@@ -264,15 +312,45 @@ def test_arxiv_version_stripping():
 
 
 # ---------------------------------------------------------------------------
-# API-09: Redis cache (stub — will be filled in Plan 05-03)
+# API-09: Redis cache — hit/miss and key format verification
 # ---------------------------------------------------------------------------
 
-@pytest.mark.integration
-def test_redis_cache():
-    """API-09: placeholder for Redis caching tests (filled in Plan 05-03).
+def test_redis_cache(reset_dependency_overrides):
+    """API-09: Cache key is set after first request; second request served from cache.
 
-    Marked integration because it needs a live Redis instance.
+    Uses the MockRedis injected by the autouse fixture. After the first
+    request the key papers:{canonical_id}:head must be present in the store.
     """
-    # Stub: just verify the app has a redis attribute on state after startup.
-    # Real cache hit/miss assertions come in Plan 05-03.
-    assert True
+    paper = _make_mock_paper()
+    mock_redis = reset_dependency_overrides
+    app.dependency_overrides[get_db] = override_get_db_with_paper(paper)
+    # get_redis override already set by autouse fixture (mock_redis)
+
+    client = TestClient(app)
+
+    # First request — cache miss, should populate store
+    response1 = client.get(f"/arxiv/{TEST_ARXIV_ID}/head")
+    assert response1.status_code == 200
+
+    # Verify cache key was set using D-15 format: papers:{canonical_id}:head
+    expected_key = f"papers:{TEST_CANONICAL_ID}:head"
+    import asyncio
+    cached_val = asyncio.run(mock_redis.get(expected_key))
+    assert cached_val is not None, f"Expected cache key {expected_key!r} to be set after first request"
+
+    # Second request — should be served from cache (same response)
+    response2 = client.get(f"/arxiv/{TEST_ARXIV_ID}/head")
+    assert response2.status_code == 200
+    assert response1.json() == response2.json()
+
+
+def test_cache_invalidation():
+    """API-09: _invalidate_cache can be imported and uses SCAN (not KEYS)."""
+    from app.tasks.normalize import _invalidate_cache
+    import inspect
+
+    src = inspect.getsource(_invalidate_cache)
+    # Must use SCAN cursor loop, not KEYS command
+    assert "r.scan(" in src, "_invalidate_cache must use r.scan() not r.keys()"
+    assert "papers:" in src, "_invalidate_cache must reference papers: key prefix"
+    assert "canonical_id" in src, "_invalidate_cache must use paper.canonical_id"

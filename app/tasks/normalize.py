@@ -107,6 +107,13 @@ def normalize_paper(self, paper_id: str, parse_source: str) -> dict:
         # Upsert citations
         _upsert_citations(session, paper, paper_json.get("citations", []))
 
+        # Invalidate Redis cache for this paper (D-18)
+        # Wrapped in try/except so cache failures never break normalization.
+        try:
+            _invalidate_cache(paper)
+        except Exception as exc:
+            logger.warning("Cache invalidation failed for %s: %s", paper.canonical_id, exc)
+
         session.commit()
         return {"status": "ok", "paper_id": paper_id, "parse_source": actual_parse_source}
 
@@ -781,3 +788,34 @@ def _upsert_citations(session, paper, citations: list[dict]) -> None:
             ).on_conflict_do_nothing()
 
         session.execute(stmt)
+
+
+def _invalidate_cache(paper) -> None:
+    """Delete all cached views for this paper from Redis (D-18).
+
+    Uses sync redis.Redis (NOT redis.asyncio) because Celery tasks run
+    synchronously (Pitfall 6 from RESEARCH.md). Creates a fresh connection
+    per invocation — lightweight given the low frequency of normalize calls.
+
+    Scans for keys matching papers:{canonical_id}:* and deletes them.
+    Uses SCAN cursor loop (not KEYS) per anti-pattern guidance.
+
+    Args:
+        paper: Paper ORM object with canonical_id attribute.
+    """
+    import redis as redis_lib
+    from app.config import get_settings
+
+    settings = get_settings()
+    r = redis_lib.from_url(settings.redis_url)
+    try:
+        pattern = f"papers:{paper.canonical_id}:*"
+        cursor = 0
+        while True:
+            cursor, keys = r.scan(cursor, match=pattern, count=100)
+            if keys:
+                r.delete(*keys)
+            if cursor == 0:
+                break
+    finally:
+        r.close()
