@@ -3,12 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-16T21:44:57.113Z"
+stopped_at: Completed 06-02-PLAN.md
+last_updated: "2026-04-16T21:49:58.526Z"
 progress:
   total_phases: 7
   completed_phases: 5
   total_plans: 19
-  completed_plans: 17
+  completed_plans: 18
 ---
 
 # Project State
@@ -91,6 +92,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - SDK fork version=0.2.0.dev0 (PEP 440 compliant; 0.2.0-local rejected by setuptools) (06-01)
 - raw() and json() aliased to full() to preserve upstream API surface while pointing at new /arxiv/{id}/full path-param endpoint (06-01)
 - section() does client-side filter on /sections response (no per-section route in local backend) (06-01)
+- search() uses 'size' kwarg mapped to 'limit' query param — integration test fixtures use size=10 not limit=10 (06-02)
+- test_mcp_server.py gains pytest.importorskip("mcp") — skips gracefully when mcp package absent (06-02)
+- test_trending.py marked skip at module level — trending/social_impact are upstream-only stubs raising NotImplementedError in fork (06-02)
 
 ## Performance Metrics
 
@@ -110,6 +114,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 05 P02 | 10 | 2 tasks | 5 files |
 | Phase 05 P03 | 8min | 2 tasks | 5 files |
 | Phase 06 P01 | 5min | 2 tasks | 7 files |
+| Phase 06 P02 | 3min | 2 tasks | 4 files |
 
 ## Performance Metrics (continued)
 
@@ -121,9 +126,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 06 Plan 01 complete. Execute 06-02 — Integration tests against live backend.
+Phase 06 Plan 02 complete. Execute 06-03 — Citation-aware agent feature.
 
 ## Session
 
 Last updated: 2026-04-16
-Stopped at: Completed 06-01-PLAN.md
+Stopped at: Completed 06-02-PLAN.md
