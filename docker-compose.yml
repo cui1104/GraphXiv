@@ -68,6 +68,21 @@ services:
         condition: service_healthy
     env_file: .env
 
+  api:
+    build: .
+    env_file: .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+
 volumes:
   pgdata:
   redisdata:

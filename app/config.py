@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     postgres_password: str = "changeme"
     postgres_db: str = "papers"
     data_dir: str = "/data"
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 

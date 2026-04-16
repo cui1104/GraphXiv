@@ -30,7 +30,7 @@ class Paper(Base):
     parse_quality: Mapped[str | None] = mapped_column(Text, nullable=True)
     token_count: Mapped[int | None] = mapped_column(Integer, nullable=True)
     tldr: Mapped[str | None] = mapped_column(Text, nullable=True)
-    embeddings: Mapped[list | None] = mapped_column(Vector(768), nullable=True)
+    embeddings: Mapped[list | None] = mapped_column(Vector(384), nullable=True)
     content: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         TIMESTAMPTZ, server_default=func.now()
