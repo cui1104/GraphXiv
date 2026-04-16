@@ -116,3 +116,28 @@ class TestSDK02AllMethodsNonEmpty:
             assert field in result, f"full({arxiv_id}) missing field: {field}"
         assert isinstance(result["sections"], list)
         assert isinstance(result["citations"], list)
+
+
+class TestSDK03CitationGraph:
+    """SDK-03: references() and cited_by() return lists."""
+
+    def test_references_returns_list(self, reader, test_papers):
+        arxiv_id = test_papers[0]
+        result = reader.references(arxiv_id)
+        assert "references" in result
+        assert isinstance(result["references"], list)
+        assert "paper_id" in result
+
+    def test_cited_by_returns_list(self, reader, test_papers):
+        arxiv_id = test_papers[0]
+        result = reader.cited_by(arxiv_id)
+        assert "cited_by" in result
+        assert isinstance(result["cited_by"], list)
+        assert "paper_id" in result
+
+    def test_reference_items_have_in_corpus_flag(self, reader, test_papers):
+        arxiv_id = test_papers[0]
+        result = reader.references(arxiv_id)
+        for ref in result["references"][:5]:
+            assert "in_corpus" in ref, "ReferenceItem missing in_corpus flag"
+            assert isinstance(ref["in_corpus"], bool)
