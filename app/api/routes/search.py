@@ -7,9 +7,13 @@ Supports three search modes:
 
 Falls back to BM25-only when search_mode is hybrid/vector but no papers
 have embeddings in the database.
+
+Uses async def handler with cache-aside pattern (D-16/D-17):
+- Cache key: search:{md5(q:limit:search_mode)}, TTL 300s.
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 
@@ -17,12 +21,16 @@ from fastapi import APIRouter, Depends, Request
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-from app.api.deps import get_db
+from app.api.cache import SEARCH_TTL, get_cached, search_cache_key, set_cache
+from app.api.deps import get_db, get_redis
 from app.api.schemas import SearchResponse, SearchResultItem
+from redis.asyncio import Redis
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
+
+SEARCH_TTL = SEARCH_TTL  # re-export for grep-ability in tests
 
 
 # ---------------------------------------------------------------------------
@@ -148,35 +156,45 @@ def _rows_to_search_results(rows: list) -> list[SearchResultItem]:
 # ---------------------------------------------------------------------------
 
 @router.get("/arxiv/search", response_model=SearchResponse)
-def arxiv_search(
+async def arxiv_search(
     request: Request,
     q: str,
     limit: int = 10,
     search_mode: str = "hybrid",
     db: Session = Depends(get_db),
+    redis: Redis = Depends(get_redis),
 ):
     """API-05: Hybrid search endpoint supporting bm25, vector, and hybrid modes."""
-    rows: list = []
+    cache_key = search_cache_key(q, limit, search_mode)
+    cached = await get_cached(redis, cache_key)
+    if cached is not None:
+        return cached
 
-    if search_mode == "bm25":
-        rows = _bm25_search(db, q, limit)
-    elif search_mode == "vector":
-        if not _check_has_embeddings(db):
-            logger.warning("No embeddings found, falling back to BM25 search")
+    def _run_search():
+        rows: list = []
+        if search_mode == "bm25":
             rows = _bm25_search(db, q, limit)
+        elif search_mode == "vector":
+            if not _check_has_embeddings(db):
+                logger.warning("No embeddings found, falling back to BM25 search")
+                rows = _bm25_search(db, q, limit)
+            else:
+                model = _get_or_load_embedding_model(request)
+                query_vec = model.encode(q).tolist()
+                rows = _vector_search(db, query_vec, limit)
         else:
-            model = _get_or_load_embedding_model(request)
-            query_vec = model.encode(q).tolist()
-            rows = _vector_search(db, query_vec, limit)
-    else:
-        # Default: hybrid
-        if not _check_has_embeddings(db):
-            logger.warning("No embeddings found, falling back to BM25 search")
-            rows = _bm25_search(db, q, limit)
-        else:
-            model = _get_or_load_embedding_model(request)
-            query_vec = model.encode(q).tolist()
-            rows = _hybrid_search(db, q, query_vec, limit)
+            # Default: hybrid
+            if not _check_has_embeddings(db):
+                logger.warning("No embeddings found, falling back to BM25 search")
+                rows = _bm25_search(db, q, limit)
+            else:
+                model = _get_or_load_embedding_model(request)
+                query_vec = model.encode(q).tolist()
+                rows = _hybrid_search(db, q, query_vec, limit)
+        return rows
 
+    rows = await asyncio.to_thread(_run_search)
     results = _rows_to_search_results(rows)
+    response_dict = {"total": len(results), "results": [r.model_dump() for r in results]}
+    await set_cache(redis, cache_key, response_dict, SEARCH_TTL)
     return SearchResponse(total=len(results), results=results)
