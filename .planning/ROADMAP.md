@@ -126,9 +126,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: Fork and base_url update — fork deepxiv_sdk on GitHub; update `base_url` default in `Reader.__init__` to point at `http://localhost:8000`; verify all existing SDK methods are importable and callable; document any field name mismatches found during SDK test run and fix in backend normalizer if needed
-- [ ] 06-02: SDK contract verification — run the SDK's existing test suite (or write integration tests if none exist) that call every Reader method and assert non-None, non-empty content values for at least 10 test papers; fix any silent-empty-response issues found by tracing the failing field name back through the normalizer
-- [ ] 06-03: New capability — implement local response caching in the SDK fork (cache responses to `~/.deepxiv_cache/` on first call, serve from disk on repeat calls with configurable TTL) OR implement a `Reader.tables()` method backed by a new `GET /arxiv/{id}/tables` backend endpoint that extracts `ref_entries` entries of type `table`; write tests for the new capability
+- [ ] 06-01-PLAN.md — Fork deepxiv_sdk into sdk/, rewrite Reader URL construction (query-param to path-param), stub unmapped methods as NotImplementedError, establish test infrastructure with unit tests
+- [ ] 06-02-PLAN.md — Contract verification unit tests for all Reader methods (response shape validation), integration tests for 10-paper SDK-02 coverage, field mismatch fixes
+- [ ] 06-03-PLAN.md — Citation-aware Agent tools (get_references, get_cited_by, fetch_cited_paper_sections in ToolExecutor), Agent citation_depth parameter, unit + integration tests for SDK-03/SDK-04
 
 ---
 
