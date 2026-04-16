@@ -108,7 +108,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — FastAPI app scaffold, Pydantic v2 response schemas (all 10+ models), deps.py, Docker api service, Alembic migration (embeddings vector(768)->vector(384)), test stubs
+- [x] 05-01-PLAN.md — FastAPI app scaffold, Pydantic v2 response schemas (all 10+ models), deps.py, Docker api service, Alembic migration (embeddings vector(768)->vector(384)), test stubs
 - [ ] 05-02-PLAN.md — All 10 endpoint implementations (7 arXiv + 2 PMC + 1 search), ID resolution with version stripping, hybrid BM25/vector/hybrid search, citation graph queries, 404 handling, embedding write in normalize_paper
 - [ ] 05-03-PLAN.md — Redis cache-aside on all endpoints (papers:{canonical_id}:{view} keys, 3600s/300s TTLs), cache invalidation in normalize_paper via SCAN, cache behavior tests
 
@@ -161,6 +161,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 2. Ingestion | 4/4 | Complete   | 2026-04-15 |
 | 3. Parser Layer | 4/4 | Complete   | 2026-04-15 |
 | 4. Normalizer + Storage | 2/2 | Complete    | 2026-04-15 |
-| 5. REST API | 0/3 | Not started | - |
+| 5. REST API | 1/3 | In Progress|  |
 | 6. SDK Fork + Verification | 0/3 | Not started | - |
 | 7. Benchmark | 0/3 | Not started | - |

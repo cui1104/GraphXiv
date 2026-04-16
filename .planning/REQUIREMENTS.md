@@ -42,14 +42,14 @@
 
 ### REST API
 
-- [ ] **API-01**: `GET /arxiv/{id}/head` returns metadata-only response (paper_id, arxiv_id, pmc_id, doi, title, abstract, tldr, authors, year, venue, src_url, token_count, parse_source)
-- [ ] **API-02**: `GET /arxiv/{id}/brief` returns same shape as head (ensures SDK brief/head distinction works)
-- [ ] **API-03**: `GET /arxiv/{id}/sections` returns sections-only response (paper_id, title, sections[], token_count)
-- [ ] **API-04**: `GET /arxiv/{id}/full` returns the complete paper object including sections, citations, ref_entries, and back_matter
-- [ ] **API-05**: `GET /arxiv/search?q=&limit=` returns `{total, results: [...head-shaped objects]}` with keyword search over stored title and abstract text
-- [ ] **API-06**: `GET /pmc/{id}/head` returns metadata-only response (same shape as arxiv head, pmc_id populated)
-- [ ] **API-07**: `GET /pmc/{id}/full` returns complete paper object for PMC papers
-- [ ] **API-08**: All endpoints return HTTP 404 with a structured error body when the requested ID is not in the database
+- [x] **API-01**: `GET /arxiv/{id}/head` returns metadata-only response (paper_id, arxiv_id, pmc_id, doi, title, abstract, tldr, authors, year, venue, src_url, token_count, parse_source)
+- [x] **API-02**: `GET /arxiv/{id}/brief` returns same shape as head (ensures SDK brief/head distinction works)
+- [x] **API-03**: `GET /arxiv/{id}/sections` returns sections-only response (paper_id, title, sections[], token_count)
+- [x] **API-04**: `GET /arxiv/{id}/full` returns the complete paper object including sections, citations, ref_entries, and back_matter
+- [x] **API-05**: `GET /arxiv/search?q=&limit=` returns `{total, results: [...head-shaped objects]}` with keyword search over stored title and abstract text
+- [x] **API-06**: `GET /pmc/{id}/head` returns metadata-only response (same shape as arxiv head, pmc_id populated)
+- [x] **API-07**: `GET /pmc/{id}/full` returns complete paper object for PMC papers
+- [x] **API-08**: All endpoints return HTTP 404 with a structured error body when the requested ID is not in the database
 - [ ] **API-09**: Redis caching layer is active on all endpoints; cache keys follow `papers:{canonical_id}:{view}` pattern with appropriate TTLs
 - [ ] **API-10**: `GET /arxiv/search` supports hybrid search — BM25 (PostgreSQL `tsvector`) + semantic vector similarity (pgvector) on paper titles and abstracts; `search_mode` parameter accepts `bm25`, `vector`, or `hybrid`
 - [ ] **API-11**: `GET /arxiv/{id}/references` returns papers this paper cites, each with `in_corpus` flag, `context_text` (sentence where cited), and full head-shape metadata if in corpus
@@ -136,14 +136,14 @@
 | NORM-04 | Phase 4 | Complete |
 | NORM-05 | Phase 4 | Complete |
 | NORM-06 | Phase 4 | Complete |
-| API-01 | Phase 5 | Pending |
-| API-02 | Phase 5 | Pending |
-| API-03 | Phase 5 | Pending |
-| API-04 | Phase 5 | Pending |
-| API-05 | Phase 5 | Pending |
-| API-06 | Phase 5 | Pending |
-| API-07 | Phase 5 | Pending |
-| API-08 | Phase 5 | Pending |
+| API-01 | Phase 5 | Complete |
+| API-02 | Phase 5 | Complete |
+| API-03 | Phase 5 | Complete |
+| API-04 | Phase 5 | Complete |
+| API-05 | Phase 5 | Complete |
+| API-06 | Phase 5 | Complete |
+| API-07 | Phase 5 | Complete |
+| API-08 | Phase 5 | Complete |
 | API-09 | Phase 5 | Pending |
 | API-10 | Phase 5 | Pending |
 | API-11 | Phase 5 | Pending |

@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-15T21:39:12.508Z"
+last_updated: "2026-04-16T01:27:16.237Z"
 progress:
   total_phases: 7
   completed_phases: 4
-  total_plans: 13
-  completed_plans: 13
+  total_plans: 16
+  completed_plans: 14
 ---
 
 # Project State
@@ -18,13 +18,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Core value:** Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, figures, metadata) in under a second — by doing all parsing work ahead of time via a continuous ingestion pipeline.
-**Current focus:** Phase 04 — normalizer-storage
+**Current focus:** Phase 05 — rest-api
 
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 04 — Normalizer + Storage (2/3 plans complete)
-**Last Action:** Completed 04-02 — normalize_paper Celery task with S2ORC/MinerU/GROBID branches, tiktoken token counting, SHA-256 dedup fingerprint, pg upsert, citation edges; normalize_paper.si() wired into all three router chains (2026-04-15)
+**Active Phase:** Phase 05 — REST API (1/3 plans complete)
+**Last Action:** Completed 05-01 — FastAPI skeleton with 14 Pydantic v2 schemas, 10 stub endpoints (7 arXiv + 2 PMC + 1 search), Docker api service, Alembic migration 0004 (Vector 768→384), test scaffold 9/9 passing (2026-04-15)
 
 ## Phase Progress
 
@@ -78,6 +78,10 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - parse_pdf_grobid branches on cascade_to_pdf_grobid for primary (extract_fulltext -> grobid_sections + grobid_citations) vs secondary (extract_references -> grobid_citations only) mode (04-01)
 - _normalize_s2orc signature takes (raw, parse_quality=None) not (raw, paper) to match pre-written test stubs from 04-01; pure _compute_* helpers alongside in-place _add_* wrappers for test/task interface separation (04-02)
 - normalize_paper reads actual_parse_source from paper.parse_source (DB) not from router argument — handles D-03 cascade staleness (Pitfall 1) (04-02)
+- Lazy embedding model: app.state.embedding_model = None at startup, loaded on first /search to avoid 30s startup delay (05-01)
+- BriefResponse = HeadResponse alias (not subclass) — schema identical, distinction is routing-only (05-01)
+- Sync def route handlers for all DB-touching endpoints — FastAPI threadpool handles sync SQLAlchemy safely (05-01)
+- exclude_none=True NOT used on model_config — deepxiv_sdk expects tldr key present as null, not omitted (05-01)
 
 ## Performance Metrics
 
@@ -93,6 +97,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 03 P04 | 2min | 2 tasks | 6 files |
 | Phase 04 P01 | 15 | 2 tasks | 6 files |
 | Phase 04 P02 | 15 | 2 tasks | 2 files |
+| Phase 05 P01 | 3 | 2 tasks | 13 files |
 
 ## Performance Metrics (continued)
 
@@ -104,4 +109,4 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 04 Plan 02 complete. Execute Phase 04 Plan 03 — final plan in Phase 4 (normalizer-storage).
+Phase 05 Plan 01 complete. Execute Phase 05 Plan 02 — endpoint logic (real DB queries replacing 501 stubs).
