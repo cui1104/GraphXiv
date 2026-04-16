@@ -50,7 +50,7 @@
 - [x] **API-06**: `GET /pmc/{id}/head` returns metadata-only response (same shape as arxiv head, pmc_id populated)
 - [x] **API-07**: `GET /pmc/{id}/full` returns complete paper object for PMC papers
 - [x] **API-08**: All endpoints return HTTP 404 with a structured error body when the requested ID is not in the database
-- [ ] **API-09**: Redis caching layer is active on all endpoints; cache keys follow `papers:{canonical_id}:{view}` pattern with appropriate TTLs
+- [x] **API-09**: Redis caching layer is active on all endpoints; cache keys follow `papers:{canonical_id}:{view}` pattern with appropriate TTLs
 - [x] **API-10**: `GET /arxiv/search` supports hybrid search — BM25 (PostgreSQL `tsvector`) + semantic vector similarity (pgvector) on paper titles and abstracts; `search_mode` parameter accepts `bm25`, `vector`, or `hybrid`
 - [x] **API-11**: `GET /arxiv/{id}/references` returns papers this paper cites, each with `in_corpus` flag, `context_text` (sentence where cited), and full head-shape metadata if in corpus
 - [x] **API-12**: `GET /arxiv/{id}/cited_by` returns papers in the corpus that cite this paper
@@ -58,7 +58,7 @@
 
 ### SDK Fork
 
-- [ ] **SDK-01**: deepxiv_sdk is forked and the default `base_url` is updated to point at this backend; fork is installable via `pip install -e`
+- [x] **SDK-01**: deepxiv_sdk is forked and the default `base_url` is updated to point at this backend; fork is installable via `pip install -e`
 - [ ] **SDK-02**: All existing deepxiv_sdk features work against this backend — `Reader.head()`, `Reader.brief()`, `Reader.sections()`, `Reader.full()`, `Reader.search()` return non-empty content for at least 10 test papers
 - [ ] **SDK-03**: SDK fork adds `Reader.references(arxiv_id)` and `Reader.cited_by(arxiv_id)` methods that call the citation graph endpoints
 - [ ] **SDK-04**: SDK fork ships an improved `Agent` that performs citation-aware reading — after reading a paper's sections, the agent automatically identifies key cited works, fetches their sections if `in_corpus=True`, and incorporates that context before generating an answer; depth is configurable (default: 1 hop)
@@ -144,12 +144,12 @@
 | API-06 | Phase 5 | Complete |
 | API-07 | Phase 5 | Complete |
 | API-08 | Phase 5 | Complete |
-| API-09 | Phase 5 | Pending |
+| API-09 | Phase 5 | Complete |
 | API-10 | Phase 5 | Complete |
 | API-11 | Phase 5 | Complete |
 | API-12 | Phase 5 | Complete |
 | API-13 | Phase 5 | Complete |
-| SDK-01 | Phase 6 | Pending |
+| SDK-01 | Phase 6 | Complete |
 | SDK-02 | Phase 6 | Pending |
 | SDK-03 | Phase 6 | Pending |
 | SDK-04 | Phase 6 | Pending |

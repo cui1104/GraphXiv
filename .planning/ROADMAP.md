@@ -117,7 +117,7 @@ Plans:
 ### Phase 6: SDK Fork + Verification
 **Goal**: The forked deepxiv_sdk passes its full test suite against this backend and ships at least one new capability.
 **Depends on**: Phase 5
-**Requirements**: SDK-01, SDK-02, SDK-03
+**Requirements**: SDK-01, SDK-02, SDK-03, SDK-04
 **Success Criteria** (what must be TRUE):
   1. Forked SDK installs via `pip install -e .` and `Reader(base_url="http://localhost:8000")` connects to the backend without errors
   2. `Reader.head()`, `Reader.brief()`, `Reader.sections()`, `Reader.full()`, and `Reader.search()` all return non-empty content (not `None` or `[]`) for at least 10 arXiv papers from the stored corpus
@@ -126,7 +126,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Fork deepxiv_sdk into sdk/, rewrite Reader URL construction (query-param to path-param), stub unmapped methods as NotImplementedError, establish test infrastructure with unit tests
+- [x] 06-01-PLAN.md — Fork deepxiv_sdk into sdk/, rewrite Reader URL construction (query-param to path-param), stub unmapped methods as NotImplementedError, establish test infrastructure with unit tests
 - [ ] 06-02-PLAN.md — Contract verification unit tests for all Reader methods (response shape validation), integration tests for 10-paper SDK-02 coverage, field mismatch fixes
 - [ ] 06-03-PLAN.md — Citation-aware Agent tools (get_references, get_cited_by, fetch_cited_paper_sections in ToolExecutor), Agent citation_depth parameter, unit + integration tests for SDK-03/SDK-04
 
@@ -162,5 +162,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 3. Parser Layer | 4/4 | Complete   | 2026-04-15 |
 | 4. Normalizer + Storage | 2/2 | Complete    | 2026-04-15 |
 | 5. REST API | 3/3 | Complete   | 2026-04-16 |
-| 6. SDK Fork + Verification | 0/3 | Not started | - |
+| 6. SDK Fork + Verification | 1/3 | In Progress|  |
 | 7. Benchmark | 0/3 | Not started | - |

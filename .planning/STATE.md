@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-04-16T05:55:43.858Z"
+last_updated: "2026-04-16T21:44:57.113Z"
 progress:
   total_phases: 7
   completed_phases: 5
-  total_plans: 16
-  completed_plans: 16
+  total_plans: 19
+  completed_plans: 17
 ---
 
 # Project State
@@ -88,6 +88,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - All route handlers converted to async def; sync SQLAlchemy calls wrapped in asyncio.to_thread() — no asyncpg introduced (05-03)
 - _invalidate_cache in normalize_paper uses sync redis.Redis (Celery safe) with SCAN cursor loop, wrapped in try/except (05-03)
 - MockRedis autouse pytest fixture injects async dict store for all API tests — no live Redis needed in CI (05-03)
+- SDK fork version=0.2.0.dev0 (PEP 440 compliant; 0.2.0-local rejected by setuptools) (06-01)
+- raw() and json() aliased to full() to preserve upstream API surface while pointing at new /arxiv/{id}/full path-param endpoint (06-01)
+- section() does client-side filter on /sections response (no per-section route in local backend) (06-01)
 
 ## Performance Metrics
 
@@ -106,6 +109,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 05 P01 | 3 | 2 tasks | 13 files |
 | Phase 05 P02 | 10 | 2 tasks | 5 files |
 | Phase 05 P03 | 8min | 2 tasks | 5 files |
+| Phase 06 P01 | 5min | 2 tasks | 7 files |
 
 ## Performance Metrics (continued)
 
@@ -117,4 +121,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 05 complete (3/3 plans done). Execute Phase 06 — Fork deepxiv_sdk, point at this backend, verify all SDK features work.
+Phase 06 Plan 01 complete. Execute 06-02 — Integration tests against live backend.
+
+## Session
+
+Last updated: 2026-04-16
+Stopped at: Completed 06-01-PLAN.md
