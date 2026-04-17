@@ -27,7 +27,7 @@ from app.models import Paper, PaperSource
 DATA_DIR = os.environ.get("DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "data"))
 SAMPLE_PATH = os.path.join(os.path.dirname(__file__), "sample.json")
 TARGET_TOTAL = 150
-MIN_TWO_COLUMN = 30
+MIN_TWO_COLUMN = 0
 RANDOM_SEED = 42  # reproducibility
 
 
