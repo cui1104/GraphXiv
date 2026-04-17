@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 06-03-PLAN.md
-last_updated: "2026-04-16T22:50:30.797Z"
+stopped_at: Completed 07-01-PLAN.md
+last_updated: "2026-04-17T19:13:21.235Z"
 progress:
   total_phases: 7
   completed_phases: 6
-  total_plans: 19
-  completed_plans: 19
+  total_plans: 22
+  completed_plans: 20
 ---
 
 # Project State
@@ -19,7 +19,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Core value:** Given an arXiv ID or PMC ID, return clean structured JSON (sections, tables, figures, metadata) in under a second — by doing all parsing work ahead of time via a continuous ingestion pipeline.
-**Current focus:** Phase 06 — sdk-fork-verification
+**Current focus:** Phase 07 — benchmark
 
 ## Current Status
 
@@ -37,7 +37,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | 4 - Normalizer + Storage | ○ Pending | 3 | deepxiv_sdk JSON contract, upsert |
 | 5 - REST API | ✓ Complete | 3 | FastAPI, Redis caching, all 9 endpoints |
 | 6 - SDK Fork + Verification | ○ Pending | 3 | Fork deepxiv_sdk, test suite, new feature |
-| 7 - Benchmark | ○ Pending | 3 | MinerU vs GROBID vs Docling |
+| 7 - Benchmark | ↻ In Progress | 3 | MinerU vs GROBID vs Docling (1/3 complete) |
 
 ## Key Decisions Made
 
@@ -97,6 +97,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - test_trending.py marked skip at module level — trending/social_impact are upstream-only stubs raising NotImplementedError in fork (06-02)
 - get_tools_definition() added as instance method on ToolExecutor delegating to module-level function — test API required te.get_tools_definition(); ReAct graph imports standalone (06-03)
 - test_agent.py force-tracked via git add -f — upstream SDK .gitignore explicitly excludes it; project tests must be version-controlled (06-03)
+- select_sample.py --dry-run check moved before SessionLocal() to avoid psycopg2.OperationalError when Postgres not running locally (07-01)
+- is_two_column uses lazy pymupdf import inside function body per project Pitfall 1; no top-level ML imports in any benchmark script (07-01)
+- D-05 column classification: PyMuPDF signal alone sufficient for two-column flag (parser may have recovered despite layout) (07-01)
 
 ## Performance Metrics
 
@@ -118,6 +121,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 06 P01 | 5min | 2 tasks | 7 files |
 | Phase 06 P02 | 3min | 2 tasks | 4 files |
 | Phase 06 P03 | 5min | 2 tasks | 4 files |
+| Phase 07 P01 | 4min | 3 tasks | 12 files |
 
 ## Performance Metrics (continued)
 
@@ -134,4 +138,4 @@ Phase 06 complete (3/3 plans). Execute Phase 07 — Benchmark (MinerU vs GROBID 
 ## Session
 
 Last updated: 2026-04-16
-Stopped at: Completed 06-03-PLAN.md
+Stopped at: Completed 07-01-PLAN.md

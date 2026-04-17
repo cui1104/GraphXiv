@@ -144,9 +144,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 07-01: Benchmark sample selection and Docling setup — select exactly 150 DL papers from the stored corpus (stratified: ~75 single-column arXiv LaTeX-sourced, ~50 two-column IEEE/ACM/Nature-style PDF-only, ~25 mixed); install Docling; verify MinerU, GROBID, Docling, and the pipeline router all run on the benchmark sample without crashes or missing dependencies
-- [ ] 07-02: Automated evaluation — for each of four conditions (MinerU standalone, GROBID standalone, Docling standalone, Router) and each sample paper, extract sections and tables; compute section heading match rate against ground truth (LaTeX-sourced papers as reference); compute sentence-length distribution to detect multi-column interleaving; record table presence rate and structural completeness score; output all four conditions to a single CSV with condition column
-- [ ] 07-03: Findings report — analyze CSV; compute per-condition aggregate scores; produce comparison table (MinerU | GROBID | Docling | Router) across all metrics; characterize multi-column failure modes; write benchmark report documenting methodology, sample composition, results table, and recommendation for which parser to use as MinerU fallback
+- [x] 07-01-PLAN.md — Wave 0 scaffold (benchmark/ directory, metrics library, stratified select_sample.py, tests/test_benchmark.py, requirements-benchmark.txt, Dockerfile update)
+- [ ] 07-02-PLAN.md — Ground truth (Claude Opus vision, create_gt.py) + four-condition runner (run_benchmark.py) producing benchmark/results/benchmark.csv with 600 rows
+- [ ] 07-03-PLAN.md — Findings report (analyze_results.py, benchmark/FINDINGS.md with 5 required sections + parser recommendation, analysis.ipynb with matplotlib charts)
 
 ---
 
@@ -163,4 +163,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 4. Normalizer + Storage | 2/2 | Complete    | 2026-04-15 |
 | 5. REST API | 3/3 | Complete   | 2026-04-16 |
 | 6. SDK Fork + Verification | 3/3 | Complete   | 2026-04-16 |
-| 7. Benchmark | 0/3 | Not started | - |
+| 7. Benchmark | 1/3 | In Progress|  |

@@ -60,12 +60,12 @@
 
 - [x] **SDK-01**: deepxiv_sdk is forked and the default `base_url` is updated to point at this backend; fork is installable via `pip install -e`
 - [x] **SDK-02**: All existing deepxiv_sdk features work against this backend — `Reader.head()`, `Reader.brief()`, `Reader.sections()`, `Reader.full()`, `Reader.search()` return non-empty content for at least 10 test papers
-- [ ] **SDK-03**: SDK fork adds `Reader.references(arxiv_id)` and `Reader.cited_by(arxiv_id)` methods that call the citation graph endpoints
-- [ ] **SDK-04**: SDK fork ships an improved `Agent` that performs citation-aware reading — after reading a paper's sections, the agent automatically identifies key cited works, fetches their sections if `in_corpus=True`, and incorporates that context before generating an answer; depth is configurable (default: 1 hop)
+- [x] **SDK-03**: SDK fork adds `Reader.references(arxiv_id)` and `Reader.cited_by(arxiv_id)` methods that call the citation graph endpoints
+- [x] **SDK-04**: SDK fork ships an improved `Agent` that performs citation-aware reading — after reading a paper's sections, the agent automatically identifies key cited works, fetches their sections if `in_corpus=True`, and incorporates that context before generating an answer; depth is configurable (default: 1 hop)
 
 ### Benchmark
 
-- [ ] **BENCH-01**: Benchmark evaluates four conditions — MinerU standalone, GROBID standalone, Docling standalone, and this system's router — on exactly 150 arXiv DL papers, including at least 30 two-column IEEE/ACM-format papers
+- [x] **BENCH-01**: Benchmark evaluates four conditions — MinerU standalone, GROBID standalone, Docling standalone, and this system's router — on exactly 150 arXiv DL papers, including at least 30 two-column IEEE/ACM-format papers
 - [ ] **BENCH-02**: Benchmark measures section extraction accuracy (heading match rate, coherent body text %) and table extraction quality (presence rate, structural completeness) for all four conditions; results output to a single CSV with a condition column
 - [ ] **BENCH-03**: Benchmark findings are written up as a structured report with a four-column comparison table (MinerU | GROBID | Docling | Router), sample selection methodology, multi-column failure characterization, and parser recommendation
 
@@ -151,9 +151,9 @@
 | API-13 | Phase 5 | Complete |
 | SDK-01 | Phase 6 | Complete |
 | SDK-02 | Phase 6 | Complete |
-| SDK-03 | Phase 6 | Pending |
-| SDK-04 | Phase 6 | Pending |
-| BENCH-01 | Phase 7 | Pending |
+| SDK-03 | Phase 6 | Complete |
+| SDK-04 | Phase 6 | Complete |
+| BENCH-01 | Phase 7 | Complete |
 | BENCH-02 | Phase 7 | Pending |
 | BENCH-03 | Phase 7 | Pending |
 
