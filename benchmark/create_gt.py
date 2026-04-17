@@ -64,7 +64,7 @@ def _write_cache(paper_id: str, data: dict) -> None:
 
 def _render_pdf_pages(pdf_path: str, max_pages: int = MAX_PAGES, dpi: int = DPI) -> list:
     """Render first max_pages pages of PDF as PNG byte strings."""
-    import pymupdf  # lazy import per project convention
+    import pymupdf  # type: ignore[import-untyped]
     doc = pymupdf.open(pdf_path)
     try:
         out = []
@@ -102,7 +102,6 @@ def extract_gt_headings(pdf_path: str, client) -> tuple:
 
     Retries on transient API errors (up to MAX_RETRIES). Raises on final failure.
     """
-    import anthropic  # lazy import per project convention
     pngs = _render_pdf_pages(pdf_path)
     content_blocks = []
     for png in pngs:
@@ -150,7 +149,7 @@ def main() -> int:
         print("ERROR: ANTHROPIC_API_KEY env var not set. See https://console.anthropic.com/settings/keys", file=sys.stderr)
         return 2
 
-    import anthropic  # lazy import per project convention
+    import anthropic  # type: ignore[import-untyped]
     client = anthropic.Anthropic()
 
     os.makedirs(GT_DIR, exist_ok=True)

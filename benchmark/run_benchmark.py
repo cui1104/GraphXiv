@@ -22,7 +22,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from benchmark.metrics import (
+from benchmark.metrics import (  # type: ignore[import]
     compute_heading_match_rate,
     coherent_section_pct,
     table_completeness_docling,
@@ -62,10 +62,10 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
     sections: list[{heading, text}]
     content_list: full MinerU output (for table_completeness_mineru)
     """
-    from magic_pdf.config.enums import SupportedPdfParseMethod  # lazy import
-    from magic_pdf.data.data_reader_writer import FileBasedDataWriter  # lazy import
-    from magic_pdf.data.dataset import PymuDocDataset  # lazy import
-    from magic_pdf.model.doc_analyze_by_custom_model import doc_analyze  # lazy import
+    from magic_pdf.config.enums import SupportedPdfParseMethod  # type: ignore[import-untyped]
+    from magic_pdf.data.data_reader_writer import FileBasedDataWriter  # type: ignore[import-untyped]
+    from magic_pdf.data.dataset import PymuDocDataset  # type: ignore[import-untyped]
+    from magic_pdf.model.doc_analyze_by_custom_model import doc_analyze  # type: ignore[import-untyped]
 
     output_dir = tempfile.mkdtemp(prefix="bench_mineru_")
     try:
@@ -144,10 +144,10 @@ def run_docling_standalone(pdf_path: str) -> tuple:
 
     Lazy imports (Pitfall 1). CPU device forced (Pitfall 2).
     """
-    from docling.document_converter import DocumentConverter, PdfFormatOption  # lazy import
-    from docling.datamodel.base_models import InputFormat  # lazy import
-    from docling.datamodel.pipeline_options import PdfPipelineOptions  # lazy import
-    from docling.datamodel.accelerator_options import AcceleratorOptions, AcceleratorDevice  # lazy import
+    from docling.document_converter import DocumentConverter, PdfFormatOption  # type: ignore[import-untyped]
+    from docling.datamodel.base_models import InputFormat  # type: ignore[import-untyped]
+    from docling.datamodel.pipeline_options import PdfPipelineOptions  # type: ignore[import-untyped]
+    from docling.datamodel.accelerator_options import AcceleratorOptions, AcceleratorDevice  # type: ignore[import-untyped]
 
     pipeline_options = PdfPipelineOptions(do_table_structure=True)
     pipeline_options.accelerator_options = AcceleratorOptions(device=AcceleratorDevice.CPU)
