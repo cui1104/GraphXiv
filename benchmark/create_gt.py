@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 SAMPLE_PATH = os.path.join(os.path.dirname(__file__), "sample.json")
 GT_DIR = os.path.join(os.path.dirname(__file__), "gt")
-MODEL_ID = "gemini-2.0-flash"
+MODEL_ID = "gemini-2.5-flash"
 MAX_PAGES = 10
 DPI = 120
 MAX_RETRIES = 3
