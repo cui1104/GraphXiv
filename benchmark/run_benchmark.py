@@ -47,6 +47,21 @@ CONDITIONS = ["mineru", "grobid", "docling", "router"]
 
 GROBID_TIMEOUT_SECONDS = 90  # Pitfall 6
 
+# Remap host-absolute pdf_path to container DATA_DIR if needed.
+# sample.json stores host paths; inside Docker DATA_DIR=/data.
+_DATA_DIR = os.environ.get("DATA_DIR", "")
+
+def _remap_pdf_path(path: str) -> str:
+    if not _DATA_DIR or os.path.exists(path):
+        return path
+    # Extract relative portion after any "data/" segment and join with DATA_DIR
+    marker = os.sep + "data" + os.sep
+    idx = path.find(marker)
+    if idx != -1:
+        rel = path[idx + len(marker):]
+        return os.path.join(_DATA_DIR, rel)
+    return path
+
 logger = logging.getLogger("run_benchmark")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
@@ -117,7 +132,7 @@ def run_grobid_standalone(pdf_path: str) -> tuple:
     We call GROBID directly to get TEI bytes for table_completeness_grobid.
     """
     import httpx  # lazy import
-    GROBID_URL = os.environ.get("GROBID_URL", "http://localhost:8070")
+    GROBID_URL = os.environ.get("GROBID_URL", "http://grobid:8070")
     with open(pdf_path, "rb") as f:
         pdf_bytes = f.read()
     with httpx.Client(timeout=GROBID_TIMEOUT_SECONDS) as client:
@@ -249,7 +264,7 @@ def _build_row(entry: dict, condition: str) -> dict:
         row["error"] = "gt_missing"
         return row
 
-    pdf_path = entry.get("pdf_path") or ""
+    pdf_path = _remap_pdf_path(entry.get("pdf_path") or "")
     try:
         if condition == "mineru":
             if not pdf_path or not os.path.exists(pdf_path):
