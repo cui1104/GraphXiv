@@ -1,0 +1,5 @@
+docling>=2.90.0
+anthropic>=0.40.0
+pandas>=2.0.0
+matplotlib>=3.8.0
+notebook>=7.0.0

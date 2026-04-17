@@ -18,6 +18,10 @@ RUN echo '{"device-mode": "cuda", "models-dir": "/models"}' > /root/magic-pdf.js
 COPY pyproject.toml .
 RUN pip install --no-cache-dir ".[dev]"
 
+# Benchmark dependencies (CPU-only docling for Phase 7 benchmark)
+COPY requirements-benchmark.txt .
+RUN pip install --no-cache-dir -r requirements-benchmark.txt
+
 # Pre-cache tiktoken cl100k_base encoding to avoid first-run network download inside Docker
 RUN python -c "import tiktoken; tiktoken.get_encoding('cl100k_base')"
 
