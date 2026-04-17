@@ -1,7 +1,7 @@
-"""Ground-truth heading extraction via Claude Opus vision — Phase 7.
+"""Ground-truth heading extraction via Gemini vision — Phase 7.
 
 For each paper in benchmark/sample.json, render up to 10 PDF pages as PNG (120 DPI),
-send to claude-opus-4-6 with a structured prompt, parse the JSON list of headings,
+send to gemini-2.0-flash with a structured prompt, parse the JSON list of headings,
 and cache to benchmark/gt/{paper_id}.json.
 
 Idempotent: skips papers where the cache file already exists and contains "headings" key
@@ -9,7 +9,6 @@ Idempotent: skips papers where the cache file already exists and contains "headi
 """
 
 import argparse
-import base64
 import json
 import logging
 import os
@@ -20,7 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 SAMPLE_PATH = os.path.join(os.path.dirname(__file__), "sample.json")
 GT_DIR = os.path.join(os.path.dirname(__file__), "gt")
-MODEL_ID = "claude-opus-4-6"
+MODEL_ID = "gemini-2.0-flash"
 MAX_PAGES = 10
 DPI = 120
 MAX_RETRIES = 3
@@ -78,16 +77,14 @@ def _render_pdf_pages(pdf_path: str, max_pages: int = MAX_PAGES, dpi: int = DPI)
 
 
 def _parse_response_text(text: str) -> list:
-    """Strip markdown fences (Pitfall 3) and parse JSON array."""
+    """Strip markdown fences and parse JSON array."""
     text = text.strip()
-    # Strip ```json ... ``` fence or ``` ... ``` fence
     if text.startswith("```"):
-        # Drop leading fence line
         first_newline = text.find("\n")
         if first_newline != -1:
             text = text[first_newline + 1:]
         if text.endswith("```"):
-            text = text[: -3]
+            text = text[:-3]
         text = text.strip()
         if text.lower().startswith("json\n"):
             text = text[5:]
@@ -98,36 +95,28 @@ def _parse_response_text(text: str) -> list:
 
 
 def extract_gt_headings(pdf_path: str, client) -> tuple:
-    """Send rendered pages to claude-opus-4-6, return (headings, pages_sent).
+    """Send rendered pages to Gemini, return (headings, pages_sent).
 
     Retries on transient API errors (up to MAX_RETRIES). Raises on final failure.
     """
+    from google.genai import types  # type: ignore[import-untyped]
+
     pngs = _render_pdf_pages(pdf_path)
-    content_blocks = []
-    for png in pngs:
-        b64 = base64.standard_b64encode(png).decode("utf-8")
-        content_blocks.append({
-            "type": "image",
-            "source": {"type": "base64", "media_type": "image/png", "data": b64},
-        })
-    content_blocks.append({"type": "text", "text": PROMPT})
+    parts = [types.Part.from_bytes(data=png, mime_type="image/png") for png in pngs]
+    parts.append(PROMPT)
 
     last_exc = None
     for attempt in range(MAX_RETRIES):
         try:
-            response = client.messages.create(
-                model=MODEL_ID,
-                max_tokens=1024,
-                messages=[{"role": "user", "content": content_blocks}],
-            )
-            text = response.content[0].text
+            response = client.models.generate_content(model=MODEL_ID, contents=parts)
+            text = response.text
             return _parse_response_text(text), len(pngs)
         except Exception as exc:
             last_exc = exc
-            logger.warning("Claude API attempt %d failed: %s", attempt + 1, exc)
+            logger.warning("Gemini API attempt %d failed: %s", attempt + 1, exc)
             if attempt < MAX_RETRIES - 1:
                 time.sleep(RETRY_SLEEP_SECONDS * (attempt + 1))
-    raise RuntimeError(f"Claude API failed after {MAX_RETRIES} attempts: {last_exc}")
+    raise RuntimeError(f"Gemini API failed after {MAX_RETRIES} attempts: {last_exc}")
 
 
 def main() -> int:
@@ -145,12 +134,12 @@ def main() -> int:
         print(f"[create_gt] dry-run — would process {len(pending)} papers (of {len(sample)}; {len(sample) - len(pending)} cached)")
         return 0
 
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("ERROR: ANTHROPIC_API_KEY env var not set. See https://console.anthropic.com/settings/keys", file=sys.stderr)
+    if not os.environ.get("GOOGLE_API_KEY"):
+        print("ERROR: GOOGLE_API_KEY env var not set. See https://console.cloud.google.com", file=sys.stderr)
         return 2
 
-    import anthropic  # type: ignore[import-untyped]
-    client = anthropic.Anthropic()
+    from google import genai  # type: ignore[import-untyped]
+    client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
 
     os.makedirs(GT_DIR, exist_ok=True)
     done, skipped, errored = 0, 0, 0
@@ -187,7 +176,6 @@ def main() -> int:
             logger.exception("[%d/%d] %s — failed", i, len(sample), paper_id)
 
     print(f"[create_gt] done={done} cached={skipped} errored={errored} total={len(sample)}")
-    # Return 0 even with some errors — human reviews benchmark/gt/ manually per VALIDATION.md
     return 0
 
 
