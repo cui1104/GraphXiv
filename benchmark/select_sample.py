@@ -58,7 +58,7 @@ def _infer_subject(paper: Paper) -> str:
 
 def _classify_column(paper: Paper, pdf_path: str) -> str:
     """Return 'two' if parse_quality=degraded AND is_two_column(pdf_path) True; else 'single'."""
-    from benchmark.metrics import is_two_column
+    from benchmark.metrics import is_two_column  # type: ignore[import]
     quality_degraded = (paper.parse_quality == "degraded")
     try:
         pymupdf_two = is_two_column(pdf_path, sample_pages=3)
@@ -89,7 +89,7 @@ def _candidate_papers(session) -> list:
     )
     seen = set()
     candidates = []
-    for paper, ps in q.yield_per(200):
+    for paper, _ in q.yield_per(200):
         if paper.canonical_id in seen:
             continue
         seen.add(paper.canonical_id)
@@ -176,7 +176,7 @@ def _stratified_sample(
         total_single = len(single_col)
         single_sample = []
         remaining_s = remaining_slots
-        for key, group in sorted(buckets.items()):
+        for _, group in sorted(buckets.items()):
             quota = max(1, round(remaining_slots * len(group) / total_single)) if total_single else 0
             quota = min(quota, len(group), remaining_s)
             single_sample.extend(rng.sample(group, quota))

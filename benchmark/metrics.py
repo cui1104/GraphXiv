@@ -10,7 +10,6 @@ D-19 (table completeness 0.0/0.5/1.0), and two-column detection (Pattern 6).
 import os
 import string
 import sys
-from typing import Optional
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -147,7 +146,7 @@ def table_completeness_grobid(tei_xml_bytes: bytes) -> list:
     GROBID encodes tables as <figure type="table"> with <figDesc> (caption)
     and <table><row><cell>...</cell></row></table> children.
     """
-    from lxml import etree
+    from lxml import etree  # type: ignore[attr-defined]
     TEI_NS = "http://www.tei-c.org/ns/1.0"
     try:
         root = etree.fromstring(tei_xml_bytes)
@@ -203,7 +202,7 @@ def is_two_column(pdf_path: str, sample_pages: int = 3) -> bool:
     Per 07-RESEARCH.md Pattern 6. Called by select_sample.py as the second filter
     (parse_quality degradation flag first, this PDF heuristic second, per D-05).
     """
-    import pymupdf
+    import pymupdf  # type: ignore[import-untyped]
     doc = pymupdf.open(pdf_path)
     try:
         if len(doc) == 0:
