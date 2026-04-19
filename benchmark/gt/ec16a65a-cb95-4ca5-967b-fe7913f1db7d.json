@@ -1,0 +1,17 @@
+{
+  "paper_id": "ec16a65a-cb95-4ca5-967b-fe7913f1db7d",
+  "arxiv_id": "2602.06503",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Data",
+    "Overview of the training datasets",
+    "Satellite RGB imagery",
+    "Airborne CHM generation",
+    "Airborne RGB imagery and land cover data",
+    "Comparison and validation datasets",
+    "Methods",
+    "Related work on monocular depth estimation"
+  ],
+  "page_count": 10
+}

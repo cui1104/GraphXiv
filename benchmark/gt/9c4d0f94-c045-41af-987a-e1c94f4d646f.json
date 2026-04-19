@@ -1,0 +1,24 @@
+{
+  "paper_id": "9c4d0f94-c045-41af-987a-e1c94f4d646f",
+  "arxiv_id": "2512.22426",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Methods",
+    "Proper Orthogonal Decomposition",
+    "Linear Stochastic Estimation",
+    "Spectral Analysis Modal Methods (SAMM-RR)",
+    "Sparse Variational Gaussian Process (SVGP) Kolmogorov-Arnold Networks (KAN)",
+    "Overview and Architecture",
+    "Sparse Variational Inference",
+    "Integration with LSE and SAMM Frameworks",
+    "Kalman Filter Methods",
+    "Uncertainty Propagation and Calibration",
+    "Uncertainty Propagation",
+    "Field-Level Calibration",
+    "Calibration Assessment",
+    "Numerical Simulation and Data Generation",
+    "Flow Configuration"
+  ],
+  "page_count": 10
+}

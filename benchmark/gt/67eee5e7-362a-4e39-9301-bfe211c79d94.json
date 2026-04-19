@@ -1,0 +1,17 @@
+{
+  "paper_id": "67eee5e7-362a-4e39-9301-bfe211c79d94",
+  "arxiv_id": "2602.19410",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Methodology",
+    "Data Collection and Data Preprocessing",
+    "Label Definition",
+    "Model Development and Evaluation",
+    "Model Deployment",
+    "System Architecture"
+  ],
+  "page_count": 10
+}

@@ -1,0 +1,18 @@
+{
+  "paper_id": "9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e",
+  "arxiv_id": "2603.00181",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Methods",
+    "Open Neural Network Exchange (ONNX)",
+    "The Development Pipeline",
+    "Results",
+    "Software Resources",
+    "Discussion",
+    "Conclusion",
+    "Acknowledgements",
+    "References"
+  ],
+  "page_count": 7
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "235daa29-749f-4632-b9a2-021996c28f4a",
+  "arxiv_id": "2512.12832",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "Introduction",
+    "Methodology",
+    "Field data collection",
+    "Study Area: RedRock Corridor",
+    "Ground truth profile data collection: The walking profiler",
+    "Instrumentation profile data collection: Pave3D8K Laser Imaging Data Vehicle",
+    "Dataset for model development",
+    "Data augmentation for deep learning model development",
+    "Hybrid Deep Learning Model Development",
+    "LSTM",
+    "Transformer",
+    "Model Architecture and Performance"
+  ],
+  "page_count": 10
+}

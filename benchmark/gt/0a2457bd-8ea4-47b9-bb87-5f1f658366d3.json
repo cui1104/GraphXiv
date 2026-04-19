@@ -1,0 +1,23 @@
+{
+  "paper_id": "0a2457bd-8ea4-47b9-bb87-5f1f658366d3",
+  "arxiv_id": "2404.03208",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "BACKGROUND AND SIGNIFICANCE",
+    "MATERIALS AND METHODS",
+    "Data sources",
+    "Cohort selection",
+    "Variables and data processing",
+    "Multimodal input feature selection",
+    "Composite cognitive functions as auxiliary tasks",
+    "Data preprocessing",
+    "Missing value imputation",
+    "Ground truth labels for clinical outcome and composite cognitive scores",
+    "Hierarchical multi-task auxiliary learning framework",
+    "Multimodal feature embedding with time-series imputation",
+    "Hierarchical task predictions",
+    "Model explanations"
+  ],
+  "page_count": 10
+}

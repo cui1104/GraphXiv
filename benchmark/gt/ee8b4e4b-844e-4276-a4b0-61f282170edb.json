@@ -1,0 +1,33 @@
+{
+  "paper_id": "ee8b4e4b-844e-4276-a4b0-61f282170edb",
+  "arxiv_id": "2504.18310",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Objectives",
+    "Methods",
+    "Results",
+    "Discussion",
+    "Conclusion",
+    "Keywords",
+    "Introduction",
+    "Results",
+    "Discussion",
+    "Research extensions",
+    "Policy and ethics",
+    "Materials and Methods",
+    "Processing Health Claims",
+    "Language set and translation",
+    "Translation validation",
+    "Model-selection",
+    "Model-based verification",
+    "Evaluation",
+    "Linguistic-distance metric",
+    "Processing PUBHEALTH Dataset",
+    "Analysis",
+    "Lexical complexity covariate",
+    "Full LLM Prompts and Data Availability",
+    "References"
+  ],
+  "page_count": 10
+}

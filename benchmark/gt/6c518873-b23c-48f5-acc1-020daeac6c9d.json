@@ -1,0 +1,26 @@
+{
+  "paper_id": "6c518873-b23c-48f5-acc1-020daeac6c9d",
+  "arxiv_id": "2602.08577",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Problem definition",
+    "Methods",
+    "Related work",
+    "Mathematical foundations of AMA",
+    "Linear arithmetic method algorithm (AMA)",
+    "Theorem 1 (existence, residual bound, and stability)",
+    "Existence and uniqueness",
+    "Residual bound",
+    "Stability under perturbations",
+    "Uniqueness",
+    "Non-linear generalization",
+    "Comparison to implementation",
+    "Numerical validation",
+    "Mathematical foundations of AMR: MSE-optimal combination of AMA and k-NN",
+    "Model function (MFA)",
+    "Bias-variance tradeoff and consistency of AMR"
+  ],
+  "page_count": 10
+}

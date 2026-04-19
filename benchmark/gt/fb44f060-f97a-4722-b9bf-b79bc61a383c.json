@@ -1,0 +1,20 @@
+{
+  "paper_id": "fb44f060-f97a-4722-b9bf-b79bc61a383c",
+  "arxiv_id": "2601.10181",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "FORMULATION OF RAINFALL PATTERNS IN THAILAND",
+    "OPTIMISED NORTH-EAST MONSOON AREAS USING REINFORCEMENT LEARNING",
+    "Deep Q-Networks",
+    "Season-aware objective functions",
+    "Optimised areas and the NEM index",
+    "Covenant conditions and environment settings",
+    "EXPERIMENT RESULTS",
+    "Rainfall Clusters in Thailand",
+    "Optimised areas with the objective score",
+    "Monthly Rainfall Predictive Performance of the Optimised NEM Index",
+    "CONCLUSION"
+  ],
+  "page_count": 4
+}

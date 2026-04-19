@@ -1,0 +1,26 @@
+{
+  "paper_id": "94725c92-2784-43e9-b6b9-3007f1349b1b",
+  "arxiv_id": "2505.03776",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Literature review",
+    "Methodology",
+    "Input Data",
+    "Linear Embedding Layer",
+    "Proximity Attention",
+    "Transformer Encoder",
+    "Attention Mixing",
+    "Pointer Network Decoder",
+    "Experiments and outcomes",
+    "Dataset",
+    "Settings",
+    "Baselines",
+    "Metrics",
+    "Results",
+    "Ablation and learning rate studies",
+    "Conclusion and Perspectives",
+    "References"
+  ],
+  "page_count": 10
+}

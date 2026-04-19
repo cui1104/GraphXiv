@@ -1,0 +1,26 @@
+{
+  "paper_id": "b1384b07-573b-4183-b6c4-f93d383cd971",
+  "arxiv_id": "2602.12150",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Study 1: Is LLM ToM coherent?",
+    "Stimuli",
+    "Procedure",
+    "Extracting the forward model from an LLM",
+    "Results and Discussion",
+    "Stimuli",
+    "Study 2: Is LLM ToM abstract?",
+    "Procedure",
+    "Is GPT-4o make the same behavioral predic- tions across domains?",
+    "Results",
+    "Discussion",
+    "Study 3: Is LLM ToM consistent?",
+    "Procedure",
+    "Results and Discussion",
+    "General Discussion",
+    "Acknowledgements",
+    "References"
+  ],
+  "page_count": 8
+}

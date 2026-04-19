@@ -1,0 +1,13 @@
+{
+  "paper_id": "0ff61f66-100e-4712-a960-7a5179812340",
+  "arxiv_id": "2602.21533",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Results",
+    "MAESTRO Framework",
+    "Validation of MLFF and LLM components",
+    "Performance Evaluation of Overall Framework"
+  ],
+  "page_count": 10
+}

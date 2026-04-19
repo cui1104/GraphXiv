@@ -1,0 +1,18 @@
+{
+  "paper_id": "24eabcb5-e453-4495-8357-b096a34d7021",
+  "arxiv_id": "2408.16773",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "INTRODUCTION",
+    "LITERATURE REVIEW",
+    "DATA DESCRIPTION AND EXPLORATION",
+    "Study Area",
+    "Connected Vehicle Trajectory Data",
+    "Traffic Incident Data",
+    "DATA PREPARATION METHODS",
+    "Trajectory Data Processing",
+    "Building a Detector Database"
+  ],
+  "page_count": 10
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "435a5c71-1667-4445-bc50-187cfab96665",
+  "arxiv_id": "2602.04074",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "The Validation Gap in Large Language Model Interpretability",
+    "Lesion-Symptom Mapping as External Ground Truth",
+    "The Brain-LLM Unified Model Framework",
+    "Present Study",
+    "Methods",
+    "Overview",
+    "Human Foundation Data",
+    "Symptom-to-Lesion Models",
+    "LLM Selection and Lesioning"
+  ],
+  "page_count": 10
+}

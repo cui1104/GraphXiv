@@ -1,0 +1,29 @@
+{
+  "paper_id": "97ff183f-c90d-4a76-9ba7-94714d124ab8",
+  "arxiv_id": "2310.14629",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Highlights",
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Contributions & methodology",
+    "Experimentation and data collection",
+    "Machining operation and workpiece material",
+    "Cutting tool selection",
+    "Selection of cutting parameters",
+    "Force measurement and data acquisition",
+    "Tool condition labeling and calibration",
+    "Data cleaning",
+    "Machine learning approach",
+    "Feature extraction",
+    "Feature selection",
+    "Data augmentation strategy",
+    "Model-agnostic white-box approaches in TCM",
+    "Mathematical formulation of model-agnostic interpretability and LIME",
+    "Design of KNN model",
+    "Model training",
+    "Design of KNN model considering standard hyperparameters (Vanilla)"
+  ],
+  "page_count": 10
+}

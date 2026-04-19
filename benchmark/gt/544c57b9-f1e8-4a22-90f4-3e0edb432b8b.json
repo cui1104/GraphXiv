@@ -1,0 +1,23 @@
+{
+  "paper_id": "544c57b9-f1e8-4a22-90f4-3e0edb432b8b",
+  "arxiv_id": "2511.18727",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "NOMENCLATURE",
+    "METHODOLOGY",
+    "Dataset",
+    "LogSyn System Architecture",
+    "Few-shot Prompt Engineering",
+    "Qualitative Analysis",
+    "Quantitative Analysis: A Granular Maintenance Ontology",
+    "Visual Analysis",
+    "LLM-as-a-Judge Evaluation",
+    "Comparison with Baseline",
+    "Limitations",
+    "CONCLUSION",
+    "FUTURE WORK",
+    "REFERENCES"
+  ],
+  "page_count": 4
+}

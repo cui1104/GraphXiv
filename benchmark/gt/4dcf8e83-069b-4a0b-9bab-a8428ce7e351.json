@@ -1,0 +1,22 @@
+{
+  "paper_id": "4dcf8e83-069b-4a0b-9bab-a8428ce7e351",
+  "arxiv_id": "2603.05024",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Literature review",
+    "Methodology and data",
+    "Problem formulation",
+    "Business noise neighborhood",
+    "Rank-weighted distance",
+    "The Credibility Index via Explanation Stability",
+    "Theoretical properties",
+    "Baseline metric for comparison",
+    "Complete CIES Framework. Credibility Index via Explanation Stability",
+    "Generalizability of the CIES across business domains",
+    "Results",
+    "Explanation stability across models",
+    "Effect of class imbalance explanation stability"
+  ],
+  "page_count": 10
+}

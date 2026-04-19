@@ -1,0 +1,20 @@
+{
+  "paper_id": "735cc8a5-0f9a-4d7c-8928-8a43353577a6",
+  "arxiv_id": "2603.02810",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Overview of ChemFlow",
+    "Graph Definitions",
+    "Computational Pipeline",
+    "Chem-Embed: Mixture-aware Multimodal Atomic Representation.",
+    "Hierarchical Representation and information flow between levels",
+    "Self-Attention: Intra- and Inter-Molecular Group Interactions.",
+    "Cross-Attention: Group–Molecule Interactions.",
+    "Results and Discussion",
+    "Dataset",
+    "Concentration-dependent multi-component datasets:",
+    "Non-concentration-dependent photophysical dataset:"
+  ],
+  "page_count": 10
+}

@@ -1,0 +1,26 @@
+{
+  "paper_id": "fd76840c-68f2-4fa6-a83f-3dce215ecf64",
+  "arxiv_id": "2602.19770",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Related Work",
+    "Problem Definition",
+    "Methods",
+    "Network Science and Community Detection",
+    "Assortativity Mixing in Networks",
+    "Community Detection Using Modularity",
+    "Generating Graphs Using Linear Classifiers",
+    "Experiments and Results",
+    "Experimental Setup",
+    "Confusion Communities",
+    "Early Training Confusion Hubs",
+    "Emergence of Semantic Groupings Over Training",
+    "Dataset Issues",
+    "Leaf Color Bias in Tree Classification",
+    "Ambiguous Human Class Labels",
+    "Contextual Bias in Flatfish Images"
+  ],
+  "page_count": 10
+}

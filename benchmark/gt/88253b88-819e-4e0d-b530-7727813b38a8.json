@@ -1,0 +1,20 @@
+{
+  "paper_id": "88253b88-819e-4e0d-b530-7727813b38a8",
+  "arxiv_id": "2602.15740",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work",
+    "Multimodal Fusion Approaches",
+    "Graph-Based Methods for AD Diagnosis",
+    "Explainability and Trustworthy AI for AD Diagnosis",
+    "Methodology",
+    "Problem Formulation",
+    "Model architecture",
+    "Episodic Task Design and Batch Construction",
+    "Copula-Based Multi-Modal Similarity Computation",
+    "Graph Construction and Sparsification",
+    "One-hop Relational Graph Attention"
+  ],
+  "page_count": 10
+}

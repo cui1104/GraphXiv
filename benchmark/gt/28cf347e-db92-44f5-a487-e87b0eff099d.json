@@ -1,0 +1,17 @@
+{
+  "paper_id": "28cf347e-db92-44f5-a487-e87b0eff099d",
+  "arxiv_id": "2602.22533",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "Article Highlights:",
+    "Introduction",
+    "Method and Experiment Setup",
+    "Orthogonal Conditional Nonlinear Optimal Perturbations",
+    "FuXi Model",
+    "Experimental strategy",
+    "Results",
+    "Comparative analysis of FuXi_CNOP and IFS_EPS in TC Deterministic Forecasting"
+  ],
+  "page_count": 10
+}

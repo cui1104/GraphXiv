@@ -1,0 +1,22 @@
+{
+  "paper_id": "fd63839f-92d2-4b72-a4eb-417bc422594d",
+  "arxiv_id": "2603.03810",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Design Framework",
+    "Problem Formulation",
+    "IMPM Representation of Pixel-Based Antennas",
+    "Optimization Engine for Local Tuning of Pixel Antenna Geometry",
+    "Feature-Assisted Representation of Antenna Responses",
+    "Summary of the Bi-Stage Optimization Method",
+    "Results",
+    "Broadband Antenna Design",
+    "Multi-Band Antenna Design",
+    "Conclusion",
+    "Acknowledgments.",
+    "Disclosure of Interests.",
+    "References"
+  ],
+  "page_count": 8
+}

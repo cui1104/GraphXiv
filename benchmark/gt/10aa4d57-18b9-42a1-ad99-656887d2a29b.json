@@ -1,0 +1,15 @@
+{
+  "paper_id": "10aa4d57-18b9-42a1-ad99-656887d2a29b",
+  "arxiv_id": "2412.02094",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "Keywords",
+    "INTRODUCTION",
+    "LITERATURE REVIEW",
+    "DATA",
+    "METHOD",
+    "Feature Selection Techniques"
+  ],
+  "page_count": 10
+}

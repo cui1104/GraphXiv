@@ -1,0 +1,22 @@
+{
+  "paper_id": "614517b3-ed3a-4e38-bb19-dfdab54c4806",
+  "arxiv_id": "2508.16179",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "Introduction",
+    "Related Work",
+    "Methodology",
+    "Dataset",
+    "Preprocessing",
+    "MiniRocket",
+    "Convolutional Neural Network (CNN)",
+    "Long Short Term Memory (LSTM)",
+    "CNN-LSTM Hybrid model",
+    "Experimental Results",
+    "Discussion",
+    "Conclusion",
+    "References"
+  ],
+  "page_count": 10
+}

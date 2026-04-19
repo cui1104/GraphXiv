@@ -1,0 +1,21 @@
+{
+  "paper_id": "21e44e6b-44d2-4ad8-a8b1-e57b4f01908e",
+  "arxiv_id": "2506.06308",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Unified physics-informed machine learning (UPIML)",
+    "Modular architecture of UPIML and composite loss function",
+    "Parameterization modules (PMs)",
+    "State modules (SMs)",
+    "Composite loss function",
+    "Data misfit loss L_misfit",
+    "Physics-based loss L_phys",
+    "Interface loss L_interface",
+    "Expert knowledge loss L_expert",
+    "Regularization loss L_reg",
+    "Sampling strategies for residual evaluation"
+  ],
+  "page_count": 10
+}

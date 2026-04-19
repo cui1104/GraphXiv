@@ -1,0 +1,23 @@
+{
+  "paper_id": "b111b4fc-c577-446a-9c29-f2ebcf2af82c",
+  "arxiv_id": "2308.09730",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "KEYWORDS",
+    "INTRODUCTION",
+    "METHODS",
+    "Clinical Dataset",
+    "Virtual Dataset",
+    "Pre-Processing",
+    "Model Development and Training",
+    "Evaluation and Statistical Analysis",
+    "RESULTS",
+    "Evaluation of Models’ Performance on Clinical Data",
+    "Evaluation of Models’ Performance on Virtual Data",
+    "Evaluation per Patient and Disease",
+    "Evaluations per Image Acquisition",
+    "DISCUSSION"
+  ],
+  "page_count": 10
+}

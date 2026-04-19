@@ -1,0 +1,21 @@
+{
+  "paper_id": "4fc9487f-5ee7-4214-a63e-71f0d540cc4c",
+  "arxiv_id": "2602.22228",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Results",
+    "Iterative LLM-Guided Topic Mapping",
+    "Risky Symptoms Ranked by Statistical Relevance and Temporal Proximity",
+    "Hybrid Stroke Risk Screening Simulation",
+    "Discussion",
+    "Methods",
+    "Patient-Centered, LLM-Guided Early Stroke Risk Screening Framework",
+    "Data Source and Patient Cohort Identification",
+    "Iterative LLM-Guided Topic Mapping",
+    "Graph Augmented LLM",
+    "Hybrid Stroke Risk Screening Simulation with High Specificity Optimization"
+  ],
+  "page_count": 10
+}

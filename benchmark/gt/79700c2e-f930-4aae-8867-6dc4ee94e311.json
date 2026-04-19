@@ -1,0 +1,33 @@
+{
+  "paper_id": "79700c2e-f930-4aae-8867-6dc4ee94e311",
+  "arxiv_id": "2602.11539",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work",
+    "Proactive Anomaly Detection",
+    "Problem Setup",
+    "Anomaly Score Calculation",
+    "Local Pattern Extraction with Temporal Convolution",
+    "Long-Term Memory with GRU",
+    "Global Dependency Modeling with Transformer",
+    "Latent Representation Via Mean Pooling",
+    "Parallel Forecasting Heads",
+    "Anomaly Score Calculation",
+    "Backward Forecasting Model (BRM)",
+    "Temporal Convolution (TCN)",
+    "Sequential Encoding (GRU)",
+    "Global Attention (Transformer Encoder)",
+    "Latent Pooling",
+    "Decoder",
+    "Loss Function",
+    "Anomaly Score Computation",
+    "Complexity Analysis",
+    "EXPERIMENTS AND RESULT ANALYSIS",
+    "Dataset",
+    "Experimental Configuration",
+    "Comparison with Time-Series Anomaly Detection and Forecasting Models",
+    "Evaluation Using Forecasted Values as Ground Truth"
+  ],
+  "page_count": 10
+}

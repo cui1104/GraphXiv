@@ -1,0 +1,23 @@
+{
+  "paper_id": "ef496f8d-2625-49d3-b352-cd92df3697f0",
+  "arxiv_id": "2510.20714",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Methods",
+    "Data Source",
+    "Study Design",
+    "Model Implementation",
+    "Results",
+    "Study Cohort Composition",
+    "Model Performance Comparison",
+    "Feature Contribution and Sensitivity",
+    "Differential Risk Scoring Patterns",
+    "Discussion",
+    "Clinical Impact and Patient Safety Outcomes",
+    "Interpretation of Key Findings",
+    "White Box-vs Black-Box Modeling"
+  ],
+  "page_count": 10
+}

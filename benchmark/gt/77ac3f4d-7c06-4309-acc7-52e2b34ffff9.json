@@ -1,0 +1,31 @@
+{
+  "paper_id": "77ac3f4d-7c06-4309-acc7-52e2b34ffff9",
+  "arxiv_id": "2602.19984",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "ASTRI-Horn",
+    "Prediction Anomaly Detection in time series with machine learning",
+    "Strategy for early anomaly detection in ASTRI-Horn monitoring time series",
+    "Historical monitoring time series of ASTRI-Horn",
+    "Resampling",
+    "Active motor intervals",
+    "Correlation studies",
+    "Removal of outliers",
+    "Final dataset organization",
+    "Multivariate forecasting",
+    "Multi-layer Perceptron (MLP)",
+    "Input and target data",
+    "Sliding window",
+    "Data preparation",
+    "Model training, evaluation, and comparison",
+    "Hyperparameter selection and tuning",
+    "Evaluation metrics",
+    "Test cases comparison",
+    "Increasing the number of target samples",
+    "Loss curve",
+    "Result: Model forecasting performance",
+    "CONCLUSIONS"
+  ],
+  "page_count": 10
+}

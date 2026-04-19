@@ -1,0 +1,15 @@
+{
+  "paper_id": "f604fb54-cca1-4f29-92fe-99a51c0dbb83",
+  "arxiv_id": "2602.11194",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Materials and Methods",
+    "Experimental Data",
+    "Machine Learning Analysis",
+    "Results",
+    "Multiple linear regression (H-Top layout)"
+  ],
+  "page_count": 10
+}

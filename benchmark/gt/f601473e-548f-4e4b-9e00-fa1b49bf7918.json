@@ -1,0 +1,22 @@
+{
+  "paper_id": "f601473e-548f-4e4b-9e00-fa1b49bf7918",
+  "arxiv_id": "2503.11066",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "TESTING AND TRAINING DATA",
+    "MASS MODELS",
+    "MACHINE LEARNING",
+    "Support vector machine",
+    "Gaussian process regression (GPR)",
+    "Fully connected neural network",
+    "Least squares boosted ensemble of trees",
+    "PHYSICAL FEATURES",
+    "RESULTS AND DISCUSSION",
+    "Understanding the models using Shapley values",
+    "Generation of a composite mass model",
+    "Garvey-Kelson relations",
+    "Comparisons with recent mass measurements"
+  ],
+  "page_count": 10
+}

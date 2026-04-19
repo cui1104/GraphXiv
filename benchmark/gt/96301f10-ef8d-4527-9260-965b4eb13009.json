@@ -1,0 +1,21 @@
+{
+  "paper_id": "96301f10-ef8d-4527-9260-965b4eb13009",
+  "arxiv_id": "2603.00968",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "A practical example: Predicting the conditional mean",
+    "Model selection, strictly consistent loss functions and realized losses",
+    "The Nash-Sutcliffe efficiency (NSE) and the realized NSE (NSE)",
+    "Problem statement and contributions",
+    "Manuscript structure",
+    "Literature review",
+    "Machine and statistical learning literature",
+    "Geosciences and environmental sciences literature",
+    "Theoretical background",
+    "Strictly consistency loss functions and elicitable functionals",
+    "Strictly identification functions and identifiable functionals",
+    "Strictly consistent weighted loss functions"
+  ],
+  "page_count": 10
+}

@@ -1,0 +1,30 @@
+{
+  "paper_id": "f71b1644-3ab2-4e40-a6dc-26cb9030aef0",
+  "arxiv_id": "2602.17708",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "The Spectral Curse of Dimensionality",
+    "Spectral Reduction: The Correlated-k Legacy and Its Limits",
+    "Tensor Methods for Transport: The Spatial-Angular Revolution",
+    "The Spectral Gap",
+    "Contributions and Outline",
+    "Mathematical Formulation",
+    "Radiative Transfer Equation",
+    "Young-Measure Homogenization",
+    "Discrete Ordinates and Spatial Discretization",
+    "Anisotropic Scattering",
+    "Tensor Decomposition Framework",
+    "Tensor-Train (TT) Decomposition",
+    "Quantized Tensor-Train (QTT)",
+    "Tucker (Multilinear) Rank",
+    "TT Arithmetic",
+    "Opacity Models",
+    "Synthetic Periodic Model (Elsasser Band)",
+    "Synthetic Random Line Model",
+    "HITRAN-Like Molecular Opacity",
+    "Atomic Plasma Opacity (TOPS)",
+    "Correlated-k Distribution for Comparison"
+  ],
+  "page_count": 10
+}

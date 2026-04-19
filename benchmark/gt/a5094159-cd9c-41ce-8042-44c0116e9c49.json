@@ -1,0 +1,30 @@
+{
+  "paper_id": "a5094159-cd9c-41ce-8042-44c0116e9c49",
+  "arxiv_id": "2404.05748",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Structured Abstract",
+    "INTRODUCTION:",
+    "METHODS:",
+    "RESULTS:",
+    "DISCUSSION:",
+    "Background",
+    "Materials and Methods",
+    "Participants",
+    "T1-weighted MRI imaging",
+    "Image acquisition",
+    "Image pre-processing",
+    "Amyloid and tau PET imaging",
+    "Image acquisition",
+    "Image pre-processing",
+    "Amyloid positivity",
+    "Clinical and cognitive assessments",
+    "Multimodal Normative Modeling",
+    "Model training",
+    "Calculating regional deviations for each modality",
+    "Normalizing deviations into Z-scores",
+    "Statistical Analysis",
+    "Regional abnormal deviations across ATN biomarkers"
+  ],
+  "page_count": 10
+}

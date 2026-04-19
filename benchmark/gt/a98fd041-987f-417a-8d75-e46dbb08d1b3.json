@@ -1,0 +1,25 @@
+{
+  "paper_id": "a98fd041-987f-417a-8d75-e46dbb08d1b3",
+  "arxiv_id": "2602.05967",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "Analytical models",
+    "Data-driven models",
+    "TEST SETUP AND EXPERIMENTS",
+    "Test setup",
+    "Schematic of test setup",
+    "Hydraulic actuator mathematical model",
+    "FRICTION FORCE ESTIMATION",
+    "Hybrid Data-Driven Algorithm for Real-Time Friction Force Estimation",
+    "RESULTS AND DISCUSSION",
+    "Training the algorithm",
+    "Environment",
+    "Comparison with the LuGre model",
+    "Model performance",
+    "CONCLUSION",
+    "ACKNOWLEDGMENT",
+    "REFERENCES"
+  ],
+  "page_count": 8
+}

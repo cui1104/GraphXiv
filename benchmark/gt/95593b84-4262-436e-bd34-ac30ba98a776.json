@@ -1,0 +1,25 @@
+{
+  "paper_id": "95593b84-4262-436e-bd34-ac30ba98a776",
+  "arxiv_id": "2505.11578",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Data-Driven Machine Learning",
+    "Physics-informed machine learning",
+    "Fine-tuning method",
+    "Our Approach and Contributions",
+    "Enhancing Local-Global Feature Integration:",
+    "Strong Spatiotemporal Dependency Capture Capability:",
+    "Flexible Query Point Handling:",
+    "From General Solution to Specific Solution with Physics-Enhanced Consistency:",
+    "Methodology",
+    "Overall",
+    "Input information",
+    "Encoder block $E_1$",
+    "Mamba block $M$",
+    "Encoder block $E_2$",
+    "Decoder block $D$",
+    "Physics-informed fine-tuning block $T$"
+  ],
+  "page_count": 10
+}

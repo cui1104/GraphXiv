@@ -1,0 +1,26 @@
+{
+  "paper_id": "52da2dfe-758c-4c5d-993e-4ebc44aa94e4",
+  "arxiv_id": "2602.20164",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work",
+    "Fine-Tuning",
+    "Knowledge Distillation",
+    "Estimating Computational Cost",
+    "Methodology",
+    "Estimating Computational Cost in FLOPs",
+    "Converting FLOPs to GPU-Hours",
+    "Estimating CO2 Emissions",
+    "Benchmark Evaluation",
+    "Models and Assumptions",
+    "Case Studies",
+    "The Baseline: Training a Vanilla Foundation Model",
+    "The Challenger: Creating a Distilled Model",
+    "The Specialization Alternative: Fine-Tuning",
+    "Estimating the Proprietary Frontier",
+    "Results",
+    "Comprehensive Model Comparison"
+  ],
+  "page_count": 10
+}

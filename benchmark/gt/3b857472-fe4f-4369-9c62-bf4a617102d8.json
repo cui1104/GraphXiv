@@ -1,0 +1,23 @@
+{
+  "paper_id": "3b857472-fe4f-4369-9c62-bf4a617102d8",
+  "arxiv_id": "2602.08086",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "SCENARIO BASED METHOD",
+    "Capability gap analysis",
+    "Scenario design",
+    "Requirement identification",
+    "Validating, verifying and implementing requirements",
+    "PROBABILITY HACKING AND THE DESIGN OF TRUSTWORTHY ML",
+    "SCENARIO-BASED METHOD: A SHOWCASE",
+    "Implicit p-hacking",
+    "Explicit p-hacking",
+    "Responsibility in the case of cumulative causality",
+    "TRUST AND THE SYSTEM OF LAW",
+    "CONCLUSION",
+    "RELATION TO PRIOR WORK",
+    "REFERENCES"
+  ],
+  "page_count": 6
+}

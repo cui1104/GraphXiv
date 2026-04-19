@@ -1,0 +1,18 @@
+{
+  "paper_id": "bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6",
+  "arxiv_id": "2407.12226",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "Related Work",
+    "Non-grouping. Non-streaming FL.",
+    "Grouping.",
+    "Non-grouping.",
+    "Grouping.",
+    "Streaming FL methods",
+    "System Modules",
+    "NeighborFL",
+    "Candidate and Favorite Neighbors"
+  ],
+  "page_count": 10
+}

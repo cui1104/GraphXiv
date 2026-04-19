@@ -1,0 +1,31 @@
+{
+  "paper_id": "c2349ecb-7971-4356-9695-eed2a8edbe7d",
+  "arxiv_id": "2602.11237",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "AI-CDSS ALGORITHMS FOR DIABETES",
+    "Collecting and preprocessed data",
+    "Expert-driven Knowledge Acquisition",
+    "ML-based Rule Development",
+    "Hybridization and Integration",
+    "Clinical Assessment and Pilot Research",
+    "RESULTS",
+    "AI-CDSS development for diabetes",
+    "Expert-driven clinical information gathering",
+    "ML-based rule development",
+    "Hybrid knowledge",
+    "AI-CDSS for Diabetes Validation",
+    "Accuracy of diagnostics",
+    "Sub-group investigation",
+    "DISCUSSION",
+    "APPROACHES",
+    "The Reflective Cohort",
+    "A Potential Pilot Group",
+    "Standard Medical Testing",
+    "Diabetes AI-CDSS Generation",
+    "Study Variables",
+    "CONCLUSION"
+  ],
+  "page_count": 10
+}

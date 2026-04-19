@@ -1,0 +1,19 @@
+{
+  "paper_id": "c83856df-38e3-4305-b821-083e264dccd1",
+  "arxiv_id": "2602.06907",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Materials and Methods",
+    "Participants",
+    "Experimental set-up",
+    "M1 stimulation",
+    "SMA stimulation",
+    "EEG recording and pre-processing",
+    "Source construction and functional connectivity estimation",
+    "Experimental design",
+    "Statistical Analysis"
+  ],
+  "page_count": 10
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd",
+  "arxiv_id": "2603.00060",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Small-sample neuroimaging and PD detection",
+    "Deep CNNs and transfer learning in neuroimaging",
+    "Addressing data scarcity in machine learning",
+    "Data source",
+    "Data representation and slice extraction",
+    "Effective sample size considerations",
+    "Methods",
+    "Overview",
+    "Data Splitting Strategies",
+    "CNN Architectures and Training",
+    "Ensembling",
+    "Evaluation Metrics",
+    "Results",
+    "Segmentation 1: Image level split"
+  ],
+  "page_count": 10
+}

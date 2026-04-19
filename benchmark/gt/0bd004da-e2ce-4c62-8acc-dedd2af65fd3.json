@@ -1,0 +1,24 @@
+{
+  "paper_id": "0bd004da-e2ce-4c62-8acc-dedd2af65fd3",
+  "arxiv_id": "2602.19237",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Background and Related Work",
+    "Tabular Foundation Models",
+    "SAP RPT-1 and ConTextTab Architecture",
+    "Business Process Prediction in SAP",
+    "Experimental Framework",
+    "Experiment 1: SAP Forecast Showdown",
+    "Experiment 2: Predictive Data Integrity",
+    "Experiment 3: Finance Dashboard",
+    "Methodology",
+    "Model Configuration",
+    "Evaluation Protocol",
+    "Dataset Characteristics",
+    "Results",
+    "Classification Performance",
+    "Regression Performance"
+  ],
+  "page_count": 10
+}

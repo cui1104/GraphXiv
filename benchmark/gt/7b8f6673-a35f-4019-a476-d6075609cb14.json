@@ -1,0 +1,23 @@
+{
+  "paper_id": "7b8f6673-a35f-4019-a476-d6075609cb14",
+  "arxiv_id": "2602.04616",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "The Centrality of Privacy in the AI Era",
+    "Human-Centered Privacy Framework",
+    "Privacy Theories from Technology, Human Factors, Ethics Perspectives",
+    "Scope and Objectives",
+    "Privacy Risks Across the AI Lifecycle",
+    "Data Collection Phase",
+    "Data Processing Phase",
+    "Model Training Phase",
+    "Inference and Deployment Phase",
+    "Feedback Loops and Data Reuse Phase",
+    "Ethics Perspective",
+    "Privacy as a Foundational Ethical Element"
+  ],
+  "page_count": 10
+}

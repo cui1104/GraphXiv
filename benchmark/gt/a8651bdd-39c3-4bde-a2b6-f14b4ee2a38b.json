@@ -1,0 +1,14 @@
+{
+  "paper_id": "a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b",
+  "arxiv_id": "2602.04782",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Mathematical Modeling of LMU",
+    "An Ensemble Model WMF-CPK-MSLMU for Wind Speed Prediction",
+    "Case Study",
+    "Conclusion",
+    "References"
+  ],
+  "page_count": 10
+}

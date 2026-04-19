@@ -1,0 +1,18 @@
+{
+  "paper_id": "52622a53-b11f-40e6-8bba-d0e7f7d37c37",
+  "arxiv_id": "2602.11313",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Plain Language Summary",
+    "Introduction",
+    "Datasets and Methods",
+    "Observational and Reanalysis Datasets",
+    "Physics-based Model Simulations",
+    "Design of Idealized Experiments",
+    "Extratropical Cyclone (ETC) Experiments",
+    "ENSO-like SST Anomalies (SSTA) Experiments",
+    "Uniform Warming Experiments"
+  ],
+  "page_count": 10
+}

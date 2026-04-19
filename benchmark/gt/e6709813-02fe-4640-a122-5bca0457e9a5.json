@@ -1,0 +1,33 @@
+{
+  "paper_id": "e6709813-02fe-4640-a122-5bca0457e9a5",
+  "arxiv_id": "2603.00812",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "INTRODUCTION",
+    "RELATED WORK",
+    "Efficient Transformers",
+    "State-Space and Recurrent Models",
+    "Tree-Structured Models",
+    "Gated Linear Units and Normalization",
+    "METHODOLOGY",
+    "Problem Setup",
+    "Input Encoding (Common to All Variants)",
+    "Core Operation: Binary Tree Reduction",
+    "Pairwise Merge Operation",
+    "Complexity Analysis",
+    "WAT V1: One-to-One Next-Token Prediction",
+    "WAT V2: Seq2Seq via Causal Prefix Scan",
+    "WAT V3: Seq2Seq via Chunk-Based Parallel Tree Reduction",
+    "Chunk Partitioning and Parallel Tree Reduction",
+    "Causal Context Injection",
+    "Complexity of WAT V3",
+    "Architectural Comparison: WAT vs. Self-Attention",
+    "EXPERIMENTS",
+    "Experimental Protocol",
+    "Task 1: Bracket Balance Classification (Long Sequences 512-1024)",
+    "Task 2: Language Modeling - WAT V1 (One-to-One)",
+    "Task 3: Language Modeling - WAT V2 vs. V3 vs. Transformer (Seq2Seq)"
+  ],
+  "page_count": 10
+}

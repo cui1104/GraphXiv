@@ -1,0 +1,23 @@
+{
+  "paper_id": "77fa3e44-d439-497e-8eca-be7fa649ba78",
+  "arxiv_id": "2602.08479",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "GESTURE CLASSIFICATION",
+    "Gesture Classification of Pedestrian Traffic Contexts",
+    "WIIVW Motion Pattern Mapping",
+    "WIIVW Dataset Overview",
+    "METHODOLOGY",
+    "Static Feature",
+    "Dynamic Feature",
+    "ANALYSIS AND RESULTS",
+    "Static Feature Analysis",
+    "Dynamic Feature Analysis",
+    "Combined Feature Analysis",
+    "CONCLUSIONS AND FUTURE WORK",
+    "ACKNOWLEDGMENT",
+    "REFERENCES"
+  ],
+  "page_count": 6
+}

@@ -28,7 +28,6 @@ from benchmark.metrics import (  # type: ignore[import]
     table_completeness_docling,
     table_completeness_grobid,
     table_completeness_mineru,
-    _table_completeness_score,
 )
 
 SAMPLE_PATH = os.path.join(os.path.dirname(__file__), "sample.json")
@@ -40,7 +39,7 @@ CSV_COLUMNS = [
     "paper_id", "arxiv_id", "source_type", "column_layout", "subject",
     "condition", "heading_count_gt", "heading_count_parser",
     "heading_match_rate", "coherent_section_pct",
-    "table_presence", "table_structural_completeness", "error",
+    "table_presence", "table_structural_completeness", "sec_per_doc", "error",
 ]
 
 CONDITIONS = ["mineru", "grobid", "docling", "router"]
@@ -99,10 +98,11 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
             pipe = ds.apply(doc_analyze, ocr=False).pipe_txt_mode(image_writer)
 
         pipe.dump_content_list(output_writer, "content_list.json", "images")
+        pipe.dump_md(output_writer, "output.md", "images")
         with open(os.path.join(output_dir, "content_list.json")) as f:
             content_list = json.load(f)
 
-        # Pitfall 5: use `type` not `text_level` (always 1 in OSS MinerU)
+        # Primary: extract headings from content_list title/text_title types (Pitfall 5)
         sections = []
         current = None
         for item in content_list:
@@ -115,6 +115,26 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
                 current["text"] = (current["text"] + " " + item.get("text", "")).strip()
         if current:
             sections.append(current)
+
+        # Fallback: if no headings found via type, parse markdown # headers
+        if not sections:
+            md_path = os.path.join(output_dir, "output.md")
+            if os.path.exists(md_path):
+                with open(md_path) as f:
+                    md_lines = f.readlines()
+                current = None
+                for line in md_lines:
+                    stripped = line.rstrip()
+                    if stripped.startswith("#"):
+                        if current:
+                            sections.append(current)
+                        heading = stripped.lstrip("#").strip()
+                        if heading:
+                            current = {"heading": heading, "text": ""}
+                    elif current is not None and stripped:
+                        current["text"] = (current["text"] + " " + stripped).strip()
+                if current:
+                    sections.append(current)
 
         # Pass full content_list to table_completeness_mineru
         return sections, content_list
@@ -155,9 +175,9 @@ def run_grobid_standalone(pdf_path: str) -> tuple:
 # ============================================================
 
 def run_docling_standalone(pdf_path: str) -> tuple:
-    """Call Docling DocumentConverter on CPU. Return (sections, tables, doc).
+    """Call Docling DocumentConverter on CUDA. Return (sections, tables, doc).
 
-    Lazy imports (Pitfall 1). CPU device forced (Pitfall 2).
+    Lazy imports (Pitfall 1). GPU device for fair comparison vs MinerU-GPU.
     """
     from docling.document_converter import DocumentConverter, PdfFormatOption  # type: ignore[import-untyped]
     from docling.datamodel.base_models import InputFormat  # type: ignore[import-untyped]
@@ -165,7 +185,7 @@ def run_docling_standalone(pdf_path: str) -> tuple:
     from docling.datamodel.accelerator_options import AcceleratorOptions, AcceleratorDevice  # type: ignore[import-untyped]
 
     pipeline_options = PdfPipelineOptions(do_table_structure=True)
-    pipeline_options.accelerator_options = AcceleratorOptions(device=AcceleratorDevice.CPU)
+    pipeline_options.accelerator_options = AcceleratorOptions(device=AcceleratorDevice.CUDA)
     converter = DocumentConverter(
         format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)}
     )
@@ -193,31 +213,42 @@ def run_docling_standalone(pdf_path: str) -> tuple:
 
 
 # ============================================================
-# Condition: Router (read pre-computed DB content — Pattern 8)
+# Condition: Router (D-03 logic: count PDF tables, route to GROBID or MinerU)
 # ============================================================
 
-def run_router_from_db(paper_id: str) -> tuple:
-    """Read normalized content from Paper.content in DB. Never re-parse (Pitfall 7)."""
-    from app.db import SessionLocal  # lazy import
-    from app.models import Paper  # lazy import
-    session = SessionLocal()
+TABLE_THRESHOLD = 3  # D-03: ≤3 tables → GROBID, >3 tables → MinerU
+
+def _count_pdf_tables(pdf_path: str) -> int:
+    """Count tables in PDF via pymupdf heuristic (number of detected table blocks)."""
+    import pymupdf  # type: ignore[import-untyped]
+    doc = pymupdf.open(pdf_path)
+    table_count = 0
     try:
-        paper = session.query(Paper).filter(Paper.canonical_id == paper_id).first()
-        if not paper or not paper.content:
-            return [], []
-        content = paper.content
-        # Normalized schema stores sections as list under "sections" key.
-        # For latex papers with only raw S2ORC, fall back to body_text.
-        sections = content.get("sections") or []
-        if not sections and "body_text" in content:
-            # Convert s2orc body_text to minimal section shape
-            sections = [{"heading": bt.get("section", ""), "text": bt.get("text", "")}
-                        for bt in content.get("body_text", [])]
-        # Tables may be in ref_entries as TABREF keys
-        tables = [v for k, v in (content.get("ref_entries") or {}).items() if k.startswith("TABREF")]
-        return sections, tables
+        for page in doc:
+            tabs = page.find_tables()
+            table_count += len(tabs.tables)
     finally:
-        session.close()
+        doc.close()
+    return table_count
+
+
+def run_router_standalone(pdf_path: str) -> tuple:
+    """Route PDF to GROBID or MinerU per D-03: count tables, pick parser.
+
+    ≤3 tables → GROBID (fast, sufficient for text-heavy papers)
+    >3 tables → MinerU (heavy layout model for table/formula-rich papers)
+
+    Returns (sections, tables, parser_used).
+    """
+    n_tables = _count_pdf_tables(pdf_path)
+    if n_tables <= TABLE_THRESHOLD:
+        sections, tei_bytes = run_grobid_standalone(pdf_path)
+        table_scores = table_completeness_grobid(tei_bytes) if tei_bytes else []
+        return sections, table_scores, "grobid"
+    else:
+        sections, content_list = run_mineru_standalone(pdf_path)
+        table_scores = table_completeness_mineru(content_list)
+        return sections, table_scores, "mineru"
 
 
 # ============================================================
@@ -256,6 +287,7 @@ def _build_row(entry: dict, condition: str) -> dict:
         "coherent_section_pct": 0.0,
         "table_presence": 0,
         "table_structural_completeness": 0.0,
+        "sec_per_doc": 0.0,
         "error": "",
     }
     gt_headings = _load_gt(paper_id)
@@ -265,6 +297,7 @@ def _build_row(entry: dict, condition: str) -> dict:
         return row
 
     pdf_path = _remap_pdf_path(entry.get("pdf_path") or "")
+    _t0 = time.time()
     try:
         if condition == "mineru":
             if not pdf_path or not os.path.exists(pdf_path):
@@ -281,12 +314,27 @@ def _build_row(entry: dict, condition: str) -> dict:
         elif condition == "grobid":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, tei_bytes = run_grobid_standalone(pdf_path)
+            try:
+                sections, tei_bytes = run_grobid_standalone(pdf_path)
+            except Exception as grobid_exc:
+                # Fallback: read cached grobid_sections from DB (populated by populate_db_grobid.py)
+                from app.db import SessionLocal as _SL  # type: ignore[import]
+                from app.models import Paper as _P  # type: ignore[import]
+                _session = _SL()
+                try:
+                    _paper = _session.query(_P).filter(_P.canonical_id == paper_id).first()
+                    _content = (_paper.content or {}) if _paper else {}
+                    sections = _content.get("grobid_sections") or []
+                finally:
+                    _session.close()
+                if not sections:
+                    raise RuntimeError(f"grobid_live_failed ({grobid_exc}) and no cached grobid_sections in DB")
+                tei_bytes = b""  # no TEI for table scoring in fallback path
             parser_headings = [s["heading"] for s in sections if s.get("heading")]
             row["heading_count_parser"] = len(parser_headings)
             row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
             row["coherent_section_pct"] = coherent_section_pct(sections)
-            table_scores = table_completeness_grobid(tei_bytes)
+            table_scores = table_completeness_grobid(tei_bytes) if tei_bytes else []
             row["table_presence"] = 1 if table_scores else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
 
@@ -303,26 +351,24 @@ def _build_row(entry: dict, condition: str) -> dict:
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
 
         elif condition == "router":
-            sections, tables = run_router_from_db(paper_id)
+            if not pdf_path or not os.path.exists(pdf_path):
+                raise RuntimeError(f"pdf_missing: {pdf_path}")
+            sections, table_scores, parser_used = run_router_standalone(pdf_path)
             parser_headings = [s.get("heading", "") for s in sections if s.get("heading")]
             row["heading_count_parser"] = len(parser_headings)
             row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
             row["coherent_section_pct"] = coherent_section_pct(sections)
-            # Router tables: score each via heuristic — presence of html/content + caption
-            table_scores = []
-            for tbl in tables:
-                if isinstance(tbl, dict):
-                    has_caption = bool(tbl.get("caption") or tbl.get("text"))
-                    has_headers = bool(tbl.get("html") or tbl.get("content"))
-                    has_rows = has_headers  # rough heuristic
-                    table_scores.append(_table_completeness_score(has_caption, has_headers, has_rows))
-            row["table_presence"] = 1 if tables else 0
+            row["table_presence"] = 1 if table_scores else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
+            logger.info("router picked %s (%d tables detected)", parser_used, _count_pdf_tables(pdf_path))
 
         else:
             raise ValueError(f"unknown condition: {condition}")
 
+        row["sec_per_doc"] = round(time.time() - _t0, 2)
+
     except Exception as exc:
+        row["sec_per_doc"] = round(time.time() - _t0, 2)
         row["error"] = str(exc)[:500]
         logger.warning("[%s/%s] FAILED: %s", paper_id, condition, exc)
     return row
@@ -372,13 +418,20 @@ def main() -> int:
         with open(CSV_PATH, "r", encoding="utf-8") as f:
             existing_rows = list(csv.DictReader(f))
 
-    # Write header + existing rows to a new temp file, then stream new rows
+    # Write header + existing rows to a new temp file, then stream new rows.
+    # When --condition is set, preserve ALL rows for other conditions (even errored),
+    # so a targeted re-run doesn't destroy results from other conditions.
     tmp_path = CSV_PATH + ".tmp"
     with open(tmp_path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS, extrasaction="ignore")
         writer.writeheader()
         for r in existing_rows:
-            if (r.get("paper_id"), r.get("condition")) in done_pairs:
+            row_cond = r.get("condition")
+            # Always keep rows from conditions not being re-run (regardless of error status)
+            if args.condition and row_cond and row_cond not in conditions:
+                writer.writerow(r)
+                f.flush()
+            elif (r.get("paper_id"), r.get("condition")) in done_pairs:
                 writer.writerow(r)
                 f.flush()
         n = 0

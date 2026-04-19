@@ -1,0 +1,27 @@
+{
+  "paper_id": "2501f198-0758-47cd-812a-2eedcdb01807",
+  "arxiv_id": "2511.00246",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "RELATED WORKS",
+    "DATASETS",
+    "Image Pre-processing",
+    "METHODOLOGIES",
+    "Data Preparation",
+    "Training Deep Learning Models",
+    "Ensemble Learning",
+    "Hard Majority Voting",
+    "Probability Averaging/ Soft Majority Voting",
+    "Max Rule Ensemble Method",
+    "Weighted Probability Averaging",
+    "Using SHAP for Explanation",
+    "RESULTS AND DISCUSSION",
+    "Results of Base Learners",
+    "Results of the Ensemble Learning Framework",
+    "Results of SHAP Analysis",
+    "CONCLUSIONS",
+    "REFERENCES"
+  ],
+  "page_count": 10
+}

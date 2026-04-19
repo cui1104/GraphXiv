@@ -1,0 +1,16 @@
+{
+  "paper_id": "48ba6299-8c0c-442c-a059-2242446ce885",
+  "arxiv_id": "2602.04277",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Modeling and simulation of NPT-UPTIS Spoke",
+    "FEM Simulation of NPT-UPTIS Spoke",
+    "Computer Aided Design (CAD) of NPT-UPTIS Spoke",
+    "Material property and hyperelastic curve fitting for NPT Spoke:",
+    "Stiffness and Durability Analysis:",
+    "Vibration Analysis of 3D Spoke Design"
+  ],
+  "page_count": 10
+}

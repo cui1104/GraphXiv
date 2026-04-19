@@ -1,0 +1,20 @@
+{
+  "paper_id": "515d5a3f-b5f3-4091-83af-5581d50efb7d",
+  "arxiv_id": "2410.20061",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Theoretical background",
+    "Concept identification in engineering design",
+    "Formalizing deep concept identification for generative design",
+    "Fundamental implementation of deep concept identification",
+    "Experimental application",
+    "Application of a simplified conceptual design problem of bridge structure",
+    "Generating diverse alternatives of bridge structures by generative design",
+    "Embedding alternatives into latent space and identifying representative types and features by the training VaDE model",
+    "Arranging representatives as design concepts by the classification model"
+  ],
+  "page_count": 10
+}

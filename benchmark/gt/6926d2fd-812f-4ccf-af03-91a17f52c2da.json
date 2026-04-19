@@ -1,0 +1,27 @@
+{
+  "paper_id": "6926d2fd-812f-4ccf-af03-91a17f52c2da",
+  "arxiv_id": "2602.16739",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Literature Review",
+    "A. Secondary Crash Identification",
+    "B. Secondary Crash Prediction",
+    "Data Preparation",
+    "A. Data Collection",
+    "B. Secondary Crash Identification",
+    "C. Modeling Variable Extraction",
+    "Methodology",
+    "A. Primary Crash Prediction Model (PC Model)",
+    "B. Secondary Crash Prediction Models (SC models)",
+    "C. Hybrid Model",
+    "D. ML Ensemble Model in PC and SC models",
+    "Experiment Design",
+    "A. Models Development Workflow",
+    "B. Models Performance Comparison",
+    "C. Model Interpretability Analysis",
+    "D. Ablation Experiments",
+    "Conclusion and Future Research"
+  ],
+  "page_count": 10
+}

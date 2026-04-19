@@ -1,0 +1,22 @@
+{
+  "paper_id": "ca62cb52-86df-4cc4-b509-e7929c3653fa",
+  "arxiv_id": "2503.16191",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Highlights",
+    "Software and Data Availability",
+    "Keywords",
+    "Introduction",
+    "Customized Code Generation",
+    "Integration",
+    "Reliability, Usability, and Trust",
+    "Methodology",
+    "RAG Preprocess",
+    "Embeddings Model",
+    "Similarity Search",
+    "Semantic Retrieval Validation",
+    "Multi-Agent LLM-EPANET Framework"
+  ],
+  "page_count": 10
+}

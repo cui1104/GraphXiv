@@ -1,0 +1,24 @@
+{
+  "paper_id": "3969e006-6b1a-4819-b80c-2c0f3308ac3c",
+  "arxiv_id": "2602.04373",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Methods",
+    "Experimental Design",
+    "Detailed experimental protocols",
+    "Experiment 1 – Fully Relabelled Supervised Learning (Gold Standard):",
+    "Experiment 2 – Naive Temporal Transfer Baseline:",
+    "Experiment 3 – Spectral Stability Sampling (Wessells et al., 2016):",
+    "Experiment 4 – Naive Baseline with Cross Temporal Training and Temporal Stability Constraints:",
+    "Experiment 5 – Semi-Supervised Learning (Common Ground):",
+    "Model training and evaluation",
+    "Inference",
+    "Case studies",
+    "Invasive alien trees in protected areas of the Western Cape, South Africa",
+    "Reference data preparation"
+  ],
+  "page_count": 10
+}

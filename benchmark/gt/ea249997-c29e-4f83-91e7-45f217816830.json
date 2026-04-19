@@ -1,0 +1,26 @@
+{
+  "paper_id": "ea249997-c29e-4f83-91e7-45f217816830",
+  "arxiv_id": "2602.15852",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Related Work",
+    "Interpretability and Model Auditing in Clinical Machine Learning",
+    "Temporal Leakage in Clinical Prediction Models",
+    "Methods",
+    "Study Design, Cohort, and Outcome Definition",
+    "Attribute Definition and Data Collection",
+    "Data Processing and Feature Construction",
+    "Downstream Models, Calibration, and Evaluation",
+    "Early Fusion Baseline Performance",
+    "Calibrated Fusion Models and Ensembles",
+    "Attribute-guided Leakage Risking in Fusion (Validation)",
+    "Deep Fusion BioClinicalBERT Fine-Tuning Results on the Test Set",
+    "Brier scores and the trade-offs",
+    "Deep Fusion Fine-tuning",
+    "Attribution and Auditing Effects",
+    "Ablation Analysis of Structured and Unstructured Effects",
+    "Discussion",
+    "Conclusions"
+  ],
+  "page_count": 7
+}

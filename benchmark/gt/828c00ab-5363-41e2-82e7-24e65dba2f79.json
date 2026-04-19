@@ -1,0 +1,24 @@
+{
+  "paper_id": "828c00ab-5363-41e2-82e7-24e65dba2f79",
+  "arxiv_id": "2602.06519",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "TOPOGRAPHY SCANNING SYSTEM",
+    "Sensor subsystem",
+    "Measurement subsystem",
+    "Metrics",
+    "Cross sectional overview",
+    "Measurement of waviness",
+    "A PILOT VERTICAL VULCANIZATION SETUP",
+    "EXTRUSION AND CV PROCESS PARAMETERS",
+    "DEFECT DETECTION SYSTEM",
+    "Convolutional neural networks",
+    "Two-phase defect detection",
+    "Inference subsystem",
+    "CONCLUSIONS",
+    "REFERENCES",
+    "GLOSSARY"
+  ],
+  "page_count": 6
+}

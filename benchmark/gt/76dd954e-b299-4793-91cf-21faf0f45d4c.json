@@ -1,0 +1,23 @@
+{
+  "paper_id": "76dd954e-b299-4793-91cf-21faf0f45d4c",
+  "arxiv_id": "2312.02462",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Neural network model and numerical simulation",
+    "Bidirectional long short-term memory variational autoencoder design",
+    "Wasserstein distance-based classifier",
+    "Numerical simulations of flickering flames and data collection",
+    "Results and discussion",
+    "Benchmark case: single flickering flame",
+    "Phase trajectories of a circular flame system",
+    "WD-based Classification",
+    "Conclusions",
+    "Declaration of competing interest",
+    "Acknowledgments",
+    "Supplementary material",
+    "References"
+  ],
+  "page_count": 10
+}

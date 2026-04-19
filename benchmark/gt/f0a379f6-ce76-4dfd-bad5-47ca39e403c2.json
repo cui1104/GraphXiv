@@ -1,0 +1,16 @@
+{
+  "paper_id": "f0a379f6-ce76-4dfd-bad5-47ca39e403c2",
+  "arxiv_id": "2602.22261",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work",
+    "Methods",
+    "System Architecture",
+    "Methodology",
+    "Results and Discussion",
+    "Conclusion",
+    "References"
+  ],
+  "page_count": 10
+}

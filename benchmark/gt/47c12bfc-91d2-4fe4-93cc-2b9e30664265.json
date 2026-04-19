@@ -1,0 +1,23 @@
+{
+  "paper_id": "47c12bfc-91d2-4fe4-93cc-2b9e30664265",
+  "arxiv_id": "2602.10458",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "A Unified Platform for Foundation Model-Enhanced RL.",
+    "VLM Action Guidance Mechanisms:",
+    "CLIP-based Reward Shaping:",
+    "Related work",
+    "Reinforcement learning-based autonomous driving",
+    "Foundation models in autonomous driving",
+    "Simulation platforms for autonomous driving",
+    "Preliminaries",
+    "Problem Formulation",
+    "Off-policy actor-critic learning",
+    "Method",
+    "Asynchronous batch inference framework"
+  ],
+  "page_count": 10
+}

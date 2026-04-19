@@ -1,0 +1,19 @@
+{
+  "paper_id": "fc37a86a-e6f0-4d50-be38-253bd0768fe6",
+  "arxiv_id": "2505.05736",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "Keywords",
+    "INTRODUCTION",
+    "RESULTS",
+    "Overview",
+    "Phenotype-driven disease prediction",
+    "MINT Enhances Rare Disease Prediction Accuracy by LLM",
+    "Additional Validation and Case Study for Rare Disease Prediction",
+    "MINT Substantially Enhances Tissue Type Classification by LLM",
+    "Case Studies: MINT Resolves Ambiguity in Challenging Diagnostic Scenarios",
+    "Differentiating Histological Similarity (Vision Task)"
+  ],
+  "page_count": 10
+}

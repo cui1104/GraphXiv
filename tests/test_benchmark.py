@@ -119,7 +119,7 @@ def test_csv_schema_columns():
             "paper_id", "arxiv_id", "source_type", "column_layout", "subject",
             "condition", "heading_count_gt", "heading_count_parser",
             "heading_match_rate", "coherent_section_pct",
-            "table_presence", "table_structural_completeness", "error",
+            "table_presence", "table_structural_completeness", "sec_per_doc", "error",
         }
         assert set(reader.fieldnames or []) == expected
         rows = list(reader)

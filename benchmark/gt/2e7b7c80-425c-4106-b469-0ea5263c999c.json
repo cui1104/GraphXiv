@@ -1,0 +1,15 @@
+{
+  "paper_id": "2e7b7c80-425c-4106-b469-0ea5263c999c",
+  "arxiv_id": "2602.07031",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Notation",
+    "Introduction",
+    "Problem Description",
+    "Assumption and Governing Equations",
+    "Boundary and Initial Conditions",
+    "PINN for Unsaturated Soil Consolidation",
+    "Standard PINN (STD-PINN)"
+  ],
+  "page_count": 10
+}

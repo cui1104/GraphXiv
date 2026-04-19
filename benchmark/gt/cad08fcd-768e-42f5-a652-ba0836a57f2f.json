@@ -1,0 +1,27 @@
+{
+  "paper_id": "cad08fcd-768e-42f5-a652-ba0836a57f2f",
+  "arxiv_id": "2602.05861",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "CCS Concepts",
+    "Keywords",
+    "Introduction",
+    "Related Work",
+    "Problem Definition and Graph Data Creation",
+    "Research Question",
+    "Counterfactual Learning",
+    "Subgraph Creation",
+    "Methodology",
+    "Graph Classification",
+    "Counterfactual Graph Generation",
+    "Experiments and Results",
+    "Graph Classification Performance",
+    "Unconstrained Model Performance",
+    "Constrained Model Performance",
+    "Performance Under Different Tuning Parameters",
+    "Conclusion and Future Work",
+    "References"
+  ],
+  "page_count": 9
+}

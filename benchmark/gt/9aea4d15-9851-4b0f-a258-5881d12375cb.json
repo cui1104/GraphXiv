@@ -1,0 +1,29 @@
+{
+  "paper_id": "9aea4d15-9851-4b0f-a258-5881d12375cb",
+  "arxiv_id": "2602.10119",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Methods",
+    "Results",
+    "Conclusions",
+    "Keywords",
+    "Non-standard Abbreviations",
+    "Introduction",
+    "Study Design",
+    "Outcomes",
+    "Data",
+    "Preprocessing",
+    "Clinical Features",
+    "Encoder Models",
+    "Generative Models",
+    "Baseline Prognostic Models",
+    "Evaluation Metrics",
+    "Statistical Analysis",
+    "Results",
+    "Study population",
+    "Discharge mRS prediction with frozen models",
+    "90-day mRS prediction with frozen models"
+  ],
+  "page_count": 10
+}

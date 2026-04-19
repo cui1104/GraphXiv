@@ -1,0 +1,19 @@
+{
+  "paper_id": "258fe70f-fd5a-4f52-ae0f-7122a489e8fc",
+  "arxiv_id": "2602.20658",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Methods",
+    "Overview of the Dataset",
+    "Overview of the VLM-Based Pipelines for Horizontal and Vertical Distance Estimation",
+    "Data Labeling",
+    "Detection and Segmentation of Regions of Interest (ROIs)",
+    "Feature Extraction of Regions of Interest",
+    "Regression-Based Distance Estimation",
+    "Model Architecture"
+  ],
+  "page_count": 10
+}

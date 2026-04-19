@@ -1,0 +1,21 @@
+{
+  "paper_id": "07b6c03e-d715-4e58-8f52-0fe2060f7aa2",
+  "arxiv_id": "2602.17797",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "RELATED WORKS",
+    "METHODOLOGY",
+    "A. Dataset",
+    "B. VGG-16",
+    "C. DenseNet201",
+    "EXPERIMENTAL RESULT AND EVALUATION",
+    "A. VGG-16",
+    "B. DenseNet201",
+    "C. SHAP",
+    "COMPARISION",
+    "CONCLUSION",
+    "REFERENCES"
+  ],
+  "page_count": 6
+}

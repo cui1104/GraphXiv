@@ -1,0 +1,31 @@
+{
+  "paper_id": "42b9d5f5-f685-4d33-8e9d-82d4635a12c1",
+  "arxiv_id": "2510.00244",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Literature review",
+    "Direct effect of board gender diversity and emissions performance",
+    "Moderating effect of ESG controversies on the relationship between BGD and EP",
+    "Data, sample, and data measurement",
+    "Sample, data, and variable measurement",
+    "Methodology",
+    "Panel regression models",
+    "Machine learning",
+    "Results",
+    "Panel regression models",
+    "Direct effect of board gender diversity and emissions performance",
+    "Moderating effect of ESG controversy on the relationship between BGD and EP",
+    "Mediating effect of environmental innovation on the relationship between BGD and EP",
+    "Machine learning results",
+    "Discussion",
+    "Discussion of panel regression results",
+    "Discussion of machine learning results",
+    "Conclusion, implications, and limitations",
+    "Conclusion and implications",
+    "Limitations and future research",
+    "Appendix A. Predictive performance of machine learning algorithms",
+    "Appendix B. Feature importance of machine learning algorithms"
+  ],
+  "page_count": 10
+}

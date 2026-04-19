@@ -1,0 +1,21 @@
+{
+  "paper_id": "04170766-b7ba-49dc-81db-4bfdf966d9b9",
+  "arxiv_id": "2509.11517",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "INTRODUCTION",
+    "METHODS",
+    "Dataset",
+    "Data Source",
+    "Data Processing",
+    "Manual Verification",
+    "Postprocessing",
+    "Nomenclature",
+    "LLMs answer medical questions",
+    "Approach",
+    "Selected LLMs",
+    "Evaluation"
+  ],
+  "page_count": 10
+}

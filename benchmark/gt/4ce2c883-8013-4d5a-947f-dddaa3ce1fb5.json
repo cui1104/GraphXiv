@@ -1,0 +1,15 @@
+{
+  "paper_id": "4ce2c883-8013-4d5a-947f-dddaa3ce1fb5",
+  "arxiv_id": "2204.05138",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "Introduction",
+    "Modeling Mental Continuity",
+    "Simulating the Minicolumns of the Mammalian Neocortex",
+    "Information Processing in Artificial Neural Networks",
+    "Architecture Hierarchy",
+    "Persistent Neural Activity From Sustained Firing and Synaptic Potentiation"
+  ],
+  "page_count": 10
+}

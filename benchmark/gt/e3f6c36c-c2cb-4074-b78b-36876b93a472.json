@@ -1,0 +1,23 @@
+{
+  "paper_id": "e3f6c36c-c2cb-4074-b78b-36876b93a472",
+  "arxiv_id": "2602.15878",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "METHODOLOGY",
+    "ITLE for Extended Data Augmentation",
+    "MGEE for non-extended data augmentation",
+    "ICD Score for Evaluation",
+    "EXPERIMENTS",
+    "Industrial Scenarios and Experimental Setup",
+    "Exploring OSS and Key Parameters in IT-OSE",
+    "Validation Experiments for IT-OSE",
+    "Computational and data costs significantly reduced.",
+    "Investigation of dominant factors’ influence",
+    "Practicality experiments in industrial scenarios",
+    "CONCLUSION",
+    "ACKNOWLEDGMENTS",
+    "REFERENCES"
+  ],
+  "page_count": 10
+}

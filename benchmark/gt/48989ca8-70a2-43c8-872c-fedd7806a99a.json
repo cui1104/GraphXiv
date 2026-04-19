@@ -1,0 +1,23 @@
+{
+  "paper_id": "48989ca8-70a2-43c8-872c-fedd7806a99a",
+  "arxiv_id": "2601.09282",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work",
+    "AI In Cluster Scheduling",
+    "Multi-Objective Scheduling",
+    "Parsing And Natural Language Interfaces",
+    "Prototype And Testbed",
+    "Local Kubernetes Cluster",
+    "Cluster State Cache",
+    "Score Extender Service",
+    "Intent Analyzer",
+    "Evaluation Logic",
+    "Scoring Model",
+    "Utility Function Components",
+    "Base Weight",
+    "Normalization And Deterministic Selection"
+  ],
+  "page_count": 10
+}

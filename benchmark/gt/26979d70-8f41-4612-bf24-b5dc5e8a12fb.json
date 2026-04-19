@@ -1,0 +1,17 @@
+{
+  "paper_id": "26979d70-8f41-4612-bf24-b5dc5e8a12fb",
+  "arxiv_id": "2603.02223",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "LITERATURE REVIEW",
+    "METHODOLOGY",
+    "RESULT AND DISCUSSION",
+    "Unsupervised Clustering Analysis",
+    "Supervised Learning Results",
+    "CONCLUSION",
+    "FUTURE WORK",
+    "REFERENCES"
+  ],
+  "page_count": 7
+}

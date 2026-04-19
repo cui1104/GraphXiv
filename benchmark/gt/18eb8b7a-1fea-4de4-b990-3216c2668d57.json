@@ -1,0 +1,14 @@
+{
+  "paper_id": "18eb8b7a-1fea-4de4-b990-3216c2668d57",
+  "arxiv_id": "2603.06271",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Results",
+    "Agentic reasoning alters inter-model decision stability",
+    "Changes in consensus strength do not reliably track correctness",
+    "Agentic reasoning increases robustness of correctness across models"
+  ],
+  "page_count": 10
+}

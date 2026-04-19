@@ -1,0 +1,19 @@
+{
+  "paper_id": "6b4247dc-341b-418c-afe7-863d6b0eb837",
+  "arxiv_id": "2602.04911",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Background and motivation",
+    "Bitwise and/or graph logic notation",
+    "Hamiltonian logic networks (HNetS)",
+    "Composing Hamiltonians",
+    "Simple MNIST images example",
+    "Consumer credit application example",
+    "Identification of equivalences",
+    "From hierarchical statistics to abducted symbols",
+    "Successive epochs",
+    "Discussion"
+  ],
+  "page_count": 10
+}

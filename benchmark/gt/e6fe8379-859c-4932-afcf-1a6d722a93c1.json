@@ -1,0 +1,28 @@
+{
+  "paper_id": "e6fe8379-859c-4932-afcf-1a6d722a93c1",
+  "arxiv_id": "2602.05387",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "Index Terms",
+    "INTRODUCTION",
+    "METHODS",
+    "Model Overview",
+    "Parallel Swin Transformer Enhancement",
+    "Bottleneck and Decoder",
+    "Adversarial Framework",
+    "Loss Functions",
+    "EXPERIMENTS AND RESULTS",
+    "Datasets",
+    "Baselines",
+    "Quantitative Results",
+    "Geometric Consistency",
+    "Qualitative Evaluation",
+    "Dosimetric Evaluation",
+    "CONCLUSION",
+    "COMPLIANCE WITH ETHICAL STANDARDS",
+    "ACKNOWLEDGMENTS",
+    "REFERENCES"
+  ],
+  "page_count": 6
+}

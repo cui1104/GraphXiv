@@ -1,0 +1,18 @@
+{
+  "paper_id": "1e134e12-1055-4034-812d-d9886100b299",
+  "arxiv_id": "2403.08802",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Methodology",
+    "Results",
+    "Antecedents",
+    "Internal conditions",
+    "External conditions",
+    "Data scope & targets",
+    "Model scope & targets"
+  ],
+  "page_count": 10
+}

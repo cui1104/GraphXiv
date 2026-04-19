@@ -1,0 +1,31 @@
+{
+  "paper_id": "36c346b3-0aea-4b7b-9540-da97fd214660",
+  "arxiv_id": "2602.10750",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Related Work",
+    "Methodology",
+    "Overview",
+    "Layer 1 – Local Heuristic Filtering",
+    "Layer 2 – Logistic Regression Classification",
+    "Layer 3 – Threat-Intelligence Validation",
+    "Data Processing Pipeline",
+    "Probability Calibration and Gray-Zone Logic",
+    "Threat Intelligence Integration",
+    "End-to-End Workflow",
+    "Dataset Description",
+    "Model Architecture",
+    "Layer 1 — Local Heuristic Analysis",
+    "Layer 2 — Machine Learning Classification",
+    "Layer 3 — Threat Intelligence Correlation",
+    "Design Summary",
+    "Training & Evaluation Setup",
+    "Training Setup",
+    "Model Calibration",
+    "Evaluation Metrics",
+    "Results and Analysis"
+  ],
+  "page_count": 10
+}

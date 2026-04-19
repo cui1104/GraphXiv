@@ -1,0 +1,13 @@
+{
+  "paper_id": "bdacaa24-aae3-4c80-92df-c56122193935",
+  "arxiv_id": "2510.26376",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Results",
+    "Probabilistic Forecast Skill and Benchmarking against NWP",
+    "Forecasting the Three-Dimensional Stratospheric Evolution"
+  ],
+  "page_count": 10
+}

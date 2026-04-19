@@ -1,0 +1,21 @@
+{
+  "paper_id": "13fbbe70-498d-4f8c-86aa-07ac45c8badd",
+  "arxiv_id": "2404.09896",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abstract",
+    "Introduction",
+    "Methods",
+    "Summary of Approach",
+    "Databases and Preprocessing",
+    "Single Neural Network for High Predictive Accuracy (Model A)",
+    "Ensemble Models for Error Bars (Model Ae)",
+    "Data Generation for Model B fitting",
+    "Single Neural Network Error Bar Generation (Model B)",
+    "Use Case of the Workflow",
+    "Results",
+    "Statistics Table",
+    "Discussion"
+  ],
+  "page_count": 10
+}

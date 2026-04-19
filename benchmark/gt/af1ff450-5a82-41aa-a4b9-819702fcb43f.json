@@ -1,0 +1,16 @@
+{
+  "paper_id": "af1ff450-5a82-41aa-a4b9-819702fcb43f",
+  "arxiv_id": "2502.19115",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work",
+    "Method",
+    "Data Preparation",
+    "Model Training",
+    "Modification of the Model Output",
+    "Evaluation",
+    "Implementation"
+  ],
+  "page_count": 10
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "2223652e-58d0-4b8c-b537-4fe3c8526dee",
+  "arxiv_id": "2602.15890",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "ABSTRACT",
+    "INTRODUCTION",
+    "METHODOLOGY",
+    "NTE for Fixed Source Problem",
+    "Deep Operator Network (DeepONet)",
+    "Fourier Neural Operator (FNO)",
+    "Model Training"
+  ],
+  "page_count": 10
+}

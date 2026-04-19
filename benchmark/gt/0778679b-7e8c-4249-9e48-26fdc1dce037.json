@@ -1,0 +1,27 @@
+{
+  "paper_id": "0778679b-7e8c-4249-9e48-26fdc1dce037",
+  "arxiv_id": "2602.22400",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "LITERATURE REVIEW",
+    "RESEARCH METHODOLOGY",
+    "Data Sources",
+    "Data Preprocessing",
+    "Feature Engineering",
+    "Model Training and Tuning",
+    "Model Evaluation",
+    "Model Interpretation",
+    "RESULTS AND DISCUSSION",
+    "Model Performance Comparison",
+    "Discussion of Model Performance",
+    "Significance-Based Model Comparison",
+    "Insight from Confusion Matrix Differences",
+    "LIME-Based Model Interpretation",
+    "Summary of Findings",
+    "SUMMARY",
+    "REFERENCES",
+    "APPENDIX"
+  ],
+  "page_count": 6
+}

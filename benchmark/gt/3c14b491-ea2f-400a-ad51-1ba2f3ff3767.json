@@ -1,0 +1,32 @@
+{
+  "paper_id": "3c14b491-ea2f-400a-ad51-1ba2f3ff3767",
+  "arxiv_id": "2602.00130",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work",
+    "Information-Theoretic Perspectives",
+    "Representation Convergence",
+    "Compression Geometry",
+    "Generalization Theory",
+    "Problem Formulation",
+    "Setup and Notation",
+    "Effective Dimensionality",
+    "Total Compression",
+    "Output Effective Dimension",
+    "Theoretical Connections",
+    "Methods",
+    "Experimental Design",
+    "Geometry Extraction Pipeline",
+    "Statistical Analysis",
+    "Results",
+    "Total Compression Predicts Accuracy",
+    "Cross-Dataset Validation",
+    "Geometry Beyond Model Size",
+    "Feature Importance Analysis",
+    "Early Emergence of Geometric Signatures",
+    "NLP Results",
+    "Extension to Multi-Class NLI: MNLI Results"
+  ],
+  "page_count": 10
+}

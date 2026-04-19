@@ -1,0 +1,15 @@
+{
+  "paper_id": "54366f0a-8e29-48aa-9e3d-44dc8ec66d7a",
+  "arxiv_id": "2404.17931",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Abbreviation list",
+    "Introduction",
+    "Relevant work and main contribution",
+    "One-class classification approaches",
+    "Feature data",
+    "Image, Time series, Video, 3D",
+    "Feature extraction approach"
+  ],
+  "page_count": 10
+}

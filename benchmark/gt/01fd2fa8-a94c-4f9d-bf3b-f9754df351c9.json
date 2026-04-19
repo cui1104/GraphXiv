@@ -1,0 +1,19 @@
+{
+  "paper_id": "01fd2fa8-a94c-4f9d-bf3b-f9754df351c9",
+  "arxiv_id": "2602.06772",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "Introduction",
+    "Related Work & Research Questions",
+    "Data Augmentation",
+    "Experiment",
+    "Overview",
+    "Process",
+    "Analyses",
+    "Writing Quality",
+    "Discussion",
+    "Summary and Interpretation of Results",
+    "Implications"
+  ],
+  "page_count": 8
+}

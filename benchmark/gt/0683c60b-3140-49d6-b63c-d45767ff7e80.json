@@ -1,0 +1,24 @@
+{
+  "paper_id": "0683c60b-3140-49d6-b63c-d45767ff7e80",
+  "arxiv_id": "2602.18786",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "METHODOLOGY FOUNDATION",
+    "METHOD",
+    "Problem Formulation",
+    "Model Architecture",
+    "Training-Time Scale Calibration",
+    "Constraint-Based Multi-Objective Optimization",
+    "Robust Counterfactual Utility Estimation",
+    "EXPERIMENTS",
+    "Experimental Setup",
+    "Main Results",
+    "Ablation Study",
+    "Comparison with Baselines",
+    "Cross-Domain Transferability",
+    "CONCLUSION",
+    "REFERENCES"
+  ],
+  "page_count": 6
+}

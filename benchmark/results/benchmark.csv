@@ -1,601 +1,601 @@
-paper_id,arxiv_id,source_type,column_layout,subject,condition,heading_count_gt,heading_count_parser,heading_match_rate,coherent_section_pct,table_presence,table_structural_completeness,error
-23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,grobid,3,2,0.6666666666666666,1.0,0,0.0,
-23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,router,3,0,0.0,0.0,0,0.0,
-2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,grobid,7,20,0.8571428571428571,0.05555555555555555,1,0.8333333333333334,
-2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,grobid,11,32,0.8181818181818182,0.7857142857142857,0,0.0,
-435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,router,11,0,0.0,0.0,0,0.0,
-6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,grobid,19,27,0.5263157894736842,0.6521739130434783,1,0.875,
-6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,router,19,0,0.0,0.0,0,0.0,
-fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,grobid,18,27,0.5555555555555556,0.7037037037037037,1,1.0,
-fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,router,18,0,0.0,0.0,0,0.0,
-ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,grobid,15,16,0.8666666666666667,0.6666666666666666,1,0.625,
-ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,grobid,7,21,0.42857142857142855,0.7,1,0.9285714285714286,
-5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,grobid,5,5,0.8,0.8,0,0.0,
-dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,grobid,13,13,0.7692307692307693,0.6666666666666666,1,1.0,
-13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,grobid,25,20,0.56,0.8235294117647058,1,0.9375,
-40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,router,25,0,0.0,0.0,0,0.0,
-7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,grobid,15,79,0.7333333333333333,0.9411764705882353,1,0.85,
-7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,grobid,9,8,0.0,0.875,1,1.0,
-26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,grobid,12,16,0.5,0.46153846153846156,1,0.5,
-d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,router,12,0,0.0,0.0,0,0.0,
-f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,grobid,22,47,0.9090909090909091,0.17073170731707318,1,1.0,
-f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,router,22,0,0.0,0.0,0,0.0,
-67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,grobid,9,16,0.6666666666666666,0.8125,1,0.9,
-67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,grobid,29,30,0.8620689655172413,0.6666666666666666,1,0.6428571428571429,
-919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,router,29,0,0.0,0.0,0,0.0,
-2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,grobid,7,19,0.42857142857142855,0.125,1,1.0,
-2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,grobid,34,30,0.5294117647058824,0.8620689655172413,1,0.6666666666666666,
-aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,router,34,0,0.0,0.0,0,0.0,
-18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,grobid,6,31,0.8333333333333334,0.2413793103448276,1,1.0,
-18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,router,6,0,0.0,0.0,0,0.0,
-b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,grobid,3,31,0.6666666666666666,0.3076923076923077,1,0.75,
-b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,router,3,0,0.0,0.0,0,0.0,
-0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,grobid,15,24,0.9333333333333333,0.55,1,0.75,
-0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,grobid,32,26,0.21875,0.96,1,1.0,
-44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,router,32,0,0.0,0.0,0,0.0,
-b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,grobid,18,19,0.7777777777777778,0.6842105263157895,1,0.75,
-b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,router,18,0,0.0,0.0,0,0.0,
-48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,grobid,15,45,0.2,0.6744186046511628,1,0.9,
-48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,grobid,8,12,1.0,1.0,1,1.0,
-af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,router,8,0,0.0,0.0,0,0.0,
-183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,grobid,5,9,0.8,0.5,1,0.75,
-183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,grobid,15,16,0.0,0.5333333333333333,1,1.0,
-77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,grobid,12,13,0.5833333333333334,0.45454545454545453,1,1.0,
-735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,router,12,0,0.0,0.0,0,0.0,
-9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,grobid,16,30,0.9375,0.4,1,1.0,
-9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,router,16,0,0.0,0.0,0,0.0,
-e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,grobid,25,29,0.72,0.46153846153846156,1,0.75,
-e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,router,25,0,0.0,0.0,0,0.0,
-fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,grobid,12,9,0.3333333333333333,0.14285714285714285,1,1.0,
-fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,router,12,0,0.0,0.0,0,0.0,
-ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,grobid,14,25,0.7142857142857143,0.9166666666666666,1,1.0,
-ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,router,14,0,0.0,0.0,0,0.0,
-24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,grobid,5,9,0.8,0.7142857142857143,1,0.6666666666666666,
-24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,grobid,21,22,0.6190476190476191,1.0,1,1.0,
-c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,router,21,0,0.0,0.0,0,0.0,
-b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,grobid,31,54,0.8709677419354839,0.7073170731707317,1,0.75,
-b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,router,31,0,0.0,0.0,0,0.0,
-79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,grobid,25,22,0.72,0.5714285714285714,1,0.7692307692307693,
-79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,router,25,0,0.0,0.0,0,0.0,
-48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,grobid,8,18,0.625,0.5625,1,0.8333333333333334,
-48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,router,8,0,0.0,0.0,0,0.0,
-9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,grobid,7,28,0.7142857142857143,0.6923076923076923,1,1.0,
-9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,grobid,4,103,0.0,0.35294117647058826,1,0.8125,
-31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,router,4,0,0.0,0.0,0,0.0,
-fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,grobid,10,7,0.4,0.6,0,0.0,
-fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,grobid,5,14,0.8,0.3333333333333333,0,0.0,
-bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,grobid,12,18,0.5833333333333334,0.3333333333333333,1,1.0,
-36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,router,12,0,0.0,0.0,0,0.0,
-4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,grobid,17,27,0.7647058823529411,0.9615384615384616,1,1.0,
-4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,router,17,0,0.0,0.0,0,0.0,
-c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,grobid,32,40,0.96875,0.6470588235294118,1,0.9166666666666666,
-c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,router,32,0,0.0,0.0,0,0.0,
-a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,grobid,10,11,1.0,0.7777777777777778,1,1.0,
-a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,router,100,0,0.0,0.0,0,0.0,
-95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,router,17,0,0.0,0.0,0,0.0,
-0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,router,18,0,0.0,0.0,0,0.0,
-bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,router,16,0,0.0,0.0,0,0.0,
-badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,router,30,0,0.0,0.0,0,0.0,
-01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,router,11,0,0.0,0.0,0,0.0,
-1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,router,14,0,0.0,0.0,0,0.0,
-1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,router,29,0,0.0,0.0,0,0.0,
-45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,router,4,0,0.0,0.0,0,0.0,
-ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,router,18,0,0.0,0.0,0,0.0,
-fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,router,24,0,0.0,0.0,0,0.0,
-9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,router,31,0,0.0,0.0,0,0.0,
-a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,router,6,0,0.0,0.0,0,0.0,
-d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,router,11,0,0.0,0.0,0,0.0,
-ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,router,48,0,0.0,0.0,0,0.0,
-f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,router,6,0,0.0,0.0,0,0.0,
-f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,router,14,0,0.0,0.0,0,0.0,
-07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,router,18,0,0.0,0.0,0,0.0,
-21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,router,6,0,0.0,0.0,0,0.0,
-0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,router,19,0,0.0,0.0,0,0.0,
-f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,router,8,0,0.0,0.0,0,0.0,
-a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,router,19,0,0.0,0.0,0,0.0,
-e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,router,37,0,0.0,0.0,0,0.0,
-f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,router,12,0,0.0,0.0,0,0.0,
-10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,router,18,0,0.0,0.0,0,0.0,
-ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,router,67,0,0.0,0.0,0,0.0,
-52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,router,26,0,0.0,0.0,0,0.0,
-a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,router,22,0,0.0,0.0,0,0.0,
-544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,router,18,0,0.0,0.0,0,0.0,
-04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,router,19,0,0.0,0.0,0,0.0,
-54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,router,7,0,0.0,0.0,0,0.0,
-42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,router,23,0,0.0,0.0,0,0.0,
-cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,router,4,0,0.0,0.0,0,0.0,
-741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,router,5,0,0.0,0.0,0,0.0,
-77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,router,23,0,0.0,0.0,0,0.0,
-97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,router,21,0,0.0,0.0,0,0.0,
-21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,router,4,0,0.0,0.0,0,0.0,
-fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,router,14,0,0.0,0.0,0,0.0,
-28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,router,35,0,0.0,0.0,0,0.0,
-e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,router,11,0,0.0,0.0,0,0.0,
-2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,router,14,0,0.0,0.0,0,0.0,
-6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,router,11,0,0.0,0.0,0,0.0,
-aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,router,4,0,0.0,0.0,0,0.0,
-07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,router,22,0,0.0,0.0,0,0.0,
-515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,router,12,0,0.0,0.0,0,0.0,
-0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,router,16,0,0.0,0.0,0,0.0,
-2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,router,4,0,0.0,0.0,0,0.0,
-a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,router,14,0,0.0,0.0,0,0.0,
-aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,router,14,0,0.0,0.0,0,0.0,
-36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,router,23,0,0.0,0.0,0,0.0,
-49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,router,10,0,0.0,0.0,0,0.0,
-828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,router,16,0,0.0,0.0,0,0.0,
-ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,router,25,0,0.0,0.0,0,0.0,
-96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,router,108,0,0.0,0.0,0,0.0,
-6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,router,28,0,0.0,0.0,0,0.0,
-cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,router,19,0,0.0,0.0,0,0.0,
-3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,router,9,0,0.0,0.0,0,0.0,
-9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,router,21,0,0.0,0.0,0,0.0,
-8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,router,17,0,0.0,0.0,0,0.0,
-a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,router,6,0,0.0,0.0,0,0.0,
-fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,router,11,0,0.0,0.0,0,0.0,
-511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,router,27,0,0.0,0.0,0,0.0,
-c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,router,23,0,0.0,0.0,0,0.0,
-258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,router,11,0,0.0,0.0,0,0.0,
-1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,router,4,0,0.0,0.0,0,0.0,
-e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,router,20,0,0.0,0.0,0,0.0,
-76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,router,15,0,0.0,0.0,0,0.0,
-e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,router,17,0,0.0,0.0,0,0.0,
-af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,router,3,0,0.0,0.0,0,0.0,
-6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,router,42,0,0.0,0.0,0,0.0,
-a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,router,17,0,0.0,0.0,0,0.0,
-2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,router,19,0,0.0,0.0,0,0.0,
-0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,router,16,0,0.0,0.0,0,0.0,
-5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,router,13,0,0.0,0.0,0,0.0,
-40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,grobid,100,294,0.32,0.7765151515151515,1,0.8349056603773585,
-95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,grobid,17,24,0.5882352941176471,0.47619047619047616,1,0.875,
-0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,grobid,5,22,1.0,0.7777777777777778,1,1.0,
-52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,grobid,18,29,0.8333333333333334,0.8275862068965517,1,1.0,
-bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,grobid,10,21,0.6,0.6,1,1.0,
-3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,grobid,16,39,0.4375,0.6060606060606061,1,1.0,
-badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,grobid,30,41,0.7333333333333333,0.725,1,0.9285714285714286,
-01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,grobid,11,14,0.8181818181818182,0.75,1,0.75,
-1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,grobid,10,18,0.8,0.9411764705882353,0,0.0,
-4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,grobid,14,32,0.7142857142857143,0.3548387096774194,1,0.8888888888888888,
-1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,grobid,29,25,0.5172413793103449,0.5217391304347826,1,1.0,
-45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,grobid,4,33,1.0,0.75,0,0.0,
-ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,grobid,13,9,0.0,0.7142857142857143,1,1.0,
-0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,grobid,13,14,0.6923076923076923,0.9230769230769231,1,0.8333333333333334,
-6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,grobid,18,25,0.6666666666666666,0.4583333333333333,1,0.75,
-fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,grobid,5,11,0.2,0.9,0,0.0,
-47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,grobid,15,26,0.6666666666666666,0.72,1,0.9090909090909091,
-3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,grobid,24,44,0.7916666666666666,0.14705882352941177,1,0.7619047619047619,
-9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,grobid,31,24,0.5161290322580645,0.7272727272727273,1,0.6666666666666666,
-a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,grobid,6,18,0.3333333333333333,0.7857142857142857,1,0.5,
-d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,grobid,11,10,0.8181818181818182,0.6666666666666666,1,1.0,
-ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,grobid,48,57,0.5416666666666666,0.8888888888888888,1,0.8333333333333334,
-f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,grobid,7,7,0.2857142857142857,0.5,1,0.875,
-764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,grobid,6,17,0.16666666666666666,0.7142857142857143,0,0.0,
-f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,grobid,14,16,0.35714285714285715,0.375,1,1.0,
-07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,grobid,13,15,0.46153846153846156,0.8571428571428571,1,0.875,
-4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,grobid,13,12,0.9230769230769231,0.6363636363636364,1,1.0,
-92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,grobid,18,21,0.2222222222222222,0.5789473684210527,1,1.0,
-21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,grobid,13,57,0.5384615384615384,0.4074074074074074,1,0.6666666666666666,
-6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,grobid,10,38,1.0,0.9166666666666666,1,0.9166666666666666,
-3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,grobid,15,13,0.8,1.0,1,0.5,
-18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,grobid,6,7,0.3333333333333333,1.0,1,1.0,
-0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,grobid,19,20,0.21052631578947367,0.8333333333333334,1,1.0,
-f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,grobid,8,8,0.625,1.0,0,0.0,
-a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,grobid,19,24,0.7894736842105263,0.38095238095238093,1,1.0,
-e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,grobid,37,28,0.5945945945945946,0.625,1,0.8333333333333334,
-f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,grobid,9,12,0.7777777777777778,0.5,1,0.75,
-24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,grobid,10,23,0.8,0.55,1,1.0,
-4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,grobid,7,222,1.0,0.9074074074074074,1,0.5882352941176471,
-b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,grobid,15,16,0.3333333333333333,0.8666666666666667,1,0.9,
-ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,grobid,5,7,0.6,1.0,1,1.0,
-88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,grobid,12,37,1.0,0.4864864864864865,1,1.0,
-10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,grobid,7,38,0.5714285714285714,0.8666666666666667,1,0.9428571428571428,
-235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,grobid,13,18,0.7692307692307693,0.7647058823529411,1,1.0,
-552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,grobid,9,58,1.0,0.3392857142857143,1,0.9,
-ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,grobid,18,18,0.3888888888888889,1.0,1,1.0,
-ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,grobid,9,15,1.0,0.6666666666666666,1,0.75,
-9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,grobid,10,8,0.8,0.625,0,0.0,
-5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,grobid,67,73,0.6865671641791045,0.9206349206349206,1,0.7142857142857143,
-52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,grobid,10,11,0.6,0.1111111111111111,1,1.0,
-65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,grobid,26,27,0.6923076923076923,0.75,1,0.9,
-a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,grobid,22,41,0.7727272727272727,0.6129032258064516,1,0.875,
-544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,grobid,15,15,0.6,0.7,1,0.9285714285714286,
-94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,grobid,18,18,0.9444444444444444,0.8888888888888888,1,0.75,
-04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,grobid,13,30,0.9230769230769231,0.7083333333333334,1,1.0,
-81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,grobid,19,19,0.7894736842105263,0.5,0,0.0,
-54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,grobid,7,17,0.42857142857142855,0.8125,1,1.0,
-42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,grobid,23,22,0.6086956521739131,0.9411764705882353,1,1.0,
-cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,grobid,4,50,1.0,0.782608695652174,1,0.8333333333333334,
-741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,grobid,5,24,0.6,0.8695652173913043,1,0.8157894736842105,
-77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,grobid,23,37,0.8260869565217391,0.4594594594594595,1,1.0,
-97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,grobid,21,22,0.6190476190476191,0.7619047619047619,1,1.0,
-21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,grobid,13,10,0.07692307692307693,0.6666666666666666,1,1.0,
-8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,grobid,4,5,0.5,1.0,0,0.0,
-fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,grobid,14,11,0.6428571428571429,0.45454545454545453,0,0.0,
-28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,grobid,9,10,0.6666666666666666,0.875,1,0.8333333333333334,
-157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,grobid,35,33,0.9142857142857143,0.6923076923076923,1,0.75,
-e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,grobid,15,6,0.13333333333333333,0.7142857142857143,1,0.9166666666666666,
-c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,grobid,11,18,0.9090909090909091,0.5625,0,0.0,
-2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,grobid,9,13,0.8888888888888888,0.5454545454545454,1,0.6666666666666666,
-614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,grobid,14,14,0.7857142857142857,0.5,1,0.8333333333333334,
-6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,grobid,11,13,0.7272727272727273,0.7,1,0.6,
-aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,grobid,4,12,0.75,0.4,1,0.75,
-07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,grobid,22,20,0.5454545454545454,0.4444444444444444,1,0.7857142857142857,
-515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,grobid,12,14,0.5,0.5384615384615384,1,1.0,
-0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,grobid,16,29,1.0,0.7142857142857143,1,1.0,
-2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,grobid,4,11,0.75,1.0,1,1.0,
-a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,grobid,14,15,0.9285714285714286,0.5,1,0.75,
-aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,grobid,14,38,1.0,0.84375,1,0.9285714285714286,
-36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,grobid,23,34,0.782608695652174,0.65625,1,0.9375,
-49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,grobid,10,34,0.9,0.5238095238095238,1,0.9782608695652174,
-828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,grobid,16,15,0.6875,0.7333333333333333,0,0.0,
-ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,grobid,25,13,0.52,0.45454545454545453,0,0.0,
-96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,grobid,13,44,0.5384615384615384,0.18181818181818182,1,0.8913043478260869,
-810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,grobid,108,146,0.46296296296296297,0.09352517985611511,1,0.7692307692307693,
-6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,grobid,28,18,0.5357142857142857,0.5555555555555556,1,1.0,
-cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,grobid,19,16,0.5789473684210527,0.6,1,1.0,
-3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,grobid,9,18,0.8888888888888888,0.625,1,0.75,
-9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,grobid,21,16,0.5714285714285714,0.35714285714285715,1,0.6666666666666666,
-8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,grobid,17,33,1.0,0.6785714285714286,1,0.75,
-a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,grobid,6,10,0.8333333333333334,0.25,1,1.0,
-fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,grobid,11,23,0.7272727272727273,0.8,1,0.875,
-511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,grobid,27,11,0.4074074074074074,0.2,1,0.9285714285714286,
-c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,grobid,23,35,0.21739130434782608,0.6785714285714286,1,0.9545454545454546,
-258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,grobid,11,27,0.8181818181818182,0.8461538461538461,1,1.0,
-1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,grobid,4,65,1.0,0.631578947368421,1,0.6666666666666666,
-e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,grobid,20,12,0.6,0.5,1,1.0,
-76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,grobid,15,9,0.5333333333333333,0.5555555555555556,1,0.75,
-e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,grobid,17,36,0.8235294117647058,0.8529411764705882,1,0.625,
-af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,grobid,3,7,0.6666666666666666,0.5714285714285714,1,0.5,
-6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,grobid,42,67,0.5952380952380952,0.6333333333333333,1,0.875,
-a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,grobid,17,14,0.23529411764705882,0.7272727272727273,1,1.0,
-2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,grobid,19,20,0.9473684210526315,0.6,1,1.0,
-0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,grobid,16,15,0.0625,0.46153846153846156,1,1.0,
-5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,grobid,13,9,0.5384615384615384,0.7777777777777778,1,0.5,
-23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,mineru,3,0,0.0,0.0,0,0.0,No module named magic_pdf
-23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,docling,3,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,mineru,11,0,0.0,0.0,0,0.0,No module named magic_pdf
-435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,docling,11,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,mineru,19,0,0.0,0.0,0,0.0,No module named magic_pdf
-6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,docling,19,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,mineru,18,0,0.0,0.0,0,0.0,No module named magic_pdf
-fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,docling,18,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,mineru,25,0,0.0,0.0,0,0.0,No module named magic_pdf
-40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,docling,25,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,mineru,12,0,0.0,0.0,0,0.0,No module named magic_pdf
-d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,docling,12,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,mineru,22,0,0.0,0.0,0,0.0,No module named magic_pdf
-f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,docling,22,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,mineru,29,0,0.0,0.0,0,0.0,No module named magic_pdf
-919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,docling,29,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,mineru,34,0,0.0,0.0,0,0.0,No module named magic_pdf
-aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,docling,34,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,mineru,6,0,0.0,0.0,0,0.0,No module named magic_pdf
-18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,docling,6,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,mineru,3,0,0.0,0.0,0,0.0,No module named magic_pdf
-b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,docling,3,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,mineru,32,0,0.0,0.0,0,0.0,No module named magic_pdf
-44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,docling,32,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,mineru,18,0,0.0,0.0,0,0.0,No module named magic_pdf
-b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,docling,18,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,mineru,8,0,0.0,0.0,0,0.0,No module named magic_pdf
-af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,docling,8,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,mineru,12,0,0.0,0.0,0,0.0,No module named magic_pdf
-735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,docling,12,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,mineru,16,0,0.0,0.0,0,0.0,No module named magic_pdf
-9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,docling,16,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,mineru,25,0,0.0,0.0,0,0.0,No module named magic_pdf
-e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,docling,25,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,mineru,12,0,0.0,0.0,0,0.0,No module named magic_pdf
-fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,docling,12,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,mineru,14,0,0.0,0.0,0,0.0,No module named magic_pdf
-ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,docling,14,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,mineru,21,0,0.0,0.0,0,0.0,No module named magic_pdf
-c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,docling,21,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,mineru,31,0,0.0,0.0,0,0.0,No module named magic_pdf
-b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,docling,31,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,mineru,25,0,0.0,0.0,0,0.0,No module named magic_pdf
-79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,docling,25,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,mineru,8,0,0.0,0.0,0,0.0,No module named magic_pdf
-48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,docling,8,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,mineru,4,0,0.0,0.0,0,0.0,No module named magic_pdf
-31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,docling,4,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,mineru,12,0,0.0,0.0,0,0.0,No module named magic_pdf
-36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,docling,12,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,mineru,17,0,0.0,0.0,0,0.0,No module named magic_pdf
-4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,docling,17,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,mineru,32,0,0.0,0.0,0,0.0,No module named magic_pdf
-c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,docling,32,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,mineru,100,0,0.0,0.0,0,0.0,No module named magic_pdf
-40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,docling,100,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,mineru,17,0,0.0,0.0,0,0.0,No module named magic_pdf
-95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,docling,17,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,mineru,18,0,0.0,0.0,0,0.0,No module named magic_pdf
-52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,docling,18,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,mineru,16,0,0.0,0.0,0,0.0,No module named magic_pdf
-3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,docling,16,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,mineru,30,0,0.0,0.0,0,0.0,No module named magic_pdf
-badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,docling,30,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,mineru,11,0,0.0,0.0,0,0.0,No module named magic_pdf
-01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,docling,11,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,mineru,14,0,0.0,0.0,0,0.0,No module named magic_pdf
-4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,docling,14,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,mineru,29,0,0.0,0.0,0,0.0,No module named magic_pdf
-1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,docling,29,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,mineru,4,0,0.0,0.0,0,0.0,No module named magic_pdf
-45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,docling,4,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,mineru,18,0,0.0,0.0,0,0.0,No module named magic_pdf
-6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,docling,18,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,mineru,24,0,0.0,0.0,0,0.0,No module named magic_pdf
-3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,docling,24,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,mineru,31,0,0.0,0.0,0,0.0,No module named magic_pdf
-9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,docling,31,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,mineru,6,0,0.0,0.0,0,0.0,No module named magic_pdf
-a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,docling,6,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,mineru,11,0,0.0,0.0,0,0.0,No module named magic_pdf
-d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,docling,11,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,mineru,48,0,0.0,0.0,0,0.0,No module named magic_pdf
-ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,docling,48,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,mineru,6,0,0.0,0.0,0,0.0,No module named magic_pdf
-764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,docling,6,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,mineru,14,0,0.0,0.0,0,0.0,No module named magic_pdf
-f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,docling,14,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,mineru,18,0,0.0,0.0,0,0.0,No module named magic_pdf
-92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,docling,18,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,mineru,6,0,0.0,0.0,0,0.0,No module named magic_pdf
-18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,docling,6,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,mineru,19,0,0.0,0.0,0,0.0,No module named magic_pdf
-0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,docling,19,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,mineru,8,0,0.0,0.0,0,0.0,No module named magic_pdf
-f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,docling,8,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,mineru,19,0,0.0,0.0,0,0.0,No module named magic_pdf
-a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,docling,19,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,mineru,37,0,0.0,0.0,0,0.0,No module named magic_pdf
-e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,docling,37,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,mineru,12,0,0.0,0.0,0,0.0,No module named magic_pdf
-88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,docling,12,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,mineru,18,0,0.0,0.0,0,0.0,No module named magic_pdf
-ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,docling,18,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,mineru,67,0,0.0,0.0,0,0.0,No module named magic_pdf
-5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,docling,67,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,mineru,26,0,0.0,0.0,0,0.0,No module named magic_pdf
-65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,docling,26,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,mineru,22,0,0.0,0.0,0,0.0,No module named magic_pdf
-a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,docling,22,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,mineru,18,0,0.0,0.0,0,0.0,No module named magic_pdf
-94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,docling,18,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,mineru,19,0,0.0,0.0,0,0.0,No module named magic_pdf
-81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,docling,19,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,mineru,7,0,0.0,0.0,0,0.0,No module named magic_pdf
-54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,docling,7,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,mineru,23,0,0.0,0.0,0,0.0,No module named magic_pdf
-42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,docling,23,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,mineru,4,0,0.0,0.0,0,0.0,No module named magic_pdf
-cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,docling,4,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,mineru,5,0,0.0,0.0,0,0.0,No module named magic_pdf
-741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,docling,5,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,mineru,23,0,0.0,0.0,0,0.0,No module named magic_pdf
-77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,docling,23,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,mineru,21,0,0.0,0.0,0,0.0,No module named magic_pdf
-97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,docling,21,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,mineru,4,0,0.0,0.0,0,0.0,No module named magic_pdf
-8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,docling,4,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,mineru,14,0,0.0,0.0,0,0.0,No module named magic_pdf
-fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,docling,14,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,mineru,35,0,0.0,0.0,0,0.0,No module named magic_pdf
-157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,docling,35,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,mineru,11,0,0.0,0.0,0,0.0,No module named magic_pdf
-c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,docling,11,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,mineru,14,0,0.0,0.0,0,0.0,No module named magic_pdf
-614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,docling,14,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,mineru,11,0,0.0,0.0,0,0.0,No module named magic_pdf
-6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,docling,11,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,mineru,4,0,0.0,0.0,0,0.0,No module named magic_pdf
-aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,docling,4,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,mineru,22,0,0.0,0.0,0,0.0,No module named magic_pdf
-07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,docling,22,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,mineru,12,0,0.0,0.0,0,0.0,No module named magic_pdf
-515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,docling,12,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,mineru,16,0,0.0,0.0,0,0.0,No module named magic_pdf
-0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,docling,16,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,mineru,4,0,0.0,0.0,0,0.0,No module named magic_pdf
-2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,docling,4,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,mineru,14,0,0.0,0.0,0,0.0,No module named magic_pdf
-a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,docling,14,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,mineru,14,0,0.0,0.0,0,0.0,No module named magic_pdf
-aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,docling,14,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,mineru,23,0,0.0,0.0,0,0.0,No module named magic_pdf
-36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,docling,23,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,mineru,10,0,0.0,0.0,0,0.0,No module named magic_pdf
-49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,docling,10,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,mineru,16,0,0.0,0.0,0,0.0,No module named magic_pdf
-828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,docling,16,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,mineru,25,0,0.0,0.0,0,0.0,No module named magic_pdf
-ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,docling,25,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,mineru,108,0,0.0,0.0,0,0.0,No module named magic_pdf
-810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,docling,108,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,mineru,28,0,0.0,0.0,0,0.0,No module named magic_pdf
-6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,docling,28,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,mineru,19,0,0.0,0.0,0,0.0,No module named magic_pdf
-cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,docling,19,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,mineru,9,0,0.0,0.0,0,0.0,No module named magic_pdf
-3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,docling,9,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,mineru,21,0,0.0,0.0,0,0.0,No module named magic_pdf
-9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,docling,21,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,mineru,17,0,0.0,0.0,0,0.0,No module named magic_pdf
-8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,docling,17,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,mineru,6,0,0.0,0.0,0,0.0,No module named magic_pdf
-a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,docling,6,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,mineru,11,0,0.0,0.0,0,0.0,No module named magic_pdf
-fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,docling,11,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,mineru,27,0,0.0,0.0,0,0.0,No module named magic_pdf
-511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,docling,27,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,mineru,23,0,0.0,0.0,0,0.0,No module named magic_pdf
-c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,docling,23,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,mineru,11,0,0.0,0.0,0,0.0,No module named magic_pdf
-258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,docling,11,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,mineru,4,0,0.0,0.0,0,0.0,No module named magic_pdf
-1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,docling,4,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,mineru,20,0,0.0,0.0,0,0.0,No module named magic_pdf
-e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,docling,20,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,mineru,15,0,0.0,0.0,0,0.0,No module named magic_pdf
-76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,docling,15,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,mineru,17,0,0.0,0.0,0,0.0,No module named magic_pdf
-e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,docling,17,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,mineru,3,0,0.0,0.0,0,0.0,No module named magic_pdf
-af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,docling,3,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,mineru,42,0,0.0,0.0,0,0.0,No module named magic_pdf
-6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,docling,42,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,mineru,17,0,0.0,0.0,0,0.0,No module named magic_pdf
-a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,docling,17,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,mineru,19,0,0.0,0.0,0,0.0,No module named magic_pdf
-2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,docling,19,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,mineru,16,0,0.0,0.0,0,0.0,No module named magic_pdf
-0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,docling,16,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
-5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,mineru,13,0,0.0,0.0,0,0.0,No module named magic_pdf
-5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,docling,13,0,0.0,0.0,0,0.0,No internet — Docling model cache unavailable
+paper_id,arxiv_id,source_type,column_layout,subject,condition,heading_count_gt,heading_count_parser,heading_match_rate,coherent_section_pct,table_presence,table_structural_completeness,sec_per_doc,error
+5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,mineru,7,46,1.0,0.7857142857142857,1,0.10714285714285714,15.54,
+dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,mineru,5,6,0.2,0.8333333333333334,0,0.0,4.97,
+13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,mineru,13,22,0.38461538461538464,0.6666666666666666,1,0.0,6.88,
+40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,mineru,25,26,0.12,0.5,1,0.4375,22.33,
+7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,mineru,15,59,0.4,0.9661016949152542,1,0.3333333333333333,18.92,
+26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,mineru,9,11,0.1111111111111111,0.7,1,0.5,13.47,
+d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,mineru,12,26,0.6666666666666666,0.6666666666666666,0,0.0,21.83,
+f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,mineru,22,50,0.18181818181818182,0.11363636363636363,1,0.5,13.49,
+67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,mineru,9,22,0.3333333333333333,0.8636363636363636,1,0.4166666666666667,11.34,
+919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,mineru,29,37,0.3448275862068966,0.5625,1,0.3,13.48,
+2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,mineru,7,17,0.5714285714285714,0.21428571428571427,1,0.4444444444444444,12.61,
+aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,mineru,34,19,0.23529411764705882,0.8421052631578947,1,0.5,9.63,
+18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,mineru,6,52,0.6666666666666666,0.44680851063829785,1,0.1,28.45,
+b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,mineru,3,41,1.0,0.5,1,0.0,27.46,
+0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,mineru,15,35,1.0,0.625,1,0.2,11.23,
+44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,mineru,32,28,0.25,0.8888888888888888,1,0.5,17.75,
+b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,mineru,18,20,0.8333333333333334,0.15,0,0.0,12.07,
+48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,mineru,15,26,0.2,0.6538461538461539,1,0.3333333333333333,40.96,
+af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,mineru,8,11,0.375,0.8181818181818182,1,0.3333333333333333,7.72,
+183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,mineru,5,7,0.8,0.5714285714285714,1,0.16666666666666666,17.92,
+77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,mineru,15,17,0.13333333333333333,0.375,1,0.5,11.51,
+735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,mineru,12,23,0.6666666666666666,0.5263157894736842,1,0.25,13.41,
+9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,mineru,16,38,0.25,0.42424242424242425,1,0.4,12.3,
+e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,mineru,25,41,0.56,0.3055555555555556,1,0.125,9.7,
+fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,mineru,12,13,0.4166666666666667,0.3333333333333333,1,0.5,7.7,
+ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,mineru,14,30,0.2857142857142857,0.896551724137931,1,0.3333333333333333,19.44,
+24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,mineru,5,11,1.0,0.6666666666666666,1,0.0,10.68,
+23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,mineru,3,4,1.0,0.75,0,0.0,10.8,
+2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,mineru,7,24,0.5714285714285714,0.14285714285714285,1,0.375,17.82,
+435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,mineru,11,49,0.2727272727272727,0.5853658536585366,1,0.0,19.31,
+6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,mineru,19,30,0.5789473684210527,0.46153846153846156,1,0.45,26.77,
+fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,mineru,18,33,0.1111111111111111,0.5757575757575758,1,0.25,35.93,
+ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,mineru,15,18,0.3333333333333333,0.6666666666666666,1,0.0,7.67,
+c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,mineru,21,45,0.2857142857142857,0.5348837209302325,0,0.0,14.74,
+b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,mineru,31,75,0.25806451612903225,0.6507936507936508,1,0.1875,11.86,
+79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,mineru,25,20,0.08,0.6,1,0.4166666666666667,14.41,
+48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,mineru,8,27,0.75,0.20833333333333334,1,0.3333333333333333,12.64,
+9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,mineru,7,68,0.8571428571428571,0.6818181818181818,1,0.15,27.93,
+31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,mineru,4,136,1.0,0.27049180327868855,1,0.3103448275862069,58.91,
+fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,mineru,10,11,0.6,0.5555555555555556,0,0.0,5.56,
+bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,mineru,5,30,1.0,0.4,0,0.0,24.79,
+36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,mineru,12,23,0.25,0.391304347826087,1,0.5,22.54,
+4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,mineru,17,33,0.5294117647058824,0.9354838709677419,1,0.0,11.04,
+c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,mineru,32,45,0.375,0.5526315789473685,1,0.42857142857142855,7.08,
+a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,mineru,10,18,0.4,0.8125,1,0.5,9.23,
+40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,mineru,100,299,0.44,0.749034749034749,1,0.29444444444444445,179.36,
+95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,mineru,17,26,0.058823529411764705,0.4166666666666667,1,0.5,14.76,
+0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,mineru,5,43,0.4,0.631578947368421,1,0.2857142857142857,21.19,
+52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,mineru,18,33,0.3888888888888889,0.71875,1,0.3333333333333333,8.16,
+bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,mineru,10,21,0.2,0.5263157894736842,1,0.4166666666666667,19.09,
+3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,mineru,16,36,0.125,0.5588235294117647,1,0.0,16.67,
+badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,mineru,30,45,0.23333333333333334,0.627906976744186,1,0.5,19.24,
+01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,mineru,11,15,0.2727272727272727,0.6666666666666666,1,0.0,9.74,
+1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,mineru,10,16,0.7,0.875,0,0.0,20.38,
+4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,mineru,14,34,0.21428571428571427,0.29411764705882354,1,0.35,19.2,
+1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,mineru,29,34,0.5862068965517241,0.3,1,0.5,9.56,
+45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,mineru,4,41,0.0,0.59375,1,0.5,18.52,
+ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,mineru,13,18,0.0,0.6,1,0.5,10.67,
+0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,mineru,13,21,0.38461538461538464,0.7368421052631579,1,0.5,32.38,
+6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,mineru,18,37,0.6666666666666666,0.5833333333333334,1,0.2857142857142857,31.99,
+fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,mineru,5,13,0.0,0.9166666666666666,1,0.5,9.42,
+47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,mineru,15,36,0.6666666666666666,0.7272727272727273,1,0.38461538461538464,14.23,
+3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,mineru,24,50,0.20833333333333334,0.06666666666666667,1,0.125,15.5,
+9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,mineru,31,29,0.1935483870967742,0.37037037037037035,1,0.5,10.84,
+a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,mineru,6,19,0.5,0.5625,1,0.42857142857142855,19.18,
+d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,mineru,11,15,0.8181818181818182,0.5,1,0.5,43.05,
+ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,mineru,48,88,0.5208333333333334,0.8571428571428571,1,0.16666666666666666,19.65,
+f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,mineru,7,20,0.2857142857142857,0.5882352941176471,1,0.3333333333333333,12.15,
+764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,mineru,6,20,0.3333333333333333,0.6666666666666666,1,0.375,26.07,
+f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,mineru,14,18,0.35714285714285715,0.2777777777777778,1,0.5,24.89,
+07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,mineru,13,12,0.46153846153846156,0.6666666666666666,1,0.5,9.47,
+4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,mineru,13,16,0.7692307692307693,0.42857142857142855,1,0.5,9.09,
+92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,mineru,18,23,0.16666666666666666,0.3181818181818182,1,0.4,21.65,
+21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,mineru,13,52,0.3076923076923077,0.46,0,0.0,18.58,
+6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,mineru,10,31,0.5,0.9032258064516129,1,0.5,12.84,
+3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,mineru,15,17,0.3333333333333333,0.625,0,0.0,11.85,
+18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,mineru,6,7,0.6666666666666666,0.8571428571428571,1,0.5,5.96,
+0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,mineru,19,23,0.21052631578947367,0.7272727272727273,1,0.5,9.15,
+f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,mineru,8,9,0.25,0.8888888888888888,0,0.0,9.65,
+a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,mineru,19,27,0.8947368421052632,0.21739130434782608,1,0.4166666666666667,7.55,
+e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,mineru,37,43,0.32432432432432434,0.3684210526315789,1,0.35714285714285715,10.6,
+f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,mineru,9,16,0.2222222222222222,0.5,1,0.0,16.61,
+24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,mineru,10,26,1.0,0.5833333333333334,1,0.5,9.27,
+4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,mineru,7,178,1.0,0.813953488372093,1,0.16666666666666666,99.58,
+b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,mineru,15,22,0.6,0.7619047619047619,1,0.5,12.93,
+ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,mineru,5,10,0.4,0.8,1,0.5,15.06,
+88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,mineru,12,40,0.4166666666666667,0.55,1,0.35714285714285715,14.49,
+10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,mineru,7,49,0.8571428571428571,0.7674418604651163,1,0.3541666666666667,26.45,
+235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,mineru,13,27,0.6153846153846154,0.6923076923076923,1,0.4166666666666667,9.09,
+552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,mineru,9,72,0.6666666666666666,0.37142857142857144,1,0.3888888888888889,27.0,
+ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,mineru,18,22,0.3888888888888889,0.8333333333333334,1,0.5,12.62,
+ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,mineru,9,21,0.4444444444444444,0.4444444444444444,1,0.5,8.02,
+9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,mineru,10,12,0.5,0.75,0,0.0,4.33,
+5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,mineru,67,91,0.5223880597014925,0.704225352112676,1,0.08823529411764706,46.5,
+52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,mineru,10,18,0.6,0.3125,0,0.0,17.07,
+65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,mineru,26,34,0.8076923076923077,0.5161290322580645,1,0.5,10.1,
+a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,mineru,22,50,0.18181818181818182,0.6,1,0.5,13.34,
+544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,mineru,15,19,0.13333333333333333,0.5294117647058824,1,0.4166666666666667,5.43,
+94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,mineru,18,20,0.05555555555555555,0.85,1,0.5,8.07,
+04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,mineru,13,38,1.0,0.6451612903225806,1,0.06060606060606061,15.83,
+81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,mineru,19,22,0.8947368421052632,0.47368421052631576,0,0.0,11.13,
+54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,mineru,7,28,0.5714285714285714,0.8214285714285714,1,0.3,13.74,
+42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,mineru,23,27,0.2608695652173913,0.4583333333333333,1,0.5,31.21,
+cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,mineru,4,56,0.0,0.7924528301886793,1,0.375,18.33,
+741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,mineru,5,36,0.2,0.6666666666666666,1,0.25,14.57,
+77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,mineru,23,36,0.30434782608695654,0.37142857142857144,1,0.5,42.04,
+97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,mineru,21,38,0.5714285714285714,0.8108108108108109,1,0.34210526315789475,21.77,
+21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,mineru,13,15,0.15384615384615385,0.6153846153846154,1,0.5,7.65,
+8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,mineru,4,14,1.0,0.5384615384615384,1,0.4166666666666667,18.91,
+fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,mineru,14,13,0.35714285714285715,0.3333333333333333,0,0.0,5.85,
+28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,mineru,9,16,0.4444444444444444,0.4,0,0.0,11.1,
+157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,mineru,35,37,0.22857142857142856,0.5161290322580645,1,0.16666666666666666,9.43,
+e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,mineru,15,15,0.06666666666666667,0.6428571428571429,1,0.5,42.96,
+c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,mineru,11,28,1.0,0.38461538461538464,0,0.0,10.35,
+2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,mineru,9,26,1.0,0.5652173913043478,1,0.375,8.07,
+614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,mineru,14,21,0.21428571428571427,0.5263157894736842,1,0.5,22.23,
+6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,mineru,11,23,0.8181818181818182,0.5,1,0.16666666666666666,23.18,
+aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,mineru,4,25,1.0,0.5833333333333334,1,0.25,14.73,
+07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,mineru,22,28,0.6363636363636364,0.4166666666666667,1,0.5,25.19,
+515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,mineru,12,20,0.75,0.6666666666666666,0,0.0,13.19,
+0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,mineru,16,31,0.375,0.4583333333333333,1,0.07142857142857142,11.55,
+2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,mineru,4,26,0.25,0.68,1,0.25,20.69,
+a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,mineru,14,21,0.7857142857142857,0.6111111111111112,1,0.25,10.47,
+aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,mineru,14,40,0.5,0.8285714285714286,1,0.5,13.68,
+36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,mineru,23,37,0.2608695652173913,0.4857142857142857,1,0.3,9.43,
+49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,mineru,10,30,0.5,0.37037037037037035,1,0.5,22.64,
+828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,mineru,16,16,0.75,0.75,0,0.0,10.51,
+ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,mineru,25,12,0.4,0.36363636363636365,1,0.0,6.22,
+96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,mineru,13,59,0.15384615384615385,0.288135593220339,1,0.5,32.16,
+810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,mineru,108,164,0.42592592592592593,0.12162162162162163,1,0.2777777777777778,95.46,
+6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,mineru,28,26,0.75,0.5769230769230769,1,0.5,200.82,
+cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,mineru,19,18,0.2631578947368421,0.5882352941176471,1,0.5,11.4,
+3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,mineru,9,135,0.4444444444444444,0.20987654320987653,1,0.25,44.15,
+9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,mineru,21,25,0.8571428571428571,0.17391304347826086,1,0.5,14.96,
+8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,mineru,17,38,0.29411764705882354,0.45454545454545453,1,0.16666666666666666,27.16,
+a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,mineru,6,14,1.0,0.46153846153846156,1,0.5,13.37,
+fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,mineru,11,31,0.8181818181818182,0.6666666666666666,1,0.18181818181818182,17.94,
+511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,mineru,27,19,0.25925925925925924,0.17647058823529413,1,0.35714285714285715,9.05,
+c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,mineru,23,27,0.21739130434782608,0.5769230769230769,1,0.5,19.02,
+258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,mineru,11,37,0.45454545454545453,0.6285714285714286,1,0.5,16.14,
+1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,mineru,4,62,0.0,0.559322033898305,1,0.5,13.88,
+e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,mineru,20,14,0.15,0.46153846153846156,1,0.5,4.13,
+76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,mineru,15,21,0.6666666666666666,0.5,1,0.5,11.44,
+e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,mineru,17,36,0.7058823529411765,1.0,0,0.0,10.46,
+af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,mineru,3,12,1.0,0.7272727272727273,1,0.0,10.84,
+6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,mineru,42,54,0.5714285714285714,0.625,1,0.375,20.6,
+a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,mineru,17,19,0.35294117647058826,0.7333333333333333,1,0.5,13.15,
+2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,mineru,19,22,0.42105263157894735,0.6818181818181818,1,0.5,11.21,
+0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,mineru,16,18,0.125,0.4666666666666667,1,0.5,10.88,
+5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,mineru,13,9,0.46153846153846156,0.625,1,0.0,9.17,
+23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,grobid,3,2,0.6666666666666666,1.0,0,0.0,22.28,
+2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,grobid,7,20,0.8571428571428571,0.1111111111111111,1,1.0,4.58,
+435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,grobid,11,32,0.9090909090909091,0.7931034482758621,0,0.0,3.32,
+6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,grobid,19,29,0.47368421052631576,0.5,0,0.0,2.66,
+fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,grobid,18,33,0.7777777777777778,0.625,1,1.0,8.26,
+ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,grobid,15,15,0.8666666666666667,0.5833333333333334,1,0.8333333333333334,2.37,
+5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,grobid,7,20,0.5714285714285714,0.7368421052631579,1,1.0,2.82,
+dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,grobid,5,4,0.8,1.0,0,0.0,1.55,
+13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,grobid,13,12,0.8461538461538461,0.6363636363636364,1,1.0,1.8,
+40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,grobid,25,21,0.56,0.5555555555555556,0,0.0,2.54,
+7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,grobid,15,64,0.6666666666666666,0.9666666666666667,1,1.0,3.38,
+26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,grobid,9,7,0.0,0.8571428571428571,1,1.0,1.96,
+d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,grobid,12,17,0.5,0.42857142857142855,0,0.0,2.92,
+f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,grobid,22,51,0.9545454545454546,0.13636363636363635,1,1.0,2.65,
+67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,grobid,9,14,0.6666666666666666,0.9230769230769231,1,0.9,2.03,
+919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,grobid,29,32,0.896551724137931,0.6296296296296297,1,1.0,2.07,
+2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,grobid,7,17,0.42857142857142855,0.21428571428571427,0,0.0,3.17,
+aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,grobid,34,41,0.8235294117647058,0.8536585365853658,1,0.8333333333333334,2.0,
+18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,grobid,6,30,0.8333333333333334,0.25,1,0.5,3.54,
+b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,grobid,3,39,0.6666666666666666,0.3333333333333333,1,1.0,3.83,
+0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,grobid,15,27,0.9333333333333333,0.5652173913043478,1,0.8333333333333334,2.29,
+44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,grobid,32,26,0.21875,0.92,0,0.0,2.01,
+b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,grobid,18,19,0.7777777777777778,0.6111111111111112,0,0.0,1.93,
+48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,grobid,15,32,0.2,0.6333333333333333,0,0.0,3.35,
+af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,grobid,8,12,1.0,1.0,1,1.0,1.79,
+183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,grobid,5,10,0.8,0.5,1,0.75,2.21,
+77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,grobid,15,16,0.0,0.5714285714285714,0,0.0,1.86,
+735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,grobid,12,16,0.5833333333333334,0.5833333333333334,1,1.0,2.4,
+9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,grobid,16,28,1.0,0.20833333333333334,1,1.0,2.56,
+e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,grobid,25,33,0.8,0.35714285714285715,1,1.0,1.98,
+fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,grobid,12,10,0.3333333333333333,0.125,0,0.0,1.5,
+ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,grobid,14,21,0.7142857142857143,0.9523809523809523,1,1.0,2.91,
+24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,grobid,5,9,0.8,0.5714285714285714,1,1.0,2.06,
+c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,grobid,21,27,0.6190476190476191,0.84,0,0.0,1.96,
+b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,grobid,31,63,0.9354838709677419,0.5555555555555556,1,0.5,2.16,
+79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,grobid,25,20,0.6,0.5714285714285714,1,0.7857142857142857,2.2,
+48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,grobid,8,16,0.625,0.2857142857142857,0,0.0,2.28,
+9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,grobid,7,26,0.7142857142857143,0.625,1,0.9166666666666666,3.42,
+31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,grobid,4,146,0.25,0.30597014925373134,1,1.0,7.5,
+fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,grobid,10,4,0.2,0.6666666666666666,0,0.0,1.48,
+bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,grobid,5,14,0.6,0.3333333333333333,0,0.0,3.71,
+36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,grobid,12,17,0.3333333333333333,0.29411764705882354,1,1.0,2.85,
+4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,grobid,17,28,0.8235294117647058,0.9615384615384616,1,1.0,2.1,
+c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,grobid,32,40,0.96875,0.59375,0,0.0,1.82,
+a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,grobid,10,11,1.0,0.7777777777777778,1,1.0,1.91,
+40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,grobid,100,314,0.33,0.7312925170068028,1,0.9659090909090909,34.18,
+95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,grobid,17,20,0.5294117647058824,0.47058823529411764,1,1.0,2.76,
+0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,grobid,5,35,1.0,0.8214285714285714,0,0.0,3.2,
+52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,grobid,18,31,1.0,0.7586206896551724,1,1.0,1.84,
+bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,grobid,10,35,0.8,0.5,1,1.0,3.02,
+3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,grobid,16,30,0.5,0.6296296296296297,1,1.0,2.81,
+badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,grobid,30,48,0.7666666666666667,0.7659574468085106,1,1.0,2.32,
+01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,grobid,11,23,0.9090909090909091,0.7058823529411765,1,1.0,1.64,
+1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,grobid,10,16,0.8,1.0,0,0.0,3.03,
+4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,grobid,14,33,0.7142857142857143,0.3225806451612903,1,1.0,3.09,
+1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,grobid,29,27,0.5172413793103449,0.52,0,0.0,1.72,
+45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,grobid,4,32,1.0,0.7083333333333334,0,0.0,3.74,
+ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,grobid,13,11,0.0,0.5555555555555556,0,0.0,2.12,
+0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,grobid,13,12,0.6923076923076923,0.9090909090909091,1,0.9,2.7,
+6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,grobid,18,30,0.6111111111111112,0.37037037037037035,1,0.8125,5.73,
+fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,grobid,5,7,0.2,1.0,0,0.0,1.93,
+47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,grobid,15,27,0.6666666666666666,0.68,1,0.9545454545454546,2.83,
+3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,grobid,24,66,0.7916666666666666,0.1724137931034483,1,1.0,2.53,
+9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,grobid,31,25,0.6129032258064516,0.7083333333333334,0,0.0,2.15,
+a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,grobid,6,18,0.3333333333333333,0.5,0,0.0,2.23,
+d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,grobid,11,10,0.8181818181818182,0.6666666666666666,1,1.0,5.65,
+ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,grobid,48,61,0.5833333333333334,0.8571428571428571,0,0.0,2.42,
+f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,grobid,7,9,0.42857142857142855,0.5,1,1.0,2.17,
+764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,grobid,6,19,0.16666666666666666,0.4666666666666667,0,0.0,3.29,
+f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,grobid,14,15,0.35714285714285715,0.3333333333333333,0,0.0,2.71,
+07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,grobid,13,9,0.38461538461538464,0.5,0,0.0,1.7,
+4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,grobid,13,10,0.7692307692307693,0.6,0,0.0,2.14,
+92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,grobid,18,25,0.16666666666666666,0.45,1,1.0,2.37,
+21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,grobid,13,43,0.46153846153846156,0.4878048780487805,0,0.0,3.05,
+6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,grobid,10,34,0.9,0.8235294117647058,1,1.0,2.3,
+3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,grobid,15,15,0.8666666666666667,0.7333333333333333,0,0.0,1.78,
+18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,grobid,6,5,0.3333333333333333,1.0,0,0.0,1.51,
+0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,grobid,19,18,0.21052631578947367,0.7777777777777778,0,0.0,1.69,
+f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,grobid,8,9,0.625,0.8888888888888888,0,0.0,1.83,
+a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,grobid,19,24,0.8421052631578947,0.35,0,0.0,1.92,
+e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,grobid,37,25,0.5405405405405406,0.55,1,1.0,1.77,
+f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,grobid,9,12,0.7777777777777778,0.4,0,0.0,3.77,
+24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,grobid,10,19,0.6,0.35294117647058826,0,0.0,2.0,
+4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,grobid,7,209,0.8571428571428571,0.9166666666666666,0,0.0,10.72,
+b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,grobid,15,16,0.3333333333333333,0.8666666666666667,1,1.0,2.38,
+ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,grobid,5,10,0.8,1.0,0,0.0,2.64,
+88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,grobid,12,36,1.0,0.4722222222222222,1,1.0,2.64,
+10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,grobid,7,32,0.5714285714285714,0.7241379310344828,1,0.9642857142857143,4.67,
+235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,grobid,13,18,0.8461538461538461,0.7647058823529411,1,1.0,1.93,
+552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,grobid,9,62,1.0,0.2909090909090909,1,1.0,4.11,
+ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,grobid,18,16,0.3888888888888889,0.8571428571428571,0,0.0,1.84,
+ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,grobid,9,17,1.0,0.42857142857142855,1,1.0,1.97,
+9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,grobid,10,8,0.8,0.625,0,0.0,1.56,
+5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,grobid,67,73,0.6417910447761194,0.7936507936507936,1,0.875,5.36,
+52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,grobid,10,12,0.8,0.1111111111111111,0,0.0,3.54,
+65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,grobid,26,23,0.6153846153846154,0.47619047619047616,0,0.0,1.78,
+a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,grobid,22,46,0.7272727272727273,0.5135135135135135,1,1.0,2.27,
+544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,grobid,15,18,0.7333333333333333,0.5384615384615384,0,0.0,1.43,
+94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,grobid,18,19,0.9444444444444444,0.6666666666666666,0,0.0,1.78,
+04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,grobid,13,28,0.9230769230769231,0.7272727272727273,0,0.0,3.08,
+81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,grobid,19,19,0.7894736842105263,0.5,0,0.0,1.84,
+54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,grobid,7,20,0.5714285714285714,0.7,1,1.0,2.63,
+42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,grobid,23,27,0.6086956521739131,0.7777777777777778,1,1.0,3.06,
+cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,grobid,4,57,1.0,0.6981132075471698,0,0.0,2.9,
+741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,grobid,5,21,0.6,0.7,1,0.95,2.85,
+77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,grobid,23,37,0.8260869565217391,0.43243243243243246,1,0.75,4.24,
+97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,grobid,21,22,0.7142857142857143,0.7727272727272727,1,1.0,2.73,
+21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,grobid,13,10,0.07692307692307693,0.4444444444444444,0,0.0,1.61,
+8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,grobid,4,5,0.5,1.0,0,0.0,2.41,
+fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,grobid,14,11,0.7142857142857143,0.2222222222222222,0,0.0,1.62,
+28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,grobid,9,9,0.6666666666666666,0.75,0,0.0,2.21,
+157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,grobid,35,37,0.9428571428571428,0.6333333333333333,1,1.0,2.35,
+e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,grobid,15,10,0.06666666666666667,0.2727272727272727,0,0.0,5.81,
+c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,grobid,11,18,0.9090909090909091,0.4375,0,0.0,2.16,
+2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,grobid,9,14,0.8888888888888888,0.5454545454545454,1,1.0,2.13,
+614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,grobid,14,13,0.7857142857142857,0.5,1,1.0,2.54,
+6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,grobid,11,14,0.7272727272727273,0.5454545454545454,1,0.75,3.61,
+aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,grobid,4,20,0.5,0.5,0,0.0,3.14,
+07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,grobid,22,20,0.45454545454545453,0.35294117647058826,0,0.0,2.66,
+515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,grobid,12,12,0.5,0.5833333333333334,0,0.0,2.39,
+0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,grobid,16,29,1.0,0.7272727272727273,1,0.875,1.73,
+2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,grobid,4,11,0.75,0.8,1,1.0,2.95,
+a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,grobid,14,15,0.9285714285714286,0.5,1,1.0,1.99,
+aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,grobid,14,38,1.0,0.84375,1,1.0,2.54,
+36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,grobid,23,41,0.9565217391304348,0.631578947368421,1,1.0,1.89,
+49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,grobid,10,31,0.8,0.25,1,0.9375,4.41,
+828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,grobid,16,12,0.6875,0.75,0,0.0,1.52,
+ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,grobid,25,14,0.6,0.3076923076923077,0,0.0,1.66,
+96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,grobid,13,42,0.6923076923076923,0.2619047619047619,1,0.9285714285714286,6.13,
+810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,grobid,108,414,0.8148148148148148,0.082687338501292,1,0.75,13.74,
+6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,grobid,28,16,0.5,0.625,1,1.0,12.68,
+cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,grobid,19,17,0.6842105263157895,0.625,1,1.0,2.0,
+3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,grobid,9,15,0.7777777777777778,0.42857142857142855,1,1.0,5.17,
+9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,grobid,21,20,0.7142857142857143,0.2222222222222222,1,1.0,2.41,
+8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,grobid,17,34,1.0,0.5714285714285714,1,1.0,3.53,
+a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,grobid,6,10,0.8333333333333334,0.375,0,0.0,2.26,
+fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,grobid,11,24,0.7272727272727273,0.7368421052631579,1,1.0,2.92,
+511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,grobid,27,17,0.5925925925925926,0.25,1,1.0,2.22,
+c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,grobid,23,31,0.21739130434782608,0.5769230769230769,0,0.0,2.3,
+258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,grobid,11,24,0.7272727272727273,0.875,0,0.0,2.64,
+1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,grobid,4,66,1.0,0.4918032786885246,1,1.0,2.15,
+e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,grobid,20,13,0.65,0.4166666666666667,1,1.0,1.56,
+76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,grobid,15,9,0.6,0.42857142857142855,1,1.0,2.17,
+e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,grobid,17,28,0.7647058823529411,0.5555555555555556,0,0.0,1.93,
+af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,grobid,3,8,0.6666666666666666,0.5714285714285714,1,1.0,2.18,
+6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,grobid,42,61,0.5952380952380952,0.5555555555555556,0,0.0,2.16,
+a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,grobid,17,15,0.17647058823529413,0.75,0,0.0,1.86,
+2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,grobid,19,18,0.9473684210526315,0.5555555555555556,1,1.0,1.89,
+0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,grobid,16,14,0.0625,0.3333333333333333,0,0.0,1.72,
+5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,grobid,13,13,0.7692307692307693,0.8181818181818182,1,1.0,1.72,
+23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,docling,3,4,1.0,0.5,0,0.0,9.41,
+2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,docling,7,24,0.5714285714285714,0.09523809523809523,1,0.0,20.2,
+435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,docling,11,53,0.45454545454545453,0.6222222222222222,1,0.0,27.29,
+6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,docling,19,30,0.5789473684210527,0.34615384615384615,1,0.0,15.1,
+fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,docling,18,39,0.1111111111111111,0.2894736842105263,1,0.0,14.32,
+ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,docling,15,23,0.3333333333333333,0.42105263157894735,1,0.0,13.0,
+5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,docling,7,51,0.8571428571428571,0.5434782608695652,1,0.0,11.36,
+dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,docling,5,6,0.2,0.6666666666666666,0,0.0,8.85,
+13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,docling,13,22,0.38461538461538464,0.47619047619047616,1,0.0,7.85,
+40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,docling,25,27,0.16,0.6363636363636364,1,0.0,8.97,
+7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,docling,15,65,0.5333333333333333,0.9375,1,0.0,13.24,
+26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,docling,9,11,0.1111111111111111,0.6,1,0.0,8.5,
+d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,docling,12,35,1.0,0.41935483870967744,1,0.0,37.33,
+f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,docling,22,55,0.2727272727272727,0.125,1,0.0,9.48,
+67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,docling,9,23,0.3333333333333333,0.782608695652174,1,0.0,11.43,
+919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,docling,29,39,0.3103448275862069,0.42857142857142855,1,0.0,9.07,
+2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,docling,7,20,0.5714285714285714,0.1875,1,0.0,21.39,
+aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,docling,34,21,0.20588235294117646,0.7142857142857143,1,0.0,4.71,
+18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,docling,6,56,0.6666666666666666,0.2653061224489796,1,0.0,33.22,
+b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,docling,3,43,1.0,0.15789473684210525,1,0.0,16.91,
+0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,docling,15,36,1.0,0.5454545454545454,1,0.0,11.31,
+44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,docling,32,28,0.28125,0.7777777777777778,1,0.0,7.29,
+b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,docling,18,20,0.8333333333333334,0.1,0,0.0,3.29,
+48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,docling,15,29,0.2,0.5517241379310345,1,0.0,20.85,
+af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,docling,8,11,0.125,0.7272727272727273,1,0.0,4.78,
+183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,docling,5,8,0.8,0.5,1,0.0,4.36,
+77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,docling,15,18,0.13333333333333333,0.47058823529411764,1,0.0,8.45,
+735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,docling,12,25,0.6666666666666666,0.4,1,0.0,19.47,
+9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,docling,16,42,0.25,0.3333333333333333,1,0.0,20.58,
+e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,docling,25,39,0.56,0.20588235294117646,1,0.0,4.98,
+fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,docling,12,14,0.4166666666666667,0.3076923076923077,1,0.0,4.22,
+ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,docling,14,29,0.2857142857142857,0.6071428571428571,1,0.0,17.08,
+24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,docling,5,11,1.0,0.6,1,0.0,23.65,
+c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,docling,21,48,0.23809523809523808,0.5652173913043478,0,0.0,20.72,
+b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,docling,31,84,0.25806451612903225,0.4,1,0.0,12.98,
+79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,docling,25,20,0.08,0.45,1,0.0,10.32,
+48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,docling,8,29,0.875,0.21739130434782608,1,0.0,29.0,
+9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,docling,7,59,0.8571428571428571,0.6551724137931034,1,0.0,32.69,
+31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,docling,4,128,1.0,0.2222222222222222,1,0.0,64.96,
+fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,docling,10,11,0.6,0.6666666666666666,0,0.0,5.51,
+bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,docling,5,33,1.0,0.2222222222222222,0,0.0,133.73,
+36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,docling,12,26,0.25,0.32,1,0.0,9.29,
+4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,docling,17,33,0.5294117647058824,0.9,1,0.0,6.79,
+c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,docling,32,46,0.375,0.5526315789473685,1,0.0,7.26,
+a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,docling,10,18,0.4,0.5625,1,0.0,9.47,
+40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,docling,100,299,0.43,0.6039215686274509,1,0.0,214.78,
+95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,docling,17,26,0.058823529411764705,0.375,1,0.0,17.25,
+0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,docling,5,67,0.4,0.6226415094339622,1,0.0,44.7,
+52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,docling,18,33,0.3333333333333333,0.625,1,0.0,5.72,
+bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,docling,10,32,0.1,0.4,1,0.0,82.82,
+3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,docling,16,36,0.125,0.5,1,0.0,17.08,
+badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,docling,30,49,0.23333333333333334,0.625,1,0.0,8.97,
+01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,docling,11,17,0.18181818181818182,0.75,1,0.0,4.95,
+1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,docling,10,17,0.7,0.9411764705882353,0,0.0,12.61,
+4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,docling,14,36,0.14285714285714285,0.29411764705882354,1,0.0,21.01,
+1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,docling,29,35,0.5862068965517241,0.4666666666666667,1,0.0,6.27,
+45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,docling,4,40,0.0,0.46875,1,0.0,40.51,
+ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,docling,13,23,0.0,0.5789473684210527,1,0.0,12.62,
+0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,docling,13,25,0.38461538461538464,0.6956521739130435,1,0.0,16.15,
+6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,docling,18,42,0.7222222222222222,0.25,1,0.0,39.63,
+fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,docling,5,13,0.2,0.6666666666666666,1,0.0,5.2,
+47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,docling,15,36,0.6,0.5,1,0.0,23.49,
+3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,docling,24,53,0.20833333333333334,0.020833333333333332,1,0.0,18.94,
+9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,docling,31,30,0.12903225806451613,0.4444444444444444,1,0.0,6.54,
+a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,docling,6,22,0.5,0.3333333333333333,1,0.0,9.85,
+d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,docling,11,15,0.8181818181818182,0.2857142857142857,1,0.0,11.67,
+ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,docling,48,92,0.5208333333333334,0.6790123456790124,1,0.0,21.96,
+f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,docling,7,19,0.2857142857142857,0.375,1,0.0,20.03,
+764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,docling,6,21,0.3333333333333333,0.4444444444444444,1,0.0,20.2,
+f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,docling,14,18,0.35714285714285715,0.16666666666666666,1,0.0,20.86,
+07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,docling,13,16,0.46153846153846156,0.35714285714285715,1,0.0,8.97,
+4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,docling,13,19,1.0,0.47058823529411764,1,0.0,16.62,
+92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,docling,18,20,0.2222222222222222,0.3684210526315789,1,0.0,17.0,
+21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,docling,13,48,0.3076923076923077,0.34782608695652173,0,0.0,16.85,
+6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,docling,10,35,0.5,0.8235294117647058,1,0.0,16.44,
+3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,docling,15,17,0.3333333333333333,0.6470588235294118,0,0.0,3.82,
+18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,docling,6,7,0.6666666666666666,0.7142857142857143,1,0.0,7.19,
+0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,docling,19,24,0.2631578947368421,0.7391304347826086,1,0.0,3.66,
+f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,docling,8,10,0.375,0.6666666666666666,0,0.0,7.22,
+a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,docling,19,33,0.9473684210526315,0.2413793103448276,1,0.0,7.85,
+e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,docling,37,36,0.32432432432432434,0.16129032258064516,1,0.0,6.06,
+f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,docling,9,17,0.3333333333333333,0.4,1,0.0,15.25,
+24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,docling,10,30,1.0,0.4230769230769231,1,0.0,12.89,
+4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,docling,7,211,1.0,0.8793969849246231,1,0.0,64.94,
+b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,docling,15,24,0.4,0.6363636363636364,1,0.0,31.8,
+ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,docling,5,16,0.4,0.9375,1,0.0,10.86,
+88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,docling,12,39,0.4166666666666667,0.4358974358974359,1,0.0,16.79,
+10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,docling,7,110,0.8571428571428571,0.23684210526315788,1,0.0,63.12,
+235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,docling,13,26,0.6153846153846154,0.64,1,0.0,14.68,
+552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,docling,9,82,0.5555555555555556,0.3,1,0.0,60.77,
+ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,docling,18,22,0.3888888888888889,0.8333333333333334,1,0.0,6.77,
+ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,docling,9,21,0.4444444444444444,0.2222222222222222,1,0.0,13.89,
+9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,docling,10,12,0.5,0.5833333333333334,0,0.0,6.05,
+5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,docling,67,78,0.5223880597014925,0.5606060606060606,1,0.0,144.39,
+52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,docling,10,20,0.6,0.2222222222222222,0,0.0,32.41,
+65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,docling,26,35,0.8076923076923077,0.5454545454545454,1,0.0,8.18,
+a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,docling,22,59,0.2727272727272727,0.6382978723404256,1,0.0,20.13,
+544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,docling,15,19,0.13333333333333333,0.35294117647058826,1,0.0,5.03,
+94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,docling,18,21,0.05555555555555555,0.5714285714285714,1,0.0,9.31,
+04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,docling,13,41,1.0,0.47058823529411764,1,0.0,51.32,
+81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,docling,19,24,0.9473684210526315,0.45,0,0.0,9.08,
+54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,docling,7,26,0.2857142857142857,0.8076923076923077,1,0.0,11.28,
+42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,docling,23,30,0.2608695652173913,0.28,1,0.0,24.73,
+cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,docling,4,61,0.0,0.7241379310344828,1,0.0,29.35,
+741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,docling,5,36,0.2,0.5833333333333334,1,0.0,25.27,
+77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,docling,23,38,0.30434782608695654,0.2631578947368421,1,0.0,19.81,
+97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,docling,21,41,0.5714285714285714,0.6341463414634146,1,0.0,31.85,
+21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,docling,13,14,0.15384615384615385,0.5384615384615384,1,0.0,11.42,
+8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,docling,4,24,1.0,0.3888888888888889,1,0.0,49.8,
+fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,docling,14,14,0.2857142857142857,0.15384615384615385,0,0.0,3.37,
+28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,docling,9,16,0.5555555555555556,0.2857142857142857,0,0.0,16.57,
+157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,docling,35,47,0.22857142857142856,0.3333333333333333,1,0.0,22.53,
+e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,docling,15,14,0.4666666666666667,0.6923076923076923,1,0.0,21.39,
+c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,docling,11,25,1.0,0.38095238095238093,0,0.0,13.56,
+2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,docling,9,22,0.7777777777777778,0.35,1,0.0,8.73,
+614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,docling,14,21,0.2857142857142857,0.47368421052631576,1,0.0,24.06,
+6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,docling,11,28,0.9090909090909091,0.2916666666666667,1,0.0,54.88,
+aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,docling,4,17,1.0,0.29411764705882354,1,0.0,38.21,
+07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,docling,22,28,0.6363636363636364,0.3333333333333333,1,0.0,23.99,
+515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,docling,12,20,0.75,0.6111111111111112,0,0.0,38.69,
+0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,docling,16,30,0.375,0.4782608695652174,1,0.0,23.94,
+2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,docling,4,30,0.25,0.5,1,0.0,30.47,
+a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,docling,14,23,0.7857142857142857,0.55,1,0.0,13.69,
+aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,docling,14,41,0.5,0.7714285714285715,1,0.0,9.23,
+36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,docling,23,39,0.30434782608695654,0.3783783783783784,1,0.0,7.39,
+49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,docling,10,30,0.5,0.4074074074074074,1,0.0,11.34,
+828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,docling,16,16,0.8125,0.4375,0,0.0,8.47,
+ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,docling,25,18,0.56,0.4666666666666667,1,0.0,6.3,
+96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,docling,13,80,0.6153846153846154,0.1625,1,0.0,22.02,
+810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,docling,108,160,0.42592592592592593,0.136986301369863,1,0.0,76.42,
+6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,docling,28,29,0.75,0.39285714285714285,1,0.0,22.23,
+cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,docling,19,20,0.3157894736842105,0.4444444444444444,1,0.0,10.86,
+3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,docling,9,60,0.6666666666666666,0.1836734693877551,1,0.0,92.69,
+9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,docling,21,27,0.8095238095238095,0.11538461538461539,1,0.0,46.24,
+8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,docling,17,39,0.23529411764705882,0.5588235294117647,1,0.0,16.99,
+a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,docling,6,14,1.0,0.3076923076923077,1,0.0,16.71,
+fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,docling,11,32,0.9090909090909091,0.5,1,0.0,23.04,
+511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,docling,27,22,0.2222222222222222,0.2,1,0.0,19.29,
+c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,docling,23,29,0.21739130434782608,0.46153846153846156,1,0.0,8.78,
+258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,docling,11,37,0.45454545454545453,0.6,1,0.0,25.4,
+1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,docling,4,82,0.0,0.5753424657534246,1,0.0,13.43,
+e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,docling,20,14,0.15,0.5384615384615384,1,0.0,4.82,
+76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,docling,15,21,0.6666666666666666,0.45,1,0.0,30.37,
+e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,docling,17,36,0.7058823529411765,0.5428571428571428,0,0.0,6.57,
+af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,docling,3,12,1.0,0.45454545454545453,1,0.0,11.25,
+6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,docling,42,54,0.5714285714285714,0.7083333333333334,1,0.0,11.65,
+a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,docling,17,19,0.35294117647058826,0.5625,1,0.0,5.93,
+2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,docling,19,20,0.42105263157894735,0.5,1,0.0,12.0,
+0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,docling,16,17,0.125,0.26666666666666666,1,0.0,7.69,
+5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,docling,13,8,0.46153846153846156,0.625,1,0.0,6.53,
+23112067-64a6-416e-a461-5c59fd84326d,2304.14347,arxiv,single,cs.LG,router,3,2,0.6666666666666666,1.0,0,0.0,1.95,
+2e7b7c80-425c-4106-b469-0ea5263c999c,2602.07031,arxiv,single,cs.LG,router,7,24,0.5714285714285714,0.14285714285714285,1,0.375,38.98,
+435a5c71-1667-4445-bc50-187cfab96665,2602.04074,arxiv,single,cs.LG,router,11,32,0.9090909090909091,0.7931034482758621,0,0.0,7.17,
+6926d2fd-812f-4ccf-af03-91a17f52c2da,2602.16739,arxiv,single,cs.LG,router,19,30,0.5789473684210527,0.46153846153846156,1,0.45,37.23,
+fd76840c-68f2-4fa6-a83f-3dce215ecf64,2602.19770,arxiv,single,cs.LG,router,18,33,0.1111111111111111,0.5757575757575758,1,0.25,62.23,
+ef496f8d-2625-49d3-b352-cd92df3697f0,2510.20714,arxiv,single,cs.LG,router,15,18,0.3333333333333333,0.6666666666666666,1,0.0,10.51,
+5b1afba5-0c90-4d84-83b4-78cf5095603f,2512.15783,arxiv,single,cs.LG,router,7,46,1.0,0.7857142857142857,1,0.10714285714285714,19.28,
+dbf7b267-783e-46d4-b451-a39f79a8c63c,2602.03883,arxiv,single,cs.LG,router,5,4,0.8,1.0,0,0.0,2.26,
+13fbbe70-498d-4f8c-86aa-07ac45c8badd,2404.09896,arxiv,single,cs.LG,router,13,12,0.8461538461538461,0.6363636363636364,1,1.0,2.93,
+40e61a53-fdb0-45b1-ad4d-aeff81982f14,2510.12915,arxiv,single,cs.LG,router,25,21,0.56,0.5555555555555556,0,0.0,6.4,
+7b8f6673-a35f-4019-a476-d6075609cb14,2602.04616,arxiv,single,cs.LG,router,15,59,0.4,0.9661016949152542,1,0.3333333333333333,26.8,
+26979d70-8f41-4612-bf24-b5dc5e8a12fb,2603.02223,arxiv,single,cs.LG,router,9,7,0.0,0.8571428571428571,1,1.0,3.26,
+d2f8662f-2651-45fc-91a3-6781dcb5f2d1,2512.19707,arxiv,single,cs.LG,router,12,17,0.5,0.42857142857142855,0,0.0,10.46,
+f71b1644-3ab2-4e40-a6dc-26cb9030aef0,2602.17708,arxiv,single,cs.LG,router,22,50,0.18181818181818182,0.11363636363636363,1,0.5,16.09,
+67eee5e7-362a-4e39-9301-bfe211c79d94,2602.19410,arxiv,single,cs.LG,router,9,22,0.3333333333333333,0.8636363636363636,1,0.4166666666666667,12.86,
+919c801e-0588-47e9-bd95-d49d4e00c564,2602.06446,arxiv,single,cs.LG,router,29,37,0.3448275862068966,0.5625,1,0.3,15.1,
+2223652e-58d0-4b8c-b537-4fe3c8526dee,2602.15890,arxiv,single,cs.LG,router,7,17,0.5714285714285714,0.21428571428571427,1,0.4444444444444444,15.37,
+aef4da1e-7260-479b-a900-1bdec3bde85a,2602.08290,arxiv,single,cs.LG,router,34,41,0.8235294117647058,0.8536585365853658,1,0.8333333333333334,3.73,
+18eb8b7a-1fea-4de4-b990-3216c2668d57,2603.06271,arxiv,single,cs.LG,router,6,52,0.6666666666666666,0.44680851063829785,1,0.1,35.4,
+b78344c6-419e-4340-8c6b-542bae4f45df,2602.09793,arxiv,single,cs.LG,router,3,41,1.0,0.5,1,0.0,37.54,
+0a2457bd-8ea4-47b9-bb87-5f1f658366d3,2404.03208,arxiv,single,cs.LG,router,15,35,1.0,0.625,1,0.2,14.88,
+44c8e989-a77f-4d0e-8760-3b684f0f0cd7,2211.01315,arxiv,single,cs.LG,router,32,28,0.25,0.8888888888888888,1,0.5,19.91,
+b1384b07-573b-4183-b6c4-f93d383cd971,2602.12150,arxiv,single,cs.LG,router,18,20,0.8333333333333334,0.15,0,0.0,13.81,
+48989ca8-70a2-43c8-872c-fedd7806a99a,2601.09282,arxiv,single,cs.LG,router,15,26,0.2,0.6538461538461539,1,0.3333333333333333,53.38,
+af1ff450-5a82-41aa-a4b9-819702fcb43f,2502.19115,arxiv,single,cs.LG,router,8,12,1.0,1.0,1,1.0,3.25,
+183ddbfe-4a5a-4f05-88ef-90de964ba0af,2602.16737,arxiv,single,cs.LG,router,5,10,0.8,0.5,1,0.75,5.01,
+77fa3e44-d439-497e-8eca-be7fa649ba78,2602.08479,arxiv,single,cs.LG,router,15,16,0.0,0.5714285714285714,0,0.0,3.86,
+735cc8a5-0f9a-4d7c-8928-8a43353577a6,2603.02810,arxiv,single,cs.LG,router,12,23,0.6666666666666666,0.5263157894736842,1,0.25,14.98,
+9c4d0f94-c045-41af-987a-e1c94f4d646f,2512.22426,arxiv,single,cs.LG,router,16,38,0.25,0.42424242424242425,1,0.4,14.51,
+e6709813-02fe-4640-a122-5bca0457e9a5,2603.00812,arxiv,single,cs.LG,router,25,41,0.56,0.3055555555555556,1,0.125,11.55,
+fb44f060-f97a-4722-b9bf-b79bc61a383c,2601.10181,arxiv,single,cs.LG,router,12,10,0.3333333333333333,0.125,0,0.0,3.15,
+ca62cb52-86df-4cc4-b509-e7929c3653fa,2503.16191,arxiv,single,cs.LG,router,14,21,0.7142857142857143,0.9523809523809523,1,1.0,6.33,
+24cfd54b-cf68-469b-ac64-b988e4967f76,2506.03317,arxiv,single,cs.LG,router,5,9,0.8,0.5714285714285714,1,1.0,3.48,
+c039123c-f01c-44e2-b44c-cad8e2b66fdc,2601.11616,arxiv,single,cs.LG,router,21,45,0.2857142857142857,0.5348837209302325,0,0.0,17.95,
+b299a662-5851-4d74-abca-bedd7230f3a2,2602.07051,arxiv,single,cs.LG,router,31,75,0.25806451612903225,0.6507936507936508,1,0.1875,15.04,
+79700c2e-f930-4aae-8867-6dc4ee94e311,2602.11539,arxiv,single,cs.LG,router,25,20,0.08,0.6,1,0.4166666666666667,18.65,
+48ba6299-8c0c-442c-a059-2242446ce885,2602.04277,arxiv,single,cs.LG,router,8,27,0.75,0.20833333333333334,1,0.3333333333333333,16.22,
+9e0f8624-0350-498f-a29f-3170161ac9bb,2602.11081,arxiv,single,cs.LG,router,7,68,0.8571428571428571,0.6818181818181818,1,0.15,35.44,
+31f89ea4-8a08-4f7f-9298-39287b380d0d,2602.05087,arxiv,single,cs.LG,router,4,136,1.0,0.27049180327868855,1,0.3103448275862069,71.09,
+fd1cfacb-0257-497d-b71b-ab23a42ecd69,2602.13712,arxiv,single,cs.LG,router,10,4,0.2,0.6666666666666666,0,0.0,2.36,
+bdacaa24-aae3-4c80-92df-c56122193935,2510.26376,arxiv,single,cs.LG,router,5,14,0.6,0.3333333333333333,0,0.0,7.05,
+36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3,2603.03802,arxiv,single,cs.LG,router,12,17,0.3333333333333333,0.29411764705882354,1,1.0,14.02,
+4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd,2603.00060,arxiv,single,cs.LG,router,17,28,0.8235294117647058,0.9615384615384616,1,1.0,3.85,
+c0629a6c-da40-4790-a5e8-5a7efcd0ba30,2602.21648,arxiv,single,cs.LG,router,32,40,0.96875,0.59375,0,0.0,3.21,
+a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9,2601.22300,arxiv,single,cs.LG,router,10,11,1.0,0.7777777777777778,1,1.0,3.62,
+40ab7f70-d597-4b9f-aca1-18668194ac16,2602.07152,arxiv,single,cs.LG,router,100,299,0.44,0.749034749034749,1,0.29444444444444445,214.96,
+95593b84-4262-436e-bd34-ac30ba98a776,2505.11578,arxiv,single,cs.LG,router,17,26,0.058823529411764705,0.4166666666666667,1,0.5,21.77,
+0ff61f66-100e-4712-a960-7a5179812340,2602.21533,arxiv,single,cs.LG,router,5,43,0.4,0.631578947368421,1,0.2857142857142857,26.12,
+52da2dfe-758c-4c5d-993e-4ebc44aa94e4,2602.20164,arxiv,single,cs.LG,router,18,31,1.0,0.7586206896551724,1,1.0,3.77,
+bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6,2407.12226,arxiv,single,cs.LG,router,10,21,0.2,0.5263157894736842,1,0.4166666666666667,26.45,
+3969e006-6b1a-4819-b80c-2c0f3308ac3c,2602.04373,arxiv,single,cs.LG,router,16,36,0.125,0.5588235294117647,1,0.0,21.53,
+badf181f-ede6-4639-b153-f69a767b575e,2603.04443,arxiv,single,cs.LG,router,30,45,0.23333333333333334,0.627906976744186,1,0.5,22.95,
+01fd2fa8-a94c-4f9d-bf3b-f9754df351c9,2602.06772,arxiv,single,cs.LG,router,11,23,0.9090909090909091,0.7058823529411765,1,1.0,2.95,
+1e134e12-1055-4034-812d-d9886100b299,2403.08802,arxiv,single,cs.LG,router,10,16,0.8,1.0,0,0.0,6.4,
+4dcf8e83-069b-4a0b-9bab-a8428ce7e351,2603.05024,arxiv,single,cs.LG,router,14,33,0.7142857142857143,0.3225806451612903,1,1.0,9.57,
+1dfcbd76-f856-40f5-ab1e-a6c59933af67,2506.20102,arxiv,single,cs.LG,router,29,27,0.5172413793103449,0.52,0,0.0,3.72,
+45c71969-d92b-49a7-95a8-bf46f359b615,2602.04757,arxiv,single,cs.LG,router,4,32,1.0,0.7083333333333334,0,0.0,7.25,
+ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42,2602.10967,arxiv,single,cs.LG,router,13,18,0.0,0.6,1,0.5,13.1,
+0026b418-fbb7-4212-a172-515472f20db1,2508.21418,arxiv,single,cs.LG,router,13,12,0.6923076923076923,0.9090909090909091,1,0.9,11.58,
+6c518873-b23c-48f5-acc1-020daeac6c9d,2602.08577,arxiv,single,cs.LG,router,18,37,0.6666666666666666,0.5833333333333334,1,0.2857142857142857,47.88,
+fc3bbd11-52d0-469c-907f-b09a00f06ea4,2602.23303,arxiv,single,cs.LG,router,5,7,0.2,1.0,0,0.0,6.16,
+47c12bfc-91d2-4fe4-93cc-2b9e30664265,2602.10458,arxiv,single,cs.LG,router,15,27,0.6666666666666666,0.68,1,0.9545454545454546,7.13,
+3c14b491-ea2f-400a-ad51-1ba2f3ff3767,2602.00130,arxiv,single,cs.LG,router,24,66,0.7916666666666666,0.1724137931034483,1,1.0,6.75,
+9e34a0b0-df08-433d-9214-75c46023ba96,2601.18685,arxiv,single,cs.LG,router,31,29,0.1935483870967742,0.37037037037037035,1,0.5,15.48,
+a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b,2602.04782,arxiv,single,cs.LG,router,6,19,0.5,0.5625,1,0.42857142857142855,25.45,
+d0f9fead-20c9-4fc1-adc1-b49a8721d0b1,2406.01523,arxiv,single,cs.LG,router,11,10,0.8181818181818182,0.6666666666666666,1,1.0,35.11,
+ef42383e-673f-4998-9384-8e515d1b7954,2603.00004,arxiv,single,cs.LG,router,48,88,0.5208333333333334,0.8571428571428571,1,0.16666666666666666,22.05,
+f604fb54-cca1-4f29-92fe-99a51c0dbb83,2602.11194,arxiv,single,cs.LG,router,7,9,0.42857142857142855,0.5,1,1.0,3.92,
+764d9e84-9cb4-46e1-84da-b8c38c0bafe7,2412.11399,arxiv,single,cs.LG,router,6,20,0.3333333333333333,0.6666666666666666,1,0.375,41.84,
+f601473e-548f-4e4b-9e00-fa1b49bf7918,2503.11066,arxiv,single,cs.LG,router,14,15,0.35714285714285715,0.3333333333333333,0,0.0,7.13,
+07b6c03e-d715-4e58-8f52-0fe2060f7aa2,2602.17797,arxiv,single,cs.LG,router,13,12,0.46153846153846156,0.6666666666666666,1,0.5,12.24,
+4fc9487f-5ee7-4214-a63e-71f0d540cc4c,2602.22228,arxiv,single,cs.LG,router,13,16,0.7692307692307693,0.42857142857142855,1,0.5,11.14,
+92d87e42-9f92-479b-9188-a9522ba4cf91,2602.10801,arxiv,single,cs.LG,router,18,23,0.16666666666666666,0.3181818181818182,1,0.4,28.17,
+21e44e6b-44d2-4ad8-a8b1-e57b4f01908e,2506.06308,arxiv,single,cs.LG,router,13,43,0.46153846153846156,0.4878048780487805,0,0.0,7.23,
+6e4e1a35-985e-45b0-b6c9-163711882745,2510.09308,arxiv,single,cs.LG,router,10,31,0.5,0.9032258064516129,1,0.5,16.35,
+3b857472-fe4f-4369-9c62-bf4a617102d8,2602.08086,arxiv,single,cs.LG,router,15,15,0.8666666666666667,0.7333333333333333,0,0.0,2.78,
+18b540a6-e094-4ee0-b46d-3199fb11483c,2210.09226,arxiv,single,cs.LG,router,6,5,0.3333333333333333,1.0,0,0.0,2.3,
+0778679b-7e8c-4249-9e48-26fdc1dce037,2602.22400,arxiv,single,cs.LG,router,19,18,0.21052631578947367,0.7777777777777778,0,0.0,2.69,
+f0a379f6-ce76-4dfd-bad5-47ca39e403c2,2602.22261,arxiv,single,cs.LG,router,8,9,0.625,0.8888888888888888,0,0.0,3.13,
+a914e082-80f9-44cc-8be6-cc4269983113,2602.05053,arxiv,single,cs.LG,router,19,27,0.8947368421052632,0.21739130434782608,1,0.4166666666666667,9.27,
+e604e46f-de1a-438c-9b1b-f13a6168146e,2602.14275,arxiv,single,cs.LG,router,37,25,0.5405405405405406,0.55,1,1.0,4.28,
+f8e45e6b-7c58-4eb0-8e21-16a3b6214223,2602.07162,arxiv,single,cs.LG,router,9,12,0.7777777777777778,0.4,0,0.0,6.62,
+24eabcb5-e453-4495-8357-b096a34d7021,2408.16773,arxiv,single,cs.LG,router,10,26,1.0,0.5833333333333334,1,0.5,12.17,
+4ce2c883-8013-4d5a-947f-dddaa3ce1fb5,2204.05138,arxiv,single,cs.LG,router,7,178,1.0,0.813953488372093,1,0.16666666666666666,122.14,
+b111b4fc-c577-446a-9c29-f2ebcf2af82c,2308.09730,arxiv,single,cs.LG,router,15,22,0.6,0.7619047619047619,1,0.5,16.12,
+ea906d7d-9b38-4012-ba65-6e27a78337ef,2506.16782,arxiv,single,cs.LG,router,5,10,0.4,0.8,1,0.5,34.05,
+88253b88-819e-4e0d-b530-7727813b38a8,2602.15740,arxiv,single,cs.LG,router,12,40,0.4166666666666667,0.55,1,0.35714285714285715,19.48,
+10aa4d57-18b9-42a1-ad99-656887d2a29b,2412.02094,arxiv,single,cs.LG,router,7,49,0.8571428571428571,0.7674418604651163,1,0.3541666666666667,37.66,
+235daa29-749f-4632-b9a2-021996c28f4a,2512.12832,arxiv,single,cs.LG,router,13,27,0.6153846153846154,0.6923076923076923,1,0.4166666666666667,12.35,
+552450fc-5346-4193-9bad-b47ee1d220d2,2508.16815,arxiv,single,cs.LG,router,9,62,1.0,0.2909090909090909,1,1.0,9.85,
+ea249997-c29e-4f83-91e7-45f217816830,2602.15852,arxiv,single,cs.LG,router,18,22,0.3888888888888889,0.8333333333333334,1,0.5,16.27,
+ec16a65a-cb95-4ca5-967b-fe7913f1db7d,2602.06503,arxiv,single,cs.LG,router,9,17,1.0,0.42857142857142855,1,1.0,3.79,
+9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e,2603.00181,arxiv,single,cs.LG,router,10,8,0.8,0.625,0,0.0,2.63,
+5595a017-c5b2-4b6c-9e69-12616106a9b6,2602.23396,arxiv,single,cs.LG,router,67,91,0.5223880597014925,0.704225352112676,1,0.08823529411764706,56.5,
+52622a53-b11f-40e6-8bba-d0e7f7d37c37,2602.11313,arxiv,single,cs.LG,router,10,12,0.8,0.1111111111111111,0,0.0,7.47,
+65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c,2506.23339,arxiv,single,cs.LG,router,26,34,0.8076923076923077,0.5161290322580645,1,0.5,12.89,
+a5094159-cd9c-41ce-8042-44c0116e9c49,2404.05748,arxiv,single,cs.LG,router,22,46,0.7272727272727273,0.5135135135135135,1,1.0,6.68,
+544c57b9-f1e8-4a22-90f4-3e0edb432b8b,2511.18727,arxiv,single,cs.LG,router,15,19,0.13333333333333333,0.5294117647058824,1,0.4166666666666667,6.88,
+94725c92-2784-43e9-b6b9-3007f1349b1b,2505.03776,arxiv,single,cs.LG,router,18,19,0.9444444444444444,0.6666666666666666,0,0.0,4.79,
+04170766-b7ba-49dc-81db-4bfdf966d9b9,2509.11517,arxiv,single,cs.LG,router,13,38,1.0,0.6451612903225806,1,0.06060606060606061,24.36,
+81f27a75-2814-488a-9d74-b3630b61eda6,2602.04918,arxiv,single,cs.LG,router,19,19,0.7894736842105263,0.5,0,0.0,3.56,
+54366f0a-8e29-48aa-9e3d-44dc8ec66d7a,2404.17931,arxiv,single,cs.LG,router,7,28,0.5714285714285714,0.8214285714285714,1,0.3,17.42,
+42b9d5f5-f685-4d33-8e9d-82d4635a12c1,2510.00244,arxiv,single,cs.LG,router,23,27,0.6086956521739131,0.7777777777777778,1,1.0,11.82,
+cdcc5d5f-e730-40ba-ab25-c82e8c342a4a,2601.20346,arxiv,single,cs.LG,router,4,57,1.0,0.6981132075471698,0,0.0,7.07,
+741a53f6-0bde-435a-8f63-92980df89ad0,2602.12380,arxiv,single,cs.LG,router,5,36,0.2,0.6666666666666666,1,0.25,19.28,
+77ac3f4d-7c06-4309-acc7-52e2b34ffff9,2602.19984,arxiv,single,cs.LG,router,23,37,0.8260869565217391,0.43243243243243246,1,0.75,24.66,
+97ff183f-c90d-4a76-9ba7-94714d124ab8,2310.14629,arxiv,single,cs.LG,router,21,22,0.7142857142857143,0.7727272727272727,1,1.0,8.37,
+21b607c5-5d40-4f34-91e3-bf0bbd926b5b,2602.11187,arxiv,single,cs.LG,router,13,10,0.07692307692307693,0.4444444444444444,0,0.0,3.13,
+8bd9e28e-5489-474f-a406-100d835f5469,2602.05710,arxiv,single,cs.LG,router,4,5,0.5,1.0,0,0.0,5.2,
+fd63839f-92d2-4b72-a4eb-417bc422594d,2603.03810,arxiv,single,cs.LG,router,14,11,0.7142857142857143,0.2222222222222222,0,0.0,3.5,
+28cf347e-db92-44f5-a487-e87b0eff099d,2602.22533,arxiv,single,cs.LG,router,9,9,0.6666666666666666,0.75,0,0.0,4.56,
+157520d4-b826-4526-b32d-91f0f4618d85,2603.04180,arxiv,single,cs.LG,router,35,37,0.22857142857142856,0.5161290322580645,1,0.16666666666666666,11.22,
+e3f6c36c-c2cb-4074-b78b-36876b93a472,2602.15878,arxiv,single,cs.LG,router,15,10,0.06666666666666667,0.2727272727272727,0,0.0,86.13,
+c83856df-38e3-4305-b821-083e264dccd1,2602.06907,arxiv,single,cs.LG,router,11,18,0.9090909090909091,0.4375,0,0.0,3.71,
+2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c,2602.17962,arxiv,single,cs.LG,router,9,14,0.8888888888888888,0.5454545454545454,1,1.0,4.65,
+614517b3-ed3a-4e38-bb19-dfdab54c4806,2508.16179,arxiv,single,cs.LG,router,14,13,0.7857142857142857,0.5,1,1.0,6.36,
+6b4247dc-341b-418c-afe7-863d6b0eb837,2602.04911,arxiv,single,cs.LG,router,11,23,0.8181818181818182,0.5,1,0.16666666666666666,29.5,
+aeb2716a-4a42-4be4-9f06-404fd2136acf,2210.04979,arxiv,single,cs.LG,router,4,25,1.0,0.5833333333333334,1,0.25,24.69,
+07be9c5f-205a-4bef-8bd1-b941a3a18576,2602.16730,arxiv,single,cs.LG,router,22,28,0.6363636363636364,0.4166666666666667,1,0.5,31.42,
+515d5a3f-b5f3-4091-83af-5581d50efb7d,2410.20061,arxiv,single,cs.LG,router,12,20,0.75,0.6666666666666666,0,0.0,17.84,
+0bd004da-e2ce-4c62-8acc-dedd2af65fd3,2602.19237,arxiv,single,cs.LG,router,16,31,0.375,0.4583333333333333,1,0.07142857142857142,14.33,
+2275312d-ec6c-48d0-bd12-0b5104211e85,2602.07478,arxiv,single,cs.LG,router,4,26,0.25,0.68,1,0.25,34.61,
+a5ccc92d-ed4b-433a-83be-292c64f8e3f3,2602.15888,arxiv,single,cs.LG,router,14,15,0.9285714285714286,0.5,1,1.0,3.97,
+aa7a2c29-4576-48e9-ad3c-318470e0ae83,2602.17689,arxiv,single,cs.LG,router,14,40,0.5,0.8285714285714286,1,0.5,20.36,
+36c346b3-0aea-4b7b-9540-da97fd214660,2602.10750,arxiv,single,cs.LG,router,23,41,0.9565217391304348,0.631578947368421,1,1.0,3.35,
+49d211ee-6d95-424c-a0cc-0d426d6c7a81,2504.19715,arxiv,single,cs.LG,router,10,30,0.5,0.37037037037037035,1,0.5,34.36,
+828c00ab-5363-41e2-82e7-24e65dba2f79,2602.06519,arxiv,single,cs.LG,router,16,12,0.6875,0.75,0,0.0,3.5,
+ee8b4e4b-844e-4276-a4b0-61f282170edb,2504.18310,arxiv,single,cs.LG,router,25,14,0.6,0.3076923076923077,0,0.0,3.19,
+96301f10-ef8d-4527-9260-965b4eb13009,2603.00968,arxiv,single,cs.LG,router,13,42,0.6923076923076923,0.2619047619047619,1,0.9285714285714286,18.2,
+810873c0-449d-4969-81f0-3830cb310921,2411.17411,arxiv,single,cs.LG,router,108,414,0.8148148148148148,0.082687338501292,1,0.75,39.36,
+6a2c193a-8f7c-4420-9675-163ed2e570cb,2501.18731,arxiv,single,cs.LG,router,28,16,0.5,0.625,1,1.0,75.89,
+cad08fcd-768e-42f5-a652-ba0836a57f2f,2602.05861,arxiv,single,cs.LG,router,19,17,0.6842105263157895,0.625,1,1.0,4.1,
+3fc188d4-8295-4a17-b3ef-07b0b6f146de,2402.07462,arxiv,single,cs.LG,router,9,15,0.7777777777777778,0.42857142857142855,1,1.0,10.98,
+9aea4d15-9851-4b0f-a258-5881d12375cb,2602.10119,arxiv,single,cs.LG,router,21,20,0.7142857142857143,0.2222222222222222,1,1.0,4.86,
+8644282a-bd69-4210-9d78-cca8890a88e2,2602.16887,arxiv,single,cs.LG,router,17,34,1.0,0.5714285714285714,1,1.0,10.82,
+a5020d18-4347-420b-bf91-519aa90018da,2504.18367,arxiv,single,cs.LG,router,6,10,0.8333333333333334,0.375,0,0.0,3.9,
+fc37a86a-e6f0-4d50-be38-253bd0768fe6,2505.05736,arxiv,single,cs.LG,router,11,31,0.8181818181818182,0.6666666666666666,1,0.18181818181818182,22.91,
+511573c2-1fd5-4b06-98ee-26c348673919,2405.04605,arxiv,single,cs.LG,router,27,19,0.25925925925925924,0.17647058823529413,1,0.35714285714285715,15.56,
+c2349ecb-7971-4356-9695-eed2a8edbe7d,2602.11237,arxiv,single,cs.LG,router,23,27,0.21739130434782608,0.5769230769230769,1,0.5,28.01,
+258fe70f-fd5a-4f52-ae0f-7122a489e8fc,2602.20658,arxiv,single,cs.LG,router,11,24,0.7272727272727273,0.875,0,0.0,5.51,
+1264a7b3-878c-455d-a3dd-958d7e9c34ee,2602.17092,arxiv,single,cs.LG,router,4,62,0.0,0.559322033898305,1,0.5,15.71,
+e6fe8379-859c-4932-afcf-1a6d722a93c1,2602.05387,arxiv,single,cs.LG,router,20,14,0.15,0.46153846153846156,1,0.5,4.9,
+76dd954e-b299-4793-91cf-21faf0f45d4c,2312.02462,arxiv,single,cs.LG,router,15,9,0.6,0.42857142857142855,1,1.0,3.89,
+e24e50a0-bb0a-4d5d-a79b-9160a7d001c8,2602.07021,arxiv,single,cs.LG,router,17,28,0.7647058823529411,0.5555555555555556,0,0.0,4.26,
+af2cef86-30b4-4345-8ad4-d505576ea6f0,2507.13638,arxiv,single,cs.LG,router,3,8,0.6666666666666666,0.5714285714285714,1,1.0,3.87,
+6872da1a-635a-4b4c-b5b8-b0da0a022ed5,2603.01275,arxiv,single,cs.LG,router,42,54,0.5714285714285714,0.625,1,0.375,22.57,
+a98fd041-987f-417a-8d75-e46dbb08d1b3,2602.05967,arxiv,single,cs.LG,router,17,19,0.35294117647058826,0.7333333333333333,1,0.5,16.41,
+2501f198-0758-47cd-812a-2eedcdb01807,2511.00246,arxiv,single,cs.LG,router,19,22,0.42105263157894735,0.6818181818181818,1,0.5,12.91,
+0683c60b-3140-49d6-b63c-d45767ff7e80,2602.18786,arxiv,single,cs.LG,router,16,14,0.0625,0.3333333333333333,0,0.0,3.03,
+5f281da2-5e7e-4f11-8258-73836ef563d3,2602.20224,arxiv,single,cs.LG,router,13,13,0.7692307692307693,0.8181818181818182,1,1.0,3.67,

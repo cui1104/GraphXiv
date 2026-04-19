@@ -1,0 +1,14 @@
+{
+  "paper_id": "764d9e84-9cb4-46e1-84da-b8c38c0bafe7",
+  "arxiv_id": "2412.11399",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "PROBLEM FORMULATION",
+    "SUPER-RESOLUTION RECURRENT DIFFUSION MODEL",
+    "NUMERICAL RESULTS",
+    "CONCLUSIONS",
+    "REFERENCES"
+  ],
+  "page_count": 9
+}

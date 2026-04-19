@@ -1,0 +1,21 @@
+{
+  "paper_id": "21b607c5-5d40-4f34-91e3-bf0bbd926b5b",
+  "arxiv_id": "2602.11187",
+  "model": "gemini-2.5-flash",
+  "headings": [
+    "INTRODUCTION",
+    "RELATED WORK",
+    "METHODOLOGY",
+    "Framework",
+    "Agent",
+    "Reward",
+    "EXPERIMENTAL EVALUATION",
+    "System Configuration",
+    "Experimental Setting",
+    "Results",
+    "CONCLUSION",
+    "ACKNOWLEDGMENT",
+    "REFERENCES"
+  ],
+  "page_count": 5
+}
