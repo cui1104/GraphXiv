@@ -105,25 +105,80 @@ def test_normalize_heading_strips_punctuation():
     assert normalize_heading("1. Introduction!") == {"1", "introduction"}
 
 
-# ---- CSV schema tests (enabled in Plan 07-02) ----
+# ---- CSV schema tests (Plan 07-02.5 — v2 schema supersedes D-17) ----
 
 def test_csv_schema_columns():
-    """CSV must have exactly these columns per D-17. Enabled when benchmark.csv is generated."""
+    """CSV must have exactly the v2 column set (Plan 07-02.5).
+
+    Asserts against benchmark.run_benchmark.CSV_COLUMNS so the expected set is a
+    single source of truth and this test fails fast if the schema drifts.
+
+    Behavior:
+      - benchmark.csv absent              → skip (Task 6 not yet run).
+      - benchmark.csv has v1 schema       → skip (pre-overhaul file; Task 6 will
+                                           regenerate). Detected by presence of
+                                           "heading_match_rate" column.
+      - benchmark.csv has v2 schema       → assert column set + 600 rows.
+    """
     csv_path = os.path.join(os.path.dirname(__file__), "..", "benchmark", "results", "benchmark.csv")
     if not os.path.exists(csv_path):
-        pytest.skip("benchmark.csv not yet generated (Plan 07-02)")
+        pytest.skip("benchmark.csv not yet generated (Plan 07-02.5 Task 6)")
     import csv
+    from benchmark.run_benchmark import CSV_COLUMNS  # type: ignore[import]
+    expected = set(CSV_COLUMNS)
     with open(csv_path) as f:
         reader = csv.DictReader(f)
-        expected = {
-            "paper_id", "arxiv_id", "source_type", "column_layout", "subject",
-            "condition", "heading_count_gt", "heading_count_parser",
-            "heading_match_rate", "coherent_section_pct",
-            "table_presence", "table_structural_completeness", "sec_per_doc", "error",
-        }
-        assert set(reader.fieldnames or []) == expected
+        field_set = set(reader.fieldnames or [])
+        if "heading_match_rate" in field_set and "heading_f1" not in field_set:
+            pytest.skip(
+                "benchmark.csv is v1 schema (has heading_match_rate, missing heading_f1); "
+                "Task 6 will regenerate with v2 schema."
+            )
+        assert field_set == expected, (
+            f"benchmark.csv columns drift from CSV_COLUMNS; "
+            f"missing={expected - field_set}, extra={field_set - expected}"
+        )
         rows = list(reader)
         assert len(rows) == 600, f"expected 600 rows (150 papers × 4 conditions), got {len(rows)}"
+
+
+def test_csv_columns_literal_v2_spec():
+    """Lock the v2 column list as an explicit literal per 07-02.5 Task 5 spec.
+
+    This guards against accidental column additions/removals in CSV_COLUMNS
+    (the disk-CSV assertion above reads from CSV_COLUMNS, so without this test
+    a typo in CSV_COLUMNS would be self-consistent but still wrong).
+    """
+    from benchmark.run_benchmark import CSV_COLUMNS  # type: ignore[import]
+    expected = {
+        # Identity
+        "paper_id", "arxiv_id", "source_type", "column_layout", "subject",
+        "condition",
+        # Heading counts
+        "heading_count_gt", "heading_count_parser",
+        # v2 heading-quality triple (replaces v1 heading_match_rate)
+        "heading_precision", "heading_recall", "heading_f1",
+        # Hierarchy (router's differentiator)
+        "hierarchy_f1",
+        # Content richness
+        "body_token_count",
+        "figure_count_parser", "figure_count_gt",
+        "formula_count_parser", "formula_count_gt",
+        "reference_count_parser", "reference_count_gt",
+        # Tables + coherence
+        "table_presence", "table_structural_completeness",
+        "coherent_section_pct",
+        # Runtime / diagnostics
+        "sec_per_doc", "error",
+    }
+    assert set(CSV_COLUMNS) == expected, (
+        f"CSV_COLUMNS drift; missing={expected - set(CSV_COLUMNS)}, "
+        f"extra={set(CSV_COLUMNS) - expected}"
+    )
+    # Column count sanity — catches stray duplicates.
+    assert len(CSV_COLUMNS) == len(expected) == 24, (
+        f"expected 24 columns, got {len(CSV_COLUMNS)}"
+    )
 
 
 # ---- Sample selection tests (enabled in Task 3) ----

@@ -23,8 +23,13 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from benchmark.metrics import (  # type: ignore[import]
-    compute_heading_match_rate,
     coherent_section_pct,
+    body_token_count,
+    compute_heading_precision_recall_f1,
+    compute_hierarchy_f1,
+    count_figures,
+    count_formulas,
+    count_references,
     table_completeness_docling,
     table_completeness_grobid,
     table_completeness_mineru,
@@ -35,11 +40,28 @@ GT_DIR = os.path.join(os.path.dirname(__file__), "gt")
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
 CSV_PATH = os.path.join(RESULTS_DIR, "benchmark.csv")
 
+# CSV schema v2 (Plan 07-02.5) — replaces v1 precision-only schema. Every column
+# name is load-bearing: tests/test_benchmark.py::test_csv_schema_columns asserts
+# equality against this exact set, and analyze_results.py (Plan 07-03) reads
+# these column names directly.
 CSV_COLUMNS = [
     "paper_id", "arxiv_id", "source_type", "column_layout", "subject",
-    "condition", "heading_count_gt", "heading_count_parser",
-    "heading_match_rate", "coherent_section_pct",
-    "table_presence", "table_structural_completeness", "sec_per_doc", "error",
+    "condition",
+    "heading_count_gt", "heading_count_parser",
+    # Heading quality — replaces v1 heading_match_rate (precision-only).
+    "heading_precision", "heading_recall", "heading_f1",
+    # Hierarchy reconstruction — router's claimed unique win.
+    "hierarchy_f1",
+    # Content richness.
+    "body_token_count",
+    "figure_count_parser", "figure_count_gt",
+    "formula_count_parser", "formula_count_gt",
+    "reference_count_parser", "reference_count_gt",
+    # Unchanged orthogonal signals.
+    "table_presence", "table_structural_completeness",
+    "coherent_section_pct",
+    "sec_per_doc",
+    "error",
 ]
 
 CONDITIONS = ["mineru", "grobid", "docling", "router"]
@@ -428,24 +450,112 @@ def run_router_standalone(pdf_path: str) -> tuple:
 # GT loading
 # ============================================================
 
-def _load_gt(paper_id: str) -> list:
+def _load_gt(paper_id: str) -> dict:
+    """Load GT v2 payload for a paper, return dict with normalized keys.
+
+    Returns empty-shaped dict when GT file missing, malformed, or flagged error.
+    Accepts both GT v2 (headings=[{text, sec_num}, ...]) and legacy v1
+    (headings=[str, ...]) — v1 is coerced to v2 shape with empty sec_num so
+    plan 07-02.5 can proceed against a not-yet-re-extracted corpus during
+    development (production runs of this plan re-extract all GT files first).
+    """
     path = os.path.join(GT_DIR, f"{paper_id}.json")
+    empty = {
+        "headings": [],
+        "figure_count": 0,
+        "formula_count": 0,
+        "reference_count": 0,
+        "_is_v2": False,
+        "_error": "gt_missing",
+    }
     if not os.path.exists(path):
-        return []
+        return empty
     try:
         with open(path) as f:
             data = json.load(f)
-        return data.get("headings") or []
-    except Exception:
-        return []
+    except Exception as exc:
+        empty["_error"] = f"gt_json_error:{exc}"
+        return empty
+    if not isinstance(data, dict):
+        empty["_error"] = "gt_not_dict"
+        return empty
+    if "error" in data:
+        empty["_error"] = f"gt_error:{data.get('error')}"
+        return empty
+    raw_headings = data.get("headings") or []
+    # Coerce legacy v1 flat-strings to v2 shape (sec_num=""). Signal _is_v2=False
+    # so downstream can record hierarchy_f1=0.0 without noise.
+    headings: list = []
+    is_v2 = True
+    for h in raw_headings:
+        if isinstance(h, dict):
+            t = (h.get("text") or "").strip()
+            sn = h.get("sec_num")
+            sn_str = str(sn).strip() if sn is not None else ""
+            if t:
+                headings.append({"text": t, "sec_num": sn_str})
+        elif isinstance(h, str):
+            is_v2 = False
+            if h.strip():
+                headings.append({"text": h.strip(), "sec_num": ""})
+    return {
+        "headings": headings,
+        "figure_count": int(data.get("figure_count") or 0),
+        "formula_count": int(data.get("formula_count") or 0),
+        "reference_count": int(data.get("reference_count") or 0),
+        "_is_v2": is_v2 and "schema_version" in data,
+        "_error": None,
+    }
 
 
 # ============================================================
 # Row builder per (paper, condition)
 # ============================================================
 
+_EMPTY_STRUCT = {
+    "figure_count": 0,
+    "formula_count": 0,
+    "reference_count": 0,
+    "table_count": 0,
+}
+
+
+def _fill_heading_metrics(row: dict, parser_sections: list, gt_payload: dict) -> None:
+    """Populate the heading-quality + hierarchy columns on `row`.
+
+    parser_sections: list of {heading, sec_num?, depth?, ...}. Only router-
+        condition sections carry depth (by design — see _apply_dot_count_hierarchy).
+    gt_payload: output of _load_gt (v2 shape).
+    """
+    parser_heading_texts = [s["heading"] for s in parser_sections if s.get("heading")]
+    gt_heading_dicts = gt_payload["headings"]
+    gt_heading_texts = [h["text"] for h in gt_heading_dicts if h.get("text")]
+
+    p, r, f1 = compute_heading_precision_recall_f1(parser_heading_texts, gt_heading_texts)
+    row["heading_count_parser"] = len(parser_heading_texts)
+    row["heading_precision"] = round(p, 4)
+    row["heading_recall"] = round(r, 4)
+    row["heading_f1"] = round(f1, 4)
+
+    # hierarchy_f1 is 0.0 for non-router conditions (their sections have no depth);
+    # router sections have depth set by _apply_dot_count_hierarchy.
+    row["hierarchy_f1"] = round(
+        compute_hierarchy_f1(parser_sections, gt_heading_dicts), 4
+    )
+
+
+def _fill_struct_columns(row: dict, struct_counts: dict, gt_payload: dict) -> None:
+    """Populate figure/formula/reference counts from parser and GT."""
+    row["figure_count_parser"] = count_figures(struct_counts)
+    row["formula_count_parser"] = count_formulas(struct_counts)
+    row["reference_count_parser"] = count_references(struct_counts)
+    row["figure_count_gt"] = int(gt_payload.get("figure_count") or 0)
+    row["formula_count_gt"] = int(gt_payload.get("formula_count") or 0)
+    row["reference_count_gt"] = int(gt_payload.get("reference_count") or 0)
+
+
 def _build_row(entry: dict, condition: str) -> dict:
-    """Run one condition on one paper, compute metrics, return CSV row dict."""
+    """Run one condition on one paper, compute v2 metrics, return CSV row dict."""
     paper_id = entry["paper_id"]
     row = {
         "paper_id": paper_id,
@@ -456,17 +566,36 @@ def _build_row(entry: dict, condition: str) -> dict:
         "condition": condition,
         "heading_count_gt": 0,
         "heading_count_parser": 0,
-        "heading_match_rate": 0.0,
-        "coherent_section_pct": 0.0,
+        "heading_precision": 0.0,
+        "heading_recall": 0.0,
+        "heading_f1": 0.0,
+        "hierarchy_f1": 0.0,
+        "body_token_count": 0,
+        "figure_count_parser": 0,
+        "figure_count_gt": 0,
+        "formula_count_parser": 0,
+        "formula_count_gt": 0,
+        "reference_count_parser": 0,
+        "reference_count_gt": 0,
         "table_presence": 0,
         "table_structural_completeness": 0.0,
+        "coherent_section_pct": 0.0,
         "sec_per_doc": 0.0,
         "error": "",
     }
-    gt_headings = _load_gt(paper_id)
-    row["heading_count_gt"] = len(gt_headings)
-    if not gt_headings:
-        row["error"] = "gt_missing"
+    gt_payload = _load_gt(paper_id)
+    row["heading_count_gt"] = len(gt_payload["headings"])
+    # Populate GT struct columns even on early-exit paths — they're paper-level
+    # facts independent of the parser run.
+    row["figure_count_gt"] = int(gt_payload.get("figure_count") or 0)
+    row["formula_count_gt"] = int(gt_payload.get("formula_count") or 0)
+    row["reference_count_gt"] = int(gt_payload.get("reference_count") or 0)
+
+    if gt_payload.get("_error"):
+        row["error"] = gt_payload["_error"]
+        return row
+    if not gt_payload["headings"]:
+        row["error"] = "gt_empty"
         return row
 
     pdf_path = _remap_pdf_path(entry.get("pdf_path") or "")
@@ -475,11 +604,11 @@ def _build_row(entry: dict, condition: str) -> dict:
         if condition == "mineru":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, content_list, _struct_counts = run_mineru_standalone(pdf_path)
-            parser_headings = [s["heading"] for s in sections if s.get("heading")]
-            row["heading_count_parser"] = len(parser_headings)
-            row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
+            sections, content_list, struct_counts = run_mineru_standalone(pdf_path)
+            _fill_heading_metrics(row, sections, gt_payload)
             row["coherent_section_pct"] = coherent_section_pct(sections)
+            row["body_token_count"] = body_token_count(sections)
+            _fill_struct_columns(row, struct_counts, gt_payload)
             table_scores = table_completeness_mineru(content_list)
             row["table_presence"] = 1 if table_scores else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
@@ -487,10 +616,12 @@ def _build_row(entry: dict, condition: str) -> dict:
         elif condition == "grobid":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
+            struct_counts = dict(_EMPTY_STRUCT)
             try:
-                sections, tei_bytes, _struct_counts = run_grobid_standalone(pdf_path)
+                sections, tei_bytes, struct_counts = run_grobid_standalone(pdf_path)
             except Exception as grobid_exc:
-                # Fallback: read cached grobid_sections from DB (populated by populate_db_grobid.py)
+                # Fallback: read cached grobid_sections from DB (populated by populate_db_grobid.py).
+                # No TEI available in fallback — struct_counts stays zero.
                 from app.db import SessionLocal as _SL  # type: ignore[import]
                 from app.models import Paper as _P  # type: ignore[import]
                 _session = _SL()
@@ -502,11 +633,11 @@ def _build_row(entry: dict, condition: str) -> dict:
                     _session.close()
                 if not sections:
                     raise RuntimeError(f"grobid_live_failed ({grobid_exc}) and no cached grobid_sections in DB")
-                tei_bytes = b""  # no TEI for table scoring in fallback path
-            parser_headings = [s["heading"] for s in sections if s.get("heading")]
-            row["heading_count_parser"] = len(parser_headings)
-            row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
+                tei_bytes = b""
+            _fill_heading_metrics(row, sections, gt_payload)
             row["coherent_section_pct"] = coherent_section_pct(sections)
+            row["body_token_count"] = body_token_count(sections)
+            _fill_struct_columns(row, struct_counts, gt_payload)
             table_scores = table_completeness_grobid(tei_bytes) if tei_bytes else []
             row["table_presence"] = 1 if table_scores else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
@@ -514,11 +645,11 @@ def _build_row(entry: dict, condition: str) -> dict:
         elif condition == "docling":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, tables, doc, _struct_counts = run_docling_standalone(pdf_path)
-            parser_headings = [s["heading"] for s in sections if s.get("heading")]
-            row["heading_count_parser"] = len(parser_headings)
-            row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
+            sections, tables, doc, struct_counts = run_docling_standalone(pdf_path)
+            _fill_heading_metrics(row, sections, gt_payload)
             row["coherent_section_pct"] = coherent_section_pct(sections)
+            row["body_token_count"] = body_token_count(sections)
+            _fill_struct_columns(row, struct_counts, gt_payload)
             table_scores = [table_completeness_docling(t, doc) for t in tables]
             row["table_presence"] = 1 if tables else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
@@ -526,11 +657,13 @@ def _build_row(entry: dict, condition: str) -> dict:
         elif condition == "router":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, table_scores, parser_used, _struct_counts = run_router_standalone(pdf_path)
-            parser_headings = [s.get("heading", "") for s in sections if s.get("heading")]
-            row["heading_count_parser"] = len(parser_headings)
-            row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
+            sections, table_scores, parser_used, struct_counts = run_router_standalone(pdf_path)
+            # Router sections carry depth (from _apply_dot_count_hierarchy) — this is
+            # what makes hierarchy_f1 non-zero for router while standalone conditions score 0.
+            _fill_heading_metrics(row, sections, gt_payload)
             row["coherent_section_pct"] = coherent_section_pct(sections)
+            row["body_token_count"] = body_token_count(sections)
+            _fill_struct_columns(row, struct_counts, gt_payload)
             row["table_presence"] = 1 if table_scores else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
             logger.info("router picked %s (%d tables detected)", parser_used, _count_pdf_tables(pdf_path))
@@ -618,10 +751,17 @@ def main() -> int:
                 f.flush()
                 n += 1
                 logger.info(
-                    "[%d/%d] %s/%s headings=%d/%d match=%.2f coherence=%.2f tables=%d (%.1fs)",
+                    "[%d/%d] %s/%s headings=%d/%d p/r/f1=%.2f/%.2f/%.2f hier=%.2f "
+                    "coherence=%.2f fig=%d/%d form=%d/%d ref=%d/%d tok=%d tables=%d (%.1fs)",
                     n, total_rows, entry["paper_id"], cond,
                     row["heading_count_parser"], row["heading_count_gt"],
-                    row["heading_match_rate"], row["coherent_section_pct"],
+                    row["heading_precision"], row["heading_recall"], row["heading_f1"],
+                    row["hierarchy_f1"],
+                    row["coherent_section_pct"],
+                    row["figure_count_parser"], row["figure_count_gt"],
+                    row["formula_count_parser"], row["formula_count_gt"],
+                    row["reference_count_parser"], row["reference_count_gt"],
+                    row["body_token_count"],
                     row["table_presence"], time.time() - t0,
                 )
     os.replace(tmp_path, CSV_PATH)
