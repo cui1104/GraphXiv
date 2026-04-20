@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 07-01-PLAN.md
-last_updated: "2026-04-17T19:13:21.235Z"
+stopped_at: 07-02.5 Tasks 1-5+7 complete (code + tests). Paused at Task 6 checkpoint — awaiting user RunPod re-run.
+last_updated: "2026-04-20T00:08:05.125Z"
 progress:
   total_phases: 7
   completed_phases: 6
-  total_plans: 22
-  completed_plans: 20
+  total_plans: 23
+  completed_plans: 21
 ---
 
 # Project State
@@ -24,8 +24,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 ## Current Status
 
 **Milestone:** v1 — End-to-End Platform
-**Active Phase:** Phase 06 — SDK Fork + Verification (0/3 plans complete)
-**Last Action:** Completed 05-03 — Redis cache-aside layer on all 9 endpoints (PAPER_TTL=3600s, SEARCH_TTL=300s), SCAN-based invalidation in normalize_paper, MockRedis test fixture, 70/70 non-integration tests passing (2026-04-15)
+**Active Phase:** Phase 07 — Benchmark (2/4 plans complete — 07-02.5 inserted)
+**Last Action:** Completed 07-02 benchmark CSV (600 rows on RunPod RTX 4090, all 4 conditions at 150/150). Analysis revealed precision-only metrics bias results toward GROBID and don't exercise router's dot-count hierarchy win. Plan 07-02.5 created to overhaul metrics + GT schema before 07-03 analysis. (2026-04-19)
 
 ## Phase Progress
 
@@ -37,7 +37,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | 4 - Normalizer + Storage | ○ Pending | 3 | deepxiv_sdk JSON contract, upsert |
 | 5 - REST API | ✓ Complete | 3 | FastAPI, Redis caching, all 9 endpoints |
 | 6 - SDK Fork + Verification | ○ Pending | 3 | Fork deepxiv_sdk, test suite, new feature |
-| 7 - Benchmark | ↻ In Progress | 3 | MinerU vs GROBID vs Docling (1/3 complete) |
+| 7 - Benchmark | ↻ In Progress | 4 | 07-01 ✓, 07-02 ✓ (v1 CSV), 07-02.5 pending (metric overhaul), 07-03 pending (analysis) |
 
 ## Key Decisions Made
 
@@ -133,9 +133,19 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 ## Next Step
 
-Phase 06 complete (3/3 plans). Execute Phase 07 — Benchmark (MinerU vs GROBID vs Docling).
+**Execute Plan 07-02.5 — Metric & Ground-Truth Overhaul** (`.planning/phases/07-benchmark/07-02.5-PLAN.md`).
+
+Rationale: Plan 07-02 produced a 600-row CSV on fair GPU hardware, but the metric design (precision-only heading match, no hierarchy scoring, no figure/formula/ref counts) systematically rewards GROBID and hides the router's and DL parsers' real strengths. 07-02.5 adds:
+
+1. heading precision/recall/F1 (replaces precision-only match rate)
+2. hierarchy_f1 via dot-count depth builder in router (the router's actual differentiator)
+3. body_token_count, figure_count, formula_count, reference_count (content-richness metrics)
+4. GT schema v2 (per-heading sec_num + structural counts) — requires re-extracting 150 GT files (~$15 Opus)
+5. Re-run all 4 conditions on RunPod RTX 4090 against v2 schema
+
+Blocks 07-03 (analyze_results + FINDINGS.md + notebook). Archive current CSV as `benchmark.v1.csv` before re-run.
 
 ## Session
 
-Last updated: 2026-04-16
-Stopped at: Completed 07-01-PLAN.md
+Last updated: 2026-04-19
+Stopped at: 07-02.5 Tasks 1-5+7 complete (code + tests). Paused at Task 6 checkpoint — awaiting user RunPod re-run.
