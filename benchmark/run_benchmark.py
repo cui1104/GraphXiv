@@ -70,11 +70,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 # ============================================================
 
 def run_mineru_standalone(pdf_path: str) -> tuple:
-    """Call magic-pdf on raw PDF, return (sections, content_list).
+    """Call magic-pdf on raw PDF, return (sections, content_list, struct_counts).
 
     Lazy imports per project convention (Pitfall 1).
-    sections: list[{heading, text}]
+    sections: list[{heading, sec_num, text}] — sec_num preserved from MinerU content_list
     content_list: full MinerU output (for table_completeness_mineru)
+    struct_counts: {figure_count, formula_count, table_count}
     """
     from magic_pdf.config.enums import SupportedPdfParseMethod  # type: ignore[import-untyped]
     from magic_pdf.data.data_reader_writer import FileBasedDataWriter  # type: ignore[import-untyped]
@@ -102,7 +103,8 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
         with open(os.path.join(output_dir, "content_list.json")) as f:
             content_list = json.load(f)
 
-        # Primary: extract headings from content_list title/text_title types (Pitfall 5)
+        # Primary: extract headings from content_list title/text_title types (Pitfall 5).
+        # Preserve sec_num (if MinerU emitted it) on the section dict.
         sections = []
         current = None
         for item in content_list:
@@ -110,13 +112,18 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
             if t in ("title", "text_title"):
                 if current:
                     sections.append(current)
-                current = {"heading": item.get("text", ""), "text": ""}
+                current = {
+                    "heading": item.get("text", ""),
+                    "sec_num": item.get("sec_num"),
+                    "text": "",
+                }
             elif t == "text" and current is not None:
                 current["text"] = (current["text"] + " " + item.get("text", "")).strip()
         if current:
             sections.append(current)
 
-        # Fallback: if no headings found via type, parse markdown # headers
+        # Fallback: if no headings found via type, parse markdown # headers.
+        # Markdown fallback does not carry sec_num (MinerU has no hierarchy info in md).
         if not sections:
             md_path = os.path.join(output_dir, "output.md")
             if os.path.exists(md_path):
@@ -130,14 +137,31 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
                             sections.append(current)
                         heading = stripped.lstrip("#").strip()
                         if heading:
-                            current = {"heading": heading, "text": ""}
+                            current = {"heading": heading, "sec_num": None, "text": ""}
                     elif current is not None and stripped:
                         current["text"] = (current["text"] + " " + stripped).strip()
                 if current:
                     sections.append(current)
 
+        # Count structural items from content_list (figures, formulas, tables).
+        # MinerU content_list item types: "image"/"figure", "equation", "table".
+        figure_count = sum(
+            1 for it in content_list
+            if it.get("type") in ("image", "figure")
+        )
+        formula_count = sum(
+            1 for it in content_list
+            if it.get("type") in ("equation", "formula", "interline_equation")
+        )
+        table_count = sum(1 for it in content_list if it.get("type") == "table")
+        struct_counts = {
+            "figure_count": figure_count,
+            "formula_count": formula_count,
+            "table_count": table_count,
+        }
+
         # Pass full content_list to table_completeness_mineru
-        return sections, content_list
+        return sections, content_list, struct_counts
     finally:
         shutil.rmtree(output_dir, ignore_errors=True)
 
@@ -146,10 +170,47 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
 # Condition: GROBID standalone (reuse existing TEI parser)
 # ============================================================
 
-def run_grobid_standalone(pdf_path: str) -> tuple:
-    """Call GROBID /api/processFulltextDocument. Return (sections, tei_bytes).
+def _count_grobid_struct(tei_bytes: bytes) -> dict:
+    """Count <formula>, <figure type!=table>, and <biblStruct> elements in TEI.
 
-    We call GROBID directly to get TEI bytes for table_completeness_grobid.
+    Figures: <figure> WITHOUT type="table" (GROBID encodes tables as figure type="table").
+    Formulas: <formula> elements anywhere in body.
+    References: <biblStruct> children of <listBibl>.
+    """
+    from lxml import etree  # type: ignore[attr-defined]
+    TEI_NS = "http://www.tei-c.org/ns/1.0"
+    try:
+        root = etree.fromstring(tei_bytes)
+    except Exception:
+        return {"figure_count": 0, "formula_count": 0, "reference_count": 0, "table_count": 0}
+    figure_count = 0
+    table_count = 0
+    for fig in root.iter(f"{{{TEI_NS}}}figure"):
+        if fig.get("type") == "table":
+            table_count += 1
+        else:
+            figure_count += 1
+    formula_count = sum(1 for _ in root.iter(f"{{{TEI_NS}}}formula"))
+    reference_count = 0
+    for list_bibl in root.iter(f"{{{TEI_NS}}}listBibl"):
+        reference_count += sum(
+            1 for _ in list_bibl.iter(f"{{{TEI_NS}}}biblStruct")
+        )
+    return {
+        "figure_count": figure_count,
+        "formula_count": formula_count,
+        "reference_count": reference_count,
+        "table_count": table_count,
+    }
+
+
+def run_grobid_standalone(pdf_path: str) -> tuple:
+    """Call GROBID /api/processFulltextDocument. Return (sections, tei_bytes, struct_counts).
+
+    sections: list[{heading, sec_num, text, paragraphs, token_count}] — sec_num already
+              preserved by _parse_tei_fulltext_sections.
+    tei_bytes: raw TEI XML (for table_completeness_grobid).
+    struct_counts: {figure_count, formula_count, reference_count, table_count}.
     """
     import httpx  # lazy import
     GROBID_URL = os.environ.get("GROBID_URL", "http://grobid:8070")
@@ -164,10 +225,11 @@ def run_grobid_standalone(pdf_path: str) -> tuple:
     if resp.status_code != 200:
         raise RuntimeError(f"GROBID status {resp.status_code}")
     tei_bytes = resp.content
-    # Reuse existing section parser from app/parsers/grobid.py
+    # Reuse existing section parser from app/parsers/grobid.py (already preserves sec_num).
     from app.parsers.grobid import _parse_tei_fulltext_sections  # lazy import
     sections = _parse_tei_fulltext_sections(tei_bytes)
-    return sections, tei_bytes
+    struct_counts = _count_grobid_struct(tei_bytes)
+    return sections, tei_bytes, struct_counts
 
 
 # ============================================================
@@ -175,9 +237,13 @@ def run_grobid_standalone(pdf_path: str) -> tuple:
 # ============================================================
 
 def run_docling_standalone(pdf_path: str) -> tuple:
-    """Call Docling DocumentConverter on CUDA. Return (sections, tables, doc).
+    """Call Docling DocumentConverter on CUDA. Return (sections, tables, doc, struct_counts).
 
     Lazy imports (Pitfall 1). GPU device for fair comparison vs MinerU-GPU.
+
+    sections: list[{heading, sec_num, text}] — sec_num derived from item.level ("1", "1.1"
+              etc. via depth-only ladder; Docling does not emit numbered hierarchy strings).
+    struct_counts: {figure_count, formula_count, reference_count, table_count}.
     """
     from docling.document_converter import DocumentConverter, PdfFormatOption  # type: ignore[import-untyped]
     from docling.datamodel.base_models import InputFormat  # type: ignore[import-untyped]
@@ -194,22 +260,68 @@ def run_docling_standalone(pdf_path: str) -> tuple:
         raise RuntimeError(f"Docling status {result.status.name}")
     doc = result.document
 
-    # Build sections by walking texts in document order. Each section starts at a section_header.
+    # Depth-only sec_num ladder per Docling level: level=1 -> "1", "2", ... ;
+    # level=2 -> "1.1", "1.2", ... (repeats at level transitions). This gives
+    # _apply_dot_count_hierarchy a sec_num-ish string keyed off depth so the
+    # router's hierarchy builder can still produce a depth.
+    # Note: Docling emits `level` (int), NOT numeric hierarchy strings —
+    # accept that Docling's hierarchy_f1 is structurally penalized (noted in plan Risks).
     sections = []
     current = None
+    level_counters: list[int] = []  # index i = counter for level (i+1)
+
+    def _next_sec_num(level: int) -> str:
+        if level < 1:
+            level = 1
+        # Ensure the counter array has at least `level` slots.
+        while len(level_counters) < level:
+            level_counters.append(0)
+        # Truncate deeper levels when we come back up.
+        del level_counters[level:]
+        level_counters[level - 1] += 1
+        return ".".join(str(c) for c in level_counters)
+
     for item in doc.texts:
         label = str(getattr(item, "label", ""))
         # Handle both string "section_header" and enum "DocItemLabel.SECTION_HEADER" (Open Q 1)
         if "section_header" in label.lower():
             if current:
                 sections.append(current)
-            current = {"heading": item.text, "text": ""}
+            raw_level = getattr(item, "level", 1) or 1
+            try:
+                level = int(raw_level)
+            except (TypeError, ValueError):
+                level = 1
+            sec_num = _next_sec_num(level)
+            current = {"heading": item.text, "sec_num": sec_num, "text": ""}
         elif current is not None:
             current["text"] = (current["text"] + " " + (item.text or "")).strip()
     if current:
         sections.append(current)
 
-    return sections, list(doc.tables), doc
+    # Count structural items from the Docling document.
+    # - figure_count: len(doc.pictures)
+    # - table_count: len(doc.tables)
+    # - formula_count: texts with formula label
+    # - reference_count: texts with bibliography/reference label or list items inside reference section
+    tables = list(doc.tables)
+    pictures = list(getattr(doc, "pictures", []) or [])
+    formula_count = 0
+    reference_count = 0
+    for item in doc.texts:
+        label = str(getattr(item, "label", "")).lower()
+        if "formula" in label or "equation" in label:
+            formula_count += 1
+        if "reference" in label or "bibliography" in label:
+            reference_count += 1
+    struct_counts = {
+        "figure_count": len(pictures),
+        "formula_count": formula_count,
+        "reference_count": reference_count,
+        "table_count": len(tables),
+    }
+
+    return sections, tables, doc, struct_counts
 
 
 # ============================================================
@@ -238,17 +350,24 @@ def run_router_standalone(pdf_path: str) -> tuple:
     ≤3 tables → GROBID (fast, sufficient for text-heavy papers)
     >3 tables → MinerU (heavy layout model for table/formula-rich papers)
 
-    Returns (sections, tables, parser_used).
+    Returns (sections, tables, parser_used, struct_counts).
+
+    THIS IS THE ONLY CONDITION that applies `_apply_dot_count_hierarchy` — the router's
+    rule-based hierarchy reconstruction is its claimed unique win (04-CONTEXT D-02).
     """
     n_tables = _count_pdf_tables(pdf_path)
     if n_tables <= TABLE_THRESHOLD:
-        sections, tei_bytes = run_grobid_standalone(pdf_path)
+        sections, tei_bytes, struct_counts = run_grobid_standalone(pdf_path)
         table_scores = table_completeness_grobid(tei_bytes) if tei_bytes else []
-        return sections, table_scores, "grobid"
+        parser_used = "grobid"
     else:
-        sections, content_list = run_mineru_standalone(pdf_path)
+        sections, content_list, struct_counts = run_mineru_standalone(pdf_path)
         table_scores = table_completeness_mineru(content_list)
-        return sections, table_scores, "mineru"
+        parser_used = "mineru"
+
+    # Router's differentiator: build depth + parent_sec_num from dot-count on sec_num.
+    sections = _apply_dot_count_hierarchy(sections)
+    return sections, table_scores, parser_used, struct_counts
 
 
 # ============================================================
@@ -302,7 +421,7 @@ def _build_row(entry: dict, condition: str) -> dict:
         if condition == "mineru":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, content_list = run_mineru_standalone(pdf_path)
+            sections, content_list, _struct_counts = run_mineru_standalone(pdf_path)
             parser_headings = [s["heading"] for s in sections if s.get("heading")]
             row["heading_count_parser"] = len(parser_headings)
             row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
@@ -315,7 +434,7 @@ def _build_row(entry: dict, condition: str) -> dict:
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
             try:
-                sections, tei_bytes = run_grobid_standalone(pdf_path)
+                sections, tei_bytes, _struct_counts = run_grobid_standalone(pdf_path)
             except Exception as grobid_exc:
                 # Fallback: read cached grobid_sections from DB (populated by populate_db_grobid.py)
                 from app.db import SessionLocal as _SL  # type: ignore[import]
@@ -341,7 +460,7 @@ def _build_row(entry: dict, condition: str) -> dict:
         elif condition == "docling":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, tables, doc = run_docling_standalone(pdf_path)
+            sections, tables, doc, _struct_counts = run_docling_standalone(pdf_path)
             parser_headings = [s["heading"] for s in sections if s.get("heading")]
             row["heading_count_parser"] = len(parser_headings)
             row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
@@ -353,7 +472,7 @@ def _build_row(entry: dict, condition: str) -> dict:
         elif condition == "router":
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, table_scores, parser_used = run_router_standalone(pdf_path)
+            sections, table_scores, parser_used, _struct_counts = run_router_standalone(pdf_path)
             parser_headings = [s.get("heading", "") for s in sections if s.get("heading")]
             row["heading_count_parser"] = len(parser_headings)
             row["heading_match_rate"] = compute_heading_match_rate(parser_headings, gt_headings)
