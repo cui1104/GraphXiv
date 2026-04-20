@@ -373,7 +373,7 @@ def _apply_dot_count_hierarchy(sections: list) -> list:
     Sections without sec_num get depth=None, parent_sec_num=None (pass through).
     """
     out: list = []
-    for i, sec in enumerate(sections):
+    for sec in sections:
         new_sec = dict(sec)
         sec_num = sec.get("sec_num")
         if not sec_num or not isinstance(sec_num, str):

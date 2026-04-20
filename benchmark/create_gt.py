@@ -92,7 +92,7 @@ def _load_sample() -> list:
         return json.load(f)
 
 
-def _is_v2_schema(data: dict) -> bool:
+def _is_v2_schema(data: dict | None) -> bool:
     """True iff data matches GT schema v2.
 
     Required: headings is a list of dicts with "text" (non-empty) AND "sec_num"

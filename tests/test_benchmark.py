@@ -1,4 +1,9 @@
-"""Unit tests for Phase 7 benchmark metrics and sample selection."""
+# pyright: reportMissingImports=false
+"""Unit tests for Phase 7 benchmark metrics and sample selection.
+
+benchmark.* modules are resolved at runtime via sys.path insert below; Pyright
+cannot follow the dynamic path, so reportMissingImports is suppressed file-wide.
+"""
 import os
 import sys
 import json

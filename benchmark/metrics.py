@@ -242,7 +242,7 @@ def body_token_count(sections: list) -> int:
 # surface for structural metrics, and so unit tests can assert the contract
 # (dict keys, missing-key defaults) without poking at the counting code.
 
-def count_figures(struct_counts: dict) -> int:
+def count_figures(struct_counts: dict | None) -> int:
     """Return struct_counts['figure_count'], or 0 if missing/invalid."""
     if not isinstance(struct_counts, dict):
         return 0
@@ -253,7 +253,7 @@ def count_figures(struct_counts: dict) -> int:
         return 0
 
 
-def count_formulas(struct_counts: dict) -> int:
+def count_formulas(struct_counts: dict | None) -> int:
     """Return struct_counts['formula_count'], or 0 if missing/invalid."""
     if not isinstance(struct_counts, dict):
         return 0
@@ -264,7 +264,7 @@ def count_formulas(struct_counts: dict) -> int:
         return 0
 
 
-def count_references(struct_counts: dict) -> int:
+def count_references(struct_counts: dict | None) -> int:
     """Return struct_counts['reference_count'], or 0 if missing/invalid."""
     if not isinstance(struct_counts, dict):
         return 0
