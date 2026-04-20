@@ -68,6 +68,213 @@ def compute_heading_match_rate(parser_headings: list, gt_headings: list) -> floa
     return matched / len(gt_headings)
 
 
+def compute_heading_precision_recall_f1(
+    parser_headings: list,
+    gt_headings: list,
+    threshold: float = 0.8,
+) -> tuple:
+    """Recall-aware heading evaluation — returns (precision, recall, f1).
+
+    Uses the same `heading_matched` normalisation/token-overlap rule as v1 but
+    produces all three signals so we stop rewarding under-extraction (v1
+    `heading_match_rate` is precision-only; GROBID wins by emitting fewer
+    headings — see 07-02-SUMMARY key_decisions).
+
+    Definitions:
+      precision = | parser headings that match SOME gt heading | / |parser headings|
+      recall    = | gt headings matched by SOME parser heading | / |gt headings|
+      f1        = 2 * p * r / (p + r) when p + r > 0 else 0.0
+
+    Edge cases:
+      - both empty:           (0.0, 0.0, 0.0)
+      - parser empty:         (0.0, 0.0, 0.0)
+      - gt empty:             (0.0, 0.0, 0.0)
+
+    Args:
+        parser_headings: strings emitted by the parser.
+        gt_headings: GT strings (may be raw strings or {"text": str, ...} dicts; .get("text") is honored).
+        threshold: token-overlap threshold (default 0.8, matches D-10).
+    """
+    gt_texts = _coerce_heading_strings(gt_headings)
+    parser_texts = _coerce_heading_strings(parser_headings)
+    if not parser_texts or not gt_texts:
+        return 0.0, 0.0, 0.0
+    # Precision — how many parser headings find at least one gt match?
+    matched_parser = sum(
+        1 for ph in parser_texts
+        if heading_matched(ph, gt_texts, threshold=threshold)
+    )
+    precision = matched_parser / len(parser_texts)
+    # Recall — how many gt headings are matched by at least one parser heading?
+    matched_gt = sum(
+        1 for gt in gt_texts
+        if heading_matched(gt, parser_texts, threshold=threshold)
+    )
+    recall = matched_gt / len(gt_texts)
+    f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
+    return precision, recall, f1
+
+
+def _coerce_heading_strings(items) -> list:
+    """Accept list of strings OR list of {text, ...} dicts; return list of strings."""
+    out = []
+    for it in items or []:
+        if isinstance(it, str):
+            out.append(it)
+        elif isinstance(it, dict):
+            t = it.get("text") or it.get("heading") or ""
+            if t:
+                out.append(t)
+    return out
+
+
+# ============================================================
+# Hierarchy F1 (Plan 07-02.5 — router's claimed unique win)
+# ============================================================
+
+def compute_hierarchy_f1(parser_sections: list, gt_sections: list, threshold: float = 0.8) -> float:
+    """F1 over (normalized_heading, depth) pairs — depth-aware heading match.
+
+    Each GT heading carries an implicit depth derived from its sec_num dot
+    count (".1" = 2, "1" = 1). Each parser section similarly — the router's
+    _apply_dot_count_hierarchy adds `depth` to router-produced sections; other
+    conditions leave sections without depth, so their (heading, depth) tuples
+    collapse to (heading, None) and cannot match GT (heading, int_depth).
+    This is by design — the router is the only parser that EARNS hierarchy
+    credit.
+
+    Args:
+        parser_sections: list of dicts with {heading, depth, sec_num, ...}.
+        gt_sections: list of dicts with {text, sec_num} (GT v2 schema).
+                     Depth is inferred from sec_num.count(".") + 1.
+        threshold: token overlap threshold for heading normalization (D-10 compat).
+
+    Returns:
+        F1 in [0.0, 1.0]. Returns 0.0 if either side empty or no valid
+        (heading, depth) pairs on either side.
+    """
+    parser_pairs = _section_pairs(parser_sections)
+    gt_pairs = _section_pairs(gt_sections)
+    if not parser_pairs or not gt_pairs:
+        return 0.0
+    # Greedy matching: each gt_pair consumed by at most one parser_pair.
+    gt_pool = list(gt_pairs)
+    tp = 0
+    for ph, pd in parser_pairs:
+        for idx, (gh, gd) in enumerate(gt_pool):
+            if pd != gd:
+                continue
+            if heading_matched(ph, [gh], threshold=threshold):
+                tp += 1
+                gt_pool.pop(idx)
+                break
+    precision = tp / len(parser_pairs) if parser_pairs else 0.0
+    recall = tp / len(gt_pairs) if gt_pairs else 0.0
+    if precision + recall == 0:
+        return 0.0
+    return 2 * precision * recall / (precision + recall)
+
+
+def _section_pairs(sections: list) -> list:
+    """Return list of (heading_text, depth_int) pairs; skip rows with no depth.
+
+    Accepts:
+      - parser shape: {"heading": ..., "depth": int|None, "sec_num": str|None, ...}
+      - GT v2 shape:  {"text": ..., "sec_num": str} — depth inferred from sec_num.
+
+    Rows without a resolvable depth are skipped (the whole point of hierarchy_f1
+    is that sec_num-less parsers score 0.0).
+    """
+    out = []
+    for sec in sections or []:
+        if not isinstance(sec, dict):
+            continue
+        heading = sec.get("heading") or sec.get("text") or ""
+        if not heading:
+            continue
+        depth = sec.get("depth")
+        if depth is None:
+            sn = sec.get("sec_num")
+            if isinstance(sn, str) and sn:
+                depth = sn.count(".") + 1
+        if depth is None:
+            continue
+        try:
+            depth_int = int(depth)
+        except (TypeError, ValueError):
+            continue
+        out.append((heading, depth_int))
+    return out
+
+
+# ============================================================
+# Body token count (Plan 07-02.5 — content-richness metric)
+# ============================================================
+
+def body_token_count(sections: list) -> int:
+    """Sum of tiktoken cl100k_base token counts across section.text.
+
+    Matches the encoder used in app/tasks/normalize.py::_compute_token_count
+    for consistency with the production pipeline. Returns 0 if sections is
+    empty or all texts are blank.
+
+    tiktoken is imported lazily to keep this module import-cheap (metrics.py
+    is imported by the test suite).
+    """
+    if not sections:
+        return 0
+    import tiktoken  # lazy
+    enc = tiktoken.get_encoding("cl100k_base")
+    total = 0
+    for sec in sections:
+        if not isinstance(sec, dict):
+            continue
+        text = sec.get("text") or ""
+        if text and text.strip():
+            total += len(enc.encode(text))
+    return total
+
+
+# ============================================================
+# Structural count passthroughs (Plan 07-02.5)
+# ============================================================
+# Identity passthroughs — exist so run_benchmark.py has a single call-site
+# surface for structural metrics, and so unit tests can assert the contract
+# (dict keys, missing-key defaults) without poking at the counting code.
+
+def count_figures(struct_counts: dict) -> int:
+    """Return struct_counts['figure_count'], or 0 if missing/invalid."""
+    if not isinstance(struct_counts, dict):
+        return 0
+    val = struct_counts.get("figure_count", 0)
+    try:
+        return int(val)
+    except (TypeError, ValueError):
+        return 0
+
+
+def count_formulas(struct_counts: dict) -> int:
+    """Return struct_counts['formula_count'], or 0 if missing/invalid."""
+    if not isinstance(struct_counts, dict):
+        return 0
+    val = struct_counts.get("formula_count", 0)
+    try:
+        return int(val)
+    except (TypeError, ValueError):
+        return 0
+
+
+def count_references(struct_counts: dict) -> int:
+    """Return struct_counts['reference_count'], or 0 if missing/invalid."""
+    if not isinstance(struct_counts, dict):
+        return 0
+    val = struct_counts.get("reference_count", 0)
+    try:
+        return int(val)
+    except (TypeError, ValueError):
+        return 0
+
+
 # ============================================================
 # Coherence (D-11 dual signal)
 # ============================================================
