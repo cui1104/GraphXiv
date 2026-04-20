@@ -325,6 +325,60 @@ def run_docling_standalone(pdf_path: str) -> tuple:
 
 
 # ============================================================
+# Router-only helper: dot-count hierarchy builder
+# ============================================================
+#
+# Per 04-CONTEXT.md D-02 and 07-02.5-PLAN.md Task 2: the router's unique win is
+# *rule-based* dot-count hierarchy reconstruction applied to whichever child
+# parser it picks (MinerU or GROBID). The child parsers themselves do NOT apply
+# this — that's what gives the router a differentiated hierarchy_f1 vs the
+# standalone conditions.
+
+def _apply_dot_count_hierarchy(sections: list) -> list:
+    """Add depth + parent_sec_num to each section, derived from sec_num dots.
+
+    Rules:
+      - depth = sec_num.count(".") + 1 when sec_num is present, else None.
+      - parent_sec_num: walk backward from current section; pick the most recent
+        sec_num whose depth == current_depth - 1 AND current sec_num starts
+        with "{parent_sec_num}." (strict nesting check).
+
+    Input sections may be of shape {heading, sec_num, text[, ...]}; returns
+    copies with {heading, sec_num, depth, parent_sec_num, text}. Other keys
+    (paragraphs, token_count, ...) are preserved.
+
+    Top-level sections (depth=1) have parent_sec_num = None.
+    Sections without sec_num get depth=None, parent_sec_num=None (pass through).
+    """
+    out: list = []
+    for i, sec in enumerate(sections):
+        new_sec = dict(sec)
+        sec_num = sec.get("sec_num")
+        if not sec_num or not isinstance(sec_num, str):
+            new_sec["depth"] = None
+            new_sec["parent_sec_num"] = None
+            out.append(new_sec)
+            continue
+        depth = sec_num.count(".") + 1
+        new_sec["depth"] = depth
+        parent = None
+        if depth > 1:
+            # Walk backward; find the most recent sec_num with depth-1 that
+            # this sec_num strictly nests under ("1.2" nests under "1").
+            for prev in reversed(out):
+                prev_sn = prev.get("sec_num")
+                prev_depth = prev.get("depth")
+                if not prev_sn or prev_depth != depth - 1:
+                    continue
+                if sec_num.startswith(prev_sn + "."):
+                    parent = prev_sn
+                    break
+        new_sec["parent_sec_num"] = parent
+        out.append(new_sec)
+    return out
+
+
+# ============================================================
 # Condition: Router (D-03 logic: count PDF tables, route to GROBID or MinerU)
 # ============================================================
 
