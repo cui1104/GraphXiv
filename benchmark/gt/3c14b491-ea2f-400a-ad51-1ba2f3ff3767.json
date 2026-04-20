@@ -2,31 +2,107 @@
   "paper_id": "3c14b491-ea2f-400a-ad51-1ba2f3ff3767",
   "arxiv_id": "2602.00130",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "Information-Theoretic Perspectives",
-    "Representation Convergence",
-    "Compression Geometry",
-    "Generalization Theory",
-    "Problem Formulation",
-    "Setup and Notation",
-    "Effective Dimensionality",
-    "Total Compression",
-    "Output Effective Dimension",
-    "Theoretical Connections",
-    "Methods",
-    "Experimental Design",
-    "Geometry Extraction Pipeline",
-    "Statistical Analysis",
-    "Results",
-    "Total Compression Predicts Accuracy",
-    "Cross-Dataset Validation",
-    "Geometry Beyond Model Size",
-    "Feature Importance Analysis",
-    "Early Emergence of Geometric Signatures",
-    "NLP Results",
-    "Extension to Multi-Class NLI: MNLI Results"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Information-Theoretic Perspectives.",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Representation Convergence.",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Compression Theory.",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Generalization Theory.",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Problem Formulation",
+      "sec_num": "3"
+    },
+    {
+      "text": "Setup and Notation",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Effective Dimensionality",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Total Compression",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Output Effective Dimension",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Theoretical Connections (Informal)",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "4"
+    },
+    {
+      "text": "Experimental Design",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Geometry Extraction Pipeline",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Statistical Analysis",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Results",
+      "sec_num": "5"
+    },
+    {
+      "text": "Total Compression Predicts Accuracy",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Cross-Dataset Validation",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Geometry Beyond Model Size",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Feature Importance Analysis",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "Early Emergence of Geometric Signatures",
+      "sec_num": "5.5"
+    },
+    {
+      "text": "NLP Results",
+      "sec_num": "5.6"
+    },
+    {
+      "text": "Extension to Multi-Class NLI: MNLI Results",
+      "sec_num": "5.6.1"
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 3,
+  "reference_count": 0,
   "page_count": 10
 }

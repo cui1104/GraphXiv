@@ -2,20 +2,63 @@
   "paper_id": "0026b418-fbb7-4212-a172-515472f20db1",
   "arxiv_id": "2508.21418",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "ARTICLE INFO",
-    "Keywords",
-    "Introduction",
-    "Related work",
-    "Proposed model for AI-ready metadata",
-    "Profile definition for tissue maps",
-    "Tissue map visualization",
-    "AI-based metadata extraction for tissue maps",
-    "Dataset",
-    "Tissue classifier for metadata extraction",
-    "Experimental evaluation of the metadata model",
-    "Discussion"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Proposed model for AI-ready metadata",
+      "sec_num": "3"
+    },
+    {
+      "text": "Profile definition for tissue maps",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Tissue map visualization",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "AI-based metadata extraction for tissue maps",
+      "sec_num": "4"
+    },
+    {
+      "text": "Dataset",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Tissue classifier for metadata extraction",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Experimental evaluation of the metadata model",
+      "sec_num": "5"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "6"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "7"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 12,
+  "formula_count": 0,
+  "reference_count": 91,
   "page_count": 10
 }

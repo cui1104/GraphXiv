@@ -2,19 +2,63 @@
   "paper_id": "88253b88-819e-4e0d-b530-7727813b38a8",
   "arxiv_id": "2602.15740",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "Multimodal Fusion Approaches",
-    "Graph-Based Methods for AD Diagnosis",
-    "Explainability and Trustworthy AI for AD Diagnosis",
-    "Methodology",
-    "Problem Formulation",
-    "Model architecture",
-    "Episodic Task Design and Batch Construction",
-    "Copula-Based Multi-Modal Similarity Computation",
-    "Graph Construction and Sparsification",
-    "One-hop Relational Graph Attention"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Multimodal Fusion Approaches",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Graph-Based Methods for AD Diagnosis",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Explainability and Trustworthy AI for AD Diagnosis",
+      "sec_num": ""
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Problem Formulation",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Model architecture",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Episodic Task Design and Batch Construction",
+      "sec_num": "3.3.1"
+    },
+    {
+      "text": "Copula-Based Multi-Modal Similarity Computation",
+      "sec_num": "3.3.2"
+    },
+    {
+      "text": "Graph Construction and Sparsification",
+      "sec_num": "3.3.3"
+    },
+    {
+      "text": "One-hop Relational Graph Attention",
+      "sec_num": "3.3.4"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 12,
+  "reference_count": 0,
   "page_count": 10
 }

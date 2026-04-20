@@ -2,20 +2,71 @@
   "paper_id": "ac0b6d9f-5394-4b04-a68f-6d2eb17a7d42",
   "arxiv_id": "2602.10967",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORKS",
-    "METHODOLOGY",
-    "AUGMENTED REGULARIZATION",
-    "CutMix",
-    "MixUp",
-    "EXPERIMENTAL ANALYSIS",
-    "InceptionV3",
-    "ResNet50",
-    "SHAP",
-    "LIME",
-    "COMPARISON",
-    "CONCLUSION"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "RELATED WORKS",
+      "sec_num": "II"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "III"
+    },
+    {
+      "text": "InceptionV3",
+      "sec_num": "A"
+    },
+    {
+      "text": "ResNet50",
+      "sec_num": "B"
+    },
+    {
+      "text": "CutMix",
+      "sec_num": "C"
+    },
+    {
+      "text": "MixUp",
+      "sec_num": "D"
+    },
+    {
+      "text": "EXPERIMENTAL ANALYSIS",
+      "sec_num": "V"
+    },
+    {
+      "text": "InceptionV3",
+      "sec_num": "A"
+    },
+    {
+      "text": "ResNet50",
+      "sec_num": "B"
+    },
+    {
+      "text": "Comparison",
+      "sec_num": "C"
+    },
+    {
+      "text": "SHAP",
+      "sec_num": "D"
+    },
+    {
+      "text": "LIME",
+      "sec_num": "E"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "VIII"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 13,
+  "formula_count": 4,
+  "reference_count": 10,
   "page_count": 6
 }

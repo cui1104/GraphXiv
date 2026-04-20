@@ -2,21 +2,67 @@
   "paper_id": "aa7a2c29-4576-48e9-ad3c-318470e0ae83",
   "arxiv_id": "2602.17689",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Literature Review",
-    "Vision-Language Pre-Training",
-    "Medical Vision-Language Models",
-    "Masked Autoencoders and Multi-Modal Reconstruction",
-    "Robust Representation Learning in Medical AI",
-    "Multi-Modal Robustness and Missing-Modality Learning",
-    "Research Gap",
-    "Methodology",
-    "Overview of the Proposed Framework",
-    "Robust Masked Multi-Modal Input Construction",
-    "Dual-Encoder Representation Learning",
-    "Cross-Modal Reconstruction with Robust Decoding",
-    "Robust Masked Reconstruction Objective"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Literature Review",
+      "sec_num": "2"
+    },
+    {
+      "text": "Vision–Language Pre-Training",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Medical Vision–Language Models",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Masked Autoencoders and Multi-Modal Reconstruction",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Robust Representation Learning in Medical AI",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Multi-Modal Robustness and Missing-Modality Learning",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Research Gap",
+      "sec_num": "2.6"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Overview of the Proposed Framework",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Robust Masked Multi-Modal Input Construction",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Dual-Encoder Representation Learning",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Cross-Modal Reconstruction with Robust Decoding",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Robust Masked Reconstruction Objective",
+      "sec_num": "3.5"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 4,
+  "reference_count": 0,
   "page_count": 10
 }

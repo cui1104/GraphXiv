@@ -2,22 +2,59 @@
   "paper_id": "47c12bfc-91d2-4fe4-93cc-2b9e30664265",
   "arxiv_id": "2602.10458",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "A Unified Platform for Foundation Model-Enhanced RL.",
-    "VLM Action Guidance Mechanisms:",
-    "CLIP-based Reward Shaping:",
-    "Related work",
-    "Reinforcement learning-based autonomous driving",
-    "Foundation models in autonomous driving",
-    "Simulation platforms for autonomous driving",
-    "Preliminaries",
-    "Problem Formulation",
-    "Off-policy actor-critic learning",
-    "Method",
-    "Asynchronous batch inference framework"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related work",
+      "sec_num": ""
+    },
+    {
+      "text": "Reinforcement learning-based autonomous driving",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Foundation models in autonomous driving",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Simulation platforms for autonomous driving",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Preliminaries",
+      "sec_num": ""
+    },
+    {
+      "text": "Problem Formulation",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Off-policy actor-critic learning",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Method",
+      "sec_num": ""
+    },
+    {
+      "text": "Asynchronous batch inference framework",
+      "sec_num": "4.1"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 6,
+  "reference_count": 0,
   "page_count": 10
 }

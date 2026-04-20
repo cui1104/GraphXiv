@@ -2,19 +2,59 @@
   "paper_id": "515d5a3f-b5f3-4091-83af-5581d50efb7d",
   "arxiv_id": "2410.20061",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Theoretical background",
-    "Concept identification in engineering design",
-    "Formalizing deep concept identification for generative design",
-    "Fundamental implementation of deep concept identification",
-    "Experimental application",
-    "Application of a simplified conceptual design problem of bridge structure",
-    "Generating diverse alternatives of bridge structures by generative design",
-    "Embedding alternatives into latent space and identifying representative types and features by the training VaDE model",
-    "Arranging representatives as design concepts by the classification model"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Theoretical background",
+      "sec_num": "2"
+    },
+    {
+      "text": "Concept identification in engineering design",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Formalizing deep concept identification for generative design",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Fundamental implementation of deep concept identification",
+      "sec_num": "3"
+    },
+    {
+      "text": "Experimental application",
+      "sec_num": "4"
+    },
+    {
+      "text": "A simplified conceptual design problem of bridge structure",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Generating diverse alternatives of bridge structures by generative designs",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Embedding alternatives into latent space and identifying representative types and features by the training VaDE model",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Arranging representatives as design concepts by the classification model",
+      "sec_num": "4.4"
+    }
   ],
+  "figure_count": 8,
+  "formula_count": 7,
+  "reference_count": 0,
   "page_count": 10
 }

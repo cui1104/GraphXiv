@@ -2,20 +2,63 @@
   "paper_id": "235daa29-749f-4632-b9a2-021996c28f4a",
   "arxiv_id": "2512.12832",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "Introduction",
-    "Methodology",
-    "Field data collection",
-    "Study Area: RedRock Corridor",
-    "Ground truth profile data collection: The walking profiler",
-    "Instrumentation profile data collection: Pave3D8K Laser Imaging Data Vehicle",
-    "Dataset for model development",
-    "Data augmentation for deep learning model development",
-    "Hybrid Deep Learning Model Development",
-    "LSTM",
-    "Transformer",
-    "Model Architecture and Performance"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Field data collection",
+      "sec_num": "3"
+    },
+    {
+      "text": "Study Area: RedRock Corridor",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Ground truth profile data collection: The walking profiler",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Instrumentation profile data collection: Pave3D8K Laser Imaging Data Vehicle",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Dataset for model development",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Data augmentation for deep learning model development",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Hybrid Deep Learning Model Development",
+      "sec_num": "4"
+    },
+    {
+      "text": "LSTM",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Transformer",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Model Architecture and Performance",
+      "sec_num": "4.3"
+    }
   ],
+  "figure_count": 5,
+  "formula_count": 12,
+  "reference_count": 0,
   "page_count": 10
 }

@@ -2,24 +2,139 @@
   "paper_id": "e24e50a0-bb0a-4d5d-a79b-9160a7d001c8",
   "arxiv_id": "2602.07021",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "KEYWORDS",
-    "INTRODUCTION",
-    "DATA SECURITY IN CYBER SPACE",
-    "CONCERNS RELATING ENVIRONMENT",
-    "Impact of Technology on the Environment",
-    "Environmental Monitoring and Operation",
-    "Regulations and Programs",
-    "Transnational Agreements",
-    "National Environmental Regulations",
-    "Commercial Environmental Responsibility",
-    "Environmental Monitoring",
-    "Energy Efficiency and Management",
-    "Sustainable husbandry",
-    "Waste Management and Recycling",
-    "AUGMENTING ENVIRONMENTAL DATA PROTECTION",
-    "Homomorphic Encryption and AI Integration"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": ""
+    },
+    {
+      "text": "DATA SECURITY IN CYBER SPACE",
+      "sec_num": ""
+    },
+    {
+      "text": "Risk Management:",
+      "sec_num": "i"
+    },
+    {
+      "text": "Control:",
+      "sec_num": "ii"
+    },
+    {
+      "text": "Continuous Improvement:",
+      "sec_num": "iii"
+    },
+    {
+      "text": "Data Classification",
+      "sec_num": "a"
+    },
+    {
+      "text": "Governing Amenability",
+      "sec_num": "b"
+    },
+    {
+      "text": "Data Integrity",
+      "sec_num": "c"
+    },
+    {
+      "text": "Incident Response and Recovery",
+      "sec_num": "d"
+    },
+    {
+      "text": "Smart Grid Technologies",
+      "sec_num": "1"
+    },
+    {
+      "text": "Climate Data Management",
+      "sec_num": "2"
+    },
+    {
+      "text": "European Union",
+      "sec_num": "a"
+    },
+    {
+      "text": "United States",
+      "sec_num": "b"
+    },
+    {
+      "text": "Asia-Pacific",
+      "sec_num": "c"
+    },
+    {
+      "text": "Challenges and Future Measures",
+      "sec_num": ""
+    },
+    {
+      "text": "AI and Cybersecurity-",
+      "sec_num": "1"
+    },
+    {
+      "text": "Data Individuality and Localization-",
+      "sec_num": "2"
+    },
+    {
+      "text": "Digital Identification and Blockchain-",
+      "sec_num": "3"
+    },
+    {
+      "text": "CONCERNS RELATING ENVIRONMENT",
+      "sec_num": ""
+    },
+    {
+      "text": "Impact of Technology on the Environment",
+      "sec_num": ""
+    },
+    {
+      "text": "Environmental Monitoring and Operation",
+      "sec_num": ""
+    },
+    {
+      "text": "Regulations and Programs",
+      "sec_num": ""
+    },
+    {
+      "text": "Transnational Agreements",
+      "sec_num": "1"
+    },
+    {
+      "text": "National Environmental Regulations",
+      "sec_num": "2"
+    },
+    {
+      "text": "Commercial Environmental Responsibility",
+      "sec_num": "3"
+    },
+    {
+      "text": "Environmental Monitoring",
+      "sec_num": "4"
+    },
+    {
+      "text": "Energy Efficiency and Management",
+      "sec_num": "5"
+    },
+    {
+      "text": "Sustainable husbandry",
+      "sec_num": "6"
+    },
+    {
+      "text": "Waste Management and Recycling",
+      "sec_num": "7"
+    },
+    {
+      "text": "AUGMENTING ENVIRONMENTAL DATA PROTECTION",
+      "sec_num": ""
+    },
+    {
+      "text": "Homomorphic Encryption and AI Integration",
+      "sec_num": "1"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 51,
   "page_count": 10
 }

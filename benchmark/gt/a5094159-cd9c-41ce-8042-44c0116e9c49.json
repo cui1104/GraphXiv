@@ -2,29 +2,99 @@
   "paper_id": "a5094159-cd9c-41ce-8042-44c0116e9c49",
   "arxiv_id": "2404.05748",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Structured Abstract",
-    "INTRODUCTION:",
-    "METHODS:",
-    "RESULTS:",
-    "DISCUSSION:",
-    "Background",
-    "Materials and Methods",
-    "Participants",
-    "T1-weighted MRI imaging",
-    "Image acquisition",
-    "Image pre-processing",
-    "Amyloid and tau PET imaging",
-    "Image acquisition",
-    "Image pre-processing",
-    "Amyloid positivity",
-    "Clinical and cognitive assessments",
-    "Multimodal Normative Modeling",
-    "Model training",
-    "Calculating regional deviations for each modality",
-    "Normalizing deviations into Z-scores",
-    "Statistical Analysis",
-    "Regional abnormal deviations across ATN biomarkers"
+    {
+      "text": "Structured Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": ""
+    },
+    {
+      "text": "METHODS",
+      "sec_num": ""
+    },
+    {
+      "text": "RESULTS",
+      "sec_num": ""
+    },
+    {
+      "text": "DISCUSSION",
+      "sec_num": ""
+    },
+    {
+      "text": "Background",
+      "sec_num": "1"
+    },
+    {
+      "text": "Materials and Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Participants",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "T1-weighted MRI imaging",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Image acquisition",
+      "sec_num": "2.2.1"
+    },
+    {
+      "text": "Image pre-processing",
+      "sec_num": "2.2.2"
+    },
+    {
+      "text": "Amyloid and tau PET imaging",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Image acquisition",
+      "sec_num": "2.3.1"
+    },
+    {
+      "text": "Image pre-processing",
+      "sec_num": "2.3.2"
+    },
+    {
+      "text": "Amyloid positivity",
+      "sec_num": "2.3.3"
+    },
+    {
+      "text": "Clinical and cognitive assessments",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Multimodal Normative Modeling",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Model training",
+      "sec_num": "2.5.1"
+    },
+    {
+      "text": "Calculating regional deviations for each modality",
+      "sec_num": "2.5.2"
+    },
+    {
+      "text": "Normalizing deviations into Z-scores",
+      "sec_num": "2.5.3"
+    },
+    {
+      "text": "Statistical Analysis",
+      "sec_num": "2.6"
+    },
+    {
+      "text": "Regional abnormal deviations across ATN biomarkers",
+      "sec_num": "2.6.1"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

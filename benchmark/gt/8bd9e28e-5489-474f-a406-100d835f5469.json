@@ -2,11 +2,27 @@
   "paper_id": "8bd9e28e-5489-474f-a406-100d835f5469",
   "arxiv_id": "2602.05710",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Variation of Latent Space Fields",
-    "From a Political Perception of CLIP Models"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "KEYWORDS",
+      "sec_num": ""
+    },
+    {
+      "text": "Variation of Latent Space Fields",
+      "sec_num": "1"
+    },
+    {
+      "text": "From a Political Perception of CLIP Models",
+      "sec_num": "2"
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

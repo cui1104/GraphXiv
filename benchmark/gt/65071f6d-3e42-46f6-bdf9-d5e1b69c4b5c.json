@@ -2,33 +2,103 @@
   "paper_id": "65071f6d-3e42-46f6-bdf9-d5e1b69c4b5c",
   "arxiv_id": "2506.23339",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "I. INTRODUCTION",
-    "II. BACKGROUND AND RELATED WORK",
-    "A. Computational Approaches to Molecular Design",
-    "B. Language Models in Chemistry",
-    "C. The Validation Challenge",
-    "III. METHODOLOGY",
-    "A. User Interaction Component",
-    "B. Systematic Prompt Engineering Methodology",
-    "C. Validation Architecture",
-    "D. Fine-tuning Methodology",
-    "E. Framework Integration and Workflow",
-    "F. Optimization Objectives",
-    "G. Evaluation Metrics",
-    "H. Computational Models for Property Prediction",
-    "I. Formal Adherence of a Chemical Validity",
-    "V. EXPERIMENTAL DESIGN",
-    "A. Evaluation Datasets",
-    "B. Impact of Fine-tuning",
-    "C. Computational Property Improvements",
-    "D. Case Study: COX Inhibitor Optimization",
-    "E. Ablation Studies",
-    "F. Comparison with Baseline Approaches",
-    "VI. DISCUSSION",
-    "VII. CONCLUSION",
-    "ACKNOWLEDGMENT",
-    "REFERENCES"
+    {
+      "text": "Introduction",
+      "sec_num": "I"
+    },
+    {
+      "text": "Background and Related Work",
+      "sec_num": "II"
+    },
+    {
+      "text": "Computational Approaches to Molecular Design",
+      "sec_num": "II.A"
+    },
+    {
+      "text": "Language Models in Chemistry",
+      "sec_num": "II.B"
+    },
+    {
+      "text": "The Validation Challenge",
+      "sec_num": "II.C"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "III"
+    },
+    {
+      "text": "Systematic Prompt Engineering Methodology",
+      "sec_num": "III.A"
+    },
+    {
+      "text": "Optimization Objectives",
+      "sec_num": "III.B"
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": "III.C"
+    },
+    {
+      "text": "Computational Models for Property Prediction",
+      "sec_num": "III.D"
+    },
+    {
+      "text": "Fine-tuning Methodology",
+      "sec_num": "III.E"
+    },
+    {
+      "text": "Framework Integration and Workflow",
+      "sec_num": "III.F"
+    },
+    {
+      "text": "Results",
+      "sec_num": "V"
+    },
+    {
+      "text": "Formal Adherence of a Chemical Validity",
+      "sec_num": "V.A"
+    },
+    {
+      "text": "Impact of Fine-tuning",
+      "sec_num": "V.B"
+    },
+    {
+      "text": "Computational Property Improvements",
+      "sec_num": "V.C"
+    },
+    {
+      "text": "Case Study: COX-2 Inhibitor Optimization",
+      "sec_num": "V.D"
+    },
+    {
+      "text": "Ablation Studies",
+      "sec_num": "V.E"
+    },
+    {
+      "text": "Comparison with Baseline Approaches",
+      "sec_num": "V.F"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "VI"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "VII"
+    },
+    {
+      "text": "Acknowledgement",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 31,
   "page_count": 6
 }

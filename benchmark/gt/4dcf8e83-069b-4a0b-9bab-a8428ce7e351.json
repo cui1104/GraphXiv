@@ -2,21 +2,67 @@
   "paper_id": "4dcf8e83-069b-4a0b-9bab-a8428ce7e351",
   "arxiv_id": "2603.05024",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Literature review",
-    "Methodology and data",
-    "Problem formulation",
-    "Business noise neighborhood",
-    "Rank-weighted distance",
-    "The Credibility Index via Explanation Stability",
-    "Theoretical properties",
-    "Baseline metric for comparison",
-    "Complete CIES Framework. Credibility Index via Explanation Stability",
-    "Generalizability of the CIES across business domains",
-    "Results",
-    "Explanation stability across models",
-    "Effect of class imbalance explanation stability"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Literature review",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methodology and data",
+      "sec_num": "3"
+    },
+    {
+      "text": "Problem formulation",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Business noise neighborhood",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Rank-weighted distance",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "The CIES metric",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Theoretical properties",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Baseline metric for comparison",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Instance level aggregation",
+      "sec_num": "3.7"
+    },
+    {
+      "text": "Experimental setup",
+      "sec_num": "3.8"
+    },
+    {
+      "text": "Results",
+      "sec_num": "4"
+    },
+    {
+      "text": "Explanation stability across models",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Effect of class imbalance treatment",
+      "sec_num": "4.2"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 15,
+  "reference_count": 24,
   "page_count": 10
 }

@@ -2,20 +2,59 @@
   "paper_id": "5f281da2-5e7e-4f11-8258-73836ef563d3",
   "arxiv_id": "2602.20224",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Method",
-    "Defining Number of Topics.",
-    "MaxMAP Topic Alignment Evaluation.",
-    "Experiments and Results",
-    "Datasets.",
-    "Application to Anti-Aging Literature in PubMed",
-    "Navigating the Web Site:",
-    "Sarcopenia.",
-    "Gut Microbiota and Aging.",
-    "Conclusions and Future Work",
-    "Acknowledgements",
-    "References"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Method",
+      "sec_num": ""
+    },
+    {
+      "text": "Defining Number of Topics.",
+      "sec_num": ""
+    },
+    {
+      "text": "MaxMAP Topic Alignment Evaluation.",
+      "sec_num": ""
+    },
+    {
+      "text": "Experiments and Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Application to Anti-Aging Literature in PubMed",
+      "sec_num": ""
+    },
+    {
+      "text": "Sarcopenia.",
+      "sec_num": ""
+    },
+    {
+      "text": "Gut Microbiota and Aging.",
+      "sec_num": ""
+    },
+    {
+      "text": "Conclusions and Future Work",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgements",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 4,
+  "reference_count": 36,
   "page_count": 10
 }

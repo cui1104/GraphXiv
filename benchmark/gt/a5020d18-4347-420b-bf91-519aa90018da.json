@@ -2,13 +2,35 @@
   "paper_id": "a5020d18-4347-420b-bf91-519aa90018da",
   "arxiv_id": "2504.18367",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Results",
-    "MD Simulation Pipeline for Rapid Generation of Drug Protein Dissociation Trajectories",
-    "DD-13M: A 4-D Ligand-Protein Dissociation Dataset",
-    "Binding Pocket Angiography: Revealing 3D Binding Affinity Landscapes"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "MD Simulation Pipeline for Rapid Generation of Drug Protein Dissociation Trajectories",
+      "sec_num": ""
+    },
+    {
+      "text": "DD-13M: A 4-D Ligand-Protein Dissociation Dataset",
+      "sec_num": ""
+    },
+    {
+      "text": "Binding Pocket Angiography: Revealing 3D Binding Affinity Landscapes",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 5,
+  "formula_count": 2,
+  "reference_count": 0,
   "page_count": 10
 }

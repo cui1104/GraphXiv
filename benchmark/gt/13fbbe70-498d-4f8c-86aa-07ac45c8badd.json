@@ -2,20 +2,63 @@
   "paper_id": "13fbbe70-498d-4f8c-86aa-07ac45c8badd",
   "arxiv_id": "2404.09896",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Methods",
-    "Summary of Approach",
-    "Databases and Preprocessing",
-    "Single Neural Network for High Predictive Accuracy (Model A)",
-    "Ensemble Models for Error Bars (Model Ae)",
-    "Data Generation for Model B fitting",
-    "Single Neural Network Error Bar Generation (Model B)",
-    "Use Case of the Workflow",
-    "Results",
-    "Statistics Table",
-    "Discussion"
+    {
+      "text": "Abstract",
+      "sec_num": "1"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "3"
+    },
+    {
+      "text": "Summary of Approach",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Databases and Preprocessing",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Single Neural Network for High Predictive Accuracy (Model A)",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Ensemble Models for Error Bars (Model Ae)",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Data Generation for Model B fitting",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Single Neural Network Error Bar Generation (Model B)",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Use Case of the Workflow",
+      "sec_num": "3.7"
+    },
+    {
+      "text": "Results",
+      "sec_num": "4"
+    },
+    {
+      "text": "Statistics Table",
+      "sec_num": "5"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "6"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

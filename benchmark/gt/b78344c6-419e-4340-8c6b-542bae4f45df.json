@@ -2,10 +2,59 @@
   "paper_id": "b78344c6-419e-4340-8c6b-542bae4f45df",
   "arxiv_id": "2602.09793",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Results"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Sleep staging performance",
+      "sec_num": ""
+    },
+    {
+      "text": "FinE-tuned multicenter model",
+      "sec_num": ""
+    },
+    {
+      "text": "Fine-tuned model for neurodegenerative diseases",
+      "sec_num": ""
+    },
+    {
+      "text": "Clinical subgroups",
+      "sec_num": ""
+    },
+    {
+      "text": "Sleep architecture measures",
+      "sec_num": ""
+    },
+    {
+      "text": "Latency and length of REM sleep and N2 periods",
+      "sec_num": ""
+    },
+    {
+      "text": "Interrater disagreement",
+      "sec_num": ""
+    },
+    {
+      "text": "Predicting Cohen’s κ",
+      "sec_num": ""
+    },
+    {
+      "text": "Correlation between model confidence and κ",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

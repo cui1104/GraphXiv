@@ -2,34 +2,107 @@
   "paper_id": "511573c2-1fd5-4b06-98ee-26c348673919",
   "arxiv_id": "2405.04605",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Background",
-    "Purpose",
-    "Materials & Methods",
-    "Key Results",
-    "Summary Statement",
-    "Key Results",
-    "Introduction",
-    "Methods",
-    "Datasets",
-    "Duke Lung Cancer Screening (DLCS) Dataset",
-    "LIDC-IDRI and LUNA16 Dataset",
-    "National Lung Screening Trial (NLST), LUNA25, and NLST-3D Datasets",
-    "Benchmark Tasks",
-    "Lung Nodule Detection",
-    "Model Development",
-    "Evaluation",
-    "Lung Cancer Classification Task",
-    "Model Development",
-    "Evaluation",
-    "Results",
-    "Nodule Detection",
-    "Benchmark performance on the LUNA16 challenge",
-    "Internal testing on DLCS",
-    "On the external NLST-3D test dataset",
-    "Lung Cancer Classification",
-    "Discussion"
+    {
+      "text": "Original Research",
+      "sec_num": ""
+    },
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Summary Statement",
+      "sec_num": ""
+    },
+    {
+      "text": "Key Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Datasets",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Duke Lung Cancer Screening (DLCS) Dataset:",
+      "sec_num": ""
+    },
+    {
+      "text": "LIDC-IDRI and LUNA16 Dataset:",
+      "sec_num": ""
+    },
+    {
+      "text": "National Lung Screening Trial (NLST), LUNA25, and NLST-3D Datasets:",
+      "sec_num": ""
+    },
+    {
+      "text": "Benchmark Tasks",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Lung Nodule Detection",
+      "sec_num": "2.2.1"
+    },
+    {
+      "text": "Model Development.",
+      "sec_num": ""
+    },
+    {
+      "text": "Evaluation.",
+      "sec_num": ""
+    },
+    {
+      "text": "Lung Cancer Classification Task",
+      "sec_num": "2.2.2"
+    },
+    {
+      "text": "Model Development.",
+      "sec_num": ""
+    },
+    {
+      "text": "Evaluation.",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Nodule Detection",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Benchmark performance on the LUNA16 challenge.",
+      "sec_num": ""
+    },
+    {
+      "text": "Internal testing on DLCS.",
+      "sec_num": ""
+    },
+    {
+      "text": "On the external NLST-3D test dataset, the DLCS-De outperformed the LUNA16-De across the FROC operating range (Fig. 3b).",
+      "sec_num": ""
+    },
+    {
+      "text": "Lung Cancer Classification",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "4"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

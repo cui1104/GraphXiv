@@ -2,26 +2,95 @@
   "paper_id": "0778679b-7e8c-4249-9e48-26fdc1dce037",
   "arxiv_id": "2602.22400",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "LITERATURE REVIEW",
-    "RESEARCH METHODOLOGY",
-    "Data Sources",
-    "Data Preprocessing",
-    "Feature Engineering",
-    "Model Training and Tuning",
-    "Model Evaluation",
-    "Model Interpretation",
-    "RESULTS AND DISCUSSION",
-    "Model Performance Comparison",
-    "Discussion of Model Performance",
-    "Significance-Based Model Comparison",
-    "Insight from Confusion Matrix Differences",
-    "LIME-Based Model Interpretation",
-    "Summary of Findings",
-    "SUMMARY",
-    "REFERENCES",
-    "APPENDIX"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "LITERATURE REVIEW",
+      "sec_num": "II"
+    },
+    {
+      "text": "RESEARCH METHODOLOGY",
+      "sec_num": "III"
+    },
+    {
+      "text": "Antimicrobial Resistance and Multidrug Resistance",
+      "sec_num": "A"
+    },
+    {
+      "text": "Existing Resistance Prediction Approaches",
+      "sec_num": "B"
+    },
+    {
+      "text": "Data Sources",
+      "sec_num": "A"
+    },
+    {
+      "text": "Data Preprocessing",
+      "sec_num": "B"
+    },
+    {
+      "text": "Feature Engineering",
+      "sec_num": "C"
+    },
+    {
+      "text": "Model Training and Tuning",
+      "sec_num": "D"
+    },
+    {
+      "text": "Model Evaluation",
+      "sec_num": "E"
+    },
+    {
+      "text": "Model Interpretation",
+      "sec_num": "F"
+    },
+    {
+      "text": "RESULTS AND DISCUSSION",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Model Performance Comparison",
+      "sec_num": "A"
+    },
+    {
+      "text": "Discussion of Model Performance",
+      "sec_num": "B"
+    },
+    {
+      "text": "Significance-Based Model Comparison",
+      "sec_num": "C"
+    },
+    {
+      "text": "Insight from Confusion Matrix Differences",
+      "sec_num": "D"
+    },
+    {
+      "text": "LIME-Based Model Interpretation",
+      "sec_num": "E"
+    },
+    {
+      "text": "SUMMARY",
+      "sec_num": "V"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    },
+    {
+      "text": "APPENDIX",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 0,
+  "reference_count": 25,
   "page_count": 6
 }

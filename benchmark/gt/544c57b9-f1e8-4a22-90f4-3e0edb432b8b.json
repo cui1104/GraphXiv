@@ -2,22 +2,103 @@
   "paper_id": "544c57b9-f1e8-4a22-90f4-3e0edb432b8b",
   "arxiv_id": "2511.18727",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "NOMENCLATURE",
-    "METHODOLOGY",
-    "Dataset",
-    "LogSyn System Architecture",
-    "Few-shot Prompt Engineering",
-    "Qualitative Analysis",
-    "Quantitative Analysis: A Granular Maintenance Ontology",
-    "Visual Analysis",
-    "LLM-as-a-Judge Evaluation",
-    "Comparison with Baseline",
-    "Limitations",
-    "CONCLUSION",
-    "FUTURE WORK",
-    "REFERENCES"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "KEYWORDS",
+      "sec_num": ""
+    },
+    {
+      "text": "NOMENCLATURE",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "2"
+    },
+    {
+      "text": "Dataset",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "LogSyn System Architecture",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Preprocessing:",
+      "sec_num": "a)"
+    },
+    {
+      "text": "Prompt Construction:",
+      "sec_num": "b)"
+    },
+    {
+      "text": "Gemini Inference:",
+      "sec_num": "c)"
+    },
+    {
+      "text": "Postprocessing:",
+      "sec_num": "d)"
+    },
+    {
+      "text": "Aggregation:",
+      "sec_num": "e)"
+    },
+    {
+      "text": "Few-shot Prompt Engineering",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Quantitative Analysis: A Granular Maintenance Ontology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Qualitative Analysis",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Visual Analysis",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "LLM as-a-Judge Evaluation",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "LLM-as-a-Judge Results",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Comparison with Baseline",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Limitations",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "4"
+    },
+    {
+      "text": "FUTURE WORK",
+      "sec_num": "5"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": "6"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 0,
+  "reference_count": 11,
   "page_count": 4
 }

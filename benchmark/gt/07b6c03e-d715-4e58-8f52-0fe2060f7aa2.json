@@ -2,20 +2,63 @@
   "paper_id": "07b6c03e-d715-4e58-8f52-0fe2060f7aa2",
   "arxiv_id": "2602.17797",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORKS",
-    "METHODOLOGY",
-    "A. Dataset",
-    "B. VGG-16",
-    "C. DenseNet201",
-    "EXPERIMENTAL RESULT AND EVALUATION",
-    "A. VGG-16",
-    "B. DenseNet201",
-    "C. SHAP",
-    "COMPARISION",
-    "CONCLUSION",
-    "REFERENCES"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Works",
+      "sec_num": "II"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "III"
+    },
+    {
+      "text": "Dataset",
+      "sec_num": "A"
+    },
+    {
+      "text": "VGG-16",
+      "sec_num": "B"
+    },
+    {
+      "text": "DenseNet201",
+      "sec_num": "C"
+    },
+    {
+      "text": "Experimental Result and Analysis",
+      "sec_num": "IV"
+    },
+    {
+      "text": "VGG-16",
+      "sec_num": "A"
+    },
+    {
+      "text": "DenseNet201",
+      "sec_num": "B"
+    },
+    {
+      "text": "SHAP",
+      "sec_num": "C"
+    },
+    {
+      "text": "Comparison",
+      "sec_num": "V"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "VI"
+    },
+    {
+      "text": "References",
+      "sec_num": "VII"
+    }
   ],
+  "figure_count": 9,
+  "formula_count": 0,
+  "reference_count": 12,
   "page_count": 6
 }

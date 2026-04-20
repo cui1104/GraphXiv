@@ -2,13 +2,31 @@
   "paper_id": "18b540a6-e094-4ee0-b46d-3199fb11483c",
   "arxiv_id": "2210.09226",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Proposed CNN-based defect detection method",
-    "Evaluation of the proposed CNN model",
-    "Conclusion",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Proposed CNN-based defect detection method",
+      "sec_num": "II"
+    },
+    {
+      "text": "Evaluation of the proposed CNN model",
+      "sec_num": "III"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "V"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 2,
+  "reference_count": 13,
   "page_count": 5
 }

@@ -2,25 +2,75 @@
   "paper_id": "6c518873-b23c-48f5-acc1-020daeac6c9d",
   "arxiv_id": "2602.08577",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Problem definition",
-    "Methods",
-    "Related work",
-    "Mathematical foundations of AMA",
-    "Linear arithmetic method algorithm (AMA)",
-    "Theorem 1 (existence, residual bound, and stability)",
-    "Existence and uniqueness",
-    "Residual bound",
-    "Stability under perturbations",
-    "Uniqueness",
-    "Non-linear generalization",
-    "Comparison to implementation",
-    "Numerical validation",
-    "Mathematical foundations of AMR: MSE-optimal combination of AMA and k-NN",
-    "Model function (MFA)",
-    "Bias-variance tradeoff and consistency of AMR"
+    {
+      "text": "Problem definition",
+      "sec_num": ""
+    },
+    {
+      "text": "Related work",
+      "sec_num": ""
+    },
+    {
+      "text": "Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Linear arithmetic method algorithm (AMA)",
+      "sec_num": ""
+    },
+    {
+      "text": "Theorem 1 (existence, residual bound, and stability)",
+      "sec_num": ""
+    },
+    {
+      "text": "Existence and uniqueness",
+      "sec_num": ""
+    },
+    {
+      "text": "Residual bound",
+      "sec_num": ""
+    },
+    {
+      "text": "Stability under perturbations",
+      "sec_num": ""
+    },
+    {
+      "text": "Uniqueness",
+      "sec_num": ""
+    },
+    {
+      "text": "Residual bound",
+      "sec_num": ""
+    },
+    {
+      "text": "Non-linear generalization",
+      "sec_num": ""
+    },
+    {
+      "text": "Connection to implementation",
+      "sec_num": ""
+    },
+    {
+      "text": "Numerical validation",
+      "sec_num": ""
+    },
+    {
+      "text": "Mathematical foundations of AMA: MSE-optimal combination of AMA and k-NN",
+      "sec_num": ""
+    },
+    {
+      "text": "Bias-variance tradeoff and consistency of AMR",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 29,
+  "reference_count": 1000,
   "page_count": 10
 }

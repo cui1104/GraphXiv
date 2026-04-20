@@ -2,18 +2,59 @@
   "paper_id": "c83856df-38e3-4305-b821-083e264dccd1",
   "arxiv_id": "2602.06907",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Materials and Methods",
-    "Participants",
-    "Experimental set-up",
-    "M1 stimulation",
-    "SMA stimulation",
-    "EEG recording and pre-processing",
-    "Source construction and functional connectivity estimation",
-    "Experimental design",
-    "Statistical Analysis"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Materials and Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Participants",
+      "sec_num": ""
+    },
+    {
+      "text": "Experimental set-up",
+      "sec_num": ""
+    },
+    {
+      "text": "M1 stimulation",
+      "sec_num": ""
+    },
+    {
+      "text": "SMA stimulation",
+      "sec_num": ""
+    },
+    {
+      "text": "EEG recording and pre-processing",
+      "sec_num": ""
+    },
+    {
+      "text": "Source construction and functional connectivity estimation",
+      "sec_num": ""
+    },
+    {
+      "text": "Experimental design",
+      "sec_num": ""
+    },
+    {
+      "text": "Statistical Analysis",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 3,
+  "reference_count": 0,
   "page_count": 10
 }

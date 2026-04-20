@@ -2,13 +2,83 @@
   "paper_id": "a8651bdd-39c3-4bde-a2b6-f14b4ee2a38b",
   "arxiv_id": "2602.04782",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Mathematical Modeling of LMU",
-    "An Ensemble Model WMF-CPK-MSLMU for Wind Speed Prediction",
-    "Case Study",
-    "Conclusion",
-    "References"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "THEORY OF LMU FOR PREDICTION",
+      "sec_num": "II"
+    },
+    {
+      "text": "Introduction of Legendre Memory Unit (LMU)",
+      "sec_num": "II.A"
+    },
+    {
+      "text": "Mathematical Modeling of LMU",
+      "sec_num": "II.B"
+    },
+    {
+      "text": "AN ENSEMBLE MODEL WMF-CPK-MSLMU FOR WIND SPEED PREDICTION",
+      "sec_num": "III"
+    },
+    {
+      "text": "Multi-slice Legendre Memory Unit",
+      "sec_num": "III.A"
+    },
+    {
+      "text": "Compensating Parameter Based on the KRCC (CPK)",
+      "sec_num": "III.B"
+    },
+    {
+      "text": "Cluster Data Interpolation Method Based on KRCC (CCK)",
+      "sec_num": "III.C"
+    },
+    {
+      "text": "The Strategy for WMF-CPK-MSLMU Modeling",
+      "sec_num": "III.D"
+    },
+    {
+      "text": "Training Parameters",
+      "sec_num": "III.E"
+    },
+    {
+      "text": "CASE STUDY",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Data Set",
+      "sec_num": "IV.A"
+    },
+    {
+      "text": "Evaluation Indices",
+      "sec_num": "IV.B"
+    },
+    {
+      "text": "Data Preprocessing",
+      "sec_num": "IV.C"
+    },
+    {
+      "text": "Comparison Among Different Numbers of Compensation Slices",
+      "sec_num": "IV.D"
+    },
+    {
+      "text": "Comparison on Different Strategies for the Wind Speed Prediction of Wind Farm Cluster",
+      "sec_num": "IV.E"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "V"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 10,
+  "formula_count": 22,
+  "reference_count": 34,
   "page_count": 10
 }

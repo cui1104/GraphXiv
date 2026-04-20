@@ -2,32 +2,107 @@
   "paper_id": "e6709813-02fe-4640-a122-5bca0457e9a5",
   "arxiv_id": "2603.00812",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "INTRODUCTION",
-    "RELATED WORK",
-    "Efficient Transformers",
-    "State-Space and Recurrent Models",
-    "Tree-Structured Models",
-    "Gated Linear Units and Normalization",
-    "METHODOLOGY",
-    "Problem Setup",
-    "Input Encoding (Common to All Variants)",
-    "Core Operation: Binary Tree Reduction",
-    "Pairwise Merge Operation",
-    "Complexity Analysis",
-    "WAT V1: One-to-One Next-Token Prediction",
-    "WAT V2: Seq2Seq via Causal Prefix Scan",
-    "WAT V3: Seq2Seq via Chunk-Based Parallel Tree Reduction",
-    "Chunk Partitioning and Parallel Tree Reduction",
-    "Causal Context Injection",
-    "Complexity of WAT V3",
-    "Architectural Comparison: WAT vs. Self-Attention",
-    "EXPERIMENTS",
-    "Experimental Protocol",
-    "Task 1: Bracket Balance Classification (Long Sequences 512-1024)",
-    "Task 2: Language Modeling - WAT V1 (One-to-One)",
-    "Task 3: Language Modeling - WAT V2 vs. V3 vs. Transformer (Seq2Seq)"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "RELATED WORK",
+      "sec_num": "2"
+    },
+    {
+      "text": "Efficient Transformers",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "State-Space and Recurrent Models",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Tree-Structured Models",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Gated Linear Units and Normalization",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "3"
+    },
+    {
+      "text": "Problem Setup",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Input Encoding (Common to All Variants)",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Core Operation: Binary Tree Reduction",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Pairwise Merge Operation",
+      "sec_num": "3.3.1"
+    },
+    {
+      "text": "Complexity Analysis",
+      "sec_num": "3.3.2"
+    },
+    {
+      "text": "WAT V1: One-to-One Next-Token Prediction",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "WAT V2: Seq2Seq via Causual Prefix Scan",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "WAT V3: Seq2Seq via Chunk-Based Parallel Tree Reduction",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Chunk Partitioning and Parallel Tree Reduction",
+      "sec_num": "3.6.1"
+    },
+    {
+      "text": "Casual Context Injection",
+      "sec_num": "3.6.2"
+    },
+    {
+      "text": "Complexity of WAT V3",
+      "sec_num": "3.6.3"
+    },
+    {
+      "text": "Architectural Comparison: WAT vs. Self-Attention",
+      "sec_num": "3.7"
+    },
+    {
+      "text": "EXPERIMENTS",
+      "sec_num": "4"
+    },
+    {
+      "text": "Experimental Protocol",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Task 1: Bracket Balance Classification (Long Sequences 512-1024)",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Task 2: Language Modeling - WAT V1 (One-to-One)",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Task 3: Language Modeling - WAT V2 vs. V3 vs. Transformer (Seq2Seq)",
+      "sec_num": "4.4"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 15,
+  "reference_count": 0,
   "page_count": 10
 }

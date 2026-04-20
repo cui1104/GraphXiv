@@ -2,15 +2,35 @@
   "paper_id": "f0a379f6-ce76-4dfd-bad5-47ca39e403c2",
   "arxiv_id": "2602.22261",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "Methods",
-    "System Architecture",
-    "Methodology",
-    "Results and Discussion",
-    "Conclusion",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "3"
+    },
+    {
+      "text": "System Architecture",
+      "sec_num": ""
+    },
+    {
+      "text": "Methodology",
+      "sec_num": ""
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": "4"
+    }
   ],
+  "figure_count": 5,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

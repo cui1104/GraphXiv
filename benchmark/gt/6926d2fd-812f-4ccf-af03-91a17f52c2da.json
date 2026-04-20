@@ -2,26 +2,95 @@
   "paper_id": "6926d2fd-812f-4ccf-af03-91a17f52c2da",
   "arxiv_id": "2602.16739",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Literature Review",
-    "A. Secondary Crash Identification",
-    "B. Secondary Crash Prediction",
-    "Data Preparation",
-    "A. Data Collection",
-    "B. Secondary Crash Identification",
-    "C. Modeling Variable Extraction",
-    "Methodology",
-    "A. Primary Crash Prediction Model (PC Model)",
-    "B. Secondary Crash Prediction Models (SC models)",
-    "C. Hybrid Model",
-    "D. ML Ensemble Model in PC and SC models",
-    "Experiment Design",
-    "A. Models Development Workflow",
-    "B. Models Performance Comparison",
-    "C. Model Interpretability Analysis",
-    "D. Ablation Experiments",
-    "Conclusion and Future Research"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "LITERATURE REVIEW",
+      "sec_num": "II"
+    },
+    {
+      "text": "Secondary Crash Identification",
+      "sec_num": "A"
+    },
+    {
+      "text": "Secondary Crash Prediction",
+      "sec_num": "B"
+    },
+    {
+      "text": "DATA PREPARATION",
+      "sec_num": "III"
+    },
+    {
+      "text": "Data Collection",
+      "sec_num": "A"
+    },
+    {
+      "text": "Secondary Crash Identification",
+      "sec_num": "B"
+    },
+    {
+      "text": "Modeling Variable Extraction",
+      "sec_num": "C"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Primary Crash Prediction Model (PC Model)",
+      "sec_num": "A"
+    },
+    {
+      "text": "Secondary Crash Prediction Models (SC models)",
+      "sec_num": "B"
+    },
+    {
+      "text": "Hybrid Model",
+      "sec_num": "C"
+    },
+    {
+      "text": "ML Ensemble Model in PC and SC Models",
+      "sec_num": "D"
+    },
+    {
+      "text": "EXPERIMENT DESIGN",
+      "sec_num": "V"
+    },
+    {
+      "text": "Performance Metric",
+      "sec_num": "A"
+    },
+    {
+      "text": "Models Performance Comparison",
+      "sec_num": "B"
+    },
+    {
+      "text": "Model Interpretability Analysis",
+      "sec_num": "C"
+    },
+    {
+      "text": "Ablation Experiments",
+      "sec_num": "D"
+    },
+    {
+      "text": "CONCLUSIONS",
+      "sec_num": "VI"
+    },
+    {
+      "text": "ACKNOWLEDGMENTS",
+      "sec_num": "VII"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": "VIII"
+    }
   ],
+  "figure_count": 15,
+  "formula_count": 3,
+  "reference_count": 82,
   "page_count": 10
 }

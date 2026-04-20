@@ -2,25 +2,83 @@
   "paper_id": "52da2dfe-758c-4c5d-993e-4ebc44aa94e4",
   "arxiv_id": "2602.20164",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "Fine-Tuning",
-    "Knowledge Distillation",
-    "Estimating Computational Cost",
-    "Methodology",
-    "Estimating Computational Cost in FLOPs",
-    "Converting FLOPs to GPU-Hours",
-    "Estimating CO2 Emissions",
-    "Benchmark Evaluation",
-    "Models and Assumptions",
-    "Case Studies",
-    "The Baseline: Training a Vanilla Foundation Model",
-    "The Challenger: Creating a Distilled Model",
-    "The Specialization Alternative: Fine-Tuning",
-    "Estimating the Proprietary Frontier",
-    "Results",
-    "Comprehensive Model Comparison"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Fine-Tuning",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Knowledge Distillation",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Estimating Computational Cost",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Estimating Computational Cost in FLOPS",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Converting FLOPS to GPU-Hours",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Estimating CO2 Emissions",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Benchmark Evaluation",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Models and Assumptions",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Case Studies",
+      "sec_num": "4"
+    },
+    {
+      "text": "The Baseline: Training a Vanilla Foundation Model",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "The Challenger: Creating a Distilled Model",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "The Specialization Alternative: Fine-Tuning",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Estimating the Proprietary Frontier",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Results",
+      "sec_num": "5"
+    },
+    {
+      "text": "Comprehensive Model Comparison",
+      "sec_num": "5.1"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 6,
+  "reference_count": 0,
   "page_count": 10
 }

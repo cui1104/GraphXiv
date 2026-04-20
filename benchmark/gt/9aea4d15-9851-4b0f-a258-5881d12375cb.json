@@ -2,28 +2,91 @@
   "paper_id": "9aea4d15-9851-4b0f-a258-5881d12375cb",
   "arxiv_id": "2602.10119",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Methods",
-    "Results",
-    "Conclusions",
-    "Keywords",
-    "Non-standard Abbreviations",
-    "Introduction",
-    "Study Design",
-    "Outcomes",
-    "Data",
-    "Preprocessing",
-    "Clinical Features",
-    "Encoder Models",
-    "Generative Models",
-    "Baseline Prognostic Models",
-    "Evaluation Metrics",
-    "Statistical Analysis",
-    "Results",
-    "Study population",
-    "Discharge mRS prediction with frozen models",
-    "90-day mRS prediction with frozen models"
+    {
+      "text": "Author Contributions",
+      "sec_num": ""
+    },
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Conclusions",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Non-standard Abbreviations and Acronyms",
+      "sec_num": ""
+    },
+    {
+      "text": "Study Design",
+      "sec_num": ""
+    },
+    {
+      "text": "Outcomes",
+      "sec_num": ""
+    },
+    {
+      "text": "Data",
+      "sec_num": ""
+    },
+    {
+      "text": "Preprocessing",
+      "sec_num": ""
+    },
+    {
+      "text": "Clinical Features",
+      "sec_num": ""
+    },
+    {
+      "text": "Encoder Models",
+      "sec_num": ""
+    },
+    {
+      "text": "Generative Models",
+      "sec_num": ""
+    },
+    {
+      "text": "Baseline Prognostic Models",
+      "sec_num": ""
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": ""
+    },
+    {
+      "text": "Statistical Analysis",
+      "sec_num": ""
+    },
+    {
+      "text": "Study population",
+      "sec_num": ""
+    },
+    {
+      "text": "Discharge mRS prediction with frozen models",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

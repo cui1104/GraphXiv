@@ -2,26 +2,91 @@
   "paper_id": "cad08fcd-768e-42f5-a652-ba0836a57f2f",
   "arxiv_id": "2602.05861",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "CCS Concepts",
-    "Keywords",
-    "Introduction",
-    "Related Work",
-    "Problem Definition and Graph Data Creation",
-    "Research Question",
-    "Counterfactual Learning",
-    "Subgraph Creation",
-    "Methodology",
-    "Graph Classification",
-    "Counterfactual Graph Generation",
-    "Experiments and Results",
-    "Graph Classification Performance",
-    "Unconstrained Model Performance",
-    "Constrained Model Performance",
-    "Performance Under Different Tuning Parameters",
-    "Conclusion and Future Work",
-    "References"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "CCS Concepts",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Problem Definition and Graph Data Creation",
+      "sec_num": "3"
+    },
+    {
+      "text": "Research Question",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Counterfactual Learning",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Subgraph Creation",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "4"
+    },
+    {
+      "text": "Graph Classification",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Counterfactual Graph Generation",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Experiments and Results",
+      "sec_num": "5"
+    },
+    {
+      "text": "Graph Classification Performance",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Counterfactual Graph Performance",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Unconstrained Model Performance",
+      "sec_num": "5.2.1"
+    },
+    {
+      "text": "Constrained Model Performance",
+      "sec_num": "5.2.2"
+    },
+    {
+      "text": "Performance Under Different Tuning Parameters",
+      "sec_num": "5.2.3"
+    },
+    {
+      "text": "Conclusion and Future Work",
+      "sec_num": "6"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 14,
+  "reference_count": 24,
   "page_count": 9
 }

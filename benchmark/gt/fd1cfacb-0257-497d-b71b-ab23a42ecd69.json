@@ -2,17 +2,51 @@
   "paper_id": "fd1cfacb-0257-497d-b71b-ab23a42ecd69",
   "arxiv_id": "2602.13712",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORK",
-    "METHODOLOGY",
-    "A. Dataset description",
-    "B. Florence-2",
-    "IV. EXPERIMENTAL SETUP",
-    "A. Experimental Setup",
-    "B. Localization result",
-    "CONCLUSION AND FUTURE WORK",
-    "REFERENCES"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "RELATED WORK",
+      "sec_num": "II"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "III"
+    },
+    {
+      "text": "Dataset description",
+      "sec_num": "A"
+    },
+    {
+      "text": "Florence-2",
+      "sec_num": "B"
+    },
+    {
+      "text": "RESULT AND DISCUSSION",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "A"
+    },
+    {
+      "text": "Localization result",
+      "sec_num": "B"
+    },
+    {
+      "text": "CONCLUSION AND FUTURE WORK",
+      "sec_num": "V"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 0,
+  "reference_count": 12,
   "page_count": 4
 }

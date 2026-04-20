@@ -2,22 +2,91 @@
   "paper_id": "e3f6c36c-c2cb-4074-b78b-36876b93a472",
   "arxiv_id": "2602.15878",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "METHODOLOGY",
-    "ITLE for Extended Data Augmentation",
-    "MGEE for non-extended data augmentation",
-    "ICD Score for Evaluation",
-    "EXPERIMENTS",
-    "Industrial Scenarios and Experimental Setup",
-    "Exploring OSS and Key Parameters in IT-OSE",
-    "Validation Experiments for IT-OSE",
-    "Computational and data costs significantly reduced.",
-    "Investigation of dominant factors’ influence",
-    "Practicality experiments in industrial scenarios",
-    "CONCLUSION",
-    "ACKNOWLEDGMENTS",
-    "REFERENCES"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "II"
+    },
+    {
+      "text": "ITLE for Extended Data Augmentation",
+      "sec_num": "A"
+    },
+    {
+      "text": "MGEE for non-extended data augmentation",
+      "sec_num": "B"
+    },
+    {
+      "text": "ICD Score for Evaluation",
+      "sec_num": "C"
+    },
+    {
+      "text": "EXPERIMENTS",
+      "sec_num": "III"
+    },
+    {
+      "text": "Industrial Scenarios and Experimental Setup",
+      "sec_num": "A"
+    },
+    {
+      "text": "Dataset Preparation",
+      "sec_num": "B"
+    },
+    {
+      "text": "Model Structures and Parameters in ZS1 and ZS2",
+      "sec_num": "C"
+    },
+    {
+      "text": "Exploring OSS and Key Parameters in IT-OSE",
+      "sec_num": "D"
+    },
+    {
+      "text": "Validation Experiments for IT-OSE",
+      "sec_num": "E"
+    },
+    {
+      "text": "Computational and data costs significantly reduced.",
+      "sec_num": "F"
+    },
+    {
+      "text": "Investigation of dominant factors’ influence",
+      "sec_num": "G"
+    },
+    {
+      "text": "Given Dataset",
+      "sec_num": "1)"
+    },
+    {
+      "text": "Baseline Model",
+      "sec_num": "2)"
+    },
+    {
+      "text": "Generator",
+      "sec_num": "3)"
+    },
+    {
+      "text": "Practicality experiments in industrial scenarios",
+      "sec_num": "D"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "IV"
+    },
+    {
+      "text": "ACKNOWLEDGEMENTS",
+      "sec_num": ""
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 27,
+  "reference_count": 27,
   "page_count": 10
 }

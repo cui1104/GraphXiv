@@ -2,16 +2,51 @@
   "paper_id": "552450fc-5346-4193-9bad-b47ee1d220d2",
   "arxiv_id": "2508.16815",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "Neural Differential Equations",
-    "Neural Stochastic Differential Equations",
-    "Uncertainty Quantification in Neural Networks",
-    "Physics-Informed Neural Networks",
-    "Classical Kalman Filtering and Extensions",
-    "Neural State Space Models and Koopman Approaches",
-    "Comparison with Related Uncertainty Quantification Approaches"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Neural Differential Equations",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Neural Stochastic Differential Equations",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Uncertainty Quantification in Neural Networks",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Physics-Informed Neural Networks",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Classical Kalman Filtering and Extensions",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Neural State Space Models and Koopman Approaches",
+      "sec_num": "2.6"
+    },
+    {
+      "text": "Comparison with Related Uncertainty Quantification Approaches",
+      "sec_num": "2.7"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 1,
+  "reference_count": 0,
   "page_count": 10
 }

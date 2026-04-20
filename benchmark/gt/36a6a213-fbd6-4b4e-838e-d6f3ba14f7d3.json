@@ -2,19 +2,59 @@
   "paper_id": "36a6a213-fbd6-4b4e-838e-d6f3ba14f7d3",
   "arxiv_id": "2603.03802",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Design Methodology",
-    "Problem Formulation",
-    "Surrogate-Assisted Generation of Initial Designs",
-    "Surrogate-Assisted Classification of Designs",
-    "Design Optimization Engine",
-    "Design Framework Summary",
-    "Numerical Results",
-    "Generic Antenna Model",
-    "First Case Study",
-    "Second Case Study"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Design Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Problem Formulation",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Surrogate-Assisted Generation of Initial Designs",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Surrogate-Assisted Classification of Designs",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Design Optimization Engine",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Design Framework Summary",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Numerical Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Generic Antenna Model",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "First Case Study",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Second Case Study",
+      "sec_num": "3.3"
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 9,
+  "reference_count": 43,
   "page_count": 10
 }

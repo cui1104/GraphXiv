@@ -2,30 +2,115 @@
   "paper_id": "77ac3f4d-7c06-4309-acc7-52e2b34ffff9",
   "arxiv_id": "2602.19984",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "ASTRI-Horn",
-    "Prediction Anomaly Detection in time series with machine learning",
-    "Strategy for early anomaly detection in ASTRI-Horn monitoring time series",
-    "Historical monitoring time series of ASTRI-Horn",
-    "Resampling",
-    "Active motor intervals",
-    "Correlation studies",
-    "Removal of outliers",
-    "Final dataset organization",
-    "Multivariate forecasting",
-    "Multi-layer Perceptron (MLP)",
-    "Input and target data",
-    "Sliding window",
-    "Data preparation",
-    "Model training, evaluation, and comparison",
-    "Hyperparameter selection and tuning",
-    "Evaluation metrics",
-    "Test cases comparison",
-    "Increasing the number of target samples",
-    "Loss curve",
-    "Result: Model forecasting performance",
-    "CONCLUSIONS"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "ASTRI-Horn",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Time series analysis with machine learning",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Time Series Anomaly Detection (TSAD)",
+      "sec_num": "1.2.1"
+    },
+    {
+      "text": "Historical monitoring time series of ASTRI-Horn",
+      "sec_num": "2"
+    },
+    {
+      "text": "Resampling",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Active motor intervals",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Correlation studies",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Strategies for early anomaly detection in ASTRI-Horn monitoring time series",
+      "sec_num": "3"
+    },
+    {
+      "text": "Multi-layer perceptron",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Input and target data",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Sliding window",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Data preparation",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Model training, evaluation, and comparison",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Hyperparameter selection and tuning",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Evaluation metrics",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Test cases comparison",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Increasing the number of target samples",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Loss curve",
+      "sec_num": "4.5"
+    },
+    {
+      "text": "Results: Model forecasting performance",
+      "sec_num": "5"
+    },
+    {
+      "text": "Model forecasting performance",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "MSE and NMAD scores",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Residuals",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgements",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 11,
+  "formula_count": 5,
+  "reference_count": 46,
   "page_count": 10
 }

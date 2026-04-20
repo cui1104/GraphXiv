@@ -2,15 +2,43 @@
   "paper_id": "af1ff450-5a82-41aa-a4b9-819702fcb43f",
   "arxiv_id": "2502.19115",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "Method",
-    "Data Preparation",
-    "Model Training",
-    "Modification of the Model Output",
-    "Evaluation",
-    "Implementation"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Method",
+      "sec_num": "3"
+    },
+    {
+      "text": "Data Preparation",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Model Training",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Modification of the Model Output",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Evaluation",
+      "sec_num": "4"
+    },
+    {
+      "text": "Implementation",
+      "sec_num": "5"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

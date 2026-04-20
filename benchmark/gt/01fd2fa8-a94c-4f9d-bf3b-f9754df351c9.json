@@ -2,18 +2,75 @@
   "paper_id": "01fd2fa8-a94c-4f9d-bf3b-f9754df351c9",
   "arxiv_id": "2602.06772",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work & Research Questions",
-    "Data Augmentation",
-    "Experiment",
-    "Overview",
-    "Process",
-    "Analyses",
-    "Writing Quality",
-    "Discussion",
-    "Summary and Interpretation of Results",
-    "Implications"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work & Research Questions",
+      "sec_num": "2"
+    },
+    {
+      "text": "Data Augmentation",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Experiment",
+      "sec_num": "3"
+    },
+    {
+      "text": "Overview",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Process",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Research Questions",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Analyses",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Writing Quality (Research Question 1)",
+      "sec_num": ""
+    },
+    {
+      "text": "Realism (Research Question 2)",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Writing Quality (Research Question 1)",
+      "sec_num": ""
+    },
+    {
+      "text": "Realism (Research Question 2)",
+      "sec_num": ""
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "4"
+    },
+    {
+      "text": "Summary and Interpretation of Results",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Implications",
+      "sec_num": "4.2"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 15,
   "page_count": 8
 }

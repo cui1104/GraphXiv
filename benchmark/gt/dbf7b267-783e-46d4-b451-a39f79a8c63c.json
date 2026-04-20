@@ -2,12 +2,31 @@
   "paper_id": "dbf7b267-783e-46d4-b451-a39f79a8c63c",
   "arxiv_id": "2602.03883",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Methodology",
-    "Results and Discussion",
-    "Conclusions",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": "3"
+    },
+    {
+      "text": "Conclusions",
+      "sec_num": "4"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 7,
+  "reference_count": 19,
   "page_count": 10
 }

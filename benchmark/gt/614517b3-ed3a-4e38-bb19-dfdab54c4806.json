@@ -2,21 +2,75 @@
   "paper_id": "614517b3-ed3a-4e38-bb19-dfdab54c4806",
   "arxiv_id": "2508.16179",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "Introduction",
-    "Related Work",
-    "Methodology",
-    "Dataset",
-    "Preprocessing",
-    "MiniRocket",
-    "Convolutional Neural Network (CNN)",
-    "Long Short Term Memory (LSTM)",
-    "CNN-LSTM Hybrid model",
-    "Experimental Results",
-    "Discussion",
-    "Conclusion",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Dataset",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Preprocessing",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "MiniRocket",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Convolutional Neural Network (CNN)",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Long Short Term Memory (LSTM)",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "CNN-LSTM Hybrid model",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Experimental Results",
+      "sec_num": "4"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "5"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "6"
+    },
+    {
+      "text": "CRediT authorship contribution statement",
+      "sec_num": ""
+    },
+    {
+      "text": "Declaration of Competing Interest",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgements",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 8,
+  "formula_count": 13,
+  "reference_count": 92,
   "page_count": 10
 }

@@ -2,36 +2,115 @@
   "paper_id": "1dfcbd76-f856-40f5-ab1e-a6c59933af67",
   "arxiv_id": "2506.20102",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "THE IMPERATIVE FOR DYNAMIC RESILIENCE IN CRITICAL INFRASTRUCTURE",
-    "THE FOUNDATIONAL FLAWS OF THE OT ENVIRONMENT",
-    "Threat Evolution and Seminal ICS Attacks",
-    "Trustworthy-by-Design and ICS",
-    "Research Contributions: The ARC Framework",
-    "STATE-OF-THE-ART IN ICS DEFENSE",
-    "The Failure of Static Defenses",
-    "Machine Learning for Anomaly Detection",
-    "Adversarial Machine Learning and Game Theory",
-    "F-SCDT: A HIGH-FIDELITY SANDBOX FOR ADVERSARIAL SIMULATION",
-    "ARCHITECTURAL OVERVIEW: ARC IN CO-EVOLUTIONARY DEFENSE",
-    "Achieving Model Fidelity Through Hybrid Physics-Informed Models",
-    "Ensuring Data Integrity Through Verifiable Pipelines",
-    "ARC FRAMEWORK AS A METHODOLOGY FOR CO-EVOLUTIONARY ARMS RACE",
-    "The Red Agent: Autonomous Vulnerability Discovery",
-    "The Blue Agent: An Adaptive Ensemble",
-    "The Co-Evolutionary Loop",
-    "EXPERIMENTAL VALIDATION",
-    "Experimental Setup",
-    "Main Results and Trinity of Trust Validation",
-    "Deconstructing an Emergent Attack",
-    "Federated ARC (F-ARC)",
-    "DISCUSSION AND FUTURE WORK",
-    "Deconstructing the \"Circular Reasoning\" Critique",
-    "Operators, Trust and Human Factors",
-    "The Future Use Difference",
-    "Adversarial Explanations as Explainability",
-    "CONCLUSION",
-    "REFERENCES"
+    {
+      "text": "THE IMPERATIVE FOR DYNAMIC RESILIENCE IN CRITICAL INFRASTRUCTURE",
+      "sec_num": "I"
+    },
+    {
+      "text": "The Foundations Flaws of The OT Environment",
+      "sec_num": "A"
+    },
+    {
+      "text": "Threat and Remedial ICS Attacks",
+      "sec_num": "B"
+    },
+    {
+      "text": "Research Contributions: The ARC Framework",
+      "sec_num": "C"
+    },
+    {
+      "text": "STATE-OF-THE-ART IN ICS DEFENSE",
+      "sec_num": "II"
+    },
+    {
+      "text": "The Failure of Static Defenses",
+      "sec_num": "A"
+    },
+    {
+      "text": "Machine Learning for Anomaly Detection",
+      "sec_num": "B"
+    },
+    {
+      "text": "Adversarial Machine Learning and Game Theory",
+      "sec_num": "C"
+    },
+    {
+      "text": "F-SCDT: A HIGH-FIDELITY SANDBOX FOR ADVERSARIAL SIMULATION",
+      "sec_num": "III"
+    },
+    {
+      "text": "Achieving Model Fidelity Through Hybrid Physics-Informed Models",
+      "sec_num": "A"
+    },
+    {
+      "text": "Ensuring Data Integrity Through Verifiable Pipelines",
+      "sec_num": "B"
+    },
+    {
+      "text": "ARC FRAMEWORK AS A METHODOLOGY FOR CO-EVOLUTIONARY ARMS RACE",
+      "sec_num": "IV"
+    },
+    {
+      "text": "The Red Agent: Autonomous Vulnerability Discovery",
+      "sec_num": "A"
+    },
+    {
+      "text": "The Blue Agent: An Adaptive Ensemble",
+      "sec_num": "B"
+    },
+    {
+      "text": "The Co-Evolutionary Loop",
+      "sec_num": "C"
+    },
+    {
+      "text": "EXPERIMENTAL VALIDATION",
+      "sec_num": "V"
+    },
+    {
+      "text": "Experimental Validation",
+      "sec_num": "A"
+    },
+    {
+      "text": "Main Results and Trinity of Trust Validation",
+      "sec_num": "B"
+    },
+    {
+      "text": "Deconstructing an Emergent Attack",
+      "sec_num": "C"
+    },
+    {
+      "text": "The Red Agent Difference",
+      "sec_num": "D"
+    },
+    {
+      "text": "Federated ARC (F-ARC)",
+      "sec_num": "E"
+    },
+    {
+      "text": "Adversarial Explanations as Explainability",
+      "sec_num": "F"
+    },
+    {
+      "text": "DISCUSSION AND FUTURE WORK",
+      "sec_num": "VI"
+    },
+    {
+      "text": "Deconstructing the “Circular Reasoning” Critique",
+      "sec_num": "A"
+    },
+    {
+      "text": "Operator, Trust and Human Factors",
+      "sec_num": "B"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "VII"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 4,
+  "reference_count": 67,
   "page_count": 6
 }

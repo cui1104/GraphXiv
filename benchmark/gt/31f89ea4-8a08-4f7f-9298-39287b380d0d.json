@@ -2,11 +2,23 @@
   "paper_id": "31f89ea4-8a08-4f7f-9298-39287b380d0d",
   "arxiv_id": "2602.05087",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Declaration of authorship",
-    "Abstract",
-    "Plain Language Summary",
-    "Acknowledgments"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Plain Language Summary",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgments",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

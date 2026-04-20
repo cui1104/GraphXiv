@@ -2,22 +2,63 @@
   "paper_id": "7b8f6673-a35f-4019-a476-d6075609cb14",
   "arxiv_id": "2602.04616",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "The Centrality of Privacy in the AI Era",
-    "Human-Centered Privacy Framework",
-    "Privacy Theories from Technology, Human Factors, Ethics Perspectives",
-    "Scope and Objectives",
-    "Privacy Risks Across the AI Lifecycle",
-    "Data Collection Phase",
-    "Data Processing Phase",
-    "Model Training Phase",
-    "Inference and Deployment Phase",
-    "Feedback Loops and Data Reuse Phase",
-    "Ethics Perspective",
-    "Privacy as a Foundational Ethical Element"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "The Centrality of Privacy in the AI Era",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Human-Centered Privacy Framework",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Privacy Theories from Technology, Human Factors, Ethics Perspectives",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Scope and Objectives",
+      "sec_num": "1.4"
+    },
+    {
+      "text": "Privacy Risks Across the AI Lifecycle",
+      "sec_num": "2"
+    },
+    {
+      "text": "Data Collection Phase",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Data Processing Phase",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Model Training Phase",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Inference and Deployment Phase",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Feedback Loops and Data Reuse Phase",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Ethics Perspective",
+      "sec_num": "3"
+    },
+    {
+      "text": "Privacy as a Foundational Ethical Element",
+      "sec_num": "3.1"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

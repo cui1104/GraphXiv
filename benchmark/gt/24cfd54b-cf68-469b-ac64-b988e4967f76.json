@@ -2,12 +2,31 @@
   "paper_id": "24cfd54b-cf68-469b-ac64-b988e4967f76",
   "arxiv_id": "2506.03317",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Results",
-    "Diffractive systems for monitoring 3D structural vibrations",
-    "Experimental demonstration of diffractive vibration monitoring"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Diffractive systems for monitoring 3D structural vibrations",
+      "sec_num": ""
+    },
+    {
+      "text": "Experimental demonstration of diffractive vibration monitoring",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

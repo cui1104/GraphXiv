@@ -2,12 +2,47 @@
   "paper_id": "bdacaa24-aae3-4c80-92df-c56122193935",
   "arxiv_id": "2510.26376",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Results",
-    "Probabilistic Forecast Skill and Benchmarking against NWP",
-    "Forecasting the Three-Dimensional Stratospheric Evolution"
+    {
+      "text": "Author Information",
+      "sec_num": ""
+    },
+    {
+      "text": "Affiliations",
+      "sec_num": ""
+    },
+    {
+      "text": "Contributions",
+      "sec_num": ""
+    },
+    {
+      "text": "Corresponding authors",
+      "sec_num": ""
+    },
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Probabilistic Forecast Skill and Benchmarking against NWP",
+      "sec_num": ""
+    },
+    {
+      "text": "Forecasting the Three-Dimensional Stratospheric Evolution",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

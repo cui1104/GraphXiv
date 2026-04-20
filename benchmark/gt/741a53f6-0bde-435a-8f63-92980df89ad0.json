@@ -2,12 +2,31 @@
   "paper_id": "741a53f6-0bde-435a-8f63-92980df89ad0",
   "arxiv_id": "2602.12380",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Literature Review",
-    "Research Gap",
-    "Proposed TFT-ACB-XML",
-    "TFT Model"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Literature Review",
+      "sec_num": "2"
+    },
+    {
+      "text": "Research Gap",
+      "sec_num": ""
+    },
+    {
+      "text": "Proposed TFT-ACB-XML",
+      "sec_num": "3"
+    },
+    {
+      "text": "TFT Model",
+      "sec_num": "3.1"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

@@ -2,14 +2,39 @@
   "paper_id": "9e0f8624-0350-498f-a29f-3170161ac9bb",
   "arxiv_id": "2602.11081",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "SteuerLLM Model Architecture and Training",
-    "Results",
-    "SteuerLLM outperforms general-purpose LLMs",
-    "Performance does not scale reliably with parameter count",
-    "Tax law domain-specific performance patterns"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "SteuerLLM Model Architecture and Training",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "SteuerLLM outperforms general-purpose LLMs",
+      "sec_num": ""
+    },
+    {
+      "text": "Performance does not scale reliably with parameter count",
+      "sec_num": ""
+    },
+    {
+      "text": "Tax law domain-specific performance patterns",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

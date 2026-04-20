@@ -2,17 +2,51 @@
   "paper_id": "a0ee13ab-d9d9-440a-b6b2-b2d8897ac2c9",
   "arxiv_id": "2601.22300",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "DPNN architecture",
-    "Hebbian learning with PCM synapse",
-    "Experimental Proof-of-Concept",
-    "Demonstration of supervised learning and inference",
-    "Demonstration of unsupervised learning",
-    "Discussion",
-    "Methods",
-    "Measurement setup",
-    "Training algorithm – the backpropagation method"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "DPNN architecture",
+      "sec_num": "2"
+    },
+    {
+      "text": "Hebbian learning with PCM synapse",
+      "sec_num": "3"
+    },
+    {
+      "text": "Experimental Proof-of-Concept",
+      "sec_num": "4"
+    },
+    {
+      "text": "Demonstration of supervised learning and inference",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Demonstration of unsupervised learning",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "5"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "6"
+    },
+    {
+      "text": "Measurement setup",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "Training algorithm — the backpropagation method",
+      "sec_num": "6.2"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 6,
+  "reference_count": 0,
   "page_count": 10
 }

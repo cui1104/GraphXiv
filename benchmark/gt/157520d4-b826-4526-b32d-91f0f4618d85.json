@@ -2,42 +2,151 @@
   "paper_id": "157520d4-b826-4526-b32d-91f0f4618d85",
   "arxiv_id": "2603.04180",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Background and Related Work",
-    "Adaptive Computation",
-    "State Space Models",
-    "Process Reward Models and Chain-of-Thought",
-    "Thermodynamic Perspectives on Computation",
-    "The PNA Framework",
-    "Core Formulation",
-    "Thermodynamic Loss Function",
-    "Measurement-as-Collapse",
-    "SSMs as Thermodynamically Native Architectures",
-    "Experimental Setup",
-    "Architecture",
-    "Training Groups",
-    "Tasks",
-    "Evaluation Protocol",
-    "Results",
-    "Task Performance",
-    "The Universal Stopping Signature",
-    "Architecture-Specific Mechanisms",
-    "Cross-Task Transfer",
-    "Hyperparameter Control Landscape",
-    "Cross-Domain Generalization",
-    "Analysis",
-    "Halt Detection as Attractor Basin Entry",
-    "The Confusion Head",
-    "Computational Regime Classification",
-    "Discussion",
-    "Thermodynamic Nativeness",
-    "Implications for Production Systems",
-    "Limitations",
-    "Future Work",
-    "Conclusion",
-    "References",
-    "Appendix A: Selected Figures"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Background and Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Adaptive Computation",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "State Space Models",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Process Reward Models and Chain-of-Thought",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Thermodynamic Perspectives on Computation",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "The PNA Framework",
+      "sec_num": "3"
+    },
+    {
+      "text": "Core Formulation",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Thermodynamic Loss Function",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Measurement-as-Collapse",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "SSMs as Thermodynamically Native Architectures",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "4"
+    },
+    {
+      "text": "Architecture",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Training Groups",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Tasks",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Evaluation Protocol",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Results",
+      "sec_num": "5"
+    },
+    {
+      "text": "Task Performance",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "The Universal Stopping Signature",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Architecture-Specific Mechanisms",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Cross-Task Transfer",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "Hyperparameter Control Landscape",
+      "sec_num": "5.5"
+    },
+    {
+      "text": "Cross-Domain Generalization",
+      "sec_num": "5.6"
+    },
+    {
+      "text": "Analysis",
+      "sec_num": "6"
+    },
+    {
+      "text": "Halt Detection as Attractor Basin Entry",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "The Confusion Head",
+      "sec_num": "6.2"
+    },
+    {
+      "text": "Computational Regime Classification",
+      "sec_num": "6.3"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "7"
+    },
+    {
+      "text": "Thermodynamic Nativeness",
+      "sec_num": "7.1"
+    },
+    {
+      "text": "Implications for Production Systems",
+      "sec_num": "7.2"
+    },
+    {
+      "text": "Limitations",
+      "sec_num": "7.3"
+    },
+    {
+      "text": "Future Work",
+      "sec_num": "7.4"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "8"
+    },
+    {
+      "text": "Appendix A: Selected Figures",
+      "sec_num": "A"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 2,
+  "reference_count": 10,
   "page_count": 10
 }

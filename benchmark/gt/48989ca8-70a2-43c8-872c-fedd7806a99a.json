@@ -2,22 +2,71 @@
   "paper_id": "48989ca8-70a2-43c8-872c-fedd7806a99a",
   "arxiv_id": "2601.09282",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "AI In Cluster Scheduling",
-    "Multi-Objective Scheduling",
-    "Parsing And Natural Language Interfaces",
-    "Prototype And Testbed",
-    "Local Kubernetes Cluster",
-    "Cluster State Cache",
-    "Score Extender Service",
-    "Intent Analyzer",
-    "Evaluation Logic",
-    "Scoring Model",
-    "Utility Function Components",
-    "Base Weight",
-    "Normalization And Deterministic Selection"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "RELATED RESEARCH",
+      "sec_num": "II"
+    },
+    {
+      "text": "AI IN CLUSTER SCHEDULING",
+      "sec_num": "II.A"
+    },
+    {
+      "text": "MULTI-OBJECTIVE SCHEDULING",
+      "sec_num": "II.B"
+    },
+    {
+      "text": "PARSING AND NATURAL LANGUAGE INTERFACES",
+      "sec_num": "II.C"
+    },
+    {
+      "text": "PROTOTYPE AND TESTBED DESIGN",
+      "sec_num": "III"
+    },
+    {
+      "text": "LOCAL KUBERNETES CLUSTER",
+      "sec_num": "III.A"
+    },
+    {
+      "text": "CLUSTER STATE CACHE",
+      "sec_num": "III.B"
+    },
+    {
+      "text": "SCORE EXTENDER SERVICE",
+      "sec_num": "III.C"
+    },
+    {
+      "text": "INTENT ANALYZER",
+      "sec_num": "III.D"
+    },
+    {
+      "text": "EVALUATION LOGIC",
+      "sec_num": "III.E"
+    },
+    {
+      "text": "SCORING MODEL",
+      "sec_num": "III.F"
+    },
+    {
+      "text": "UTILITY FUNCTION COMPONENTS",
+      "sec_num": "III.F.A"
+    },
+    {
+      "text": "EVALUATION LOGIC COMPONENTS",
+      "sec_num": "III.F.B"
+    },
+    {
+      "text": "NORMALIZATION AND DETERMINISTIC SELECTION",
+      "sec_num": "III.F.C"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 7,
+  "reference_count": 0,
   "page_count": 10
 }

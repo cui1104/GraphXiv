@@ -2,11 +2,35 @@
   "paper_id": "45c71969-d92b-49a7-95a8-bf46f359b615",
   "arxiv_id": "2602.04757",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Data",
-    "Data Summary",
-    "Multi-Source Precipitation Dataset"
+    {
+      "text": "Highlights",
+      "sec_num": ""
+    },
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Data",
+      "sec_num": "2"
+    },
+    {
+      "text": "Data Summary",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Multi-Source Precipitation Dataset",
+      "sec_num": "2.2"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

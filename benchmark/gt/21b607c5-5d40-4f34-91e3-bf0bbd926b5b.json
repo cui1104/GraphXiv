@@ -2,20 +2,63 @@
   "paper_id": "21b607c5-5d40-4f34-91e3-bf0bbd926b5b",
   "arxiv_id": "2602.11187",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORK",
-    "METHODOLOGY",
-    "Framework",
-    "Agent",
-    "Reward",
-    "EXPERIMENTAL EVALUATION",
-    "System Configuration",
-    "Experimental Setting",
-    "Results",
-    "CONCLUSION",
-    "ACKNOWLEDGMENT",
-    "REFERENCES"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "RELATED WORK",
+      "sec_num": "II"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "III"
+    },
+    {
+      "text": "Framework",
+      "sec_num": "A"
+    },
+    {
+      "text": "Agent",
+      "sec_num": "B"
+    },
+    {
+      "text": "Reward",
+      "sec_num": "C"
+    },
+    {
+      "text": "EXPERIMENTAL EVALUATION",
+      "sec_num": "IV"
+    },
+    {
+      "text": "System Configuration",
+      "sec_num": "A"
+    },
+    {
+      "text": "Experimental Setting",
+      "sec_num": "B"
+    },
+    {
+      "text": "Results",
+      "sec_num": "C"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "V"
+    },
+    {
+      "text": "ACKNOWLEDGMENT",
+      "sec_num": ""
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 3,
+  "reference_count": 22,
   "page_count": 5
 }

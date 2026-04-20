@@ -2,18 +2,55 @@
   "paper_id": "6b4247dc-341b-418c-afe7-863d6b0eb837",
   "arxiv_id": "2602.04911",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Background and motivation",
-    "Bitwise and/or graph logic notation",
-    "Hamiltonian logic networks (HNetS)",
-    "Composing Hamiltonians",
-    "Simple MNIST images example",
-    "Consumer credit application example",
-    "Identification of equivalences",
-    "From hierarchical statistics to abducted symbols",
-    "Successive epochs",
-    "Discussion"
+    {
+      "text": "Background and motivation",
+      "sec_num": ""
+    },
+    {
+      "text": "Bitwise serial graph encoding",
+      "sec_num": ""
+    },
+    {
+      "text": "Notions and edges; simple logic notation",
+      "sec_num": ""
+    },
+    {
+      "text": "Hamiltonian logic networks (HNets)",
+      "sec_num": ""
+    },
+    {
+      "text": "Composing Hamiltonians",
+      "sec_num": ""
+    },
+    {
+      "text": "Simple MNIST images example",
+      "sec_num": ""
+    },
+    {
+      "text": "Consumer credit application example",
+      "sec_num": ""
+    },
+    {
+      "text": "Identification of equivalences",
+      "sec_num": ""
+    },
+    {
+      "text": "From hierarchical statistics to abducted models",
+      "sec_num": ""
+    },
+    {
+      "text": "Successive epochs",
+      "sec_num": ""
+    },
+    {
+      "text": "Discussion",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 9,
+  "formula_count": 11,
+  "reference_count": 0,
   "page_count": 10
 }

@@ -2,115 +2,443 @@
   "paper_id": "810873c0-449d-4969-81f0-3830cb310921",
   "arxiv_id": "2411.17411",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Uncertain Combinatorics",
-    "Neutrosophic Sets and Related Set Theory",
-    "Graphization: From Uncertain Sets to Uncertain Graphs",
-    "Hyperization and SuperHyperization",
-    "Contributions of This Book",
-    "Background and Preliminaries",
-    "Uncertain Set Theory",
-    "Crisp Sets and Neutrosophic Sets",
-    "Paralogistic Set",
-    "Neutrosophic triplet",
-    "Nonstandard-real numbers",
-    "Single Valued Neutrosophic OverSet, UnderSet, and OffSet",
-    "Fuzzy and Intuitionistic Fuzzy OverSets, UnderSets, and OffSets",
-    "Neutrosophic Triplet Strong Set",
-    "MultiNeutrosophic Set",
-    "MultiCrisp Set and its relation to MultiNeutrosophic Sets",
-    "Single-Valued MultiNeutrosophic OffSet",
-    "Soft Sets and Soft Expert Sets",
-    "Neutrosophic Axial Sets and Partner MultiNeutrosophic Sets",
-    "Mega Sets",
-    "Binary Fuzzy Set and Binary Neutrosophic Set",
-    "Cohesive Fuzzy Set",
-    "Ranked Soft Set",
-    "Injective Soft Set",
-    "Uncertain Graph Theory",
-    "Fuzzy and Neutrosophic Graph",
-    "Soft Sets, Soft Graphs and MultiSoft Graphs",
-    "Neutrosophic OverGraphs, UnderGraphs, and OffGraphs",
-    "Neutrosophic soft off/graph/overgraph/undergraph",
-    "Rough set and Rough Graph",
-    "Hyperconcepts and SuperHyperconcepts",
-    "Hypergraphs and SuperHyperGraphs",
-    "Hypersoft Graph",
-    "HyperFuzzy Set",
-    "HyperFuzzy Graph",
-    "SuperHyperFunction",
-    "Hypercube and HyperSphere",
-    "SuperSets and SuperHyperSets in Set Theory",
-    "SuperHyperPoset",
-    "HyperStructure and SuperHyperStructure",
-    "Other Hyperconcepts and SuperHyperconcepts",
-    "Graph Concepts",
-    "Nonstandard Real Graph",
-    "Pentapartitioned neutrosophic offgraph/overgraph/undergraph",
-    "Plithogenic OffGraph / OverGraph / UnderGraph",
-    "MultiNeutrosophic Graph",
-    "Subset-Valued Neutrosophic Graph and Single-Valued Nonstandard Neutrosophic Graph",
-    "Neutrosophic Axial Graphs and Partner MultiNeutrosophic Graphs",
-    "Heptapartitioned Neutrosophic Graph",
-    "Double-Valued Neutrosophic Graphs",
-    "Soft Intersection Graphs and Plithogenic Intersection OverGraphs",
-    "Plithogenic Intersection Graphs",
-    "Uncertain Graphs",
-    "Uncertain Concepts",
-    "MultiPlithogenic Sets",
-    "MultiPlithogenic Graphs",
-    "TreeFuzzy Sets and TreeNeutrosophic Sets",
-    "TreeSoft Expert Sets and IndetermSoft Expert Sets",
-    "TreeSoft Expert Sets",
-    "IndetermSoft Expert Sets",
-    "MultiRough Sets and TreeRough Sets",
-    "Multi-Quadripartitioned and Multi-Pentapartitioned Neutrosophic Graphs",
-    "Biquaternion Neutrosophic Sets",
-    "Cohesive Neutrosophic Sets",
-    "MultiRoughs Neutrosophic Sets",
-    "Bijective TreeSoft Sets",
-    "TreeSoft Rough Sets",
-    "m-Dimensional Neutrosophic Sets and Offset Extensions",
-    "Strong Neutrosophic Sets",
-    "Neutrosophic Distribution Sets",
-    "Neutrosophic Multiple Sets",
-    "Granular Neutrosophic Sets",
-    "ProperSubset-Valued Neutrosophic Sets and Variants",
-    "Probability-Subset-Valued Neutrosophic Sets",
-    "Time Dependent Neutrosophic Sets and Weighted Neutrosophic Sets",
-    "Trice Neutrosophic Sets",
-    "Hereditary Neutrosophic Set Systems",
-    "Conceptual Neutrosophic Sets",
-    "Non-Stationary Neutrosophic Sets",
-    "Cosine Neutrosophic Sets",
-    "Derived Variants of the Nonstandard Real Set",
-    "HyperSoft HyperExpert Sets",
-    "Hyper Concepts and SuperHyper concepts",
-    "HyperNeutrosophic Set",
-    "Hyper Vague OffSet/OverSet/UnderSet",
-    "N-SuperHyper Set",
-    "IndetermSuperHyperSoft Set",
-    "HyperRough Sets and HyperRough Graphs",
-    "SingleValued Neutrosophic Over/Under/Off Hypergraphs",
-    "HyperCrisp Sets, SuperHyperCrisp Sets, and SuperHyperFuzzy Sets",
-    "(m,n)-SuperHyperFuzzy, Neutrosophic, and Related Set",
-    "Neutrosophic HyperSoft OffGraphs / OverGraphs / UnderGraphs",
-    "Hyperbinary Fuzzy Sets and Hyperbinary Neutrosophic Sets",
-    "Ranked HyperSoft Sets",
-    "PosetHyperSoft Sets",
-    "Hyperweighted Graphs and SuperHyperweighted Graphs",
-    "Hyperlabeling Graphs and SuperHyperlabeling Graphs",
-    "MultiHypersoft Graphs",
-    "Other Concepts",
-    "Filters and Matroids on Offsets, Oversets, and Undersets",
-    "SuperHypercubes and SuperHyperspheres",
-    "Discussion: Procedures for Graphization, Hyperization, and Uncertainization",
-    "Conclusion",
-    "Conclusion of this book",
-    "Future Works: Other Graph Class Extension (Revisited)",
-    "Appendix (List of Figures)",
-    "Appendix (List of Tables)"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Uncertain Combinatorics",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Neutrosophic Sets and Related Set Theory",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Graphization: From Uncertain Sets to Uncertain Graphs",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Hyperization and Superhyperization",
+      "sec_num": "1.4"
+    },
+    {
+      "text": "Contributions of This Book",
+      "sec_num": "1.5"
+    },
+    {
+      "text": "Background and Preliminaries",
+      "sec_num": "2"
+    },
+    {
+      "text": "Uncertain Set Theory",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Crisp Sets and Neutrosophic Sets",
+      "sec_num": "2.1.1"
+    },
+    {
+      "text": "Orthophoic Set",
+      "sec_num": "2.1.2"
+    },
+    {
+      "text": "Neutrosophic triplet",
+      "sec_num": "2.1.3"
+    },
+    {
+      "text": "Nonstandard-real numbers",
+      "sec_num": "2.1.4"
+    },
+    {
+      "text": "Single Valued Neutrosophic OverSet, UnderSet, and OffSet",
+      "sec_num": "2.1.5"
+    },
+    {
+      "text": "Fuzzy and Intuitionistic Fuzzy OverSets, UnderSets, and OffSets",
+      "sec_num": "2.1.6"
+    },
+    {
+      "text": "Neutrosophic Triplet Strong Set",
+      "sec_num": "2.1.7"
+    },
+    {
+      "text": "MultiNeutrosophic Set",
+      "sec_num": "2.1.8"
+    },
+    {
+      "text": "MultiCrisp Set and its relation to MultiNeutrosophic Sets",
+      "sec_num": "2.1.9"
+    },
+    {
+      "text": "Single-Valued MultiNeutrosophic OffSet",
+      "sec_num": "2.1.10"
+    },
+    {
+      "text": "Soft Sets and Soft Expert Sets",
+      "sec_num": "2.1.11"
+    },
+    {
+      "text": "Neutrosophic Axial Sets and Partner Multineutrosophic Sets",
+      "sec_num": "2.1.12"
+    },
+    {
+      "text": "Mega Sets",
+      "sec_num": "2.1.13"
+    },
+    {
+      "text": "Binary Fuzzy Set and Binary Neutrosophic Set",
+      "sec_num": "2.1.14"
+    },
+    {
+      "text": "Cohesive Fuzzy Set",
+      "sec_num": "2.1.15"
+    },
+    {
+      "text": "Ranked Soft Set",
+      "sec_num": "2.1.16"
+    },
+    {
+      "text": "Injective Soft Set",
+      "sec_num": "2.1.17"
+    },
+    {
+      "text": "Uncertain Graph Theory",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Fuzzy and Neutrosophic Graph",
+      "sec_num": "2.2.1"
+    },
+    {
+      "text": "Soft Sets, Soft Graphs and Multisoft Graphs",
+      "sec_num": "2.2.2"
+    },
+    {
+      "text": "Neutrosophic OverGraphs, UnderGraphs, and OffGraphs",
+      "sec_num": "2.2.3"
+    },
+    {
+      "text": "Neutrosophic soft offgraph/overgraph/undergraph",
+      "sec_num": "2.2.4"
+    },
+    {
+      "text": "Rough set and Rough Graph",
+      "sec_num": "2.2.5"
+    },
+    {
+      "text": "Hyperconcepts and Superhyperconcepts",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Hypergraphs and SuperHyperGraphs",
+      "sec_num": "2.3.1"
+    },
+    {
+      "text": "Hypersoft Graph",
+      "sec_num": "2.3.2"
+    },
+    {
+      "text": "HyperFuzzy Set",
+      "sec_num": "2.3.3"
+    },
+    {
+      "text": "HyperFuzzy Graph",
+      "sec_num": "2.3.4"
+    },
+    {
+      "text": "SuperHyperFunction",
+      "sec_num": "2.3.5"
+    },
+    {
+      "text": "Hypercube and Hypersphere",
+      "sec_num": "2.3.6"
+    },
+    {
+      "text": "Hypersets and SuperHypersets in Set Theory",
+      "sec_num": "2.3.7"
+    },
+    {
+      "text": "SuperhyperPoset",
+      "sec_num": "2.3.8"
+    },
+    {
+      "text": "Hyperstructure and SuperHyperstructure",
+      "sec_num": "2.3.9"
+    },
+    {
+      "text": "Other Hyperconcepts and Superhyperconcepts",
+      "sec_num": "2.3.10"
+    },
+    {
+      "text": "Graph Concepts",
+      "sec_num": "3"
+    },
+    {
+      "text": "Nonstandard Real Graph",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Pentapartitioned neutrosophic offgraph/overgraph/undergraph",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Plithogenic OffGraph / OverGraph / UnderGraph",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "MultiNeutrosophic Graph",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Subset-Valued Neutrosophic Graph and Single-Valued Nonstandard Neutrosophic Graph",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Neutrosophic Axial Graphs and Partner Multineutrosophic Graphs",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Heptapartitioned Neutrosophic Graph",
+      "sec_num": "3.7"
+    },
+    {
+      "text": "Double-Valued Neutrosophic Graphs",
+      "sec_num": "3.8"
+    },
+    {
+      "text": "Soft Intersection Graphs and Plithogenic Intersection OverGraphs",
+      "sec_num": "3.9"
+    },
+    {
+      "text": "Plithogenic Intersection Graphs",
+      "sec_num": "3.10"
+    },
+    {
+      "text": "Uncertain Graphs",
+      "sec_num": "3.11"
+    },
+    {
+      "text": "Uncertain Concepts",
+      "sec_num": "4"
+    },
+    {
+      "text": "MultiPlithogenic Sets",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "MultiPlithogenic Graphs",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "TreeFuzzy Sets and TreeNeutrosophic Sets",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "TreeSoft Expert Sets and IndetermSoft Expert Sets",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "TreeSoft Expert Sets",
+      "sec_num": "4.4.1"
+    },
+    {
+      "text": "IndetermSoft Expert Sets",
+      "sec_num": "4.4.2"
+    },
+    {
+      "text": "Multi-rough Sets and Treerough Sets",
+      "sec_num": "4.5"
+    },
+    {
+      "text": "Multi-QuadroPartitioned and Multi-Pentapartitioned Neutrosophic Graphs",
+      "sec_num": "4.6"
+    },
+    {
+      "text": "Granularneutrosophic Sets",
+      "sec_num": "4.7"
+    },
+    {
+      "text": "Cohesive Neutrosophic Sets",
+      "sec_num": "4.8"
+    },
+    {
+      "text": "MultiRough Neutrosophic Sets",
+      "sec_num": "4.9"
+    },
+    {
+      "text": "Bijective Treesoft Sets",
+      "sec_num": "4.10"
+    },
+    {
+      "text": "Treesoft Rough Sets",
+      "sec_num": "4.11"
+    },
+    {
+      "text": "n-Dimensional Neutrosophic Sets and OffSet Extensions",
+      "sec_num": "4.12"
+    },
+    {
+      "text": "StrongNeutrosophic Sets",
+      "sec_num": "4.13"
+    },
+    {
+      "text": "Neutrosophic Distribution Sets",
+      "sec_num": "4.14"
+    },
+    {
+      "text": "Neutrosophic Multiple Sets",
+      "sec_num": "4.15"
+    },
+    {
+      "text": "GranularNeutrosophic Sets",
+      "sec_num": "4.16"
+    },
+    {
+      "text": "ProperSubset-Valued Neutrosophic Sets and Variants",
+      "sec_num": "4.17"
+    },
+    {
+      "text": "Probability-Subset-Valued Neutrosophic Sets",
+      "sec_num": "4.18"
+    },
+    {
+      "text": "Time Dependent Neutrosophic Sets and Weighted Neutrosophic Sets",
+      "sec_num": "4.19"
+    },
+    {
+      "text": "Trice Neutrosophic Sets",
+      "sec_num": "4.20"
+    },
+    {
+      "text": "Hereditary Neutrosophic Set Systems",
+      "sec_num": "4.21"
+    },
+    {
+      "text": "Conceptual Neutrosophic Sets",
+      "sec_num": "4.22"
+    },
+    {
+      "text": "Non-Stationary Neutrosophic Sets",
+      "sec_num": "4.23"
+    },
+    {
+      "text": "Cosine Neutrosophic Sets",
+      "sec_num": "4.24"
+    },
+    {
+      "text": "Derived Variants of the Nonstandard Real Set",
+      "sec_num": "4.25"
+    },
+    {
+      "text": "HyperSoft Expert-Expert Sets",
+      "sec_num": "4.26"
+    },
+    {
+      "text": "Hyper Concepts and Superhyper concepts",
+      "sec_num": "5"
+    },
+    {
+      "text": "HyperNeutrosophic Set",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Hyper Vague OffSet/OverSet/UnderSet",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "N-SuperHyper Sets",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "IndetermSuperHyperSoft Set",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "HyperRough Sets and HyperRough Graphs",
+      "sec_num": "5.5"
+    },
+    {
+      "text": "SingleValued Neutrosophic Over/Under/Off Hypergraphs",
+      "sec_num": "5.6"
+    },
+    {
+      "text": "HyperCrisp Sets, SuperHyperCrisp Sets, and SuperHyperFuzzy Sets",
+      "sec_num": "5.7"
+    },
+    {
+      "text": "(m,n)-SuperHyperFuzzy, Neutrosophic, and Related Set",
+      "sec_num": "5.8"
+    },
+    {
+      "text": "Neutrosophic HyperSoft OffGraphs / OverGraphs / UnderGraphs",
+      "sec_num": "5.9"
+    },
+    {
+      "text": "Hyperbinary Fuzzy Sets and Hyperbinary Neutrosophic Sets",
+      "sec_num": "5.10"
+    },
+    {
+      "text": "Ranked HyperSoft Sets",
+      "sec_num": "5.11"
+    },
+    {
+      "text": "PosetHyperSoft Sets",
+      "sec_num": "5.12"
+    },
+    {
+      "text": "Hyperweighed Graphs and Superhyperweighed Graphs",
+      "sec_num": "5.13"
+    },
+    {
+      "text": "Hyperlabeling Graphs and Superhyperlabeling Graphs",
+      "sec_num": "5.14"
+    },
+    {
+      "text": "MultiHypersoft Graphs",
+      "sec_num": "5.15"
+    },
+    {
+      "text": "Other Concepts",
+      "sec_num": "6"
+    },
+    {
+      "text": "Filters and Matroids on Offsets, Oversets, and Undersets",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "SuperHypercubes and SuperHyperspheres",
+      "sec_num": "6.2"
+    },
+    {
+      "text": "Discussion: Procedures for Graphization, Hyperization, and Uncertainization",
+      "sec_num": "7"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "8"
+    },
+    {
+      "text": "Conclusion of this book",
+      "sec_num": "8.1"
+    },
+    {
+      "text": "Future Works: Other Graph Class Extension (Revisited)",
+      "sec_num": "8.2"
+    },
+    {
+      "text": "List of Tables",
+      "sec_num": ""
+    },
+    {
+      "text": "List of Figures",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

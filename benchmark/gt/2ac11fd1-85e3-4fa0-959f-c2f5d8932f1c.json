@@ -2,16 +2,47 @@
   "paper_id": "2ac11fd1-85e3-4fa0-959f-c2f5d8932f1c",
   "arxiv_id": "2602.17962",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Methods",
-    "Datasets",
-    "Data notations and model architectures",
-    "Domain adaptation methods",
-    "Maximum Mean Discrepancy (MMD) based methods",
-    "Correlation Alignment (CORAL) based methods",
-    "Domain - Adversarial Neural Networks (DANN) based methods"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Datasets",
+      "sec_num": ""
+    },
+    {
+      "text": "Data notations and model architectures",
+      "sec_num": ""
+    },
+    {
+      "text": "Domain adaptation methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Maximum Mean Discrepancy (MMD) based methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Correlation Alignment (CORAL) based methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Domain - Adversarial Neural Networks (DANN) based methods",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 12,
+  "reference_count": 0,
   "page_count": 10
 }

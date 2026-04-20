@@ -2,32 +2,111 @@
   "paper_id": "40e61a53-fdb0-45b1-ad4d-aeff81982f14",
   "arxiv_id": "2510.12915",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "Keywords",
-    "INTRODUCTION",
-    "MEASURING CRITICAL THINKING",
-    "Critical Thinking Definitions and Frameworks",
-    "Measuring Critical Thinking",
-    "Automated Essay Scoring and Qualitative Coding Approaches",
-    "METHOD",
-    "Dataset",
-    "Critical Thinking Rubric",
-    "Human Coding",
-    "Coders and Codebook",
-    "Reliability",
-    "LLM-based Assessment",
-    "Prompts and fine-tuning",
-    "Evaluation Metrics",
-    "RESULTS",
-    "Human Coding",
-    "LLM Subskill Scoring",
-    "Subskill scoring results",
-    "Llama 3.1B Results",
-    "Generalization to Unseen Subskills",
-    "Error Analysis",
-    "DISCUSSION AND CONCLUSION",
-    "REFERENCES"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "RELATED WORK",
+      "sec_num": "2"
+    },
+    {
+      "text": "Critical Thinking Definitions and Frame-works",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Measuring Critical Thinking",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Automated Essay Scoring and Qualitative Coding Approaches",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "METHOD",
+      "sec_num": "3"
+    },
+    {
+      "text": "Dataset",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Critical Thinking Rubric",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Human Coding",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Coders and Codebook",
+      "sec_num": "3.3.1"
+    },
+    {
+      "text": "Reliability",
+      "sec_num": "3.3.2"
+    },
+    {
+      "text": "LLM-based Assessment",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Prompting and Fine-tuning",
+      "sec_num": "3.4.1"
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": "3.4.2"
+    },
+    {
+      "text": "RESULTS",
+      "sec_num": "4"
+    },
+    {
+      "text": "Human Coding",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "LLM Subscore Results",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Subscoring Results",
+      "sec_num": "4.2.1"
+    },
+    {
+      "text": "Llama 3.1 8B Results",
+      "sec_num": "4.2.2"
+    },
+    {
+      "text": "Generalization to Unseen Subskills",
+      "sec_num": "4.2.3"
+    },
+    {
+      "text": "Error Analysis",
+      "sec_num": "4.2.4"
+    },
+    {
+      "text": "DISCUSSION AND CONCLUSION",
+      "sec_num": "5"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": "6"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 9,
   "page_count": 10
 }

@@ -2,36 +2,127 @@
   "paper_id": "919c801e-0588-47e9-bd95-d49d4e00c564",
   "arxiv_id": "2602.06446",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Related Work",
-    "Dataset and Benchmark Design",
-    "Overview and Scale",
-    "Question Format and Design",
-    "Relation Types",
-    "Human Validation and Baseline",
-    "Evaluation Methodology",
-    "Model Selection and Coverage",
-    "Evaluation Protocol",
-    "Metrics",
-    "Overall Performance and Asymmetry",
-    "Calibration Analysis",
-    "Semantic Collapse Rate",
-    "Per-Relation Performance",
-    "CORE Dataset Performance",
-    "Difficulty Stratification",
-    "Discussion",
-    "Unfairness Across Models",
-    "Architectural and Objective-Level Biases in Unrelatedness Reasoning",
-    "Confidence-Coherence Misalignment",
-    "Implications",
-    "For Model Development",
-    "For Practitioners",
-    "For Evaluation and Benchmarking",
-    "Work In Progress",
-    "Limitations",
-    "Acknowledgments",
-    "Ethical Considerations"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Dataset and Benchmark Design",
+      "sec_num": "3"
+    },
+    {
+      "text": "Overview and Scale",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Question Format and Design",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Relation Types",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Human Validation and Baseline",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Evaluation Methodology",
+      "sec_num": "4"
+    },
+    {
+      "text": "Model Selection and Coverage",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Evaluation Parameters",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Metrics",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Overall Performance and Asymmetry",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Calibration Analysis",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Semantic Collapse",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Per-Relation Performance",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "Dataset Performance",
+      "sec_num": "5.5"
+    },
+    {
+      "text": "Difficulty Stratification",
+      "sec_num": "5.6"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "6"
+    },
+    {
+      "text": "Confidence-Coherence Misalignment",
+      "sec_num": "6.3"
+    },
+    {
+      "text": "Consistency of Failures across Models",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "Architectural and Objective-Level Biases In Unrelatedness Reasoning",
+      "sec_num": "6.2"
+    },
+    {
+      "text": "Implications",
+      "sec_num": "6.4"
+    },
+    {
+      "text": "For Model Development",
+      "sec_num": ""
+    },
+    {
+      "text": "For Practitioners",
+      "sec_num": ""
+    },
+    {
+      "text": "For Evaluation and Benchmarking",
+      "sec_num": ""
+    },
+    {
+      "text": "Work in Progress",
+      "sec_num": "7"
+    },
+    {
+      "text": "Limitations",
+      "sec_num": "8"
+    },
+    {
+      "text": "Acknowledgments",
+      "sec_num": ""
+    },
+    {
+      "text": "Ethical Considerations",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 5,
+  "reference_count": 40,
   "page_count": 10
 }

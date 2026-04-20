@@ -2,22 +2,71 @@
   "paper_id": "3b857472-fe4f-4369-9c62-bf4a617102d8",
   "arxiv_id": "2602.08086",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "SCENARIO BASED METHOD",
-    "Capability gap analysis",
-    "Scenario design",
-    "Requirement identification",
-    "Validating, verifying and implementing requirements",
-    "PROBABILITY HACKING AND THE DESIGN OF TRUSTWORTHY ML",
-    "SCENARIO-BASED METHOD: A SHOWCASE",
-    "Implicit p-hacking",
-    "Explicit p-hacking",
-    "Responsibility in the case of cumulative causality",
-    "TRUST AND THE SYSTEM OF LAW",
-    "CONCLUSION",
-    "RELATION TO PRIOR WORK",
-    "REFERENCES"
+    {
+      "text": "SCENARIO BASED METHOD",
+      "sec_num": "2"
+    },
+    {
+      "text": "Capability gap analysis",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "Scenario design",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Requirement identification",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Validating, verifying and implementing requirements",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "PROBABILITY HACKING AND TRANSPARANCY",
+      "sec_num": "3"
+    },
+    {
+      "text": "SCENARIO-BASED METHOD: A SHOWCASE",
+      "sec_num": "4"
+    },
+    {
+      "text": "Implicit P-hacking",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Explicit P-hacking",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Responsibility in the case of cumulative causality",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "TRUST AND THE SYSTEM OF LAW",
+      "sec_num": "5"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "6"
+    },
+    {
+      "text": "RELATION TO PRIOR WORK",
+      "sec_num": "7"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": "8"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 15,
   "page_count": 6
 }

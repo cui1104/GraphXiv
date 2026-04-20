@@ -2,30 +2,75 @@
   "paper_id": "42b9d5f5-f685-4d33-8e9d-82d4635a12c1",
   "arxiv_id": "2510.00244",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Literature review",
-    "Direct effect of board gender diversity and emissions performance",
-    "Moderating effect of ESG controversies on the relationship between BGD and EP",
-    "Data, sample, and data measurement",
-    "Sample, data, and variable measurement",
-    "Methodology",
-    "Panel regression models",
-    "Machine learning",
-    "Results",
-    "Panel regression models",
-    "Direct effect of board gender diversity and emissions performance",
-    "Moderating effect of ESG controversy on the relationship between BGD and EP",
-    "Mediating effect of environmental innovation on the relationship between BGD and EP",
-    "Machine learning results",
-    "Discussion",
-    "Discussion of panel regression results",
-    "Discussion of machine learning results",
-    "Conclusion, implications, and limitations",
-    "Conclusion and implications",
-    "Limitations and future research",
-    "Appendix A. Predictive performance of machine learning algorithms",
-    "Appendix B. Feature importance of machine learning algorithms"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Literature review",
+      "sec_num": "2"
+    },
+    {
+      "text": "Direct effect of board gender diversity and emissions performance",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Moderating effect of ESG on EP, particularly regarding emissions reduc tion, is contingent on the firm’s legitimacy environment. Firms that practice strong legitimacy may choose to achieve both social and economic gains",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "To fill the gap in the literature, this study examines whether firms’ involvement in ESGC weakens the link between BGD and EP.",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Sample, data, and variable measurement",
+      "sec_num": "3"
+    },
+    {
+      "text": "Sample, data, and variable measurement",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Panel regression models",
+      "sec_num": "3.2.1"
+    },
+    {
+      "text": "Machine learning",
+      "sec_num": "3.2.2"
+    },
+    {
+      "text": "Results",
+      "sec_num": "4"
+    },
+    {
+      "text": "Panel regression models",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Direct effect of board gender diversity and emissions performance",
+      "sec_num": "4.1.1"
+    },
+    {
+      "text": "Moderating effect of ESG controversy on the relationship between BGD and EP",
+      "sec_num": "4.1.2"
+    },
+    {
+      "text": "Mediating effect of environmental innovation on the relationship between BGD and EP",
+      "sec_num": "4.1.3"
+    },
+    {
+      "text": "Machine learning results",
+      "sec_num": "4.2"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 9,
+  "reference_count": 0,
   "page_count": 10
 }

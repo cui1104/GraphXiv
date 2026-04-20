@@ -2,28 +2,103 @@
   "paper_id": "97ff183f-c90d-4a76-9ba7-94714d124ab8",
   "arxiv_id": "2310.14629",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Highlights",
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Contributions & methodology",
-    "Experimentation and data collection",
-    "Machining operation and workpiece material",
-    "Cutting tool selection",
-    "Selection of cutting parameters",
-    "Force measurement and data acquisition",
-    "Tool condition labeling and calibration",
-    "Data cleaning",
-    "Machine learning approach",
-    "Feature extraction",
-    "Feature selection",
-    "Data augmentation strategy",
-    "Model-agnostic white-box approaches in TCM",
-    "Mathematical formulation of model-agnostic interpretability and LIME",
-    "Design of KNN model",
-    "Model training",
-    "Design of KNN model considering standard hyperparameters (Vanilla)"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Contributions & methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Experimentation and data acquisition",
+      "sec_num": "3"
+    },
+    {
+      "text": "Machining operation and workpiece material",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Cutting tool selection",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Selection of cutting parameters",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Force measurement and data acquisition",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Tool condition labeling and calibration",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Data cleaning",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Machine learning approach",
+      "sec_num": "3.7"
+    },
+    {
+      "text": "Feature extraction",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Feature selection",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Data augmentation strategy",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Model-agnostic white-box approaches in TCM",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "Mathematical formulation of model-agnostic interpretability and LIME",
+      "sec_num": "5.5"
+    },
+    {
+      "text": "Design of KNN model",
+      "sec_num": "6"
+    },
+    {
+      "text": "Model training",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "Design of KNN model considering standard hyperparameters (Vanilla)",
+      "sec_num": "6.1.1"
+    },
+    {
+      "text": "Model's performance on force signals in X-direction",
+      "sec_num": "a"
+    },
+    {
+      "text": "Raw signals",
+      "sec_num": "i"
+    },
+    {
+      "text": "Augmented signals",
+      "sec_num": "ii"
+    },
+    {
+      "text": "Model’s performance on force signals in Y-direction",
+      "sec_num": "b"
+    },
+    {
+      "text": "Raw signals",
+      "sec_num": "i"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 5,
+  "reference_count": 0,
   "page_count": 10
 }

@@ -2,17 +2,55 @@
   "paper_id": "52622a53-b11f-40e6-8bba-d0e7f7d37c37",
   "arxiv_id": "2602.11313",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Plain Language Summary",
-    "Introduction",
-    "Datasets and Methods",
-    "Observational and Reanalysis Datasets",
-    "Physics-based Model Simulations",
-    "Design of Idealized Experiments",
-    "Extratropical Cyclone (ETC) Experiments",
-    "ENSO-like SST Anomalies (SSTA) Experiments",
-    "Uniform Warming Experiments"
+    {
+      "text": "Key Points:",
+      "sec_num": ""
+    },
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Plain Language Summary",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Datasets and Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Observational and Reanalysis Datasets",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Physics-based Model Simulations",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Design of Idealized Experiments",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Extratropical Cyclone (ETC) Experiments",
+      "sec_num": "2.3.1"
+    },
+    {
+      "text": "ENSO-like Sst Anomalies (SSTA) Experiments",
+      "sec_num": "2.3.2"
+    },
+    {
+      "text": "Uniform Warming Experiments",
+      "sec_num": "2.3.3"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

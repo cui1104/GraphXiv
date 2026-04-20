@@ -2,24 +2,83 @@
   "paper_id": "8644282a-bd69-4210-9d78-cca8890a88e2",
   "arxiv_id": "2602.16887",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Materials and Methods",
-    "Study Characteristics",
-    "Eligibility Criteria and Data Collection Procedure",
-    "Inclusion Criteria",
-    "Exclusion Criteria",
-    "Data Collection and Study Population",
-    "Research Tools",
-    "Cognitive Function",
-    "Informant-Based Cognitive Function",
-    "Neuropsychological Test Norms",
-    "Categorization of the Response Variable",
-    "Sociodemographic Characteristics",
-    "Health and Comorbidities",
-    "Physical Activity Level, Handgrip Strength, and Lifestyle Habits",
-    "Psychosocial Factors",
-    "Statistical Analysis"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Materials and Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Study Characteristics",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Eligibility Criteria and Data Collection Procedure",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Inclusion Criteria",
+      "sec_num": "2.2.1"
+    },
+    {
+      "text": "Exclusion Criteria",
+      "sec_num": "2.2.2"
+    },
+    {
+      "text": "Data Collection and Study Population",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Cognitive Function",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Cognitive Function",
+      "sec_num": "2.4.1"
+    },
+    {
+      "text": "Informant-Based Cognitive Function",
+      "sec_num": "2.4.2"
+    },
+    {
+      "text": "Neuropsychological Test Norms",
+      "sec_num": "2.4.3"
+    },
+    {
+      "text": "Categorization of the Response Variable",
+      "sec_num": "2.4.4"
+    },
+    {
+      "text": "Sociodemographic Characteristics",
+      "sec_num": "2.4.4.1"
+    },
+    {
+      "text": "Health and Comorbidities",
+      "sec_num": "2.4.4.2"
+    },
+    {
+      "text": "Physical Activity Level, Handgrip Strength, and Lifestyle Habits",
+      "sec_num": "2.4.4.3"
+    },
+    {
+      "text": "Psychosocial Factors",
+      "sec_num": "2.4.4.4"
+    },
+    {
+      "text": "Statistical Analysis",
+      "sec_num": "2.5"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

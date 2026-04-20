@@ -2,23 +2,71 @@
   "paper_id": "3969e006-6b1a-4819-b80c-2c0f3308ac3c",
   "arxiv_id": "2602.04373",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Methods",
-    "Experimental Design",
-    "Detailed experimental protocols",
-    "Experiment 1 – Fully Relabelled Supervised Learning (Gold Standard):",
-    "Experiment 2 – Naive Temporal Transfer Baseline:",
-    "Experiment 3 – Spectral Stability Sampling (Wessells et al., 2016):",
-    "Experiment 4 – Naive Baseline with Cross Temporal Training and Temporal Stability Constraints:",
-    "Experiment 5 – Semi-Supervised Learning (Common Ground):",
-    "Model training and evaluation",
-    "Inference",
-    "Case studies",
-    "Invasive alien trees in protected areas of the Western Cape, South Africa",
-    "Reference data preparation"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Experimental Design",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Detailed experimental protocols",
+      "sec_num": "2.1.1"
+    },
+    {
+      "text": "Experiment 1 - Fully Relabelled Supervised Learning (Gold Standard):",
+      "sec_num": ""
+    },
+    {
+      "text": "Experiment 2 - Naive Temporal Transfer Baseline:",
+      "sec_num": ""
+    },
+    {
+      "text": "Experiment 3 - Spectral Stability Sampling (Wessels et al., 2016):",
+      "sec_num": ""
+    },
+    {
+      "text": "Experiment 4 - Naive Baseline with Cross Temporal Training and Temporal Stability Constraints:",
+      "sec_num": ""
+    },
+    {
+      "text": "Experiment 5 - Semi-supervised Learning with Temporal Stability Constraints (Common Ground):",
+      "sec_num": ""
+    },
+    {
+      "text": "Model training and evaluation",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Inference",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Case studies",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Invasive alien trees in protected areas of the Western Cape, South Africa",
+      "sec_num": "2.4.1"
+    },
+    {
+      "text": "Reference data preparation",
+      "sec_num": "2.4.1.1"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

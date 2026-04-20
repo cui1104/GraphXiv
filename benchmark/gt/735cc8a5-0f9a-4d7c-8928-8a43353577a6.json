@@ -2,19 +2,63 @@
   "paper_id": "735cc8a5-0f9a-4d7c-8928-8a43353577a6",
   "arxiv_id": "2603.02810",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Overview of ChemFlow",
-    "Graph Definitions",
-    "Computational Pipeline",
-    "Chem-Embed: Mixture-aware Multimodal Atomic Representation.",
-    "Hierarchical Representation and information flow between levels",
-    "Self-Attention: Intra- and Inter-Molecular Group Interactions.",
-    "Cross-Attention: Group–Molecule Interactions.",
-    "Results and Discussion",
-    "Dataset",
-    "Concentration-dependent multi-component datasets:",
-    "Non-concentration-dependent photophysical dataset:"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Overview of ChemFlow",
+      "sec_num": ""
+    },
+    {
+      "text": "Graph Definitions",
+      "sec_num": ""
+    },
+    {
+      "text": "Computational Pipeline",
+      "sec_num": ""
+    },
+    {
+      "text": "Chem-Embed: Mixture-aware Multimodal Atomic Representation.",
+      "sec_num": ""
+    },
+    {
+      "text": "Hierarchical Representation and information flow between levels",
+      "sec_num": ""
+    },
+    {
+      "text": "Self-Attention: Intra- and Inter-Molecular Group Interactions.",
+      "sec_num": ""
+    },
+    {
+      "text": "Cross-Attention: Group–Molecule Interactions.",
+      "sec_num": ""
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Dataset",
+      "sec_num": ""
+    },
+    {
+      "text": "Concentration-dependent multi-component datasets:",
+      "sec_num": ""
+    },
+    {
+      "text": "Non-concentration-dependent photophysical dataset:",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 13,
+  "reference_count": 0,
   "page_count": 10
 }

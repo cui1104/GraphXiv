@@ -2,16 +2,47 @@
   "paper_id": "26979d70-8f41-4612-bf24-b5dc5e8a12fb",
   "arxiv_id": "2603.02223",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "LITERATURE REVIEW",
-    "METHODOLOGY",
-    "RESULT AND DISCUSSION",
-    "Unsupervised Clustering Analysis",
-    "Supervised Learning Results",
-    "CONCLUSION",
-    "FUTURE WORK",
-    "REFERENCES"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Literature Review",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Result and Discussion",
+      "sec_num": "4"
+    },
+    {
+      "text": "Unsupervised Clustering Analysis",
+      "sec_num": "4.A"
+    },
+    {
+      "text": "Supervised Learning Results",
+      "sec_num": "4.B"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "6"
+    },
+    {
+      "text": "Future Work",
+      "sec_num": "7"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 0,
+  "reference_count": 50,
   "page_count": 7
 }

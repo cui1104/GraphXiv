@@ -2,25 +2,51 @@
   "paper_id": "fd76840c-68f2-4fa6-a83f-3dce215ecf64",
   "arxiv_id": "2602.19770",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Related Work",
-    "Problem Definition",
-    "Methods",
-    "Network Science and Community Detection",
-    "Assortativity Mixing in Networks",
-    "Community Detection Using Modularity",
-    "Generating Graphs Using Linear Classifiers",
-    "Experiments and Results",
-    "Experimental Setup",
-    "Confusion Communities",
-    "Early Training Confusion Hubs",
-    "Emergence of Semantic Groupings Over Training",
-    "Dataset Issues",
-    "Leaf Color Bias in Tree Classification",
-    "Ambiguous Human Class Labels",
-    "Contextual Bias in Flatfish Images"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Problem Definition",
+      "sec_num": "3"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "4"
+    },
+    {
+      "text": "Network Science and Community Detection",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Generating Graphs Using Linear Classifiers",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Experiments and Results",
+      "sec_num": "5"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Confusion Communities",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Dataset Issues",
+      "sec_num": "5.3"
+    }
   ],
+  "figure_count": 5,
+  "formula_count": 4,
+  "reference_count": 0,
   "page_count": 10
 }

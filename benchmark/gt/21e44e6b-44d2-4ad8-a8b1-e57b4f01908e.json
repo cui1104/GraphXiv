@@ -2,20 +2,63 @@
   "paper_id": "21e44e6b-44d2-4ad8-a8b1-e57b4f01908e",
   "arxiv_id": "2506.06308",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Unified physics-informed machine learning (UPIML)",
-    "Modular architecture of UPIML and composite loss function",
-    "Parameterization modules (PMs)",
-    "State modules (SMs)",
-    "Composite loss function",
-    "Data misfit loss L_misfit",
-    "Physics-based loss L_phys",
-    "Interface loss L_interface",
-    "Expert knowledge loss L_expert",
-    "Regularization loss L_reg",
-    "Sampling strategies for residual evaluation"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Unified physics-informed machine learning (UPIML)",
+      "sec_num": "2"
+    },
+    {
+      "text": "Modular architecture of UPIML and composite loss function",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Parameterization modules (PMs)",
+      "sec_num": "2.1.1"
+    },
+    {
+      "text": "State modules (SMs)",
+      "sec_num": "2.1.2"
+    },
+    {
+      "text": "Composite loss function",
+      "sec_num": "2.1.3"
+    },
+    {
+      "text": "Data misfit loss Lmisfit",
+      "sec_num": ""
+    },
+    {
+      "text": "Physics-based loss Lphys",
+      "sec_num": ""
+    },
+    {
+      "text": "Interface loss Linterface",
+      "sec_num": ""
+    },
+    {
+      "text": "Expert knowledge loss Lexpert",
+      "sec_num": ""
+    },
+    {
+      "text": "Regularization loss Lreg",
+      "sec_num": ""
+    },
+    {
+      "text": "Sampling strategies for residual evaluation",
+      "sec_num": "2.1.4"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 13,
+  "reference_count": 0,
   "page_count": 10
 }

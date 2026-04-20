@@ -2,20 +2,63 @@
   "paper_id": "4fc9487f-5ee7-4214-a63e-71f0d540cc4c",
   "arxiv_id": "2602.22228",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Results",
-    "Iterative LLM-Guided Topic Mapping",
-    "Risky Symptoms Ranked by Statistical Relevance and Temporal Proximity",
-    "Hybrid Stroke Risk Screening Simulation",
-    "Discussion",
-    "Methods",
-    "Patient-Centered, LLM-Guided Early Stroke Risk Screening Framework",
-    "Data Source and Patient Cohort Identification",
-    "Iterative LLM-Guided Topic Mapping",
-    "Graph Augmented LLM",
-    "Hybrid Stroke Risk Screening Simulation with High Specificity Optimization"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Iterative LLM-Guided Topic Mapping",
+      "sec_num": ""
+    },
+    {
+      "text": "Risky Symptoms Ranked by Statistical Relevance and Temporal Proximity",
+      "sec_num": ""
+    },
+    {
+      "text": "Hybrid Stroke Risk Screening Simulation",
+      "sec_num": ""
+    },
+    {
+      "text": "Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Patient-Centered, LLM-Guided Early Stroke Risk Screening Framework",
+      "sec_num": ""
+    },
+    {
+      "text": "Data Source and Patient Cohort Identification",
+      "sec_num": ""
+    },
+    {
+      "text": "Iterative LLM-Guided Topic Mapping",
+      "sec_num": ""
+    },
+    {
+      "text": "Graph Augmented LLM",
+      "sec_num": ""
+    },
+    {
+      "text": "Hybrid Stroke Risk Screening Simulation with High Specificity Optimization",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

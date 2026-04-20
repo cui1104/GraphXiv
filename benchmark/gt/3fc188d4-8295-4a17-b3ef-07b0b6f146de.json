@@ -2,16 +2,47 @@
   "paper_id": "3fc188d4-8295-4a17-b3ef-07b0b6f146de",
   "arxiv_id": "2402.07462",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Background",
-    "Behavioral regulation in artificial intelligence",
-    "Background",
-    "Using behavioral posology for reward modeling",
-    "The link between allostasis and hormesis",
-    "The law of diminishing marginal utility",
-    "Programming a value system with the HALO algorithm",
-    "PK/PD model of opponent processes leading to hormesis"
+    {
+      "text": "Abstract",
+      "sec_num": "1"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "2"
+    },
+    {
+      "text": "Behavioral regulation in artificial intelligence",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Background",
+      "sec_num": "3"
+    },
+    {
+      "text": "Using behavioral posology for reward modeling",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "The link between allostasis and hormesis",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "The law of diminishing marginal utility",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Programming a value system in the HALO algorithm",
+      "sec_num": "4"
+    },
+    {
+      "text": "PK/PD model of opponent processes leading to hormesis",
+      "sec_num": "4.1"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 6,
+  "reference_count": 0,
   "page_count": 10
 }

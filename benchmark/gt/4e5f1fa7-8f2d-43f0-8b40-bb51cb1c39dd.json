@@ -2,24 +2,99 @@
   "paper_id": "4e5f1fa7-8f2d-43f0-8b40-bb51cb1c39dd",
   "arxiv_id": "2603.00060",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Small-sample neuroimaging and PD detection",
-    "Deep CNNs and transfer learning in neuroimaging",
-    "Addressing data scarcity in machine learning",
-    "Data source",
-    "Data representation and slice extraction",
-    "Effective sample size considerations",
-    "Methods",
-    "Overview",
-    "Data Splitting Strategies",
-    "CNN Architectures and Training",
-    "Ensembling",
-    "Evaluation Metrics",
-    "Results",
-    "Segmentation 1: Image level split"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Small-sample neuroimaging and PD detection",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Deep CNNs and transfer learning in neuroimaging",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Addressing data scarcity in machine learning",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Dataset and Preprocessing",
+      "sec_num": "3"
+    },
+    {
+      "text": "Data source",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Data representation and slice extraction",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Effective sample size considerations",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "4"
+    },
+    {
+      "text": "Overview",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Data Splitting Strategies",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Segmentation 1: Image level split (naive)",
+      "sec_num": ""
+    },
+    {
+      "text": "Segmentation 2: Subject level split (single draw)",
+      "sec_num": ""
+    },
+    {
+      "text": "Segmentation 3: Subject level split (best case)",
+      "sec_num": ""
+    },
+    {
+      "text": "CNN Architectures and Training",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Ensembling",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": "4.5"
+    },
+    {
+      "text": "Results",
+      "sec_num": "5"
+    },
+    {
+      "text": "Segmentation 1: Image level split",
+      "sec_num": "5.1"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

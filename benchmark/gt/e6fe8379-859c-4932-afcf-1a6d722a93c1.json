@@ -2,27 +2,87 @@
   "paper_id": "e6fe8379-859c-4932-afcf-1a6d722a93c1",
   "arxiv_id": "2602.05387",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "Index Terms",
-    "INTRODUCTION",
-    "METHODS",
-    "Model Overview",
-    "Parallel Swin Transformer Enhancement",
-    "Bottleneck and Decoder",
-    "Adversarial Framework",
-    "Loss Functions",
-    "EXPERIMENTS AND RESULTS",
-    "Datasets",
-    "Baselines",
-    "Quantitative Results",
-    "Geometric Consistency",
-    "Qualitative Evaluation",
-    "Dosimetric Evaluation",
-    "CONCLUSION",
-    "COMPLIANCE WITH ETHICAL STANDARDS",
-    "ACKNOWLEDGMENTS",
-    "REFERENCES"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "METHODS",
+      "sec_num": "2"
+    },
+    {
+      "text": "Model Overview",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Parallel Swin Transformer Enhancement",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Bottleneck and Decoder",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Adversarial Framework",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Loss Functions",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "EXPERIMENTS AND RESULTS",
+      "sec_num": "3"
+    },
+    {
+      "text": "Datasets:",
+      "sec_num": ""
+    },
+    {
+      "text": "Baselines:",
+      "sec_num": ""
+    },
+    {
+      "text": "Evaluation Metrics:",
+      "sec_num": ""
+    },
+    {
+      "text": "Quantitative Results:",
+      "sec_num": ""
+    },
+    {
+      "text": "Geometric Consistency:",
+      "sec_num": ""
+    },
+    {
+      "text": "Qualitative Evaluation:",
+      "sec_num": ""
+    },
+    {
+      "text": "Dosimetric Evaluation:",
+      "sec_num": ""
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "5"
+    },
+    {
+      "text": "COMPLIANCE WITH ETHICAL STANDARDS",
+      "sec_num": "6"
+    },
+    {
+      "text": "ACKNOWLEDGMENTS",
+      "sec_num": ""
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": "8"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 2,
+  "reference_count": 9,
   "page_count": 6
 }

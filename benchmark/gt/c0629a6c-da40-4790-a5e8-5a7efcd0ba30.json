@@ -2,39 +2,139 @@
   "paper_id": "c0629a6c-da40-4790-a5e8-5a7efcd0ba30",
   "arxiv_id": "2602.21648",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Related Work",
-    "Classical Survival Modeling",
-    "Machine Learning Approaches to Survival Analysis",
-    "Deep Learning for Survival Prediction",
-    "Multimodal and Multi-Omics Integration",
-    "Calibration in Clinical Prediction Models",
-    "Fairness and Bias in Healthcare ML",
-    "Materials and Methods",
-    "Study Design and Cohort Definition",
-    "Survival Label Construction",
-    "Multimodal Feature Engineering",
-    "Clinical Features",
-    "Transcriptomic Features",
-    "Copy Number Alteration Features",
-    "Sample-to-Patient Aggregation",
-    "Data Splitting and Governance",
-    "Survival Modeling",
-    "Elastic-Net Regularized Cox Model (CoxNet)",
-    "Gradient-Boosted Survival Trees (XGBoost)",
-    "Fixed-Horizon Risk Estimation",
-    "Evaluation Metrics",
-    "Binary Discrimination at 60 Months",
-    "Calibration",
-    "Fairness Evaluation",
-    "Robustness Analysis",
-    "Bootstrap Confidence Intervals",
-    "Missing-Modality Stress Testing",
-    "Reproducibility Protocol",
-    "Experimental Results",
-    "Cohort Characteristics"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Classical Survival Modeling",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Machine Learning Approaches to Survival Analysis",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Deep Learning for Survival Prediction",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Multimodal and Multi-Omics Integration",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Calibration in Clinical Prediction Models",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Fairness and Bias in Healthcare ML",
+      "sec_num": "2.6"
+    },
+    {
+      "text": "Materials and Methods",
+      "sec_num": "3"
+    },
+    {
+      "text": "Study Design and Cohort Definition",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Survival Label Construction",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Multimodal Feature Engineering",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Clinical Features",
+      "sec_num": "3.3.1"
+    },
+    {
+      "text": "Transcriptomic Features",
+      "sec_num": "3.3.2"
+    },
+    {
+      "text": "Copy Number Alteration Features",
+      "sec_num": "3.3.3"
+    },
+    {
+      "text": "Sample-to-Patient Aggregation",
+      "sec_num": "3.3.4"
+    },
+    {
+      "text": "Data Splitting and Governance",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Survival Modeling",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Elastic-Net Regularized Cox Model (CoxNet)",
+      "sec_num": "3.5.1"
+    },
+    {
+      "text": "Gradient-Boosted Survival Trees (XGBoost)",
+      "sec_num": "3.5.2"
+    },
+    {
+      "text": "Fixed-Horizon Risk Estimation",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": "3.8"
+    },
+    {
+      "text": "Binary Discrimination at 60 Months",
+      "sec_num": "3.8.1"
+    },
+    {
+      "text": "Calibration",
+      "sec_num": "3.8.2"
+    },
+    {
+      "text": "Fairness Evaluation",
+      "sec_num": "3.9"
+    },
+    {
+      "text": "Robustness Analysis",
+      "sec_num": "3.10"
+    },
+    {
+      "text": "Bootstrap Confidence Intervals",
+      "sec_num": "3.10.1"
+    },
+    {
+      "text": "Missing-Modality Stress Testing",
+      "sec_num": "3.10.2"
+    },
+    {
+      "text": "Reproducibility Protocol",
+      "sec_num": "3.11"
+    },
+    {
+      "text": "Experimental Results",
+      "sec_num": "4"
+    },
+    {
+      "text": "Cohort Characteristics",
+      "sec_num": "4.1"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 15,
+  "reference_count": 0,
   "page_count": 10
 }

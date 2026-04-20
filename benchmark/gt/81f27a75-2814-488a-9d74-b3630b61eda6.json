@@ -2,26 +2,71 @@
   "paper_id": "81f27a75-2814-488a-9d74-b3630b61eda6",
   "arxiv_id": "2602.04918",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Theoretical Framework and Hypothesis",
-    "System Dynamics and Manifold Constraints",
-    "Perturbation Analysis and the Jacobian Linearization",
-    "Mechanistic Explanation: The Competitive Dilution Hypothesis",
-    "Research Hypotheses",
-    "Experimental Setup",
-    "Dataprep Preparation",
-    "Data Collection",
-    "Data Analysis",
-    "Results and Discussion",
-    "The Geometric Manifestation of Contextual Conflict",
-    "The Manifold Dilution Hypothesis",
-    "The Orthogonal Interference Hypothesis",
-    "Limitations",
-    "Implications and Conclusion",
-    "Acknowledgments",
-    "References"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Theoretical Framework and Hypothesis",
+      "sec_num": ""
+    },
+    {
+      "text": "Perturbation Analysis and the Jacobian Linearization",
+      "sec_num": ""
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": ""
+    },
+    {
+      "text": "Dataprep Preparation",
+      "sec_num": ""
+    },
+    {
+      "text": "Data Analysis",
+      "sec_num": ""
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "The Geometric Manifestation of Contextual Conflict",
+      "sec_num": ""
+    },
+    {
+      "text": "The Manifold Dilution Hypothesis",
+      "sec_num": ""
+    },
+    {
+      "text": "The Orthogonal Interference Hypothesis",
+      "sec_num": ""
+    },
+    {
+      "text": "Implications and Conclusion",
+      "sec_num": ""
+    },
+    {
+      "text": "Limitations",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgments",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 14,
+  "reference_count": 33,
   "page_count": 7
 }

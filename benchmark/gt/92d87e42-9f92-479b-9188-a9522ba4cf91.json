@@ -2,25 +2,71 @@
   "paper_id": "92d87e42-9f92-479b-9188-a9522ba4cf91",
   "arxiv_id": "2602.10801",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORK",
-    "Confidence Calibration Methods for Black-box LLMs",
-    "Knowledge Boundary Expression in White-Box Large Language Models",
-    "Critical Literature Review",
-    "LSCL: A DEEP LEARNING-BASED METHOD FOR EXPRESSING KNOWLEDGE BOUNDARY",
-    "Confidence Estimation: Correctness-Adjusted Token Probability",
-    "Confidence Learning Module",
-    "Adaptive Thresholding Module",
-    "EXPERIMENTAL SETUP",
-    "Datasets and LLMs",
-    "Baseline methods",
-    "Implementation Details",
-    "Training Performance",
-    "Overall Performance",
-    "CONCLUSION AND FUTURE WORK",
-    "ACKNOWLEDGMENTS",
-    "REFERENCES"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "Confidence Calibration Methods for Black-box LLMs",
+      "sec_num": "A"
+    },
+    {
+      "text": "Knowledge Boundary Expression in White-Box Large Language Models",
+      "sec_num": "B"
+    },
+    {
+      "text": "LITERATURE REVIEW",
+      "sec_num": "II"
+    },
+    {
+      "text": "Critical Literature Review",
+      "sec_num": "C"
+    },
+    {
+      "text": "LSCL: A DEEP LEARNING-BASED METHOD FOR EXPRESSING KNOWLEDGE BOUNDARY",
+      "sec_num": "III"
+    },
+    {
+      "text": "Confidence Estimation: Correctness-Adjusted Token Probability",
+      "sec_num": "A"
+    },
+    {
+      "text": "Confidence Learning Module",
+      "sec_num": "B"
+    },
+    {
+      "text": "Adaptive Thresholding Module",
+      "sec_num": "C"
+    },
+    {
+      "text": "EXPERIMENTAL SETUP",
+      "sec_num": "D"
+    },
+    {
+      "text": "Datasets and LLMs",
+      "sec_num": "A"
+    },
+    {
+      "text": "Baselines",
+      "sec_num": "B"
+    },
+    {
+      "text": "Confidence Learning Module",
+      "sec_num": "C"
+    },
+    {
+      "text": "Training Performance",
+      "sec_num": "D"
+    },
+    {
+      "text": "Overall Performance",
+      "sec_num": "E"
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 19,
+  "reference_count": 0,
   "page_count": 10
 }

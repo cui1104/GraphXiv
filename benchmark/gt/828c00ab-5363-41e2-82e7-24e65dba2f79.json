@@ -2,23 +2,75 @@
   "paper_id": "828c00ab-5363-41e2-82e7-24e65dba2f79",
   "arxiv_id": "2602.06519",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "TOPOGRAPHY SCANNING SYSTEM",
-    "Sensor subsystem",
-    "Measurement subsystem",
-    "Metrics",
-    "Cross sectional overview",
-    "Measurement of waviness",
-    "A PILOT VERTICAL VULCANIZATION SETUP",
-    "EXTRUSION AND CV PROCESS PARAMETERS",
-    "DEFECT DETECTION SYSTEM",
-    "Convolutional neural networks",
-    "Two-phase defect detection",
-    "Inference subsystem",
-    "CONCLUSIONS",
-    "REFERENCES",
-    "GLOSSARY"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "KEYWORDS",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": ""
+    },
+    {
+      "text": "TOPOGRAPHY SCANNING SYSTEM",
+      "sec_num": ""
+    },
+    {
+      "text": "Sensor subsystem",
+      "sec_num": ""
+    },
+    {
+      "text": "Measurement subsystem",
+      "sec_num": ""
+    },
+    {
+      "text": "METRICS",
+      "sec_num": ""
+    },
+    {
+      "text": "EXTRUSION AND CV PROCESS PARAMETERS",
+      "sec_num": ""
+    },
+    {
+      "text": "A PILOT VERTICAL VULCANIZATION SETUP",
+      "sec_num": ""
+    },
+    {
+      "text": "DEFECT DETECTION SYSTEM",
+      "sec_num": ""
+    },
+    {
+      "text": "Convolutional neural networks",
+      "sec_num": ""
+    },
+    {
+      "text": "Two-phase defect detection",
+      "sec_num": ""
+    },
+    {
+      "text": "Inference Subsystem",
+      "sec_num": ""
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    },
+    {
+      "text": "GLOSSARY",
+      "sec_num": ""
+    },
+    {
+      "text": "CONCLUSIONS",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 14,
+  "formula_count": 2,
+  "reference_count": 11,
   "page_count": 6
 }

@@ -2,22 +2,71 @@
   "paper_id": "0a2457bd-8ea4-47b9-bb87-5f1f658366d3",
   "arxiv_id": "2404.03208",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "BACKGROUND AND SIGNIFICANCE",
-    "MATERIALS AND METHODS",
-    "Data sources",
-    "Cohort selection",
-    "Variables and data processing",
-    "Multimodal input feature selection",
-    "Composite cognitive functions as auxiliary tasks",
-    "Data preprocessing",
-    "Missing value imputation",
-    "Ground truth labels for clinical outcome and composite cognitive scores",
-    "Hierarchical multi-task auxiliary learning framework",
-    "Multimodal feature embedding with time-series imputation",
-    "Hierarchical task predictions",
-    "Model explanations"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "BACKGROUND AND SIGNIFICANCE",
+      "sec_num": ""
+    },
+    {
+      "text": "MATERIALS AND METHODS",
+      "sec_num": ""
+    },
+    {
+      "text": "Data sources",
+      "sec_num": ""
+    },
+    {
+      "text": "Cohort selection",
+      "sec_num": ""
+    },
+    {
+      "text": "Variables and data processing",
+      "sec_num": ""
+    },
+    {
+      "text": "Multimodal input feature selection",
+      "sec_num": ""
+    },
+    {
+      "text": "Composite cognitive functions as auxiliary tasks",
+      "sec_num": ""
+    },
+    {
+      "text": "Data preprocessing",
+      "sec_num": ""
+    },
+    {
+      "text": "Missing value imputation",
+      "sec_num": ""
+    },
+    {
+      "text": "Ground truth labels for clinical outcome and composite cognitive scores",
+      "sec_num": ""
+    },
+    {
+      "text": "Hierarchical multi-task auxiliary learning framework",
+      "sec_num": ""
+    },
+    {
+      "text": "Multimodal feature embedding with time-series imputation",
+      "sec_num": ""
+    },
+    {
+      "text": "Hierarchical task predictions",
+      "sec_num": ""
+    },
+    {
+      "text": "Model explanations",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 1,
+  "reference_count": 0,
   "page_count": 10
 }

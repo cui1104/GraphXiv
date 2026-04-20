@@ -2,22 +2,87 @@
   "paper_id": "b111b4fc-c577-446a-9c29-f2ebcf2af82c",
   "arxiv_id": "2308.09730",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "KEYWORDS",
-    "INTRODUCTION",
-    "METHODS",
-    "Clinical Dataset",
-    "Virtual Dataset",
-    "Pre-Processing",
-    "Model Development and Training",
-    "Evaluation and Statistical Analysis",
-    "RESULTS",
-    "Evaluation of Models’ Performance on Clinical Data",
-    "Evaluation of Models’ Performance on Virtual Data",
-    "Evaluation per Patient and Disease",
-    "Evaluations per Image Acquisition",
-    "DISCUSSION"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Purpose",
+      "sec_num": ""
+    },
+    {
+      "text": "Approach",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Conclusions",
+      "sec_num": ""
+    },
+    {
+      "text": "KEYWORDS",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "METHODS",
+      "sec_num": "II"
+    },
+    {
+      "text": "Clinical Dataset",
+      "sec_num": "II.A."
+    },
+    {
+      "text": "Virtual Dataset",
+      "sec_num": "II.B."
+    },
+    {
+      "text": "Pre-Processing",
+      "sec_num": "II.C."
+    },
+    {
+      "text": "Model Development and Training",
+      "sec_num": "II.D."
+    },
+    {
+      "text": "Evaluation and Statistical Analysis",
+      "sec_num": "II.E."
+    },
+    {
+      "text": "RESULTS",
+      "sec_num": "III"
+    },
+    {
+      "text": "Evaluation of Models’ Performance on Clinical Data",
+      "sec_num": "III.A."
+    },
+    {
+      "text": "Evaluation of Models’ Performance on Virtual Data",
+      "sec_num": "III.B."
+    },
+    {
+      "text": "Evaluation Per Patient and Disease",
+      "sec_num": "III.C."
+    },
+    {
+      "text": "Evaluations Per Image Acquisition",
+      "sec_num": "III.D."
+    },
+    {
+      "text": "DISCUSSION",
+      "sec_num": "IV"
+    }
   ],
+  "figure_count": 9,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

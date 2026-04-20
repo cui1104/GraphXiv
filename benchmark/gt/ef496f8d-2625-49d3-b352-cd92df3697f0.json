@@ -2,22 +2,75 @@
   "paper_id": "ef496f8d-2625-49d3-b352-cd92df3697f0",
   "arxiv_id": "2510.20714",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Methods",
-    "Data Source",
-    "Study Design",
-    "Model Implementation",
-    "Results",
-    "Study Cohort Composition",
-    "Model Performance Comparison",
-    "Feature Contribution and Sensitivity",
-    "Differential Risk Scoring Patterns",
-    "Discussion",
-    "Clinical Impact and Patient Safety Outcomes",
-    "Interpretation of Key Findings",
-    "White Box-vs Black-Box Modeling"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Data Source",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Study Design",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Model Implementation",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Study Cohort Composition",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Model Performance Comparison",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Feature Contribution and Sensitivity",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Differential Risk Scoring Patterns",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "4"
+    },
+    {
+      "text": "Clinical Impact and Patient Safety Outcomes",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Interpretation of Key Findings",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "White Box vs Black-Box Modeling",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "5"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 1,
+  "reference_count": 20,
   "page_count": 10
 }

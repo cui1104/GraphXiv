@@ -2,24 +2,75 @@
   "paper_id": "a98fd041-987f-417a-8d75-e46dbb08d1b3",
   "arxiv_id": "2602.05967",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "Analytical models",
-    "Data-driven models",
-    "TEST SETUP AND EXPERIMENTS",
-    "Test setup",
-    "Schematic of test setup",
-    "Hydraulic actuator mathematical model",
-    "FRICTION FORCE ESTIMATION",
-    "Hybrid Data-Driven Algorithm for Real-Time Friction Force Estimation",
-    "RESULTS AND DISCUSSION",
-    "Training the algorithm",
-    "Environment",
-    "Comparison with the LuGre model",
-    "Model performance",
-    "CONCLUSION",
-    "ACKNOWLEDGMENT",
-    "REFERENCES"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "Analytical models",
+      "sec_num": "A"
+    },
+    {
+      "text": "Data-driven models",
+      "sec_num": "B"
+    },
+    {
+      "text": "TEST SETUP AND EXPERIMENTS",
+      "sec_num": "II"
+    },
+    {
+      "text": "Test setup",
+      "sec_num": "A"
+    },
+    {
+      "text": "Schematic of test setup",
+      "sec_num": "B"
+    },
+    {
+      "text": "Hydraulic actuator mathematical model",
+      "sec_num": "C"
+    },
+    {
+      "text": "FRICTION FORCE ESTIMATION",
+      "sec_num": "III"
+    },
+    {
+      "text": "Hybrid Data-Driven Algorithm for Real-Time Friction Force Estimation",
+      "sec_num": "A"
+    },
+    {
+      "text": "RESULTS AND DISCUSSION",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Training the algorithm",
+      "sec_num": "A"
+    },
+    {
+      "text": "Comparison with the LuGre model",
+      "sec_num": "B"
+    },
+    {
+      "text": "Model performance",
+      "sec_num": "C"
+    },
+    {
+      "text": "CONCLUSION",
+      "sec_num": "V"
+    },
+    {
+      "text": "ACKNOWLEDGMENT",
+      "sec_num": ""
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 11,
+  "formula_count": 8,
+  "reference_count": 11,
   "page_count": 8
 }

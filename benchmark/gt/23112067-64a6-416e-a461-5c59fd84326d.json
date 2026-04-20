@@ -2,10 +2,23 @@
   "paper_id": "23112067-64a6-416e-a461-5c59fd84326d",
   "arxiv_id": "2304.14347",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Stochastic parrots and hallucination: unverified information generation",
-    "The EU AI regulatory paradigm: Advanced Legal intervention required",
-    "Reference"
+    {
+      "text": "Stochastic parrots and hallucination: unverified information generation",
+      "sec_num": "1"
+    },
+    {
+      "text": "The EU AI regulatory paradigm: Advanced Legal intervention required",
+      "sec_num": "2"
+    },
+    {
+      "text": "Reference",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 9,
   "page_count": 3
 }

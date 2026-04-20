@@ -2,107 +2,423 @@
   "paper_id": "40ab7f70-d597-4b9f-aca1-18668194ac16",
   "arxiv_id": "2602.07152",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Authors",
-    "Executive Summary",
-    "Introduction",
-    "A History of the TrojAI Program",
-    "AI advancements",
-    "Research Focus",
-    "Structure of the Report",
-    "Related Work",
-    "A Scientific Literature Review",
-    "Backdoor Attack Overview",
-    "Foundational Backdoors Attacks and Defense",
-    "Backdoors Attacks and Defenses in Computer Vision",
-    "Backdoors in LLMs",
-    "Looking forward: Backdoors in AI Agents and Advanced Backdoors",
-    "Threat Landscape",
-    "The AI Supply Chain",
-    "Cyber Threats to AI Models",
-    "Insider Threats",
-    "A Call to Arms: Defending AI Integrity",
-    "Test and Evaluation Methodology",
-    "Sequestered Data Test and Evaluation",
-    "Execution Environment",
-    "Public Leaderboard",
-    "Reference Dataset Generation",
-    "Defining Trojans in Artificial Intelligence",
-    "Placing Triggers in AI models",
-    "Image Trojans",
-    "Text Trojans",
-    "DRL Trojans",
-    "Cyber Trojans",
-    "Weight Manipulations",
-    "Architecture Backdoors",
-    "Training Models From Scratch vs Fine-Tuned",
-    "Evaluating Performer Submissions",
-    "Detection Round Structure",
-    "Trojan Detection Metrics",
-    "Mitigation Round Structure",
-    "Trojan Mitigation Metrics",
-    "Detection through Weight Analysis",
-    "A Background",
-    "Methods",
-    "Weight Statistics for Backdoor Detection (ICSI)",
-    "End-to-end learning of invariant features (SRI)",
-    "Linear Weight Analysis for Backdoor Detection",
-    "Limitations and Future Directions.",
-    "Other Weight Analysis Approaches",
-    "Perspecta-IUB",
-    "Weight-based Anomaly Detection (UCSD)",
-    "Detection through Trigger Inversion",
-    "Background",
-    "Methods",
-    "Anomaly over Attention and Attribution Patterns (SRI)",
-    "Purdue-UMass performers",
-    "Trigger Inversion in Image Classification Models",
-    "NLP",
-    "Object Detection",
-    "LLM",
-    "Indiana University Bloomington performers",
-    "Factors Affecting Backdoor Detectability",
-    "Results",
-    "Limitations",
-    "Mitigating Trojans in AI Models",
-    "Background",
-    "Sample Rejection",
-    "Input Purification",
-    "Model Correction",
-    "Certified Trojan Mitigation",
-    "Evaluation",
-    "Discussion",
-    "Data Analysis of Performer Systems",
-    "Detector Overfitting",
-    "Research Plan and Activities",
-    "Results and Conclusions",
-    "Zone of Correct Operation",
-    "Scope and objectives",
-    "Analysis Evolution and Lessons Learned",
-    "Experimental Setup",
-    "Limits of the Approach",
-    "Codebase and Analysis Workflow",
-    "Image Classification Rounds",
-    "Natural Language Processing: Sentiment Classification",
-    "Natural Language Processing: Other tasks",
-    "Reinforcement Learning Rounds",
-    "Large Language Model (LLM) rounds",
-    "Conclusion and Future Work",
-    "Detector Parameter Sensitivity",
-    "Introduction",
-    "Effect of Configuarion on Performance",
-    "Assessment of Performer Detectors",
-    "Variance Based Sensitivity Analysis on Parameters",
-    "Intersection of AI Model Capacity and Trojan Detection Accuracy",
-    "Simulation of Trojans",
-    "Hierarchical Explanation of Poisoned AI Models",
-    "Trojan Detector Algorithm Ensembles I",
-    "Introduction",
-    "Methodology",
-    "Ensemble Construction",
-    "Results",
-    "Discussion",
-    "Conclusions and Future Work"
+    {
+      "text": "AUTHORS",
+      "sec_num": ""
+    },
+    {
+      "text": "AUTHORS: TEST AND EVALUATION TEAMS",
+      "sec_num": ""
+    },
+    {
+      "text": "TABLE OF CONTENTS",
+      "sec_num": ""
+    },
+    {
+      "text": "Authors",
+      "sec_num": ""
+    },
+    {
+      "text": "Executive Summary",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "A History of the TrojAI Program",
+      "sec_num": "1.A"
+    },
+    {
+      "text": "AI advancements",
+      "sec_num": "1.B"
+    },
+    {
+      "text": "Research Focus",
+      "sec_num": "1.C"
+    },
+    {
+      "text": "Structure of the Report",
+      "sec_num": "1.D"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Scientific Literature Review",
+      "sec_num": "2.A"
+    },
+    {
+      "text": "Backdoor Attack Overview",
+      "sec_num": "2.A.1"
+    },
+    {
+      "text": "Foundational Backdoors Attacks and Defense",
+      "sec_num": "2.A.2"
+    },
+    {
+      "text": "Backdoors Attacks and Defenses in Computer Vision",
+      "sec_num": "2.A.3"
+    },
+    {
+      "text": "Backdoors in LLMs",
+      "sec_num": "2.A.4"
+    },
+    {
+      "text": "Looking forward: Backdoors in AI Agents and Advanced Backdoors",
+      "sec_num": "2.A.5"
+    },
+    {
+      "text": "Threat Landscape",
+      "sec_num": "2.B"
+    },
+    {
+      "text": "The AI Supply Chain",
+      "sec_num": "2.B.1"
+    },
+    {
+      "text": "Cyber Threats to AI Models",
+      "sec_num": "2.B.2"
+    },
+    {
+      "text": "Insider Threats",
+      "sec_num": "2.B.3"
+    },
+    {
+      "text": "A Call to Arms: Defending AI Integrity",
+      "sec_num": "2.B.4"
+    },
+    {
+      "text": "Test and Evaluation Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Sequestered Data Test and Evaluation",
+      "sec_num": "3.A"
+    },
+    {
+      "text": "Execution Environment",
+      "sec_num": "3.A.1"
+    },
+    {
+      "text": "Public Leaderboard",
+      "sec_num": "3.A.2"
+    },
+    {
+      "text": "Reference Dataset Generation",
+      "sec_num": "3.B"
+    },
+    {
+      "text": "Defining Trojans in Artificial Intelligence",
+      "sec_num": "3.C"
+    },
+    {
+      "text": "Placing Triggers in AI models",
+      "sec_num": "3.D"
+    },
+    {
+      "text": "Image Trojans",
+      "sec_num": "3.D.1"
+    },
+    {
+      "text": "Text Trojans",
+      "sec_num": "3.D.2"
+    },
+    {
+      "text": "DRL Trojans",
+      "sec_num": "3.D.3"
+    },
+    {
+      "text": "Cyber Trojans",
+      "sec_num": "3.D.4"
+    },
+    {
+      "text": "Weight Manipulations",
+      "sec_num": "3.D.5"
+    },
+    {
+      "text": "Architecture Backdoors",
+      "sec_num": "3.D.6"
+    },
+    {
+      "text": "Training Models From Scratch vs Fine-Tuned",
+      "sec_num": "3.D.7"
+    },
+    {
+      "text": "Evaluating Performer Submissions",
+      "sec_num": "3.E"
+    },
+    {
+      "text": "Detection Round Structure",
+      "sec_num": "3.E.1"
+    },
+    {
+      "text": "Trojan Detection Metrics",
+      "sec_num": "3.E.2"
+    },
+    {
+      "text": "Mitigation Round Structure",
+      "sec_num": "3.E.3"
+    },
+    {
+      "text": "Trojan Mitigation Metrics",
+      "sec_num": "3.E.4"
+    },
+    {
+      "text": "Detection through Weight Analysis",
+      "sec_num": "4"
+    },
+    {
+      "text": "Background",
+      "sec_num": "4.A"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "4.B"
+    },
+    {
+      "text": "Weight Statistics for Backdoor Detection (ICSI)",
+      "sec_num": "4.B.1"
+    },
+    {
+      "text": "End-to-end learning of invariant features (SRI)",
+      "sec_num": "4.B.2"
+    },
+    {
+      "text": "Linear Weight Analysis for Backdoor Detection",
+      "sec_num": "4.B.3"
+    },
+    {
+      "text": "Limitations and Future Directions.",
+      "sec_num": "4.C"
+    },
+    {
+      "text": "Other Weight Analysis Approaches",
+      "sec_num": "4.D"
+    },
+    {
+      "text": "PerspectA-IUB",
+      "sec_num": "4.D.1"
+    },
+    {
+      "text": "Weight-based Anomaly Detection (UCSD)",
+      "sec_num": "4.D.2"
+    },
+    {
+      "text": "Detection through Trigger Inversion",
+      "sec_num": "5"
+    },
+    {
+      "text": "Background",
+      "sec_num": "5.A"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "5.B"
+    },
+    {
+      "text": "Anomaly over Attention and Attribution Patterns (SRI)",
+      "sec_num": "5.B.1"
+    },
+    {
+      "text": "Purdue-UMass performers",
+      "sec_num": "5.C"
+    },
+    {
+      "text": "Trigger Inversion in Image Classification Models",
+      "sec_num": "5.C.1"
+    },
+    {
+      "text": "NLP",
+      "sec_num": "5.C.2"
+    },
+    {
+      "text": "Object Detection",
+      "sec_num": "5.C.3"
+    },
+    {
+      "text": "LLM",
+      "sec_num": "5.C.4"
+    },
+    {
+      "text": "Indiana University Bloomington performers",
+      "sec_num": "5.D"
+    },
+    {
+      "text": "Factors Affecting Backdoor Detectability",
+      "sec_num": "5.D.1"
+    },
+    {
+      "text": "Results",
+      "sec_num": "5.E"
+    },
+    {
+      "text": "Limitations",
+      "sec_num": "5.F"
+    },
+    {
+      "text": "Mitigating Trojans in AI Models",
+      "sec_num": "6"
+    },
+    {
+      "text": "Background",
+      "sec_num": "6.A"
+    },
+    {
+      "text": "Sample Rejection",
+      "sec_num": "6.A.1"
+    },
+    {
+      "text": "Input Purification",
+      "sec_num": "6.A.2"
+    },
+    {
+      "text": "Model Correction",
+      "sec_num": "6.A.3"
+    },
+    {
+      "text": "Certified Trojan Mitigation",
+      "sec_num": "6.B"
+    },
+    {
+      "text": "Evaluation",
+      "sec_num": "6.C"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "6.D"
+    },
+    {
+      "text": "Data Analysis of Performer Systems",
+      "sec_num": "7"
+    },
+    {
+      "text": "Detector Overfitting",
+      "sec_num": "7.A"
+    },
+    {
+      "text": "Research Plan and Activities",
+      "sec_num": "7.A.1"
+    },
+    {
+      "text": "Results and Conclusions",
+      "sec_num": "7.A.2"
+    },
+    {
+      "text": "Zone of Correct Operation",
+      "sec_num": "7.B"
+    },
+    {
+      "text": "Scope and objectives",
+      "sec_num": "7.B.1"
+    },
+    {
+      "text": "Analysis Evolution and Lessons Learned",
+      "sec_num": "7.B.2"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "7.B.3"
+    },
+    {
+      "text": "Limits of the Approach",
+      "sec_num": "7.B.4"
+    },
+    {
+      "text": "Codebase and Analysis Workflow",
+      "sec_num": "7.B.5"
+    },
+    {
+      "text": "Image Classification Rounds",
+      "sec_num": "7.B.6"
+    },
+    {
+      "text": "Natural Language Processing: Sentiment Classification",
+      "sec_num": "7.B.7"
+    },
+    {
+      "text": "Natural Language Processing: Other tasks",
+      "sec_num": "7.B.8"
+    },
+    {
+      "text": "Reinforcement Learning Rounds",
+      "sec_num": "7.B.9"
+    },
+    {
+      "text": "Large Language Model (LLM) rounds",
+      "sec_num": "7.B.10"
+    },
+    {
+      "text": "Conclusion and Future Work",
+      "sec_num": "7.B.11"
+    },
+    {
+      "text": "Detector Parameter Sensitivity",
+      "sec_num": "7.C"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "7.C.1"
+    },
+    {
+      "text": "Effect of Configuration on Performance",
+      "sec_num": "7.C.2"
+    },
+    {
+      "text": "Assessment of Performer Detectors",
+      "sec_num": "7.C.3"
+    },
+    {
+      "text": "Variance Based Sensitivity Analysis on Parameters",
+      "sec_num": "7.C.4"
+    },
+    {
+      "text": "Intersection of AI Model Capacity and Trojan Detection Accuracy",
+      "sec_num": "7.D"
+    },
+    {
+      "text": "Simulation of Trojans",
+      "sec_num": "7.D.1"
+    },
+    {
+      "text": "Hierarchical Explanation of Poisoned AI Models",
+      "sec_num": "7.D.2"
+    },
+    {
+      "text": "Trojan Detector Algorithm Ensembles I",
+      "sec_num": "7.E"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "7.E.1"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "7.E.2"
+    },
+    {
+      "text": "Ensemble Construction",
+      "sec_num": "7.E.3"
+    },
+    {
+      "text": "Results",
+      "sec_num": "7.E.4"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "7.E.5"
+    },
+    {
+      "text": "Conclusions and Future Work",
+      "sec_num": "7.E.6"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

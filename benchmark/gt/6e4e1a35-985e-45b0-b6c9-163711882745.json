@@ -2,17 +2,59 @@
   "paper_id": "6e4e1a35-985e-45b0-b6c9-163711882745",
   "arxiv_id": "2510.09308",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORK",
-    "Model-Driven Engineering and Domain-Specific Languages in Healthcare",
-    "Semantic Interoperability in Healthcare",
-    "Federated Learning",
-    "Condensed Gap-Analysis Table (systems level)",
-    "METHODS AND FRAMEWORK",
-    "Clinical Overview of the MDE4AI Framework",
-    "The MILA DSL and Metamodel Design",
-    "Semantic Interoperability Layer"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "Research Gap.",
+      "sec_num": ""
+    },
+    {
+      "text": "Contributions.",
+      "sec_num": ""
+    },
+    {
+      "text": "RELATED WORK",
+      "sec_num": "2"
+    },
+    {
+      "text": "Model-Driven Engineering and Domain-Specific Languages in Healthcare",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Semantic Interoperability in Healthcare",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Federated Learning",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Condensed Gap-Analysis Table (systems level)",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "METHODS AND FRAMEWORK",
+      "sec_num": "3"
+    },
+    {
+      "text": "Clinical Overview of the MDE4AI Framework",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "The MILA DSL and Metamodel Design",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Semantic Interoperability Layer",
+      "sec_num": "3.3"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

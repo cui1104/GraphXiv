@@ -2,17 +2,55 @@
   "paper_id": "1e134e12-1055-4034-812d-d9886100b299",
   "arxiv_id": "2403.08802",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Methodology",
-    "Results",
-    "Antecedents",
-    "Internal conditions",
-    "External conditions",
-    "Data scope & targets",
-    "Model scope & targets"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "How can the specific properties of GenAI be captured by a governance framework for organizations?",
+      "sec_num": ""
+    },
+    {
+      "text": "Methodology",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Antecedents",
+      "sec_num": ""
+    },
+    {
+      "text": "Internal conditions",
+      "sec_num": ""
+    },
+    {
+      "text": "External conditions",
+      "sec_num": ""
+    },
+    {
+      "text": "Data scope & targets",
+      "sec_num": ""
+    },
+    {
+      "text": "Model scope & targets",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

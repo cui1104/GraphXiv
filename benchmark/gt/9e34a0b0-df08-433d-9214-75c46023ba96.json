@@ -2,38 +2,71 @@
   "paper_id": "9e34a0b0-df08-433d-9214-75c46023ba96",
   "arxiv_id": "2601.18685",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Experimental Research on Generative AI in Mathematics Education",
-    "Living Meta-Analyses as a Response to Rapidly Evolving Fields",
-    "Purposes of Generative AI in Mathematics Education",
-    "Generative AI as a mathematics expert.",
-    "Generative AI for adaptive assessment and tutoring.",
-    "Generative AI as an instructor.",
-    "Generative AI as a facilitator of collaborative learning.",
-    "Generative AI as teacher support.",
-    "Determinants of the Effectiveness of Generative AI in Mathematics Learning",
-    "Learner characteristics.",
-    "Educational contextual factors.",
-    "AI implementation.",
-    "Outcome characteristics.",
-    "The Present Study",
-    "Methods",
-    "Living Mode Parameters",
-    "Literature Search",
-    "Moderator Coding",
-    "Participant characteristics.",
-    "Educational contextual factors.",
-    "Intervention characteristics.",
-    "Outcome characteristics.",
-    "Metadata and methodological characteristics.",
-    "Effect Size Extraction",
-    "Data Analysis",
-    "Prior specification and sensitivity analyses.",
-    "Model estimation and inference.",
-    "Results",
-    "Descriptive",
-    "Pooled effect size"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Experimental Research on Generative AI in Mathematics Education",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Living Meta-Analyses as a Response to Rapidly Evolving Fields",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Purposes of Generative AI in Mathematics Education",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Determinants of the Effectiveness of Generative AI in Mathematics Learning",
+      "sec_num": "1.4"
+    },
+    {
+      "text": "The Present Study",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "3"
+    },
+    {
+      "text": "Living Mode Parameters",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Literature Search",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Moderator Coding",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Effect Size Extraction",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Data Analysis",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Results",
+      "sec_num": "4"
+    },
+    {
+      "text": "Descriptive",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Pooled effect size",
+      "sec_num": "4.2"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

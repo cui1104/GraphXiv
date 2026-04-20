@@ -2,14 +2,39 @@
   "paper_id": "10aa4d57-18b9-42a1-ad99-656887d2a29b",
   "arxiv_id": "2412.02094",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "Keywords",
-    "INTRODUCTION",
-    "LITERATURE REVIEW",
-    "DATA",
-    "METHOD",
-    "Feature Selection Techniques"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": ""
+    },
+    {
+      "text": "LITERATURE REVIEW",
+      "sec_num": ""
+    },
+    {
+      "text": "DATA",
+      "sec_num": ""
+    },
+    {
+      "text": "METHOD",
+      "sec_num": ""
+    },
+    {
+      "text": "Feature Selection Techniques",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

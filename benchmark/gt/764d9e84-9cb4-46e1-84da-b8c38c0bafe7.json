@@ -2,13 +2,83 @@
   "paper_id": "764d9e84-9cb4-46e1-84da-b8c38c0bafe7",
   "arxiv_id": "2412.11399",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "PROBLEM FORMULATION",
-    "SUPER-RESOLUTION RECURRENT DIFFUSION MODEL",
-    "NUMERICAL RESULTS",
-    "CONCLUSIONS",
-    "REFERENCES"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "PROBLEM FORMULATION",
+      "sec_num": "II"
+    },
+    {
+      "text": "Global Climate Simulation (GCS)",
+      "sec_num": "II.A"
+    },
+    {
+      "text": "Downscaled Climate Simulation (DCS)",
+      "sec_num": "II.B"
+    },
+    {
+      "text": "Power Generation Simulation (PGS)",
+      "sec_num": "II.C"
+    },
+    {
+      "text": "SUPER-RESOLUTION RECURRENT DIFFUSION MODEL",
+      "sec_num": "III"
+    },
+    {
+      "text": "Latent Diffusion Models",
+      "sec_num": "III.A"
+    },
+    {
+      "text": "SRDM Model Structure",
+      "sec_num": "III.B"
+    },
+    {
+      "text": "Pre-train Decoder Network",
+      "sec_num": "III.C"
+    },
+    {
+      "text": "Denoising Network",
+      "sec_num": "III.D"
+    },
+    {
+      "text": "NUMERICAL RESULTS",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Data Source Description and Experiment Settings",
+      "sec_num": "IV.A"
+    },
+    {
+      "text": "Meteorology–Power generation conversion",
+      "sec_num": "IV.B"
+    },
+    {
+      "text": "Super-Resolution Meteorological Features Results",
+      "sec_num": "IV.C"
+    },
+    {
+      "text": "Power Generation Conversion Results",
+      "sec_num": "IV.D"
+    },
+    {
+      "text": "Various Resolution Conversion Results",
+      "sec_num": "IV.E"
+    },
+    {
+      "text": "CONCLUSIONS",
+      "sec_num": "V"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 10,
+  "formula_count": 17,
+  "reference_count": 34,
   "page_count": 9
 }

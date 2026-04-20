@@ -2,23 +2,75 @@
   "paper_id": "9c4d0f94-c045-41af-987a-e1c94f4d646f",
   "arxiv_id": "2512.22426",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Methods",
-    "Proper Orthogonal Decomposition",
-    "Linear Stochastic Estimation",
-    "Spectral Analysis Modal Methods (SAMM-RR)",
-    "Sparse Variational Gaussian Process (SVGP) Kolmogorov-Arnold Networks (KAN)",
-    "Overview and Architecture",
-    "Sparse Variational Inference",
-    "Integration with LSE and SAMM Frameworks",
-    "Kalman Filter Methods",
-    "Uncertainty Propagation and Calibration",
-    "Uncertainty Propagation",
-    "Field-Level Calibration",
-    "Calibration Assessment",
-    "Numerical Simulation and Data Generation",
-    "Flow Configuration"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Proper Orthogonal Decomposition",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Linear Stochastic Estimation",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Spectral Analysis Modal Methods (SAMM-RR)",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Sparse Variational Gaussian Process (SVGP) Kolmogorov-Arnold Networks (KAN)",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Overview and Architecture",
+      "sec_num": "2.4.1"
+    },
+    {
+      "text": "Sparse Variational Inference",
+      "sec_num": "2.4.2"
+    },
+    {
+      "text": "Integration with LSE and SAMM Frameworks",
+      "sec_num": "2.4.3"
+    },
+    {
+      "text": "Kalman Filter Methods",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Uncertainty Propagation and Calibration",
+      "sec_num": "2.6"
+    },
+    {
+      "text": "Uncertainty Propagation",
+      "sec_num": "2.6.1"
+    },
+    {
+      "text": "Field-Level Calibration",
+      "sec_num": "2.6.2"
+    },
+    {
+      "text": "Calibration Assessment",
+      "sec_num": "2.6.3"
+    },
+    {
+      "text": "Numerical Simulation and Data Generation",
+      "sec_num": "2.7"
+    },
+    {
+      "text": "Flow Configuration",
+      "sec_num": "2.7.1"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 24,
+  "reference_count": 0,
   "page_count": 10
 }

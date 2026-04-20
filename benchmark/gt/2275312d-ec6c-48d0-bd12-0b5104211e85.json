@@ -2,11 +2,31 @@
   "paper_id": "2275312d-ec6c-48d0-bd12-0b5104211e85",
   "arxiv_id": "2602.07478",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Material and Methods",
-    "Study Area"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Material and Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Study Area",
+      "sec_num": "2.1"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

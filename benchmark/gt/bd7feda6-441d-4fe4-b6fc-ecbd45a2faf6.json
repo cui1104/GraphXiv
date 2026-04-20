@@ -2,17 +2,55 @@
   "paper_id": "bd7feda6-441d-4fe4-b6fc-ecbd45a2faf6",
   "arxiv_id": "2407.12226",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "Related Work",
-    "Non-grouping. Non-streaming FL.",
-    "Grouping.",
-    "Non-grouping.",
-    "Grouping.",
-    "Streaming FL methods",
-    "System Modules",
-    "NeighborFL",
-    "Candidate and Favorite Neighbors"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Non-grouping",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Non-streaming FL approaches",
+      "sec_num": "2.1.1"
+    },
+    {
+      "text": "Grouping",
+      "sec_num": "2.1.2"
+    },
+    {
+      "text": "Non-grouping.",
+      "sec_num": "2.2.1"
+    },
+    {
+      "text": "Grouping.",
+      "sec_num": "2.2.2"
+    },
+    {
+      "text": "Streaming FL methods",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "System Modules",
+      "sec_num": "3"
+    },
+    {
+      "text": "NeighborFL Entity",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Candidate and Favorite Neighbors",
+      "sec_num": "3.2"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

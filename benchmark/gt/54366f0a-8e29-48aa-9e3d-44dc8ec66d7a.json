@@ -2,14 +2,39 @@
   "paper_id": "54366f0a-8e29-48aa-9e3d-44dc8ec66d7a",
   "arxiv_id": "2404.17931",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abbreviation list",
-    "Introduction",
-    "Relevant work and main contribution",
-    "One-class classification approaches",
-    "Feature data",
-    "Image, Time series, Video, 3D",
-    "Feature extraction approach"
+    {
+      "text": "Abbreviation list",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Relevant work and main contribution",
+      "sec_num": "2"
+    },
+    {
+      "text": "One-class classification approaches",
+      "sec_num": "3"
+    },
+    {
+      "text": "Feature data",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Image, Time series, Video, 3D",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Feature extraction approach",
+      "sec_num": "3.2.1"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

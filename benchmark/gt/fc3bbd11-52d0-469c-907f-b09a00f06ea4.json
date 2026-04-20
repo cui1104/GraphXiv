@@ -2,12 +2,31 @@
   "paper_id": "fc3bbd11-52d0-469c-907f-b09a00f06ea4",
   "arxiv_id": "2602.23303",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Results and Discussion",
-    "Introduction to Causal Calculus for Chemistry and Biology",
-    "Causal Calculus Formalisms",
-    "Causal Calculus for Structure Activity Relationships"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": "2"
+    },
+    {
+      "text": "Introduction to Causal Calculus for Chemistry and Biology",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Causal Calculus Formalisms",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Causal Calculus for Structure Activity Relationships",
+      "sec_num": "2.3"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 2,
+  "reference_count": 0,
   "page_count": 10
 }

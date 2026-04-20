@@ -2,49 +2,159 @@
   "paper_id": "6872da1a-635a-4b4c-b5b8-b0da0a022ed5",
   "arxiv_id": "2603.01275",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "A. The Epoch of Electrification: Global Market Dynamics and the Performance Imperative",
-    "B. The Competitive Landscape and the Redefinition of Performance",
-    "C. The Topology of the Battery Architecture: From Passive Modules to Structural Integration",
-    "The Modular Standard",
-    "Cell-to-Pack (CTP) Technology",
-    "Cell-to-Chassis (CTC) and Cell-to-Body (CTB)",
-    "D. The Voltage Revolution: 400V vs. 800V Architectures",
-    "E. The Physics of Performance: Connecting Cell Count to Acceleration",
-    "Internal Resistance and Voltage Sag",
-    "The Problem of Mass: Diminishing Returns",
-    "F. Methodological Challenges in Existing Literature",
-    "Limitations of Traditional Statistical Models",
-    "The Rise of Machine Learning (XGBoost)",
-    "The Interpretability Gap and SHAP",
-    "G. Research Gap, Problem Statement, and Contribution",
-    "Predictive Modeling of Battery States",
-    "The Interpratability Gap",
-    "B. Battery Technology: Chemistries and Architectures",
-    "C. Machine Learning in EV Systems: The State of the Art",
-    "D. The Non-Linearity of “Diminishing Returns”",
-    "Theoretical Framework",
-    "A. The Physics of Acceleration",
-    "Numerator",
-    "Denominator",
-    "B. Battery Maximum Power and Cell Configuration",
-    "C. The Non-Linearity of “Diminishing Returns”",
-    "Dataset and Preprocessing",
-    "A. Dataset Description",
-    "B. Data Cleaning and Preprocessing",
-    "C. Classification Task and Performance Classes",
-    "Methodology: XGBoost and SHAP",
-    "A. Handling Non-Linearity:",
-    "B. Regularization: XGBoost",
-    "C. Feature Importance:",
-    "D. Configuration",
-    "E. Interoperability: SHAP (Shapley Additive eXplanations)",
-    "Conclusion to the Introduction",
-    "Discussion",
-    "A. Engineering Interpretation",
-    "B. Implications for Battery Design",
-    "C. Performance Complexity Trade-Off"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "The Epoch of Electrification: Global Market Dynamics and the Performance Imperative",
+      "sec_num": "A"
+    },
+    {
+      "text": "The Competitive Landscape and the Redefinition of Performance",
+      "sec_num": "B"
+    },
+    {
+      "text": "The Topology of the Battery Pack: From Passive Modules to Structural Integration",
+      "sec_num": ""
+    },
+    {
+      "text": "The Modular Standard",
+      "sec_num": "1"
+    },
+    {
+      "text": "Cell-to-Pack (CTP) Technology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Cell-to-Chassis (CTC) and Body (CTB)",
+      "sec_num": "3"
+    },
+    {
+      "text": "The Voltage Revolution: 400V vs. 800V Architectures",
+      "sec_num": "D"
+    },
+    {
+      "text": "The Physics of Performance: Connecting Cell Count to Acceleration",
+      "sec_num": "E"
+    },
+    {
+      "text": "Internal Resistance and Voltage Sag",
+      "sec_num": "1"
+    },
+    {
+      "text": "The Problem of Mass: Diminishing Returns",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methodological Challenges in Existing Literature",
+      "sec_num": "F"
+    },
+    {
+      "text": "Limitations of Traditional Statistical Models",
+      "sec_num": "1"
+    },
+    {
+      "text": "The Rise of Machine Learning (XGBoost)",
+      "sec_num": "2"
+    },
+    {
+      "text": "The Interpretability Gap and SHAP",
+      "sec_num": "3"
+    },
+    {
+      "text": "Research Gap, Problem Statement, and Contribution",
+      "sec_num": "G"
+    },
+    {
+      "text": "Predictive Modeling of Battery States",
+      "sec_num": "1"
+    },
+    {
+      "text": "The Interpretability Gap",
+      "sec_num": "2"
+    },
+    {
+      "text": "Review and Synthesis of this Study",
+      "sec_num": "D"
+    },
+    {
+      "text": "Theoretical Framework",
+      "sec_num": "III"
+    },
+    {
+      "text": "The Physics of Acceleration",
+      "sec_num": "A"
+    },
+    {
+      "text": "Battery Maximum Power Capability and Cell Configuration",
+      "sec_num": "B"
+    },
+    {
+      "text": "The Non-Linearity of “Diminishing Returns”",
+      "sec_num": "C"
+    },
+    {
+      "text": "Dataset and Preprocessing",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Dataset Description",
+      "sec_num": "A"
+    },
+    {
+      "text": "Data Cleaning and Preprocessing",
+      "sec_num": "B"
+    },
+    {
+      "text": "Classification Task and Performance Classes",
+      "sec_num": "C"
+    },
+    {
+      "text": "Feature Scaling",
+      "sec_num": "D"
+    },
+    {
+      "text": "Methodology: XGBoost and SHAP",
+      "sec_num": "V"
+    },
+    {
+      "text": "Handling Non-Linearity",
+      "sec_num": "A"
+    },
+    {
+      "text": "Interpretability: SHAP (Shapley Additive eXplanations)",
+      "sec_num": "B"
+    },
+    {
+      "text": "Conclusion to the Introduction",
+      "sec_num": "VI"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "VII"
+    },
+    {
+      "text": "Engineering Interpretation",
+      "sec_num": "A"
+    },
+    {
+      "text": "Implications for Battery Design",
+      "sec_num": "B"
+    },
+    {
+      "text": "Performance Complexity Trade-Off",
+      "sec_num": "C"
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 15,
+  "reference_count": 0,
   "page_count": 10
 }

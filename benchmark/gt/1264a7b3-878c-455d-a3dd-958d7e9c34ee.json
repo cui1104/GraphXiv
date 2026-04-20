@@ -2,11 +2,115 @@
   "paper_id": "1264a7b3-878c-455d-a3dd-958d7e9c34ee",
   "arxiv_id": "2602.17092",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORK",
-    "PROBLEM FORMULATION",
-    "METHODOLOGY"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "RELATED WORK",
+      "sec_num": "2"
+    },
+    {
+      "text": "Foreign Key Discovery and Schema Matching",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Graph Neural Networks and Relational Aggregation Depth",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Inductive Bias and Model-Task Alignment",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "PROBLEM FORMULATION",
+      "sec_num": "3"
+    },
+    {
+      "text": "Schema Representation as a Graph",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Foreign Key Prediction Task",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Structural Neighborhood and k-Hop Aggregation",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Definition: Relational Radius",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Definition 1 (Relational Radius)",
+      "sec_num": ""
+    },
+    {
+      "text": "Model-Task Alignment Hypothesis",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Hypothesis 1 (Bias-Locality Alignment)",
+      "sec_num": ""
+    },
+    {
+      "text": "Expressivity Requirement",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Proposition 1",
+      "sec_num": ""
+    },
+    {
+      "text": "Overreach and Over-Smoothing",
+      "sec_num": "3.7"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "4"
+    },
+    {
+      "text": "Overview",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Feature Construction",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Lexical Features",
+      "sec_num": "4.2.1"
+    },
+    {
+      "text": "Type and Statistical Features",
+      "sec_num": "4.2.2"
+    },
+    {
+      "text": "Structural Features (1-Hop)",
+      "sec_num": "4.2.3"
+    },
+    {
+      "text": "Model Families",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Local Models (0-Hop)",
+      "sec_num": "4.3.1"
+    },
+    {
+      "text": "Contextual Semantic Model",
+      "sec_num": "4.3.2"
+    },
+    {
+      "text": "Relational Models (k-Hop GNNs)",
+      "sec_num": "4.3.3"
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 11,
+  "reference_count": 0,
   "page_count": 10
 }

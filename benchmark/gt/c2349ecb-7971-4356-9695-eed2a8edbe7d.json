@@ -2,30 +2,99 @@
   "paper_id": "c2349ecb-7971-4356-9695-eed2a8edbe7d",
   "arxiv_id": "2602.11237",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "AI-CDSS ALGORITHMS FOR DIABETES",
-    "Collecting and preprocessed data",
-    "Expert-driven Knowledge Acquisition",
-    "ML-based Rule Development",
-    "Hybridization and Integration",
-    "Clinical Assessment and Pilot Research",
-    "RESULTS",
-    "AI-CDSS development for diabetes",
-    "Expert-driven clinical information gathering",
-    "ML-based rule development",
-    "Hybrid knowledge",
-    "AI-CDSS for Diabetes Validation",
-    "Accuracy of diagnostics",
-    "Sub-group investigation",
-    "DISCUSSION",
-    "APPROACHES",
-    "The Reflective Cohort",
-    "A Potential Pilot Group",
-    "Standard Medical Testing",
-    "Diabetes AI-CDSS Generation",
-    "Study Variables",
-    "CONCLUSION"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "AI-CDSS ALGORITHMS FOR DIABETES",
+      "sec_num": "II"
+    },
+    {
+      "text": "Collecting and prepossessing data",
+      "sec_num": "A"
+    },
+    {
+      "text": "Expert-Driven Knowledge Acquisition",
+      "sec_num": "B"
+    },
+    {
+      "text": "ML-based rule development",
+      "sec_num": "C"
+    },
+    {
+      "text": "Hybridization and Integration",
+      "sec_num": "D"
+    },
+    {
+      "text": "Hybridization and Integration",
+      "sec_num": "E"
+    },
+    {
+      "text": "Clinical Assessment and Pilot Research",
+      "sec_num": "F"
+    },
+    {
+      "text": "Results",
+      "sec_num": "III"
+    },
+    {
+      "text": "AI-CDSS development for diabetes",
+      "sec_num": "A"
+    },
+    {
+      "text": "Expert-driven information gathering",
+      "sec_num": "B"
+    },
+    {
+      "text": "Accuracy of diagnostics",
+      "sec_num": "B"
+    },
+    {
+      "text": "Sub-group investigation",
+      "sec_num": "C"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Approaches",
+      "sec_num": "V"
+    },
+    {
+      "text": "The Reflective Cohort",
+      "sec_num": "A"
+    },
+    {
+      "text": "A Potential Pilot Group",
+      "sec_num": "B"
+    },
+    {
+      "text": "Diagnostic Testing",
+      "sec_num": "C"
+    },
+    {
+      "text": "Diabetes AI-CDSS Generation",
+      "sec_num": "D"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "VI"
+    },
+    {
+      "text": "Study variables",
+      "sec_num": "E"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "VII"
+    }
   ],
+  "figure_count": 8,
+  "formula_count": 9,
+  "reference_count": 33,
   "page_count": 10
 }

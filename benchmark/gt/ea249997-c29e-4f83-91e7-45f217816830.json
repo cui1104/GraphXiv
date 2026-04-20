@@ -2,25 +2,91 @@
   "paper_id": "ea249997-c29e-4f83-91e7-45f217816830",
   "arxiv_id": "2602.15852",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Related Work",
-    "Interpretability and Model Auditing in Clinical Machine Learning",
-    "Temporal Leakage in Clinical Prediction Models",
-    "Methods",
-    "Study Design, Cohort, and Outcome Definition",
-    "Attribute Definition and Data Collection",
-    "Data Processing and Feature Construction",
-    "Downstream Models, Calibration, and Evaluation",
-    "Early Fusion Baseline Performance",
-    "Calibrated Fusion Models and Ensembles",
-    "Attribute-guided Leakage Risking in Fusion (Validation)",
-    "Deep Fusion BioClinicalBERT Fine-Tuning Results on the Test Set",
-    "Brier scores and the trade-offs",
-    "Deep Fusion Fine-tuning",
-    "Attribution and Auditing Effects",
-    "Ablation Analysis of Structured and Unstructured Effects",
-    "Discussion",
-    "Conclusions"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "RELATED WORK",
+      "sec_num": "II"
+    },
+    {
+      "text": "Clinical Natural Language Processing and Discharge Prediction",
+      "sec_num": "A"
+    },
+    {
+      "text": "Clinical Interpretability and Model Auditing in Clinical Machine Learning",
+      "sec_num": "B"
+    },
+    {
+      "text": "Temporal Leakage in Clinical Prediction Models",
+      "sec_num": "C"
+    },
+    {
+      "text": "METHODS",
+      "sec_num": "III"
+    },
+    {
+      "text": "Study Design, Cohort, and Outcome Definition",
+      "sec_num": "A"
+    },
+    {
+      "text": "Data Processing and Feature Construction",
+      "sec_num": "B"
+    },
+    {
+      "text": "Attribution to clinical discharge-time features",
+      "sec_num": "C"
+    },
+    {
+      "text": "Downstream Models, Calibration, and Evaluation",
+      "sec_num": "D"
+    },
+    {
+      "text": "RESULTS",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Early Fusion Baseline Performance",
+      "sec_num": "A"
+    },
+    {
+      "text": "Calibrated Fusion Models and Ensembles",
+      "sec_num": "B"
+    },
+    {
+      "text": "Brier scores and the trade-offs",
+      "sec_num": "C"
+    },
+    {
+      "text": "Deep Fusion Fine-tuning",
+      "sec_num": "D"
+    },
+    {
+      "text": "Attribution and Auditing Effects",
+      "sec_num": "E"
+    },
+    {
+      "text": "Ablation Analysis of Structured and Unstructured Effects",
+      "sec_num": "F"
+    },
+    {
+      "text": "DISCUSSION",
+      "sec_num": "V"
+    },
+    {
+      "text": "CONCLUSIONS",
+      "sec_num": "VI"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 0,
+  "reference_count": 19,
   "page_count": 7
 }

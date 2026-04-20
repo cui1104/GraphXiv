@@ -2,15 +2,35 @@
   "paper_id": "48ba6299-8c0c-442c-a059-2242446ce885",
   "arxiv_id": "2602.04277",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Modeling and simulation of NPT-UPTIS Spoke",
-    "FEM Simulation of NPT-UPTIS Spoke",
-    "Computer Aided Design (CAD) of NPT-UPTIS Spoke",
-    "Material property and hyperelastic curve fitting for NPT Spoke:",
-    "Stiffness and Durability Analysis:",
-    "Vibration Analysis of 3D Spoke Design"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Modeling and simulation of NPT-UPTIS Spoke",
+      "sec_num": "2"
+    },
+    {
+      "text": "Computer Aided Design (CAD) of NPT-UPTIS Spoke",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Material property and hyperelastic curve fitting for NPT Spoke",
+      "sec_num": "2.1.2"
+    },
+    {
+      "text": "Stiffness and Durability Analysis",
+      "sec_num": "2.1.3"
+    },
+    {
+      "text": "Vibration Analysis of 3D Spoke Design",
+      "sec_num": "2.1.4"
+    }
   ],
+  "figure_count": 8,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

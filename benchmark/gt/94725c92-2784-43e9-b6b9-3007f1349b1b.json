@@ -2,25 +2,79 @@
   "paper_id": "94725c92-2784-43e9-b6b9-3007f1349b1b",
   "arxiv_id": "2505.03776",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Literature review",
-    "Methodology",
-    "Input Data",
-    "Linear Embedding Layer",
-    "Proximity Attention",
-    "Transformer Encoder",
-    "Attention Mixing",
-    "Pointer Network Decoder",
-    "Experiments and outcomes",
-    "Dataset",
-    "Settings",
-    "Baselines",
-    "Metrics",
-    "Results",
-    "Ablation and learning rate studies",
-    "Conclusion and Perspectives",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Literature review",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "PAPN Workflow",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Linear Embedding Layer",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Proximity Attention",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Transformer Encoder",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Attention Mixing",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Pointer Network Decoder",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Experiments and outcomes",
+      "sec_num": "4"
+    },
+    {
+      "text": "Dataset",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Settings",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Baselines",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Metrics",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Results",
+      "sec_num": "4.5"
+    },
+    {
+      "text": "Ablation and learning rate studies",
+      "sec_num": "4.6"
+    },
+    {
+      "text": "Conclusion and Perspectives",
+      "sec_num": "5"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 14,
+  "reference_count": 26,
   "page_count": 10
 }

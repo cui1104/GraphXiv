@@ -2,39 +2,147 @@
   "paper_id": "44c8e989-a77f-4d0e-8760-3b684f0f0cd7",
   "arxiv_id": "2211.01315",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORK",
-    "Online Supervised Learning",
-    "TTA Paradigm",
-    "Online Active Learning",
-    "Transfer Learning by Fine-Tuning",
-    "Our Proposed Online Learning Approach",
-    "INTEGRATING TTA WITH SYSTEMATIC ACTIVE FINE-TUNING",
-    "TTA Stage",
-    "Systematic Active Fine-tuning (SAF) Stage",
-    "Online Selection",
-    "Validation",
-    "Relabeling and Extracting Dist. Shift Related Info.",
-    "Model Performance",
-    "Analyzing and Triggering Fine-tuning",
-    "EXPERIMENTS AND RESULTS",
-    "Experimental Setup",
-    "Experimental Scenarios",
-    "Windowing-Based vs Random-Based Selection Strategies",
-    "Learned Lessons",
-    "POTENTIAL SMART CITY APPLICATIONS",
-    "Traffic Management",
-    "Public Safety",
-    "Medical Diagnosis",
-    "Autonomous Driving",
-    "Smart Manufacturing",
-    "FUTURE DIRECTIONS",
-    "Potential Impact of Our Work on ML Models Security Concerns",
-    "Dynamic Windowing for Effective Online Selection",
-    "CONCLUSION",
-    "ACKNOWLEDGMENT",
-    "REFERENCES"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Online Supervised Learning",
+      "sec_num": "A"
+    },
+    {
+      "text": "TTA Paradigm",
+      "sec_num": "B"
+    },
+    {
+      "text": "Online Active Learning",
+      "sec_num": "C"
+    },
+    {
+      "text": "Transfer Learning by Fine-Tuning",
+      "sec_num": "D"
+    },
+    {
+      "text": "Our Proposed Online Learning Approach",
+      "sec_num": "E"
+    },
+    {
+      "text": "Integrating TTA With Systematic Active Fine-Tuning",
+      "sec_num": "3"
+    },
+    {
+      "text": "TTA Stage",
+      "sec_num": "A"
+    },
+    {
+      "text": "Systematic Active Fine-tuning (SAF) Stage",
+      "sec_num": "B"
+    },
+    {
+      "text": "Online Selection",
+      "sec_num": "1"
+    },
+    {
+      "text": "Validation",
+      "sec_num": "2"
+    },
+    {
+      "text": "Relabeling and Extraction of Dist. Shift-Related Information",
+      "sec_num": "3"
+    },
+    {
+      "text": "Measuring Model Performance",
+      "sec_num": "4"
+    },
+    {
+      "text": "Experiments and Results",
+      "sec_num": "4"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "A"
+    },
+    {
+      "text": "Performance Metric",
+      "sec_num": "1"
+    },
+    {
+      "text": "Research Questions",
+      "sec_num": "2"
+    },
+    {
+      "text": "Experimental Scenarios",
+      "sec_num": "B"
+    },
+    {
+      "text": "Windowing-Based vs Random-Based Selection Strategies",
+      "sec_num": "C"
+    },
+    {
+      "text": "Learned Lessons",
+      "sec_num": "D"
+    },
+    {
+      "text": "Potential Smart City Applications",
+      "sec_num": "5"
+    },
+    {
+      "text": "Traffic Management",
+      "sec_num": "A"
+    },
+    {
+      "text": "Public Safety",
+      "sec_num": "B"
+    },
+    {
+      "text": "Medical Diagnosis",
+      "sec_num": "C"
+    },
+    {
+      "text": "Autonomous Driving",
+      "sec_num": "D"
+    },
+    {
+      "text": "Smart Manufacturing",
+      "sec_num": "E"
+    },
+    {
+      "text": "Future Directions",
+      "sec_num": "6"
+    },
+    {
+      "text": "Potential Impact of Our Work on ML Models Security Concerns",
+      "sec_num": "A"
+    },
+    {
+      "text": "Dynamic Windowing for Effective Online Selection",
+      "sec_num": "B"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "7"
+    },
+    {
+      "text": "Acknowledgment",
+      "sec_num": "8"
+    },
+    {
+      "text": "References",
+      "sec_num": "9"
+    }
   ],
+  "figure_count": 6,
+  "formula_count": 0,
+  "reference_count": 14,
   "page_count": 9
 }

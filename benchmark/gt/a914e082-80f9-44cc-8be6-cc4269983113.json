@@ -2,26 +2,91 @@
   "paper_id": "a914e082-80f9-44cc-8be6-cc4269983113",
   "arxiv_id": "2602.05053",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "INTRODUCTION",
-    "VARIABLE SPEED LIMITS",
-    "DATA",
-    "Connected vehicle data",
-    "Road Weather Information System Data",
-    "OpenStreetMap data",
-    "METHODOLOGY",
-    "Spatiotemporal Processing of Freeway Data",
-    "Modeling Approach",
-    "Quantile Regression Forests",
-    "Physics-Based Speed Limits",
-    "Interval Fusion",
-    "EXPERIMENTS AND RESULTS",
-    "Experimental Setup",
-    "Evaluation Metrics",
-    "Model Performance and Discussion",
-    "QRF Model Accuracy and Generalization",
-    "Generalization Analysis Across Weather Conditions"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": ""
+    },
+    {
+      "text": "BACKGROUND",
+      "sec_num": ""
+    },
+    {
+      "text": "DATA",
+      "sec_num": ""
+    },
+    {
+      "text": "Connected vehicle data",
+      "sec_num": ""
+    },
+    {
+      "text": "Road Weather Information System Data",
+      "sec_num": ""
+    },
+    {
+      "text": "OpenStreetMap data",
+      "sec_num": ""
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": ""
+    },
+    {
+      "text": "Spatiotemporal Processing of Freeway Data",
+      "sec_num": ""
+    },
+    {
+      "text": "Modeling Approach",
+      "sec_num": ""
+    },
+    {
+      "text": "Quantile Regression Forests",
+      "sec_num": ""
+    },
+    {
+      "text": "Physics-Based Speed Limits",
+      "sec_num": ""
+    },
+    {
+      "text": "Interval Fusion",
+      "sec_num": ""
+    },
+    {
+      "text": "EXPERIMENTS AND RESULTS",
+      "sec_num": ""
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": ""
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": ""
+    },
+    {
+      "text": "Model Performance and Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "QRF Model Accuracy and Generalization",
+      "sec_num": ""
+    },
+    {
+      "text": "Generalization Analysis Across Weather Conditions",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 11,
+  "reference_count": 0,
   "page_count": 10
 }

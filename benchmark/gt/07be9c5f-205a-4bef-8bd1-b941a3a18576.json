@@ -2,29 +2,119 @@
   "paper_id": "07be9c5f-205a-4bef-8bd1-b941a3a18576",
   "arxiv_id": "2602.16730",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Index Terms",
-    "INTRODUCTION",
-    "LITERATURE REVIEW",
-    "DATA PREPARATION",
-    "A. Connected Vehicle Dataset and Study Freeways",
-    "B. Traffic Speed Prediction Methods",
-    "MACRO-MICRO CROSS-ATTENTION TRANSFORMER",
-    "A. Embedding Layer",
-    "B. Spatial Macro-Micro Attention Layer",
-    "C. Temporal Macro-Micro Attention Layer",
-    "D. Speed Prediction Head with Uncertainty Estimation",
-    "EXPERIMENTS",
-    "A. Experiment Setup",
-    "B. Predicting Performance Comparison",
-    "C. Ablation Studies",
-    "D. Effects of Micro Driving Behavior Features",
-    "E. Uncertainty Evaluation",
-    "DISCUSSIONS",
-    "A. Cross-Attention Score Analysis",
-    "B. Model Performances Under Different CV Penetration",
-    "C. Prediction Error Distribution Analysis"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "LITERATURE REVIEW",
+      "sec_num": "II"
+    },
+    {
+      "text": "Traffic Speed Prediction Data",
+      "sec_num": "II.A"
+    },
+    {
+      "text": "Driving Behavior Feature Extraction",
+      "sec_num": "II.B"
+    },
+    {
+      "text": "DATA PREPARATION",
+      "sec_num": "III"
+    },
+    {
+      "text": "Connected Vehicle Data and Study Freeways",
+      "sec_num": "III.A"
+    },
+    {
+      "text": "Micro Macro-Flow and Micro Driving Behavior Feature Extraction",
+      "sec_num": "III.B"
+    },
+    {
+      "text": "Macro traffic flow features",
+      "sec_num": "III.B.1"
+    },
+    {
+      "text": "Micro driving behavior features",
+      "sec_num": "III.B.2"
+    },
+    {
+      "text": "MACRO-MICRO CROSS-ATTENTION TRANSFORMER",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Embedding Layer",
+      "sec_num": "IV.A"
+    },
+    {
+      "text": "Spatial Macro-Micro Attention Layer",
+      "sec_num": "IV.B"
+    },
+    {
+      "text": "Temporal Macro-Micro Attention Layer",
+      "sec_num": "IV.C"
+    },
+    {
+      "text": "Speed Prediction Head with Uncertainty Estimation",
+      "sec_num": "IV.D"
+    },
+    {
+      "text": "EXPERIMENTS",
+      "sec_num": "V"
+    },
+    {
+      "text": "Experiment Setup",
+      "sec_num": "V.A"
+    },
+    {
+      "text": "Predicting Performance Comparison",
+      "sec_num": "V.B"
+    },
+    {
+      "text": "Ablation Studies",
+      "sec_num": "V.C"
+    },
+    {
+      "text": "w/o temporal layers.",
+      "sec_num": "V.C.1"
+    },
+    {
+      "text": "w/o spatial layers.",
+      "sec_num": "V.C.2"
+    },
+    {
+      "text": "w/o cross-attention.",
+      "sec_num": "V.C.3"
+    },
+    {
+      "text": "Effects of Micro Driving Behavior Features",
+      "sec_num": "V.D"
+    },
+    {
+      "text": "Uncertainty Evaluation",
+      "sec_num": "V.E"
+    },
+    {
+      "text": "DISCUSSIONS",
+      "sec_num": "VI"
+    },
+    {
+      "text": "Cross-Attention Score Analysis",
+      "sec_num": "VI.A"
+    },
+    {
+      "text": "Model Performances under Different CV Penetration",
+      "sec_num": "VI.B"
+    },
+    {
+      "text": "Prediction Error Distribution Analysis",
+      "sec_num": "VI.C"
+    }
   ],
+  "figure_count": 7,
+  "formula_count": 15,
+  "reference_count": 0,
   "page_count": 10
 }

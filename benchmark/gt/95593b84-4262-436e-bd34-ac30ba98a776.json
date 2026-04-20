@@ -2,24 +2,91 @@
   "paper_id": "95593b84-4262-436e-bd34-ac30ba98a776",
   "arxiv_id": "2505.11578",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Data-Driven Machine Learning",
-    "Physics-informed machine learning",
-    "Fine-tuning method",
-    "Our Approach and Contributions",
-    "Enhancing Local-Global Feature Integration:",
-    "Strong Spatiotemporal Dependency Capture Capability:",
-    "Flexible Query Point Handling:",
-    "From General Solution to Specific Solution with Physics-Enhanced Consistency:",
-    "Methodology",
-    "Overall",
-    "Input information",
-    "Encoder block $E_1$",
-    "Mamba block $M$",
-    "Encoder block $E_2$",
-    "Decoder block $D$",
-    "Physics-informed fine-tuning block $T$"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Data-Driven Machine Learning",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Physics-informed machine learning",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Fine-tuning method",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Our Approach and Contributions",
+      "sec_num": "1.4"
+    },
+    {
+      "text": "Enhancing Local-Global Feature Integration:",
+      "sec_num": ""
+    },
+    {
+      "text": "Strong Spatiotemporal Dependency Capture Capability:",
+      "sec_num": ""
+    },
+    {
+      "text": "Flexible Query Point Handling:",
+      "sec_num": ""
+    },
+    {
+      "text": "From General Solution to Specific Solution with Physics-Enhanced Consistency:",
+      "sec_num": ""
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Overall",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Input information",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Coordinates:",
+      "sec_num": ""
+    },
+    {
+      "text": "Identifier:",
+      "sec_num": ""
+    },
+    {
+      "text": "Encoder block $\\mathcal{E}_1$",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Mamba block $\\mathcal{M}$",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Encoder block $\\mathcal{E}_2$",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Decoder block $\\mathcal{D}$",
+      "sec_num": "2.6"
+    },
+    {
+      "text": "Physics-informed fine-tuning block $\\mathcal{T}$",
+      "sec_num": "2.7"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 18,
+  "reference_count": 0,
   "page_count": 10
 }

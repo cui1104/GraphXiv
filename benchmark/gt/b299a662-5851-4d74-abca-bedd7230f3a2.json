@@ -2,38 +2,131 @@
   "paper_id": "b299a662-5851-4d74-abca-bedd7230f3a2",
   "arxiv_id": "2602.07051",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Background and Motivation",
-    "The Vision Language Model Paradigm",
-    "Challenges in Applying VLMs to ALPR",
-    "Research Contributions",
-    "Related Work",
-    "Traditional ALPR Systems",
-    "Vision Language Models",
-    "Continual Learning and Catastrophic Forgetting",
-    "Human-in-the-Loop Machine Learning",
-    "Parameter Efficient Fine-Tuning",
-    "Methodology",
-    "System Overview",
-    "VLM First Architecture",
-    "Model Selection and Architecture",
-    "Multi-Task Visual Question Answering Formulation",
-    "Response Parsing and Confidence Estimation",
-    "Human-in-the-Loop Continual Learning",
-    "Correction Accumulation Pipeline",
-    "Training Trigger Conditions",
-    "Experience Replay Mechanism",
-    "Unified Multi-Task LoRA Training",
-    "LoRA Configuration",
-    "LoRA Configuration and Optimization",
-    "Training Hyperparameters",
-    "Validation and Deployment",
-    "Experimental Setup",
-    "Datasets",
-    "Baseline Methods",
-    "Evaluation Metrics"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Background and Motivation",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "The Vision Language Model Paradigm",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Challenges in Applying VLMs to ALPR",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Research Contributions",
+      "sec_num": "1.4"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Traditional ALPR Systems",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Vision Language Models",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Continual Learning and Catastrophic Forgetting",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Human-in-the-Loop Machine Learning",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Parameter Efficient Fine-Tuning",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "System Overview",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "VLM First Architecture",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Model Selection and Architecture",
+      "sec_num": "3.2.1"
+    },
+    {
+      "text": "Multi-Task Visual Question Answering Formulation",
+      "sec_num": "3.2.2"
+    },
+    {
+      "text": "Response Parsing and Confidence Estimation",
+      "sec_num": "3.2.3"
+    },
+    {
+      "text": "Human-in-the-Loop Continual Learning",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Correction Accumulation Pipeline",
+      "sec_num": "3.3.1"
+    },
+    {
+      "text": "Training Trigger Conditions",
+      "sec_num": "3.3.2"
+    },
+    {
+      "text": "Experience Replay Mechanism",
+      "sec_num": "3.3.3"
+    },
+    {
+      "text": "Unified Multi-Task LoRA Training",
+      "sec_num": "3.3.4"
+    },
+    {
+      "text": "Training Configuration and Optimization",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "LoRA Configuration",
+      "sec_num": "3.4.1"
+    },
+    {
+      "text": "Training Hyperparameters",
+      "sec_num": "3.4.2"
+    },
+    {
+      "text": "Validation and Deployment",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "4"
+    },
+    {
+      "text": "Datasets",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Baseline Methods",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": "4.3"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 7,
+  "reference_count": 0,
   "page_count": 10
 }

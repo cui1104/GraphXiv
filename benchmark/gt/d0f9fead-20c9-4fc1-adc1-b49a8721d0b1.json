@@ -2,18 +2,43 @@
   "paper_id": "d0f9fead-20c9-4fc1-adc1-b49a8721d0b1",
   "arxiv_id": "2406.01523",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Methodology",
-    "Data Collection",
-    "Data Processing and Validation",
-    "ANN",
-    "Results and Discussion",
-    "Hyperparameters",
-    "Model Accuracy",
-    "Limitations",
-    "Practical Outcomes"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "ANN",
+      "sec_num": ""
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Hyperparameters",
+      "sec_num": ""
+    },
+    {
+      "text": "Model Accuracy",
+      "sec_num": ""
+    },
+    {
+      "text": "Limitations",
+      "sec_num": ""
+    },
+    {
+      "text": "Practical Outcomes",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 12,
+  "formula_count": 7,
+  "reference_count": 0,
   "page_count": 10
 }

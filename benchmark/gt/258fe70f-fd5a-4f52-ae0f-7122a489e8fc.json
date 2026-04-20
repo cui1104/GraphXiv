@@ -2,18 +2,55 @@
   "paper_id": "258fe70f-fd5a-4f52-ae0f-7122a489e8fc",
   "arxiv_id": "2602.20658",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Methods",
-    "Overview of the Dataset",
-    "Overview of the VLM-Based Pipelines for Horizontal and Vertical Distance Estimation",
-    "Data Labeling",
-    "Detection and Segmentation of Regions of Interest (ROIs)",
-    "Feature Extraction of Regions of Interest",
-    "Regression-Based Distance Estimation",
-    "Model Architecture"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1.0"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "2.0"
+    },
+    {
+      "text": "Overview of the Dataset",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Overview of the VLM-Based Pipelines for Horizontal and Vertical Distance Estimation",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Data Labeling",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Detection and Segmentation of Regions of Interest (ROIs)",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Feature Extraction of Regions of Interest",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Regression-Based Distance Estimation",
+      "sec_num": "2.6"
+    },
+    {
+      "text": "Model Architecture",
+      "sec_num": "2.6.1"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

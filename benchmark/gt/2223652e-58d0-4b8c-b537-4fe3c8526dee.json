@@ -2,14 +2,39 @@
   "paper_id": "2223652e-58d0-4b8c-b537-4fe3c8526dee",
   "arxiv_id": "2602.15890",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "INTRODUCTION",
-    "METHODOLOGY",
-    "NTE for Fixed Source Problem",
-    "Deep Operator Network (DeepONet)",
-    "Fourier Neural Operator (FNO)",
-    "Model Training"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "METHODOLOGY",
+      "sec_num": "II"
+    },
+    {
+      "text": "NTE for Fixed Source Problem",
+      "sec_num": "II.A"
+    },
+    {
+      "text": "Deep Operator Network (DeepONet)",
+      "sec_num": "II.B"
+    },
+    {
+      "text": "Fourier Neural Operator (FNO)",
+      "sec_num": "II.C"
+    },
+    {
+      "text": "Model Training",
+      "sec_num": "II.D"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 13,
+  "reference_count": 0,
   "page_count": 10
 }

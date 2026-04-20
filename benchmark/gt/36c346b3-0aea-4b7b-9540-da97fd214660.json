@@ -2,30 +2,111 @@
   "paper_id": "36c346b3-0aea-4b7b-9540-da97fd214660",
   "arxiv_id": "2602.10750",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Related Work",
-    "Methodology",
-    "Overview",
-    "Layer 1 – Local Heuristic Filtering",
-    "Layer 2 – Logistic Regression Classification",
-    "Layer 3 – Threat-Intelligence Validation",
-    "Data Processing Pipeline",
-    "Probability Calibration and Gray-Zone Logic",
-    "Threat Intelligence Integration",
-    "End-to-End Workflow",
-    "Dataset Description",
-    "Model Architecture",
-    "Layer 1 — Local Heuristic Analysis",
-    "Layer 2 — Machine Learning Classification",
-    "Layer 3 — Threat Intelligence Correlation",
-    "Design Summary",
-    "Training & Evaluation Setup",
-    "Training Setup",
-    "Model Calibration",
-    "Evaluation Metrics",
-    "Results and Analysis"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Machine Learning in Malware and Phishing Detection",
+      "sec_num": ""
+    },
+    {
+      "text": "Hybrid and Threat Intelligence-Augmented Detection",
+      "sec_num": ""
+    },
+    {
+      "text": "Meta-Models and Ensemble Architectures",
+      "sec_num": ""
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    },
+    {
+      "text": "Overview",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Layer 1 – Local Heuristic Filtering",
+      "sec_num": ""
+    },
+    {
+      "text": "Layer 2 – Logistic Regression Classification",
+      "sec_num": ""
+    },
+    {
+      "text": "Layer 3 – Threat-Intelligence Validation",
+      "sec_num": ""
+    },
+    {
+      "text": "Data Processing Pipeline",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Probability Calibration and Gray-Zone Logic",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Threat Intelligence Integration",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "End-to-End Workflow",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Dataset Description",
+      "sec_num": "4"
+    },
+    {
+      "text": "Model Architecture",
+      "sec_num": "5"
+    },
+    {
+      "text": "Layer 1 — Local Heuristic Analysis",
+      "sec_num": ""
+    },
+    {
+      "text": "Layer 2 — Machine Learning Classification",
+      "sec_num": ""
+    },
+    {
+      "text": "Layer 3 — Threat Intelligence Correlation",
+      "sec_num": ""
+    },
+    {
+      "text": "Design Summary",
+      "sec_num": ""
+    },
+    {
+      "text": "Training & Evaluation Setup",
+      "sec_num": "6"
+    },
+    {
+      "text": "Training Setup",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "Model Calibration",
+      "sec_num": "6.2"
+    },
+    {
+      "text": "Evaluation Metrics",
+      "sec_num": "6.3"
+    },
+    {
+      "text": "Results and Analysis",
+      "sec_num": "6.4"
+    }
   ],
+  "figure_count": 5,
+  "formula_count": 0,
+  "reference_count": 27,
   "page_count": 10
 }

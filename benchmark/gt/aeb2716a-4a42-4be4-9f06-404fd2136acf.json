@@ -2,11 +2,99 @@
   "paper_id": "aeb2716a-4a42-4be4-9f06-404fd2136acf",
   "arxiv_id": "2210.04979",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Methods",
-    "Results"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Datasets",
+      "sec_num": ""
+    },
+    {
+      "text": "Internal dataset",
+      "sec_num": ""
+    },
+    {
+      "text": "External dataset",
+      "sec_num": ""
+    },
+    {
+      "text": "Data preprocessing and initial weak label extraction",
+      "sec_num": ""
+    },
+    {
+      "text": "Neural network architectures",
+      "sec_num": ""
+    },
+    {
+      "text": "Edge-detection network",
+      "sec_num": ""
+    },
+    {
+      "text": "Quality control (QC) for segmentations during network training",
+      "sec_num": ""
+    },
+    {
+      "text": "Early learning correction during network training",
+      "sec_num": ""
+    },
+    {
+      "text": "Self-learning during network training",
+      "sec_num": ""
+    },
+    {
+      "text": "Clinical calculations",
+      "sec_num": ""
+    },
+    {
+      "text": "Statistical Analysis",
+      "sec_num": ""
+    },
+    {
+      "text": "Code Availability",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Self-supervised pipeline can learn to segment ultrasound",
+      "sec_num": ""
+    },
+    {
+      "text": "Pipeline-derived structure and function measurements are comparable to clinical echocardiogram measurements",
+      "sec_num": ""
+    },
+    {
+      "text": "Left ventricle",
+      "sec_num": ""
+    },
+    {
+      "text": "Right ventricle",
+      "sec_num": ""
+    },
+    {
+      "text": "Atria",
+      "sec_num": ""
+    },
+    {
+      "text": "Normal vs abnormal",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

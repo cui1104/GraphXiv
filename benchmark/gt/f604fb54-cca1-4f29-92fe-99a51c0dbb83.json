@@ -2,14 +2,39 @@
   "paper_id": "f604fb54-cca1-4f29-92fe-99a51c0dbb83",
   "arxiv_id": "2602.11194",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Materials and Methods",
-    "Experimental Data",
-    "Machine Learning Analysis",
-    "Results",
-    "Multiple linear regression (H-Top layout)"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Materials and Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Experimental Data",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Machine Learning Analysis",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Multiple linear regression (H-Top layout)",
+      "sec_num": "3.1"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

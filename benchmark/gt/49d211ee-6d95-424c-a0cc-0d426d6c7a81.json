@@ -2,17 +2,39 @@
   "paper_id": "49d211ee-6d95-424c-a0cc-0d426d6c7a81",
   "arxiv_id": "2504.19715",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Integration of MBC with domain randomization in a DRL framework:",
-    "Memory-augmented policy representation:",
-    "Formulation as LMDP:",
-    "Application to nonlinear powertrain vibration control:",
-    "Problem formulation: nonlinear adaptive optimal control problem",
-    "Deep reinforcement learning",
-    "Markov decision process",
-    "Policy gradient method based on actor and critic algorithm"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Problem formulation: nonlinear adaptive optimal control problem",
+      "sec_num": "2"
+    },
+    {
+      "text": "Deep reinforcement learning",
+      "sec_num": "3"
+    },
+    {
+      "text": "Markov decision process",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Policy gradient method based on actor and critic algorithm",
+      "sec_num": "3.2"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 13,
+  "reference_count": 0,
   "page_count": 10
 }

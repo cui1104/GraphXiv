@@ -2,23 +2,75 @@
   "paper_id": "0bd004da-e2ce-4c62-8acc-dedd2af65fd3",
   "arxiv_id": "2602.19237",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Background and Related Work",
-    "Tabular Foundation Models",
-    "SAP RPT-1 and ConTextTab Architecture",
-    "Business Process Prediction in SAP",
-    "Experimental Framework",
-    "Experiment 1: SAP Forecast Showdown",
-    "Experiment 2: Predictive Data Integrity",
-    "Experiment 3: Finance Dashboard",
-    "Methodology",
-    "Model Configuration",
-    "Evaluation Protocol",
-    "Dataset Characteristics",
-    "Results",
-    "Classification Performance",
-    "Regression Performance"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Background and Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Tabular Foundation Models",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "SAP RPT-1 and ConTextTab Architecture",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Business Process Prediction in SAP",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Experimental Framework",
+      "sec_num": "3"
+    },
+    {
+      "text": "Experiment 1: SAP Forecast Showdown",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Experiment 2: Predictive Data Integrity",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Experiment 3: Finance Dashboard",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "4"
+    },
+    {
+      "text": "Model Configuration",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Evaluation Protocol",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Dataset Characteristics",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Results",
+      "sec_num": "5"
+    },
+    {
+      "text": "Classification Performance",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Regression Performance",
+      "sec_num": "5.2"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

@@ -2,23 +2,71 @@
   "paper_id": "0683c60b-3140-49d6-b63c-d45767ff7e80",
   "arxiv_id": "2602.18786",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "METHODOLOGY FOUNDATION",
-    "METHOD",
-    "Problem Formulation",
-    "Model Architecture",
-    "Training-Time Scale Calibration",
-    "Constraint-Based Multi-Objective Optimization",
-    "Robust Counterfactual Utility Estimation",
-    "EXPERIMENTS",
-    "Experimental Setup",
-    "Main Results",
-    "Ablation Study",
-    "Comparison with Baselines",
-    "Cross-Domain Transferability",
-    "CONCLUSION",
-    "REFERENCES"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "II"
+    },
+    {
+      "text": "Method",
+      "sec_num": "III"
+    },
+    {
+      "text": "Problem Formulation",
+      "sec_num": "A"
+    },
+    {
+      "text": "Model Architecture",
+      "sec_num": "B"
+    },
+    {
+      "text": "Training-Time Scale Calibration",
+      "sec_num": "C"
+    },
+    {
+      "text": "Constraint-Based Multi-Objective Optimization",
+      "sec_num": "D"
+    },
+    {
+      "text": "Counterfactual Utility Loss",
+      "sec_num": "E"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Main Results",
+      "sec_num": "A"
+    },
+    {
+      "text": "Ablation Study",
+      "sec_num": "B"
+    },
+    {
+      "text": "Comparison with Baselines",
+      "sec_num": "C"
+    },
+    {
+      "text": "Cross-Domain Transferability",
+      "sec_num": "D"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "V"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 6,
+  "reference_count": 35,
   "page_count": 6
 }

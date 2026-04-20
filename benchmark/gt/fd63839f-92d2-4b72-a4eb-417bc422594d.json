@@ -2,21 +2,67 @@
   "paper_id": "fd63839f-92d2-4b72-a4eb-417bc422594d",
   "arxiv_id": "2603.03810",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Design Framework",
-    "Problem Formulation",
-    "IMPM Representation of Pixel-Based Antennas",
-    "Optimization Engine for Local Tuning of Pixel Antenna Geometry",
-    "Feature-Assisted Representation of Antenna Responses",
-    "Summary of the Bi-Stage Optimization Method",
-    "Results",
-    "Broadband Antenna Design",
-    "Multi-Band Antenna Design",
-    "Conclusion",
-    "Acknowledgments.",
-    "Disclosure of Interests.",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Design Framework",
+      "sec_num": "2"
+    },
+    {
+      "text": "Problem Formulation",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "IMPM Representation of Pixel-Based Antennas",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Optimization Engine for Local Tuning of Pixel Antenna Geometry",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Feature-Assisted Representation of Antenna Responses",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Summary of the Bi-Stage Optimization Method",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Broadband Antenna Design",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Multi-Band Antenna Design",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "4"
+    },
+    {
+      "text": "Acknowledgments",
+      "sec_num": ""
+    },
+    {
+      "text": "Disclosure of Interests",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 7,
+  "reference_count": 28,
   "page_count": 8
 }

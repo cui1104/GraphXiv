@@ -2,21 +2,51 @@
   "paper_id": "a5ccc92d-ed4b-433a-83be-292c64f8e3f3",
   "arxiv_id": "2602.15888",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Neuromorphic event encoding",
-    "Residual Adaptive Multi-Scale Delta Modulation (R-AMSDM)",
-    "Fidelity-Efficiency Trade-Off",
-    "Signal-to-Event (S2E) Temporal Orchestration",
-    "Neuromorphic event-based neural networks",
-    "Event-based Adaptive Multi-Scale Response (EAMR)",
-    "Local Temporal-Attention Module (LTAM)",
-    "Epoch-Leaky Integrate-and-Fire (ELIF) State Module",
-    "Experimental setup and evaluation",
-    "Datasets and model training",
-    "Comparison and ablation experiment setup",
-    "Overall performance and efficiency"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Residual Adaptive Multi-Scale Delta Modulation (R-AMSDM)",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Fidelity-Efficiency Trade-Off",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Signal-to-Event (S2E) Temporal Orchestration",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Event-Based Adaptive Multi-Scale Response (EAMR)",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Local Temporal-Attention Module (LTAM)",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Epoch-Leaky Integrate-and-Fire (ELIF) State Module",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Datasets and model training",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Comparison and ablation experiment setup",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Overall performance and efficiency",
+      "sec_num": "4.3"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 18,
+  "reference_count": 0,
   "page_count": 10
 }

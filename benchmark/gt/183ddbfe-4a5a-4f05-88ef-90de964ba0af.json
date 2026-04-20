@@ -2,12 +2,47 @@
   "paper_id": "183ddbfe-4a5a-4f05-88ef-90de964ba0af",
   "arxiv_id": "2602.16737",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Methods",
-    "Results",
-    "Discussion",
-    "Acknowledgments"
+    {
+      "text": "Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Modeling MALDI-TOF spectra",
+      "sec_num": ""
+    },
+    {
+      "text": "Modeling AR patterns",
+      "sec_num": ""
+    },
+    {
+      "text": "Facing MALDI-TOF and AR representations",
+      "sec_num": ""
+    },
+    {
+      "text": "Detecting and evaluating outbreak clusters",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgements",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 5,
+  "formula_count": 3,
+  "reference_count": 24,
   "page_count": 10
 }

@@ -2,25 +2,87 @@
   "paper_id": "b1384b07-573b-4183-b6c4-f93d383cd971",
   "arxiv_id": "2602.12150",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Study 1: Is LLM ToM coherent?",
-    "Stimuli",
-    "Procedure",
-    "Extracting the forward model from an LLM",
-    "Results and Discussion",
-    "Stimuli",
-    "Study 2: Is LLM ToM abstract?",
-    "Procedure",
-    "Is GPT-4o make the same behavioral predic- tions across domains?",
-    "Results",
-    "Discussion",
-    "Study 3: Is LLM ToM consistent?",
-    "Procedure",
-    "Results and Discussion",
-    "General Discussion",
-    "Acknowledgements",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Study 1: Is LLM ToM coherent?",
+      "sec_num": ""
+    },
+    {
+      "text": "Stimuli",
+      "sec_num": ""
+    },
+    {
+      "text": "Paradigm: ContainerWorld",
+      "sec_num": ""
+    },
+    {
+      "text": "Procedure",
+      "sec_num": ""
+    },
+    {
+      "text": "Extracting the forward model from an LLM",
+      "sec_num": ""
+    },
+    {
+      "text": "MovieWorld",
+      "sec_num": ""
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Study 2: Is LLM ToM abstract?",
+      "sec_num": ""
+    },
+    {
+      "text": "Stimuli",
+      "sec_num": ""
+    },
+    {
+      "text": "Paradigm: MovieWorld",
+      "sec_num": ""
+    },
+    {
+      "text": "GPT-4o make the same behavioral predic- tions across domains?",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Procedure",
+      "sec_num": ""
+    },
+    {
+      "text": "Study 3: Is LLM ToM consistent?",
+      "sec_num": ""
+    },
+    {
+      "text": "General Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgements",
+      "sec_num": ""
+    },
+    {
+      "text": "Code and data",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 0,
+  "reference_count": 32,
   "page_count": 8
 }

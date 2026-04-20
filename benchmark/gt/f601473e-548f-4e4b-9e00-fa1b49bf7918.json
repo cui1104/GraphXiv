@@ -2,21 +2,75 @@
   "paper_id": "f601473e-548f-4e4b-9e00-fa1b49bf7918",
   "arxiv_id": "2503.11066",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "TESTING AND TRAINING DATA",
-    "MASS MODELS",
-    "MACHINE LEARNING",
-    "Support vector machine",
-    "Gaussian process regression (GPR)",
-    "Fully connected neural network",
-    "Least squares boosted ensemble of trees",
-    "PHYSICAL FEATURES",
-    "RESULTS AND DISCUSSION",
-    "Understanding the models using Shapley values",
-    "Generation of a composite mass model",
-    "Garvey-Kelson relations",
-    "Comparisons with recent mass measurements"
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "I"
+    },
+    {
+      "text": "TESTING AND TRAINING DATA",
+      "sec_num": "II"
+    },
+    {
+      "text": "MASS MODELS",
+      "sec_num": "III"
+    },
+    {
+      "text": "MACHINE LEARNING",
+      "sec_num": "IV"
+    },
+    {
+      "text": "Support vector machine",
+      "sec_num": "A"
+    },
+    {
+      "text": "Gaussian Process Regression (GPR)",
+      "sec_num": "B"
+    },
+    {
+      "text": "Fully connected neural network",
+      "sec_num": "C"
+    },
+    {
+      "text": "PHYSICAL FEATURES",
+      "sec_num": "V"
+    },
+    {
+      "text": "Least squares boosted ensemble of trees",
+      "sec_num": "D"
+    },
+    {
+      "text": "RESULTS AND DISCUSSION",
+      "sec_num": "VI"
+    },
+    {
+      "text": "Understanding the models using Shapley values",
+      "sec_num": "A"
+    },
+    {
+      "text": "Generation of a composite mass model",
+      "sec_num": "B"
+    },
+    {
+      "text": "Garvey-Kelson relations",
+      "sec_num": "C"
+    },
+    {
+      "text": "Comparisons using recent mass measurements",
+      "sec_num": "D"
+    },
+    {
+      "text": "CONCLUSIONS",
+      "sec_num": "VII"
+    },
+    {
+      "text": "ACKNOWLEDGMENTS",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 46,
+  "formula_count": 20,
+  "reference_count": 46,
   "page_count": 10
 }

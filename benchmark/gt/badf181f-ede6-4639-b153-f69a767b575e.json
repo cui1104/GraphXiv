@@ -2,37 +2,147 @@
   "paper_id": "badf181f-ede6-4639-b153-f69a767b575e",
   "arxiv_id": "2603.04443",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Background and motivation",
-    "Design goals",
-    "Overview",
-    "Memory value and state",
-    "Tiered lifecycle organization",
-    "Lifecycle transitions",
-    "Bounded retrieval and prompt construction",
-    "Invariant",
-    "Semantic event-driven value update",
-    "Parameter selection",
-    "Value update granularity and overhead",
-    "Stability considerations",
-    "Lifecycle transitions",
-    "Retrieval and prompt construction",
-    "System architecture and implementation",
-    "Request path",
-    "Persistent memory store and indexing",
-    "Experimental environment",
-    "Evaluation Methodology",
-    "Experimental protocol",
-    "Workload",
-    "Metrics",
-    "Periodicity",
-    "Prompt construction",
-    "Reproducibility",
-    "Results and Discussion",
-    "End to end latency and throughput",
-    "Retrieval mechanism working set and vector search footprint",
-    "Cost and quality tradeoffs"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Background and Motivation",
+      "sec_num": "2"
+    },
+    {
+      "text": "3. Design Goals",
+      "sec_num": "3"
+    },
+    {
+      "text": "Bounded request-path memory cost independently of total retained memory.",
+      "sec_num": ""
+    },
+    {
+      "text": "Preserve high-utility memory over long-time horizons.",
+      "sec_num": ""
+    },
+    {
+      "text": "Adapt to non-stationary access patterns.",
+      "sec_num": ""
+    },
+    {
+      "text": "Impose low management overhead and integrate with existing agent stacks.",
+      "sec_num": ""
+    },
+    {
+      "text": "AMV-L Overview",
+      "sec_num": "4"
+    },
+    {
+      "text": "AMV-L memory and value state",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Tiered lifecycle organization",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Lifecycle transitions",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Bounded retrieval and prompt construction",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "System invariant",
+      "sec_num": "4.5"
+    },
+    {
+      "text": "Memory Value Model",
+      "sec_num": "5"
+    },
+    {
+      "text": "Signals and semantics",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Event-driven value update",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Interpretation of parameters",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Parameter selection.",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "Update granularity and overhead",
+      "sec_num": "5.5"
+    },
+    {
+      "text": "Stability considerations",
+      "sec_num": "5.6"
+    },
+    {
+      "text": "Lifecycle Transitions",
+      "sec_num": "6"
+    },
+    {
+      "text": "Retrieval and Prompt Construction",
+      "sec_num": "7"
+    },
+    {
+      "text": "System Architecture and Implementation",
+      "sec_num": "8"
+    },
+    {
+      "text": "Evaluation Methodology",
+      "sec_num": "9"
+    },
+    {
+      "text": "Experimental protocol",
+      "sec_num": "9.1"
+    },
+    {
+      "text": "Workload",
+      "sec_num": "9.2"
+    },
+    {
+      "text": "Metrics",
+      "sec_num": "9.3"
+    },
+    {
+      "text": "Instrumentation",
+      "sec_num": "9.4"
+    },
+    {
+      "text": "Prompt construction policy",
+      "sec_num": "9.5"
+    },
+    {
+      "text": "Reproducibility",
+      "sec_num": "9.6"
+    },
+    {
+      "text": "Results and Discussion",
+      "sec_num": "10"
+    },
+    {
+      "text": "End to end latency and throughput",
+      "sec_num": "10.1"
+    },
+    {
+      "text": "Mechanism: retrieval working set and vector search footprint",
+      "sec_num": "10.2"
+    },
+    {
+      "text": "Cost and quality tradeoffs",
+      "sec_num": "10.3"
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 24,
+  "reference_count": 0,
   "page_count": 10
 }

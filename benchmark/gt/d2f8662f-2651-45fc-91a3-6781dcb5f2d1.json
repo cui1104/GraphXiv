@@ -2,19 +2,59 @@
   "paper_id": "d2f8662f-2651-45fc-91a3-6781dcb5f2d1",
   "arxiv_id": "2512.19707",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Funding",
-    "Conflict of interest",
-    "Manuscript Type",
-    "Authorship",
-    "Keywords",
-    "Abstract",
-    "Main",
-    "Results",
-    "Neuro-oncology patient cohort",
-    "Radiologist participants",
-    "Patient-centric effects",
-    "Practitioner-centric effects"
+    {
+      "text": "Funding",
+      "sec_num": ""
+    },
+    {
+      "text": "Conflict of interest",
+      "sec_num": ""
+    },
+    {
+      "text": "Manuscript Type",
+      "sec_num": ""
+    },
+    {
+      "text": "Authorship",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Main",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Neuro-oncology patient cohort",
+      "sec_num": ""
+    },
+    {
+      "text": "Radiologist participants",
+      "sec_num": ""
+    },
+    {
+      "text": "Patient-centric effects",
+      "sec_num": ""
+    },
+    {
+      "text": "Practitioner-centric effects",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 4,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

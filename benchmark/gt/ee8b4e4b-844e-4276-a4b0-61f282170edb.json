@@ -2,32 +2,123 @@
   "paper_id": "ee8b4e4b-844e-4276-a4b0-61f282170edb",
   "arxiv_id": "2504.18310",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Objectives",
-    "Methods",
-    "Results",
-    "Discussion",
-    "Conclusion",
-    "Keywords",
-    "Introduction",
-    "Results",
-    "Discussion",
-    "Research extensions",
-    "Policy and ethics",
-    "Materials and Methods",
-    "Processing Health Claims",
-    "Language set and translation",
-    "Translation validation",
-    "Model-selection",
-    "Model-based verification",
-    "Evaluation",
-    "Linguistic-distance metric",
-    "Processing PUBHEALTH Dataset",
-    "Analysis",
-    "Lexical complexity covariate",
-    "Full LLM Prompts and Data Availability",
-    "References"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Objectives",
+      "sec_num": ""
+    },
+    {
+      "text": "Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Main Text",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": ""
+    },
+    {
+      "text": "Discussion",
+      "sec_num": ""
+    },
+    {
+      "text": "Path to application.",
+      "sec_num": ""
+    },
+    {
+      "text": "Research extensions.",
+      "sec_num": ""
+    },
+    {
+      "text": "Policy and ethics.",
+      "sec_num": ""
+    },
+    {
+      "text": "Materials and Methods",
+      "sec_num": ""
+    },
+    {
+      "text": "Processing Health Claims",
+      "sec_num": ""
+    },
+    {
+      "text": "Language set and translation.",
+      "sec_num": ""
+    },
+    {
+      "text": "Translation validation.",
+      "sec_num": ""
+    },
+    {
+      "text": "Model-selection.",
+      "sec_num": ""
+    },
+    {
+      "text": "Model-based verification.",
+      "sec_num": ""
+    },
+    {
+      "text": "Evaluation.",
+      "sec_num": ""
+    },
+    {
+      "text": "Linguistic-distance metric.",
+      "sec_num": ""
+    },
+    {
+      "text": "Processing PUBHEALTH Dataset",
+      "sec_num": ""
+    },
+    {
+      "text": "Analysis.",
+      "sec_num": ""
+    },
+    {
+      "text": "Lexical complexity covariate.",
+      "sec_num": ""
+    },
+    {
+      "text": "Full LLM prompts and Data Availability:",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    },
+    {
+      "text": "Figures",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 1,
+  "reference_count": 21,
   "page_count": 10
 }

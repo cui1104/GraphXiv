@@ -2,16 +2,51 @@
   "paper_id": "28cf347e-db92-44f5-a487-e87b0eff099d",
   "arxiv_id": "2602.22533",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "Article Highlights:",
-    "Introduction",
-    "Method and Experiment Setup",
-    "Orthogonal Conditional Nonlinear Optimal Perturbations",
-    "FuXi Model",
-    "Experimental strategy",
-    "Results",
-    "Comparative analysis of FuXi_CNOP and IFS_EPS in TC Deterministic Forecasting"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "Key words",
+      "sec_num": ""
+    },
+    {
+      "text": "Article Highlights",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Method and Experiment Setup",
+      "sec_num": "2"
+    },
+    {
+      "text": "Orthogonal Conditional Nonlinear Optimal Perturbations",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "FuXi Model",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Experimental strategy",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Comparative analysis of FuXi_CNOP and IFS_EPS in TC Deterministic Forecasting",
+      "sec_num": "3.1"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 4,
+  "reference_count": 0,
   "page_count": 10
 }

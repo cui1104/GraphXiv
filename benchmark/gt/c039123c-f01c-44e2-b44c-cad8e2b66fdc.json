@@ -2,28 +2,103 @@
   "paper_id": "c039123c-f01c-44e2-b44c-cad8e2b66fdc",
   "arxiv_id": "2601.11616",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Contributions",
-    "Relation to prior work",
-    "Methodology",
-    "Notation and Definitions",
-    "Experimental setup",
-    "Results",
-    "Jacobian Analysis",
-    "Representation Geometry via Principal Component Analysis (PCA)",
-    "MoE Routing as Soft Clustering in Function Space",
-    "MoE Routing on Transformer-Based MoE with Natural Language Data",
-    "Scope, Limitations, and Expected Failure Modes",
-    "Discussion and Conclusion",
-    "Summary of findings",
-    "Interpreting routing sharpness",
-    "Prior work on MoEs",
-    "Outlook",
-    "References",
-    "Notation, Formal Definitions, and Methodological Details",
-    "MoE Layer and Routing Functions",
-    "Expert Local Jacobians"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Contributions",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Relation to prior work",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Notation and Definitions",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Probes for Function and Representation Geometry",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Jacobian spectral probe (function geometry).",
+      "sec_num": ""
+    },
+    {
+      "text": "Cross-expert Jacobian alignment",
+      "sec_num": ""
+    },
+    {
+      "text": "Weighted PCA probe (representation geometry).",
+      "sec_num": ""
+    },
+    {
+      "text": "Experimental setup",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Jacobian Analysis",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Representation Geometry via Principal Component Analysis (PCA)",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Top-k routing MoE and Fully-soft routing MoE",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "MoE Routing as Soft Clustering in Function Space",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Validation on Transformer-Based MoE with Natural Language Data",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Scope, Limitations, and Expected Failure Modes",
+      "sec_num": "4"
+    },
+    {
+      "text": "Discussion and Conclusion",
+      "sec_num": "5"
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    },
+    {
+      "text": "Notation, Formal Definitions, and Methodological Details",
+      "sec_num": "A"
+    },
+    {
+      "text": "MoE Layer and Routing Functions",
+      "sec_num": "A.1"
+    },
+    {
+      "text": "Expert Local Jacobians",
+      "sec_num": "A.2"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 8,
+  "reference_count": 12,
   "page_count": 10
 }

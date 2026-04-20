@@ -2,17 +2,51 @@
   "paper_id": "9b6ce57e-c6d7-42fe-a85d-4ab7baa4bf6e",
   "arxiv_id": "2603.00181",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Methods",
-    "Open Neural Network Exchange (ONNX)",
-    "The Development Pipeline",
-    "Results",
-    "Software Resources",
-    "Discussion",
-    "Conclusion",
-    "Acknowledgements",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "2"
+    },
+    {
+      "text": "Open Neural Network Exchange",
+      "sec_num": ""
+    },
+    {
+      "text": "The Development Pipeline",
+      "sec_num": ""
+    },
+    {
+      "text": "Results",
+      "sec_num": "3"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "4"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "5"
+    },
+    {
+      "text": "Acknowledgements",
+      "sec_num": ""
+    },
+    {
+      "text": "Software Resources",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 1,
+  "reference_count": 36,
   "page_count": 7
 }

@@ -2,55 +2,183 @@
   "paper_id": "ef42383e-673f-4998-9384-8e515d1b7954",
   "arxiv_id": "2603.00004",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "APPROVAL",
-    "BOARD OF EXAMINERS",
-    "DECLARATION",
-    "Supervised by:",
-    "Co-Supervised by:",
-    "Submitted by:",
-    "ACKNOWLEDGEMENT",
-    "ABSTRACT",
-    "Keywords",
-    "TABLE OF CONTENTS",
-    "LIST OF FIGURES",
-    "LIST OF TABLES",
-    "INTRODUCTION",
-    "Introduction",
-    "Motivation",
-    "Problem Statement",
-    "Research Objective",
-    "Research Questions",
-    "Report Layout",
-    "BACKGROUND / LITERATURE REVIEW",
-    "Introduction",
-    "Related Work",
-    "Scope of the problem",
-    "Challenges",
-    "RESEARCH METHODOLOGY",
-    "Introduction",
-    "Research Subject and Instrumentation",
-    "Proposed Methodology",
-    "Data Collection Procedure",
-    "Machine Learning Techniques",
-    "Data Preprocessing",
-    "Statistical Analysis",
-    "Implementation Requirements",
-    "EXPERIMENTAL RESULTS AND DISCUSSION",
-    "Introduction",
-    "Experimental Setup",
-    "Experimental Results & Analysis",
-    "Discussion",
-    "IMPACT ON SOCIETY, ENVIRONMENT, AND SUSTAINABILITY",
-    "Impact on Society",
-    "Impact on Environment",
-    "Ethical Aspects",
-    "Sustainability Plan",
-    "CONCLUSION AND FUTURE WORK",
-    "Summary of the study",
-    "Conclusions",
-    "Implication for further study",
-    "REFERENCES"
+    {
+      "text": "APPROVAL",
+      "sec_num": ""
+    },
+    {
+      "text": "BOARD OF EXAMINERS",
+      "sec_num": ""
+    },
+    {
+      "text": "DECLARATION",
+      "sec_num": ""
+    },
+    {
+      "text": "ACKNOWLEDGEMENT",
+      "sec_num": ""
+    },
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "List of Figures",
+      "sec_num": ""
+    },
+    {
+      "text": "List of Tables",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Motivation",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Problem Statement",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Research Objective",
+      "sec_num": "1.4"
+    },
+    {
+      "text": "Research Questions",
+      "sec_num": "1.5"
+    },
+    {
+      "text": "Report Layout",
+      "sec_num": "1.6"
+    },
+    {
+      "text": "BACKGROUND / LITERATURE REVIEW",
+      "sec_num": "2"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Scope of the problem",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Challenges",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "RESEARCH METHODOLOGY",
+      "sec_num": "3"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Research Subject and Instrumentation",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Proposed Methodology",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Data Collection Procedure",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Machine Learning Techniques",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Data Preprocessing",
+      "sec_num": "3.6"
+    },
+    {
+      "text": "Statistical Analysis",
+      "sec_num": "3.7"
+    },
+    {
+      "text": "Implementation Requirements",
+      "sec_num": "3.8"
+    },
+    {
+      "text": "EXPERIMENTAL RESULTS AND DISCUSSION",
+      "sec_num": "4"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Experimental Setup",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Experimental Results & Analysis",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Discussion",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "IMPACT ON SOCIETY, ENVIRONMENT, AND SUSTAINABILITY",
+      "sec_num": "5"
+    },
+    {
+      "text": "Impact on Society",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Impact on Environment",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Ethical Aspects",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Sustainability Plan",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "CONCLUSION AND FUTURE WORK",
+      "sec_num": "6"
+    },
+    {
+      "text": "Summary of the study",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "Conclusions",
+      "sec_num": "6.2"
+    },
+    {
+      "text": "Implication for further study",
+      "sec_num": "6.3"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 24,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

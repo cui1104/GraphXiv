@@ -2,16 +2,39 @@
   "paper_id": "67eee5e7-362a-4e39-9301-bfe211c79d94",
   "arxiv_id": "2602.19410",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Methodology",
-    "Data Collection and Data Preprocessing",
-    "Label Definition",
-    "Model Development and Evaluation",
-    "Model Deployment",
-    "System Architecture"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "Data Collection and Data Preprocessing",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Label Definition",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Model Development and Evaluation",
+      "sec_num": "3"
+    },
+    {
+      "text": "Model Deployment",
+      "sec_num": "4"
+    },
+    {
+      "text": "System Architecture",
+      "sec_num": "4.1"
+    }
   ],
+  "figure_count": 10,
+  "formula_count": 1,
+  "reference_count": 0,
   "page_count": 10
 }

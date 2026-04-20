@@ -2,21 +2,67 @@
   "paper_id": "ca62cb52-86df-4cc4-b509-e7929c3653fa",
   "arxiv_id": "2503.16191",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Highlights",
-    "Software and Data Availability",
-    "Keywords",
-    "Introduction",
-    "Customized Code Generation",
-    "Integration",
-    "Reliability, Usability, and Trust",
-    "Methodology",
-    "RAG Preprocess",
-    "Embeddings Model",
-    "Similarity Search",
-    "Semantic Retrieval Validation",
-    "Multi-Agent LLM-EPANET Framework"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Highlights",
+      "sec_num": ""
+    },
+    {
+      "text": "Software and Data Availability",
+      "sec_num": ""
+    },
+    {
+      "text": "Keywords",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Customized Code Generation",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Integration",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Reliability, Usability, and Trust",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "2"
+    },
+    {
+      "text": "RAG Preprocess",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Embeddings Model",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Similarity Search",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Semantic Retrieval Validation",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Multi-Agent LLM-EPANET Framework",
+      "sec_num": "2.5"
+    }
   ],
+  "figure_count": 2,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

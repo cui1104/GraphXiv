@@ -2,16 +2,43 @@
   "paper_id": "f8e45e6b-7c58-4eb0-8e21-16a3b6214223",
   "arxiv_id": "2602.07162",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Keywords",
-    "Introduction",
-    "Theory",
-    "Review of slab profile encoding in 3D multi-slab imaging",
-    "SHARPEN: Slab-shifting for Harmonized 3D Acquisition and Reconstruction with Profile Encoding Networks",
-    "Methods",
-    "Simulation Data",
-    "Prospectively Acquired Data"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Theory",
+      "sec_num": "2"
+    },
+    {
+      "text": "Review of slab profile encoding in 3D multi-slab imaging",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "SHARPEN: Slab-shifting for Harmonized 3D Acquisition and Reconstruction with Profile Encoding Networks",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "3"
+    },
+    {
+      "text": "Simulation Data",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Prospectively Acquired Data",
+      "sec_num": "3.2"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 14,
+  "reference_count": 0,
   "page_count": 10
 }

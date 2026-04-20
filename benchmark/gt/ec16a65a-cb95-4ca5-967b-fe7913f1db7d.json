@@ -2,16 +2,51 @@
   "paper_id": "ec16a65a-cb95-4ca5-967b-fe7913f1db7d",
   "arxiv_id": "2602.06503",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Data",
-    "Overview of the training datasets",
-    "Satellite RGB imagery",
-    "Airborne CHM generation",
-    "Airborne RGB imagery and land cover data",
-    "Comparison and validation datasets",
-    "Methods",
-    "Related work on monocular depth estimation"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Data",
+      "sec_num": "2"
+    },
+    {
+      "text": "Overview of the training datasets",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Satellite RGB imagery",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Airborne CHM generation",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Airborne RGB imagery and land cover data",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Comparison and validation datasets",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Methods",
+      "sec_num": "3"
+    },
+    {
+      "text": "Related work on monocular depth estimation",
+      "sec_num": "3.1"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

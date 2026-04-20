@@ -2,22 +2,67 @@
   "paper_id": "76dd954e-b299-4793-91cf-21faf0f45d4c",
   "arxiv_id": "2312.02462",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Abstract",
-    "Introduction",
-    "Neural network model and numerical simulation",
-    "Bidirectional long short-term memory variational autoencoder design",
-    "Wasserstein distance-based classifier",
-    "Numerical simulations of flickering flames and data collection",
-    "Results and discussion",
-    "Benchmark case: single flickering flame",
-    "Phase trajectories of a circular flame system",
-    "WD-based Classification",
-    "Conclusions",
-    "Declaration of competing interest",
-    "Acknowledgments",
-    "Supplementary material",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Neural network model and numerical simulation",
+      "sec_num": "2"
+    },
+    {
+      "text": "Bidirectional long short-term memory variational autoencoder design",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Wasserstein distance-based classifier",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Numerical simulations of flickering flames and data collection",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Results and discussion",
+      "sec_num": "3"
+    },
+    {
+      "text": "Benchmark case: single flickering flame",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Phase trajectories of a circular flame system",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "WD-based Classification",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Conclusions",
+      "sec_num": "4"
+    },
+    {
+      "text": "Declaration of competing interest",
+      "sec_num": ""
+    },
+    {
+      "text": "Acknowledgments",
+      "sec_num": ""
+    },
+    {
+      "text": "Supplementary material",
+      "sec_num": ""
+    },
+    {
+      "text": "References",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 13,
+  "reference_count": 51,
   "page_count": 10
 }

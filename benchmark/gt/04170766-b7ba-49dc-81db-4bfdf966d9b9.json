@@ -2,20 +2,67 @@
   "paper_id": "04170766-b7ba-49dc-81db-4bfdf966d9b9",
   "arxiv_id": "2509.11517",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "ABSTRACT",
-    "INTRODUCTION",
-    "METHODS",
-    "Dataset",
-    "Data Source",
-    "Data Processing",
-    "Manual Verification",
-    "Postprocessing",
-    "Nomenclature",
-    "LLMs answer medical questions",
-    "Approach",
-    "Selected LLMs",
-    "Evaluation"
+    {
+      "text": "ABSTRACT",
+      "sec_num": ""
+    },
+    {
+      "text": "KEYWORDS",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": ""
+    },
+    {
+      "text": "METHODS",
+      "sec_num": ""
+    },
+    {
+      "text": "Dataset",
+      "sec_num": ""
+    },
+    {
+      "text": "Data Source",
+      "sec_num": ""
+    },
+    {
+      "text": "Data Processing",
+      "sec_num": ""
+    },
+    {
+      "text": "Manual Verification",
+      "sec_num": ""
+    },
+    {
+      "text": "Postprocessing",
+      "sec_num": ""
+    },
+    {
+      "text": "Nomenclature",
+      "sec_num": ""
+    },
+    {
+      "text": "LLMs answer medical questions",
+      "sec_num": ""
+    },
+    {
+      "text": "Approach",
+      "sec_num": ""
+    },
+    {
+      "text": "Selected LLMs",
+      "sec_num": ""
+    },
+    {
+      "text": "Evaluation",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

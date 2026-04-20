@@ -2,26 +2,91 @@
   "paper_id": "2501f198-0758-47cd-812a-2eedcdb01807",
   "arxiv_id": "2511.00246",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "INTRODUCTION",
-    "RELATED WORKS",
-    "DATASETS",
-    "Image Pre-processing",
-    "METHODOLOGIES",
-    "Data Preparation",
-    "Training Deep Learning Models",
-    "Ensemble Learning",
-    "Hard Majority Voting",
-    "Probability Averaging/ Soft Majority Voting",
-    "Max Rule Ensemble Method",
-    "Weighted Probability Averaging",
-    "Using SHAP for Explanation",
-    "RESULTS AND DISCUSSION",
-    "Results of Base Learners",
-    "Results of the Ensemble Learning Framework",
-    "Results of SHAP Analysis",
-    "CONCLUSIONS",
-    "REFERENCES"
+    {
+      "text": "Abstract",
+      "sec_num": ""
+    },
+    {
+      "text": "INTRODUCTION",
+      "sec_num": "1"
+    },
+    {
+      "text": "RELATED WORKS",
+      "sec_num": "2"
+    },
+    {
+      "text": "DATASETS",
+      "sec_num": "3"
+    },
+    {
+      "text": "METHODOLOGIES",
+      "sec_num": "4"
+    },
+    {
+      "text": "Data Preparation",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Image Pre-processing",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Training Deep Learning Models",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Ensemble Learning",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Hard Majority Voting",
+      "sec_num": "4.4.1"
+    },
+    {
+      "text": "Probability Averaging/ Soft Majority Voting",
+      "sec_num": "4.4.2"
+    },
+    {
+      "text": "Max Rule Ensemble Method",
+      "sec_num": "4.4.3"
+    },
+    {
+      "text": "Weighted Probability Averaging",
+      "sec_num": "4.4.4"
+    },
+    {
+      "text": "Using SHAP for Explanation",
+      "sec_num": "4.4.5"
+    },
+    {
+      "text": "RESULTS AND DISCUSSION",
+      "sec_num": "5"
+    },
+    {
+      "text": "Results of Base Learners",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Results of the Ensemble Learning Framework",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Results of SHAP Analysis",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "CONCLUSIONS",
+      "sec_num": "6"
+    },
+    {
+      "text": "REFERENCES",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 9,
+  "formula_count": 12,
+  "reference_count": 30,
   "page_count": 10
 }

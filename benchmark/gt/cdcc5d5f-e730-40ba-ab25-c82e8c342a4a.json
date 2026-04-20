@@ -2,11 +2,27 @@
   "paper_id": "cdcc5d5f-e730-40ba-ab25-c82e8c342a4a",
   "arxiv_id": "2601.20346",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "Main Contributions",
-    "Related Work",
-    "Methodology"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Main Contributions",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Methodology",
+      "sec_num": "3"
+    }
   ],
+  "figure_count": 1,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

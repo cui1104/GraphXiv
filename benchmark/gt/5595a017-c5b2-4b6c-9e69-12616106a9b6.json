@@ -2,74 +2,283 @@
   "paper_id": "5595a017-c5b2-4b6c-9e69-12616106a9b6",
   "arxiv_id": "2602.23396",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Chapter 1",
-    "Chapter 2",
-    "Introduction",
-    "General definitions",
-    "Prioritization",
-    "Voting Scheme",
-    "Performance metrics: ROC curves",
-    "Structure of bipartite networks and projection methods",
-    "Projection of bipartite networks in single-party networks",
-    "Projection by statistical validation",
-    "Multilayer Networks",
-    "Notation",
-    "Chapter 3",
-    "Introduction",
-    "Similarity between drugs",
-    "Tanimoto and substructure",
-    "Annotations",
-    "Chapter 4",
-    "Substructure vs. Tanimoto pairs in clusters",
-    "Homogeneity of S and T clusters",
-    "Molecular weight Análisis",
-    "Homogeneity of targets",
-    "Degree of Chemical Similarity and shared bioactivities",
-    "Conclusion",
-    "Chapter 5",
-    "Characterization of the distribution of degrees of affiliation sets to affiliates",
-    "Relevance of annotations",
-    "Druggability and annotations",
-    "Druggability and p-values",
-    "Entropy of annotations by species",
-    "P-values and entropy",
-    "Analysis of similarities of layers",
-    "Conclusions",
-    "Chapter 6",
-    "Projection methods",
-    "Networks obtained",
-    "Topological measures of interest",
-    "Transitivity",
-    "Centrality",
-    "Associativeness",
-    "Prioritization of drugs from strongly related domains",
-    "Drug prediction from domain architecture",
-    "Conclusion",
-    "Chapter 7",
-    "Analysis of drug-protein connections",
-    "Timeless analysis of drug-protein connections",
-    "Temporal evolution",
-    "Prioritization",
-    "Validation of the prioritization and target-species linkage methods",
-    "Structure, flow in the network and prioritization",
-    "Drug and flux",
-    "Conclusion",
-    "Conclusions",
-    "Appendix A",
-    "Subgraphs, Connexity and Giant Component.",
-    "Heavy Graphs",
-    "Adjacency matrix and weight matrix",
-    "Principal Topological Observables",
-    "Distribution of degree, assortativity and disassortativity",
-    "Assortativity",
-    "Clustering coefficient",
-    "Centrality",
-    "Modular structure and partitions",
-    "Modular structure and quality of a partition",
-    "Comparison between partitions",
-    "Clustering algorithms considered",
-    "Bibliography"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "2"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "General definitions",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Prioritization",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Voting Scheme",
+      "sec_num": "2.3.1"
+    },
+    {
+      "text": "Performance metrics: ROC curves",
+      "sec_num": "2.3.2"
+    },
+    {
+      "text": "Structure of bipartite networks and projection methods",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Projection of bipartite networks in single-party networks",
+      "sec_num": "2.4.1"
+    },
+    {
+      "text": "Projection by statistical validation",
+      "sec_num": "2.4.2"
+    },
+    {
+      "text": "Multilayer Networks",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Notation",
+      "sec_num": "2.5.1"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "3"
+    },
+    {
+      "text": "Introduction",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Similarity between drugs",
+      "sec_num": "3.2.1"
+    },
+    {
+      "text": "Tanimoto and substructure",
+      "sec_num": "3.2.2"
+    },
+    {
+      "text": "Annotations",
+      "sec_num": "3.2.2"
+    },
+    {
+      "text": "Substructure vs. Tanimoto pairs in clusters",
+      "sec_num": "4"
+    },
+    {
+      "text": "Substructure vs. Tanimoto pairs in clusters",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Homogeneity of S and T clusters",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Molecular weight",
+      "sec_num": ""
+    },
+    {
+      "text": "Análisis",
+      "sec_num": "4.2.1"
+    },
+    {
+      "text": "Homogeneity of targets",
+      "sec_num": "4.2.2"
+    },
+    {
+      "text": "Degree of Chemical Similarity and shared bioactivities",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Characterization of the distribution of degrees of affiliation sets to affiliates",
+      "sec_num": "5"
+    },
+    {
+      "text": "Characterization of the distribution of degrees of affiliation sets to affiliates",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Relevance of annotations",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Druggability and annotations",
+      "sec_num": "5.2.1"
+    },
+    {
+      "text": "Druggability and p-values",
+      "sec_num": "5.2.2"
+    },
+    {
+      "text": "Entropy of annotations by species",
+      "sec_num": "5.2.3"
+    },
+    {
+      "text": "P-values and entropy",
+      "sec_num": "5.2.4"
+    },
+    {
+      "text": "Analysis of similarities of layers",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Conclusions",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "Projection methods",
+      "sec_num": "6"
+    },
+    {
+      "text": "Projection methods",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "Networks obtained",
+      "sec_num": "6.2"
+    },
+    {
+      "text": "Topological measures of interest",
+      "sec_num": "6.3"
+    },
+    {
+      "text": "Transitivity",
+      "sec_num": "6.3.1"
+    },
+    {
+      "text": "Centrality",
+      "sec_num": "6.3.2"
+    },
+    {
+      "text": "Associativeness",
+      "sec_num": "6.3.3"
+    },
+    {
+      "text": "Prioritization of drugs from strongly related domains",
+      "sec_num": "6.4"
+    },
+    {
+      "text": "Drug prediction from domain architecture",
+      "sec_num": "6.5"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "6.6"
+    },
+    {
+      "text": "Analysis of drug-protein connections",
+      "sec_num": "7"
+    },
+    {
+      "text": "Analysis of drug-protein connections",
+      "sec_num": "7.1"
+    },
+    {
+      "text": "Timeless analysis of drug-protein connections",
+      "sec_num": "7.1.1"
+    },
+    {
+      "text": "Temporal evolution",
+      "sec_num": "7.1.2"
+    },
+    {
+      "text": "Prioritization",
+      "sec_num": "7.2"
+    },
+    {
+      "text": "Validation of the prioritization and target-species linkage methods",
+      "sec_num": "7.2.1"
+    },
+    {
+      "text": "Structure, flow in the network and prioritization",
+      "sec_num": "7.2.2"
+    },
+    {
+      "text": "Drug and flux",
+      "sec_num": "7.2.3"
+    },
+    {
+      "text": "Conclusion",
+      "sec_num": "7.3"
+    },
+    {
+      "text": "Conclusions",
+      "sec_num": ""
+    },
+    {
+      "text": "Subgraphs, Connexity and Giant Component",
+      "sec_num": "A"
+    },
+    {
+      "text": "Subgraphs, Connexity and Giant Component",
+      "sec_num": "A.1"
+    },
+    {
+      "text": "Heavy Graphs",
+      "sec_num": "A.1.1"
+    },
+    {
+      "text": "Adjacency matrix and weight matrix",
+      "sec_num": "A.1.2"
+    },
+    {
+      "text": "Principal Topological Observables",
+      "sec_num": "A.2"
+    },
+    {
+      "text": "Distribution of degree, assortativity and disassortativity",
+      "sec_num": "A.2.1"
+    },
+    {
+      "text": "Assortativity",
+      "sec_num": "A.2.2"
+    },
+    {
+      "text": "Clustering coefficient",
+      "sec_num": "A.2.3"
+    },
+    {
+      "text": "Centrality",
+      "sec_num": "A.2.4"
+    },
+    {
+      "text": "Modular structure and partitions",
+      "sec_num": "A.3"
+    },
+    {
+      "text": "Modular structure and quality of a partition",
+      "sec_num": "A.3.1"
+    },
+    {
+      "text": "Comparison between partitions",
+      "sec_num": "A.3.2"
+    },
+    {
+      "text": "Clustering algorithms considered",
+      "sec_num": "A.3.3"
+    },
+    {
+      "text": "Bibliography",
+      "sec_num": ""
+    }
   ],
+  "figure_count": 0,
+  "formula_count": 0,
+  "reference_count": 0,
   "page_count": 10
 }

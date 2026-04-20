@@ -2,44 +2,155 @@
   "paper_id": "e604e46f-de1a-438c-9b1b-f13a6168146e",
   "arxiv_id": "2602.14275",
   "model": "gemini-2.5-flash",
+  "schema_version": 2,
   "headings": [
-    "Introduction",
-    "The Imperative for Behavioral Testing in AI/ML and Quantum Systems",
-    "Limitations of Input-Centric N-Wise Combinatorial Testing",
-    "Reverse N-Wise Output Testing: Paradigm Inversion",
-    "Research Contributions",
-    "Related Work",
-    "Classical Combinatorial Testing",
-    "Testing of AI/ML Systems",
-    "Quantum Software Testing",
-    "Input-Output Relation Combinatorial Testing",
-    "Research Gap",
-    "Formal Mathematical Framework",
-    "System Model and Output Abstraction",
-    "Output Covering Arrays: Definitions and Theory",
-    "Reverse N-Wise Testing Methodology",
-    "Black-Box Inverse Mapping",
-    "Coverage Metrics and Guarantees",
-    "Empirical Evaluation on Adult UCI Dataset",
-    "Dataset and ML Model",
-    "Baselines for Comparison",
-    "Fault Injection",
-    "Results",
-    "Analysis and Discussion",
-    "Research Questions and Findings",
-    "Threats to Validity and Mitigations",
-    "Comparison to State-of-the-Art",
-    "Limitations and Scope",
-    "MLOps and Quantum Validation Integration",
-    "End-to-End MLOps Pipeline",
-    "Production Monitoring and Drift Detection",
-    "Quantum software (NISQ/VQE)",
-    "Scalability Characteristics",
-    "Conclusion and Future Work",
-    "Summary of Contributions",
-    "Theoretical and Practical Implications",
-    "Future Research Directions",
-    "References"
+    {
+      "text": "Introduction",
+      "sec_num": "1"
+    },
+    {
+      "text": "The Imperative for Behavioral Testing in AI/ML and Quantum Systems",
+      "sec_num": "1.1"
+    },
+    {
+      "text": "N-Wise Combinatorial Testing in AI/ML Systems",
+      "sec_num": "1.2"
+    },
+    {
+      "text": "Reverse N-Wise Output Testing: Paradigm Inversion",
+      "sec_num": "1.3"
+    },
+    {
+      "text": "Research Contributions",
+      "sec_num": "1.4"
+    },
+    {
+      "text": "Related Work",
+      "sec_num": "2"
+    },
+    {
+      "text": "Classical Combinatorial Testing",
+      "sec_num": "2.1"
+    },
+    {
+      "text": "Testing of AI/ML Systems",
+      "sec_num": "2.2"
+    },
+    {
+      "text": "Quantum Software Testing",
+      "sec_num": "2.3"
+    },
+    {
+      "text": "Input-Output Relation Combinatorial Testing",
+      "sec_num": "2.4"
+    },
+    {
+      "text": "Research Gap",
+      "sec_num": "2.5"
+    },
+    {
+      "text": "Formal Mathematical Framework",
+      "sec_num": "3.1"
+    },
+    {
+      "text": "Output Covering Arrays: Definitions and Theory",
+      "sec_num": "3.2"
+    },
+    {
+      "text": "Reverse N-Wise Testing",
+      "sec_num": "3.3"
+    },
+    {
+      "text": "Black-Box Inverse Mapping",
+      "sec_num": "3.4"
+    },
+    {
+      "text": "Coverage Metrics and Guarantees",
+      "sec_num": "3.5"
+    },
+    {
+      "text": "Empirical Evaluation on Adult UCI Dataset",
+      "sec_num": "4"
+    },
+    {
+      "text": "Dataset and ML Model",
+      "sec_num": "4.1"
+    },
+    {
+      "text": "Baselines for Comparison",
+      "sec_num": "4.2"
+    },
+    {
+      "text": "Fault Injection",
+      "sec_num": "4.3"
+    },
+    {
+      "text": "Results",
+      "sec_num": "4.4"
+    },
+    {
+      "text": "Analysis and Discussion",
+      "sec_num": "5"
+    },
+    {
+      "text": "Research Questions and Findings",
+      "sec_num": "5.1"
+    },
+    {
+      "text": "Threats to Validity and Mitigations",
+      "sec_num": "5.2"
+    },
+    {
+      "text": "Comparison to State-of-the-Art",
+      "sec_num": "5.3"
+    },
+    {
+      "text": "Limitations and Scope",
+      "sec_num": "5.4"
+    },
+    {
+      "text": "MLOps and Quantum Validation Integration",
+      "sec_num": "6"
+    },
+    {
+      "text": "End-to-End MLOps Pipeline",
+      "sec_num": "6.1"
+    },
+    {
+      "text": "Production Monitoring and Drift Detection",
+      "sec_num": "6.2"
+    },
+    {
+      "text": "Quantum Software Validation (NISQ/VQE)",
+      "sec_num": "6.3"
+    },
+    {
+      "text": "Scalability Characteristics",
+      "sec_num": "6.4"
+    },
+    {
+      "text": "Tooling Integration",
+      "sec_num": "6.5"
+    },
+    {
+      "text": "Conclusion and Future Work",
+      "sec_num": "7"
+    },
+    {
+      "text": "Summary of Contributions",
+      "sec_num": "7.1"
+    },
+    {
+      "text": "Theoretical and Practical Implications",
+      "sec_num": "7.2"
+    },
+    {
+      "text": "Future Research Directions",
+      "sec_num": "7.3"
+    }
   ],
+  "figure_count": 3,
+  "formula_count": 7,
+  "reference_count": 11,
   "page_count": 7
 }
