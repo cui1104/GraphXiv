@@ -138,6 +138,15 @@ This phase does **not** modify `app/`, `sdk/`, or `benchmark/`. All new code liv
 - **D-30 (Tool-call capture via non-invasive wrapping):** The runner captures agent tool calls by wrapping `agent.tool_executor.execute_tool_call` and `agent.client.chat.completions.create` at instance-attribute level. No edits to `sdk/deepxiv_sdk/**` — Anti-Pattern 2 holds. This is strictly more capable than the plan's monkey-patch of `deepxiv_sdk.agent.graph.get_tools_definition` because the plan's baseline would have no tool-exclusion effect under D-20 (see D-27.1).
 - **D-31 (Output schema per row, D-13 descendant):** Each JSONL row is `{run_id, question_id, condition, model, seed, timestamp, prompt_hash, system_fingerprint, answer_text, tool_calls[], tokens_used{prompt,completion,total}, latency_s, error}`. `tool_calls` is `[]` for `title_only` by construction.
 
+### Wave 2 execution (2026-04-21) refinements
+
+- **D-32 (Wave 2 scope alignment with Wave 1 artifacts):** Plan `08-03-PLAN.md` was drafted before Wave 1 landed and assumes `baseline`/`citation_aware` condition labels, a flat `eval/results/runs.jsonl` input, and a flat `eval/results/scores.jsonl` output. Wave 2 reconciles with Wave 1's actual artifacts (D-27, D-29):
+    - `eval/score.py` consumes `{run_dir}/with_tools/rows.jsonl` + `{run_dir}/title_only/rows.jsonl` and writes `{run_dir}/scores.jsonl` — one scorer run per experimental run directory, so multiple experiments remain cleanly separable. `scores.jsonl` is gitignored via the existing `eval/results/run_*/` rule.
+    - `eval/analyze.py` consumes that same per-run `scores.jsonl` (plus the co-located `rows.jsonl` files for latency / token stats) and writes `eval/FINDINGS.md` at the repo-committed location.
+    - Paired position-bias ordering uses `sha256(question_id) % 2` to pick which of `{with_tools, title_only}` is shown as answer A, then stores the resolved `presentation_order` on every score row so downstream re-association is deterministic.
+- **D-33 (Wave 2 notebook deferred):** The Wave 2 matplotlib notebook (`eval/notebook/eval_analysis.ipynb`) listed in `08-03-PLAN.md` Task 3 is **deferred**. FINDINGS.md is the headline deliverable and is produced without figures in Wave 2; the notebook can be added later if a reviewer requests visuals. This keeps Wave 2 scope focused on the 4 deliverables the user explicitly listed (score.py, analyze.py, FINDINGS.md, tests).
+- **D-34 (FINDINGS section set):** Wave 2 ships FINDINGS.md with 8 sections aligned to the user's explicit task spec rather than the 10 listed in the plan: Executive Summary, Question-Set Overview, Per-Condition Score Distributions, Paired Deltas, Statistical Tests (Wilcoxon + bootstrap CIs), LLM-vs-Deterministic Citation Coverage Agreement (Spearman + exact-match), Limitations, Reproducibility Notes. Per-question-type and Latency are folded into existing sections. Still ≥80 lines, still covers D-20 intent.
+
 ### Claude's Discretion
 - Exact prompt wording for `build_questions.py` proposal step
 - Exact judge prompt (may iterate to reduce position-bias variance)

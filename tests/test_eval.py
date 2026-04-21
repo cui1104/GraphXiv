@@ -502,3 +502,240 @@ def test_run_all_aggregates_errors_and_non_error_rows_separately(tmp_path, monke
     # title_only has no errors
     to = manifest["per_condition"]["title_only"]
     assert to["error"] == 0 and to["success"] == 2
+
+
+# ---------- score.py tests (EVAL-03) ----------
+
+def test_score_rubric_parse_rejects_malformed_judge_json():
+    """D-23: parse_judge_verdict rejects non-JSON, out-of-range ints, non-int dims,
+    missing answer_b — and accepts a well-formed verdict."""
+    from eval.score import parse_judge_verdict
+
+    with pytest.raises(json.JSONDecodeError):
+        parse_judge_verdict("not json at all")
+
+    # non-int dimension
+    with pytest.raises(ValueError):
+        parse_judge_verdict(json.dumps({
+            "answer_a": {"answer_correctness": "five", "faithfulness": 3,
+                         "citation_coverage": 3, "completeness": 3, "notes": ""},
+            "answer_b": {"answer_correctness": 3, "faithfulness": 3,
+                         "citation_coverage": 3, "completeness": 3, "notes": ""},
+        }))
+
+    # out-of-range dimension
+    with pytest.raises(ValueError):
+        parse_judge_verdict(json.dumps({
+            "answer_a": {"answer_correctness": 7, "faithfulness": 3,
+                         "citation_coverage": 3, "completeness": 3, "notes": ""},
+            "answer_b": {"answer_correctness": 3, "faithfulness": 3,
+                         "citation_coverage": 3, "completeness": 3, "notes": ""},
+        }))
+
+    # missing answer_b
+    with pytest.raises(ValueError):
+        parse_judge_verdict(json.dumps({
+            "answer_a": {"answer_correctness": 3, "faithfulness": 3,
+                         "citation_coverage": 3, "completeness": 3, "notes": ""},
+        }))
+
+    good = {
+        "answer_a": {"answer_correctness": 5, "faithfulness": 4,
+                     "citation_coverage": 3, "completeness": 5, "notes": "ok"},
+        "answer_b": {"answer_correctness": 2, "faithfulness": 3,
+                     "citation_coverage": 2, "completeness": 2, "notes": "meh"},
+    }
+    assert parse_judge_verdict(json.dumps(good)) == good
+
+
+def test_score_deterministic_citation_coverage_arithmetic():
+    """D-19: |gold ∩ arxiv_ids_in_tool_calls| / |gold|. Empty gold => 0.0.
+    Empty tool_calls => 0.0. Detects via arxiv_id_hit, arguments.arxiv_id,
+    arguments.paper_id, arguments.id."""
+    from eval.score import deterministic_citation_coverage
+
+    gold = ["1706.03762", "1810.04805", "2005.14165"]
+
+    tool_calls = [
+        {"name": "search_papers", "arguments": {"q": "x"}, "arxiv_id_hit": None},
+        {"name": "fetch_cited_paper_sections",
+         "arguments": {"arxiv_id": "1706.03762"}, "arxiv_id_hit": "1706.03762"},
+        {"name": "load_paper",
+         "arguments": {"paper_id": "1810.04805"}, "arxiv_id_hit": "1810.04805"},
+    ]
+    assert deterministic_citation_coverage(gold, tool_calls) == pytest.approx(2 / 3)
+
+    # Edge cases
+    assert deterministic_citation_coverage([], tool_calls) == 0.0
+    assert deterministic_citation_coverage(gold, []) == 0.0
+    assert deterministic_citation_coverage(["9999.99999"], tool_calls) == 0.0
+    # All three covered via different surfaces (id key + arxiv_id_hit)
+    tool_calls_all = tool_calls + [
+        {"name": "head", "arguments": {"id": "2005.14165"}, "arxiv_id_hit": None},
+    ]
+    assert deterministic_citation_coverage(gold, tool_calls_all) == pytest.approx(1.0)
+
+
+def test_score_question_with_mocked_openai_client():
+    """D-24: score_question works with a MagicMock OpenAI client — no network.
+    Also asserts the Anti-Pattern 7 invariant (gold_answer_keywords NOT in prompt)
+    and D-11/D-16 wiring (json_schema strict, temperature=0, seed=42)."""
+    from eval.score import score_question
+
+    mock_client = MagicMock()
+    mock_resp = MagicMock()
+    mock_resp.choices = [MagicMock(message=MagicMock(content=json.dumps({
+        "answer_a": {"answer_correctness": 5, "faithfulness": 4,
+                     "citation_coverage": 4, "completeness": 5, "notes": "A is thorough"},
+        "answer_b": {"answer_correctness": 3, "faithfulness": 3,
+                     "citation_coverage": 2, "completeness": 3, "notes": "B is shallower"},
+    })))]
+    mock_resp.system_fingerprint = "fp_test"
+    mock_resp.usage = MagicMock(prompt_tokens=500, completion_tokens=80, total_tokens=580)
+    mock_client.chat.completions.create.return_value = mock_resp
+
+    question = {
+        "question_id": "Q001",
+        "question_type": "method-dependency",
+        "seed_arxiv_id": "2401.00001",
+        "gold_cited_arxiv_ids": ["1706.03762", "1810.04805"],
+        "gold_answer_keywords": ["attention", "self-supervised"],  # MUST NOT leak
+        "question_text": "How does X use attention?",
+        "human_notes": "",
+    }
+    run_wt = {
+        "question_id": "Q001", "condition": "with_tools",
+        "answer_text": "with_tools answer body",
+        "tool_calls": [
+            {"name": "search_papers", "arguments": {"q": "x"}, "arxiv_id_hit": None},
+            {"name": "fetch_cited_paper_sections",
+             "arguments": {"arxiv_id": "1706.03762"}, "arxiv_id_hit": "1706.03762"},
+        ],
+    }
+    run_to = {
+        "question_id": "Q001", "condition": "title_only",
+        "answer_text": "title_only answer body", "tool_calls": [],
+    }
+
+    rows = score_question(question, run_wt, run_to, mock_client, "RUBRIC TEXT HERE")
+    assert len(rows) == 2
+    assert {r["condition"] for r in rows} == {"with_tools", "title_only"}
+
+    for r in rows:
+        assert r["scores_schema_version"] == 1
+        for dim in ("answer_correctness", "faithfulness", "citation_coverage", "completeness"):
+            assert 1 <= r[dim] <= 5
+        assert r["judge_model"] == "gpt-4o-mini"
+        assert r["judge_seed"] == 42
+        assert r["judge_temperature"] == 0.0
+        assert r["judge_system_fingerprint"] == "fp_test"
+        assert 0.0 <= r["deterministic_citation_coverage"] <= 1.0
+
+    wt_row = next(r for r in rows if r["condition"] == "with_tools")
+    to_row = next(r for r in rows if r["condition"] == "title_only")
+    # title_only has no tool_calls → deterministic coverage is 0 by definition
+    assert to_row["deterministic_citation_coverage"] == 0.0
+    # with_tools hit 1 of 2 gold ids
+    assert wt_row["deterministic_citation_coverage"] == pytest.approx(0.5)
+
+    # Audit the judge call: gold_answer_keywords must NOT be in the prompt (Anti-Pattern 7)
+    _, kwargs = mock_client.chat.completions.create.call_args
+    system_content = kwargs["messages"][0]["content"]
+    user_content = kwargs["messages"][1]["content"]
+    assert "gold_answer_keywords" not in system_content
+    assert "gold_answer_keywords" not in user_content
+    assert "self-supervised" not in user_content  # individual keyword must not leak
+
+    # response_format + sampling params (D-11 / D-16)
+    assert kwargs["response_format"]["type"] == "json_schema"
+    assert kwargs["response_format"]["json_schema"]["strict"] is True
+    assert kwargs["temperature"] == 0.0
+    assert kwargs["seed"] == 42
+    assert kwargs["model"] == "gpt-4o-mini"
+
+    # presentation_order is deterministic and consistent across both rows
+    assert rows[0]["presentation_order"] == rows[1]["presentation_order"]
+    assert set(rows[0]["presentation_order"]) == {"with_tools", "title_only"}
+
+
+def test_score_run_resume_skips_done_questions(tmp_path, monkeypatch):
+    """Resumability (D-14): a question with both-condition rows already in
+    scores.jsonl is skipped on re-run; the OpenAI client is not called."""
+    from eval import score as score_mod
+
+    run_dir = tmp_path / "run_x"
+    (run_dir / "with_tools").mkdir(parents=True)
+    (run_dir / "title_only").mkdir(parents=True)
+
+    def _wrow(qid):
+        return {"question_id": qid, "condition": "with_tools",
+                "answer_text": "a", "tool_calls": [], "error": None}
+
+    def _trow(qid):
+        return {"question_id": qid, "condition": "title_only",
+                "answer_text": "b", "tool_calls": [], "error": None}
+
+    with open(run_dir / "with_tools" / "rows.jsonl", "w") as f:
+        for qid in ("Q001", "Q002"):
+            f.write(json.dumps(_wrow(qid)) + "\n")
+    with open(run_dir / "title_only" / "rows.jsonl", "w") as f:
+        for qid in ("Q001", "Q002"):
+            f.write(json.dumps(_trow(qid)) + "\n")
+
+    qpath = tmp_path / "questions.json"
+    qpath.write_text(json.dumps({
+        "questions_schema_version": 1,
+        "questions": [
+            {"question_id": "Q001", "question_type": "method-dependency",
+             "seed_arxiv_id": "2401.0001", "gold_cited_arxiv_ids": ["1.1"],
+             "gold_answer_keywords": ["k"], "question_text": "q1", "human_notes": ""},
+            {"question_id": "Q002", "question_type": "comparative",
+             "seed_arxiv_id": "2401.0002", "gold_cited_arxiv_ids": ["2.2"],
+             "gold_answer_keywords": ["k"], "question_text": "q2", "human_notes": ""},
+        ],
+    }))
+
+    # Seed scores.jsonl with Q001 already done (both conditions)
+    with open(run_dir / "scores.jsonl", "w") as f:
+        for cond in ("with_tools", "title_only"):
+            f.write(json.dumps({
+                "scores_schema_version": 1, "question_id": "Q001",
+                "condition": cond, "answer_correctness": 3, "faithfulness": 3,
+                "citation_coverage": 3, "completeness": 3,
+                "deterministic_citation_coverage": 0.0, "error": None,
+            }) + "\n")
+
+    # Build a mock client factory that records calls; wire only Q002 verdict
+    call_counter = {"n": 0}
+
+    def make_client():
+        client = MagicMock()
+        resp = MagicMock()
+        resp.choices = [MagicMock(message=MagicMock(content=json.dumps({
+            "answer_a": {"answer_correctness": 4, "faithfulness": 4,
+                         "citation_coverage": 4, "completeness": 4, "notes": ""},
+            "answer_b": {"answer_correctness": 2, "faithfulness": 2,
+                         "citation_coverage": 2, "completeness": 2, "notes": ""},
+        })))]
+        resp.system_fingerprint = "fp_resume"
+        resp.usage = MagicMock(prompt_tokens=1, completion_tokens=1, total_tokens=2)
+
+        def _create(**kw):
+            call_counter["n"] += 1
+            return resp
+
+        client.chat.completions.create = MagicMock(side_effect=_create)
+        return client
+
+    monkeypatch.setenv("OPENAI_API_KEY", "sk-test")
+    summary = score_mod.score_run(
+        run_dir=run_dir,
+        questions_path=qpath,
+        rubric_path=Path(__file__).resolve().parents[1] / "eval" / "rubric.md",
+        client_factory=make_client,
+    )
+
+    assert summary["done"] == 1  # Q001 was already scored
+    assert summary["pending"] == 1  # only Q002 remained
+    assert summary["written"] == 2  # two rows (one per condition) for Q002
+    assert call_counter["n"] == 1  # exactly one judge call (Q002)
