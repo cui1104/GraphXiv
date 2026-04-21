@@ -38,7 +38,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | 5 - REST API | ✓ Complete | 3 | FastAPI, Redis caching, all 9 endpoints |
 | 6 - SDK Fork + Verification | ○ Pending | 3 | Fork deepxiv_sdk, test suite, new feature |
 | 7 - Benchmark | ↻ In Progress | 4 | 07-01 ✓, 07-02 ✓ (v1 CSV), 07-02.5 pending (metric overhaul), 07-03 pending (analysis) |
-| 8 - Agent Evaluation | ↻ In Progress | 3 | 08-01 ✓ (eval/ scaffold + 30-q set via deterministic fill), 08-02 pending (paired runner), 08-03 pending (score + analyze) |
+| 8 - Agent Evaluation | ↻ In Progress | 3 | 08-01 ✓ (eval/ scaffold + 30-q set regenerated via gpt-4o-mini over real citation graph; Wave 0 complete), 08-02 pending (paired runner), 08-03 pending (score + analyze) |
 
 ## Key Decisions Made
 
@@ -104,6 +104,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - eval/ package scaffolded mirroring benchmark/ layout per D-01; eval extras group (openai, scipy, matplotlib, pandas, notebook) appended to pyproject optional-dependencies (08-01)
 - eval/build_questions.py ships propose/promote/auto-promote-all (D-05) PLUS a new --deterministic-fill offline fallback that unblocks 08-02/08-03 when OPENAI_API_KEY is unset or docker api is down (08-01)
 - eval/questions.json generated via --deterministic-fill: 30 questions, stratified 10/10/10 per D-03, all arxiv_ids drawn from benchmark/sample.json so corpus membership (D-07) holds by construction (08-01)
+- 08-01 Wave 0 regenerated with REAL citation graph (2026-04-21): ingested 150 seeds + cited targets via eval/ingest_for_eval.py (host-mode GROBID), enriched paper_citations with arxiv_id regex over raw_text (unlocks 55 seeds w/ >=1 in-corpus cite, 16 w/ >=3), and redrafted eval/questions.json with gpt-4o-mini --propose --auto-promote-all: 30 questions across 10 seeds, mean 3.8 gold cites (08-01)
+- D-20 (2026-04-21): gold_cited_arxiv_ids require only in_corpus=True + resolvable arxiv_id, not populated sections — 105k-corpus is metadata-mostly; agent uses reader.head() head-level metadata (08-01)
 
 ## Performance Metrics
 
@@ -153,5 +155,5 @@ Blocks 07-03 (analyze_results + FINDINGS.md + notebook). Archive current CSV as 
 
 ## Session
 
-Last updated: 2026-04-19
-Stopped at: Completed 08-01-PLAN.md (eval scaffold + questions.json)
+Last updated: 2026-04-21
+Stopped at: Completed 08-01 Wave 0 regeneration (real citation graph; eval/questions.json = 30 q, 10/10/10, mean 3.8 gold cites)
