@@ -10,3 +10,9 @@ dist/
 build/
 *.so
 .DS_Store
+
+# Phase 8 eval run outputs (D-29): regenerate via `python eval/run_eval.py`
+eval/results/run_*/
+eval/results/runs.jsonl
+eval/results/scores.jsonl
+eval/results/*.jsonl
