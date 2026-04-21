@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 08-01-PLAN.md (eval scaffold + questions.json)
-last_updated: "2026-04-21T17:29:57.677Z"
+stopped_at: Completed 08-03-PLAN.md (LLM judge + FINDINGS.md — Phase 8 Wave 2)
+last_updated: "2026-04-21T21:20:00.000Z"
 progress:
   total_phases: 8
   completed_phases: 7
-  total_plans: 26
-  completed_plans: 24
+  total_plans: 27
+  completed_plans: 26
 ---
 
 # Project State
@@ -25,7 +25,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 **Milestone:** v1 — End-to-End Platform
 **Active Phase:** Phase 07 — Benchmark (2/4 plans complete — 07-02.5 inserted)
-**Last Action:** Completed 07-02 benchmark CSV (600 rows on RunPod RTX 4090, all 4 conditions at 150/150). Analysis revealed precision-only metrics bias results toward GROBID and don't exercise router's dot-count hierarchy win. Plan 07-02.5 created to overhaul metrics + GT schema before 07-03 analysis. (2026-04-19)
+**Last Action:** Phase 8 Wave 2 complete. Paired LLM-judge scoring over 30 questions × 2 conditions yielded with_tools >> title_only at p<1e-7 on all four rubric dimensions (answer_correctness, faithfulness, citation_coverage, completeness); judge↔deterministic citation_coverage agreement Spearman ρ=0.992, exact-bucket match 93.3%. Findings in eval/FINDINGS.md; scores gitignored at eval/results/run_20260421_201456/scores.jsonl. (2026-04-21)
 
 ## Phase Progress
 
@@ -38,7 +38,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | 5 - REST API | ✓ Complete | 3 | FastAPI, Redis caching, all 9 endpoints |
 | 6 - SDK Fork + Verification | ○ Pending | 3 | Fork deepxiv_sdk, test suite, new feature |
 | 7 - Benchmark | ↻ In Progress | 4 | 07-01 ✓, 07-02 ✓ (v1 CSV), 07-02.5 pending (metric overhaul), 07-03 pending (analysis) |
-| 8 - Agent Evaluation | ↻ In Progress | 3 | 08-01 ✓ (eval/ scaffold + 30-q set regenerated via gpt-4o-mini over real citation graph; Wave 0 complete), 08-02 pending (paired runner), 08-03 pending (score + analyze) |
+| 8 - Agent Evaluation | ✓ Complete | 3 | 08-01 ✓ (eval/ scaffold + 30-q set), 08-02 ✓ (paired with_tools/title_only runner, D-27), 08-03 ✓ (LLM judge + FINDINGS.md; with_tools wins all 4 dims at p<1e-7; judge↔deterministic ρ=0.992) |
 
 ## Key Decisions Made
 

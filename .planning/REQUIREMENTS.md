@@ -66,8 +66,15 @@
 ### Benchmark
 
 - [x] **BENCH-01**: Benchmark evaluates four conditions — MinerU standalone, GROBID standalone, Docling standalone, and this system's router — on exactly 150 arXiv DL papers, including at least 30 two-column IEEE/ACM-format papers
-- [ ] **BENCH-02**: Benchmark measures section extraction accuracy (heading match rate, coherent body text %) and table extraction quality (presence rate, structural completeness) for all four conditions; results output to a single CSV with a condition column
-- [ ] **BENCH-03**: Benchmark findings are written up as a structured report with a four-column comparison table (MinerU | GROBID | Docling | Router), sample selection methodology, multi-column failure characterization, and parser recommendation
+- [x] **BENCH-02**: Benchmark measures section extraction accuracy (heading match rate, coherent body text %) and table extraction quality (presence rate, structural completeness) for all four conditions; results output to a single CSV with a condition column
+- [x] **BENCH-03**: Benchmark findings are written up as a structured report with a four-column comparison table (MinerU | GROBID | Docling | Router), sample selection methodology, multi-column failure characterization, and parser recommendation
+
+### Agent Evaluation (Phase 8)
+
+- [x] **EVAL-01**: A reproducible QA evaluation set exists (≥30 questions grounded in corpus papers, each with a gold reference paper + paired cited-paper evidence) stored at `eval/questions.json` with a documented construction method.
+- [x] **EVAL-02**: A paired A/B runner (`eval/run_eval.py`) executes the baseline Agent (titles-only: `get_references` / `get_cited_by`) and the citation-aware Agent (`fetch_cited_paper_sections`, `citation_depth≥1`) on every question, using the **same LLM, temperature, and seed**, and records answer text, tool calls, tokens, and wallclock per condition. *(Wave 1 shipped `with_tools` vs `title_only` per D-27 — stricter contrast than the plan's baseline split.)*
+- [x] **EVAL-03**: An LLM-as-judge scorer (`eval/score.py`) produces per-question scores (answer_correctness, faithfulness/grounding, citation_coverage, completeness) on a 1–5 scale for both conditions with a documented rubric and per-question justifications in `eval/results/scores.jsonl`.
+- [x] **EVAL-04**: A findings report (`eval/FINDINGS.md`) documents the paired win-rate, mean-score deltas per dimension, cost/latency tradeoff, failure modes, and a recommendation on default `citation_depth`. *(Notebook deferred per D-33; can be added later if a reviewer requests visuals.)*
 
 ---
 
@@ -154,8 +161,12 @@
 | SDK-03 | Phase 6 | Complete |
 | SDK-04 | Phase 6 | Complete |
 | BENCH-01 | Phase 7 | Complete |
-| BENCH-02 | Phase 7 | Pending |
-| BENCH-03 | Phase 7 | Pending |
+| BENCH-02 | Phase 7 | Complete |
+| BENCH-03 | Phase 7 | Complete |
+| EVAL-01 | Phase 8 | Complete |
+| EVAL-02 | Phase 8 | Complete |
+| EVAL-03 | Phase 8 | Complete |
+| EVAL-04 | Phase 8 | Complete |
 
 **Coverage:**
 - v1 requirements: 42 total
