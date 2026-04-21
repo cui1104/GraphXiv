@@ -739,3 +739,173 @@ def test_score_run_resume_skips_done_questions(tmp_path, monkeypatch):
     assert summary["pending"] == 1  # only Q002 remained
     assert summary["written"] == 2  # two rows (one per condition) for Q002
     assert call_counter["n"] == 1  # exactly one judge call (Q002)
+
+
+# ---------- analyze.py tests (EVAL-04) ----------
+
+def test_analyze_aggregation_hand_computed():
+    """Hand-computed expectation: paired_deltas returns with_tools - title_only
+    per question, and summarize_condition averages correctly per dimension."""
+    from eval.analyze import paired_deltas, summarize_condition
+
+    scores = [
+        {"question_id": "Q1", "condition": "title_only",
+         "answer_correctness": 3, "faithfulness": 3, "citation_coverage": 2,
+         "completeness": 3, "deterministic_citation_coverage": 0.0, "error": None},
+        {"question_id": "Q1", "condition": "with_tools",
+         "answer_correctness": 5, "faithfulness": 4, "citation_coverage": 5,
+         "completeness": 4, "deterministic_citation_coverage": 1.0, "error": None},
+        {"question_id": "Q2", "condition": "title_only",
+         "answer_correctness": 4, "faithfulness": 4, "citation_coverage": 3,
+         "completeness": 4, "deterministic_citation_coverage": 0.5, "error": None},
+        {"question_id": "Q2", "condition": "with_tools",
+         "answer_correctness": 4, "faithfulness": 5, "citation_coverage": 4,
+         "completeness": 5, "deterministic_citation_coverage": 1.0, "error": None},
+    ]
+    deltas_ac = dict(paired_deltas(scores, "answer_correctness"))
+    assert deltas_ac["Q1"] == 2.0
+    assert deltas_ac["Q2"] == 0.0
+
+    deltas_cc = dict(paired_deltas(scores, "citation_coverage"))
+    assert deltas_cc["Q1"] == 3.0 and deltas_cc["Q2"] == 1.0
+
+    summ_to = summarize_condition(scores, "title_only")
+    assert summ_to["answer_correctness"]["mean"] == pytest.approx(3.5)
+    assert summ_to["faithfulness"]["n"] == 2
+
+    summ_wt = summarize_condition(scores, "with_tools")
+    assert summ_wt["citation_coverage"]["mean"] == pytest.approx(4.5)
+
+
+def test_analyze_wilcoxon_wrapper_all_zero_and_uniform_improvement():
+    """Wilcoxon wrapper must (a) degrade gracefully to p=1 on all-zero deltas,
+    and (b) detect a real uniform improvement at n=10 (p_greater < 0.05)."""
+    from eval.analyze import wilcoxon_test_four_dims
+
+    tied_scores = []
+    for i in range(5):
+        tied_scores.append({"question_id": f"Q{i}", "condition": "title_only",
+                            "answer_correctness": 3, "faithfulness": 3,
+                            "citation_coverage": 3, "completeness": 3,
+                            "deterministic_citation_coverage": 0.5, "error": None})
+        tied_scores.append({"question_id": f"Q{i}", "condition": "with_tools",
+                            "answer_correctness": 3, "faithfulness": 3,
+                            "citation_coverage": 3, "completeness": 3,
+                            "deterministic_citation_coverage": 0.5, "error": None})
+    w_tied = wilcoxon_test_four_dims(tied_scores)
+    for dim in ("answer_correctness", "faithfulness",
+                "citation_coverage", "completeness"):
+        assert w_tied[dim]["p_two_sided"] == 1.0
+        assert w_tied[dim]["p_greater"] == 1.0
+        assert w_tied[dim]["median_delta"] == 0.0
+        assert w_tied[dim]["effect_size_r"] == 0.0
+
+    up_scores = []
+    for i in range(10):
+        up_scores.append({"question_id": f"Q{i}", "condition": "title_only",
+                          "answer_correctness": 3, "faithfulness": 3,
+                          "citation_coverage": 3, "completeness": 3,
+                          "deterministic_citation_coverage": 0.0, "error": None})
+        up_scores.append({"question_id": f"Q{i}", "condition": "with_tools",
+                          "answer_correctness": 4, "faithfulness": 4,
+                          "citation_coverage": 4, "completeness": 4,
+                          "deterministic_citation_coverage": 1.0, "error": None})
+    w_up = wilcoxon_test_four_dims(up_scores)
+    for dim in ("answer_correctness", "faithfulness",
+                "citation_coverage", "completeness"):
+        assert w_up[dim]["median_delta"] == 1.0
+        assert w_up[dim]["mean_delta"] == 1.0
+        assert w_up[dim]["p_greater"] < 0.05
+        assert w_up[dim]["effect_size_r"] == pytest.approx(1.0)
+
+
+def test_analyze_deterministic_agreement_perfect_and_reversed():
+    """Spearman ρ should be +1 on rank-perfect monotone data and −1 on reversed
+    data. Also checks that the direction_agreement and exact_match_bucket
+    metrics compute sensibly."""
+    from eval.analyze import deterministic_agreement
+
+    perfect = [
+        {"question_id": "Q1", "condition": "with_tools",
+         "citation_coverage": 5, "deterministic_citation_coverage": 1.0, "error": None},
+        {"question_id": "Q2", "condition": "with_tools",
+         "citation_coverage": 4, "deterministic_citation_coverage": 0.7, "error": None},
+        {"question_id": "Q3", "condition": "with_tools",
+         "citation_coverage": 3, "deterministic_citation_coverage": 0.4, "error": None},
+        {"question_id": "Q4", "condition": "with_tools",
+         "citation_coverage": 2, "deterministic_citation_coverage": 0.2, "error": None},
+        {"question_id": "Q5", "condition": "with_tools",
+         "citation_coverage": 1, "deterministic_citation_coverage": 0.0, "error": None},
+    ]
+    out = deterministic_agreement(perfect)
+    assert out["n"] == 5
+    assert out["spearman_r"] == pytest.approx(1.0)
+    # All 5 rows pass the judge≥4 ↔ det≥0.5 direction test (row1/2 yes/yes,
+    # row3 no/no, row4 no/no, row5 no/no)
+    assert out["direction_agreement"] == pytest.approx(1.0)
+
+    reversed_scores = [
+        {"question_id": f"Q{i}", "condition": "with_tools",
+         "citation_coverage": 6 - (i + 1), "deterministic_citation_coverage": (i + 1) / 5,
+         "error": None}
+        for i in range(5)
+    ]
+    out_rev = deterministic_agreement(reversed_scores)
+    assert out_rev["spearman_r"] == pytest.approx(-1.0)
+
+
+def test_analyze_render_findings_has_all_required_sections(tmp_path):
+    """render_findings must produce ≥80 lines and contain the 8 mandated section
+    headers (Executive Summary, Question-Set Overview, ..., Reproducibility Notes)
+    plus 'Wilcoxon' and 'deterministic'."""
+    from eval.analyze import render_findings
+
+    scores = []
+    for i in range(10):
+        scores.append({"question_id": f"Q{i}", "condition": "title_only",
+                       "answer_correctness": 3, "faithfulness": 3,
+                       "citation_coverage": 2, "completeness": 3,
+                       "deterministic_citation_coverage": 0.0, "error": None})
+        scores.append({"question_id": f"Q{i}", "condition": "with_tools",
+                       "answer_correctness": 4, "faithfulness": 4,
+                       "citation_coverage": 4, "completeness": 4,
+                       "deterministic_citation_coverage": 0.8, "error": None})
+
+    runs_with = [
+        {"question_id": f"Q{i}", "condition": "with_tools",
+         "tool_calls": [{"name": "load_paper", "arguments": {"arxiv_id": "x"},
+                         "arxiv_id_hit": "x"}],
+         "tokens_used": {"total_tokens": 1000}, "latency_s": 10.0, "error": None}
+        for i in range(10)
+    ]
+    runs_title = [
+        {"question_id": f"Q{i}", "condition": "title_only", "tool_calls": [],
+         "tokens_used": {"total_tokens": 200}, "latency_s": 1.0, "error": None}
+        for i in range(10)
+    ]
+    questions = [
+        {"question_id": f"Q{i}",
+         "question_type": ["method-dependency", "comparative", "claim-grounding"][i % 3],
+         "seed_arxiv_id": f"2401.{i:05d}",
+         "gold_cited_arxiv_ids": ["x"], "gold_answer_keywords": [],
+         "question_text": f"Q{i}", "human_notes": ""}
+        for i in range(10)
+    ]
+
+    md = render_findings(scores, runs_with, runs_title, questions, run_dir=tmp_path)
+    assert len(md.splitlines()) >= 80
+    required_sections = [
+        "## 1. Executive Summary",
+        "## 2. Question-Set Overview",
+        "## 3. Per-Condition Score Distributions",
+        "## 4. Paired Deltas",
+        "## 5. Statistical Tests",
+        "## 6. LLM-vs-Deterministic Citation Coverage Agreement",
+        "## 7. Latency & Cost",
+        "## 8. Limitations",
+        "## 9. Reproducibility Notes",
+    ]
+    for header in required_sections:
+        assert header in md, f"missing header: {header}"
+    assert "Wilcoxon" in md
+    assert "deterministic" in md.lower()
