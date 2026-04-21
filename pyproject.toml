@@ -31,6 +31,13 @@ dev = [
     "pytest-timeout",
     "pytest-httpx",
 ]
+eval = [
+    "openai>=1.50.0",
+    "scipy>=1.11",
+    "matplotlib>=3.8",
+    "pandas>=2.0",
+    "notebook>=7.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

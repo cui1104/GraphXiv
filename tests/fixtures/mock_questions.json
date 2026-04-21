@@ -1,0 +1,32 @@
+{
+  "questions_schema_version": 1,
+  "questions": [
+    {
+      "question_id": "Q001",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2401.00001",
+      "gold_cited_arxiv_ids": ["1706.03762", "1810.04805"],
+      "gold_answer_keywords": ["attention", "transformer"],
+      "question_text": "How does paper X adapt the attention mechanism from the Transformer paper?",
+      "human_notes": "Tests method-dependency reading."
+    },
+    {
+      "question_id": "Q002",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2401.00002",
+      "gold_cited_arxiv_ids": ["2005.14165", "2203.02155"],
+      "gold_answer_keywords": ["instruction tuning", "RLHF"],
+      "question_text": "How does paper Y differ from GPT-3 in its fine-tuning approach?",
+      "human_notes": "Tests comparative reading."
+    },
+    {
+      "question_id": "Q003",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2401.00003",
+      "gold_cited_arxiv_ids": ["1412.6980", "1502.03167"],
+      "gold_answer_keywords": ["Adam", "batch normalization"],
+      "question_text": "What evidence does paper Z cite to support its choice of optimizer?",
+      "human_notes": "Tests claim-grounding."
+    }
+  ]
+}
