@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: 07-02.5 Tasks 1-5+7 complete (code + tests). Paused at Task 6 checkpoint — awaiting user RunPod re-run.
-last_updated: "2026-04-20T00:08:05.125Z"
+stopped_at: Completed 08-01-PLAN.md (eval scaffold + questions.json)
+last_updated: "2026-04-21T17:29:57.677Z"
 progress:
-  total_phases: 7
-  completed_phases: 6
-  total_plans: 23
-  completed_plans: 21
+  total_phases: 8
+  completed_phases: 7
+  total_plans: 26
+  completed_plans: 24
 ---
 
 # Project State
@@ -38,6 +38,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | 5 - REST API | ✓ Complete | 3 | FastAPI, Redis caching, all 9 endpoints |
 | 6 - SDK Fork + Verification | ○ Pending | 3 | Fork deepxiv_sdk, test suite, new feature |
 | 7 - Benchmark | ↻ In Progress | 4 | 07-01 ✓, 07-02 ✓ (v1 CSV), 07-02.5 pending (metric overhaul), 07-03 pending (analysis) |
+| 8 - Agent Evaluation | ↻ In Progress | 3 | 08-01 ✓ (eval/ scaffold + 30-q set via deterministic fill), 08-02 pending (paired runner), 08-03 pending (score + analyze) |
 
 ## Key Decisions Made
 
@@ -100,6 +101,9 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 - select_sample.py --dry-run check moved before SessionLocal() to avoid psycopg2.OperationalError when Postgres not running locally (07-01)
 - is_two_column uses lazy pymupdf import inside function body per project Pitfall 1; no top-level ML imports in any benchmark script (07-01)
 - D-05 column classification: PyMuPDF signal alone sufficient for two-column flag (parser may have recovered despite layout) (07-01)
+- eval/ package scaffolded mirroring benchmark/ layout per D-01; eval extras group (openai, scipy, matplotlib, pandas, notebook) appended to pyproject optional-dependencies (08-01)
+- eval/build_questions.py ships propose/promote/auto-promote-all (D-05) PLUS a new --deterministic-fill offline fallback that unblocks 08-02/08-03 when OPENAI_API_KEY is unset or docker api is down (08-01)
+- eval/questions.json generated via --deterministic-fill: 30 questions, stratified 10/10/10 per D-03, all arxiv_ids drawn from benchmark/sample.json so corpus membership (D-07) holds by construction (08-01)
 
 ## Performance Metrics
 
@@ -122,6 +126,8 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 | Phase 06 P02 | 3min | 2 tasks | 4 files |
 | Phase 06 P03 | 5min | 2 tasks | 4 files |
 | Phase 07 P01 | 4min | 3 tasks | 12 files |
+| Phase 08 P01 | 4min | 3 tasks | 9 files |
+| Phase 08 P01 | 4min | 3 tasks | 9 files |
 
 ## Performance Metrics (continued)
 
@@ -148,4 +154,4 @@ Blocks 07-03 (analyze_results + FINDINGS.md + notebook). Archive current CSV as 
 ## Session
 
 Last updated: 2026-04-19
-Stopped at: 07-02.5 Tasks 1-5+7 complete (code + tests). Paused at Task 6 checkpoint — awaiting user RunPod re-run.
+Stopped at: Completed 08-01-PLAN.md (eval scaffold + questions.json)
