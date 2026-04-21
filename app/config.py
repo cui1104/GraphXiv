@@ -11,7 +11,9 @@ class Settings(BaseSettings):
     data_dir: str = "/data"
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(
+        env_file=".env", env_file_encoding="utf-8", extra="ignore"
+    )
 
 
 @lru_cache

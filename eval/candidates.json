@@ -1,4 +1,377 @@
 {
   "questions_schema_version": 1,
-  "questions": []
+  "questions": [
+    {
+      "question_id": "Q031",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2602.22261",
+      "gold_cited_arxiv_ids": [
+        "2406.18665",
+        "2311.05610",
+        "2403.12031"
+      ],
+      "gold_answer_keywords": [
+        "adaptation",
+        "extension",
+        "method section",
+        "modifications",
+        "improvements"
+      ],
+      "question_text": "How does the method presented in paper 2602.22261 adapt or extend the techniques outlined in the method section of paper 2406.18665, and what specific modifications or improvements are made compared to the approaches in papers 2311.05610 and 2403.12031?",
+      "human_notes": "This question requires a detailed reading of the method sections of the cited papers to identify specific adaptations or extensions made in paper 2602.22261."
+    },
+    {
+      "question_id": "Q032",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.22261",
+      "gold_cited_arxiv_ids": [
+        "2406.18665",
+        "2311.05610",
+        "2403.12031"
+      ],
+      "gold_answer_keywords": [
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
+      ],
+      "question_text": "How does the approach presented in paper 2602.22261 differ from the methodologies and findings discussed in papers 2406.18665, 2311.05610, and 2403.12031?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify specific differences."
+    },
+    {
+      "question_id": "Q033",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.22261",
+      "gold_cited_arxiv_ids": [
+        "2406.18665",
+        "2311.05610",
+        "2403.12031"
+      ],
+      "gold_answer_keywords": [
+        "evidence",
+        "support",
+        "claims",
+        "method",
+        "citation"
+      ],
+      "question_text": "What specific evidence does paper 2602.22261 cite from papers 2406.18665, 2311.05610, and 2403.12031 to support its claims regarding the effectiveness of the proposed method?",
+      "human_notes": "This question requires the reader to look into the references of paper 2602.22261 and trace back to the cited papers to find the supporting evidence."
+    },
+    {
+      "question_id": "Q034",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2508.16815",
+      "gold_cited_arxiv_ids": [
+        "2410.20072",
+        "2507.08749",
+        "2402.14989",
+        "2410.12289"
+      ],
+      "gold_answer_keywords": [
+        "adaptation",
+        "extension",
+        "method section",
+        "modifications",
+        "improvements"
+      ],
+      "question_text": "How does the method presented in paper 2508.16815 adapt or extend the techniques outlined in the method section of paper 2410.20072, and what specific modifications or improvements are discussed?",
+      "human_notes": "This question requires a close reading of the method sections of both papers to identify specific adaptations or extensions."
+    },
+    {
+      "question_id": "Q035",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2508.16815",
+      "gold_cited_arxiv_ids": [
+        "2410.20072",
+        "2507.08749",
+        "2402.14989",
+        "2410.12289"
+      ],
+      "gold_answer_keywords": [
+        "2508.16815",
+        "2410.20072",
+        "2507.08749",
+        "2402.14989",
+        "2410.12289",
+        "methodology",
+        "findings",
+        "differences"
+      ],
+      "question_text": "How does the approach presented in paper 2508.16815 differ from the methodologies and findings discussed in papers 2410.20072, 2507.08749, 2402.14989, and 2410.12289?",
+      "human_notes": "This question requires a comparative analysis of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify key differences."
+    },
+    {
+      "question_id": "Q036",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2508.16815",
+      "gold_cited_arxiv_ids": [
+        "2410.20072",
+        "2507.08749",
+        "2402.14989",
+        "2410.12289"
+      ],
+      "gold_answer_keywords": [
+        "evidence",
+        "support",
+        "claims",
+        "methodology",
+        "citation",
+        "paper 2508.16815",
+        "paper 2410.20072",
+        "paper 2507.08749"
+      ],
+      "question_text": "What specific evidence does paper 2508.16815 cite from papers 2410.20072, 2507.08749, 2402.14989, and 2410.12289 to support its claims regarding the effectiveness of the proposed methodology?",
+      "human_notes": "This question requires the reader to examine the cited papers to find the specific evidence referenced in paper 2508.16815."
+    },
+    {
+      "question_id": "Q037",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2602.19984",
+      "gold_cited_arxiv_ids": [
+        "2602.19984",
+        "2408.03747",
+        "2211.05244",
+        "2506.20574",
+        "2411.13919"
+      ],
+      "gold_answer_keywords": [
+        "adaptation",
+        "extension",
+        "method",
+        "2408.03747",
+        "techniques"
+      ],
+      "question_text": "How does the method presented in paper 2602.19984 adapt or extend the techniques outlined in the method section of paper 2408.03747?",
+      "human_notes": "This question specifically targets the method section of the cited paper to ensure that the answer requires a detailed reading of the methodology."
+    },
+    {
+      "question_id": "Q038",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.19984",
+      "gold_cited_arxiv_ids": [
+        "2602.19984",
+        "2408.03747",
+        "2211.05244",
+        "2506.20574",
+        "2411.13919"
+      ],
+      "gold_answer_keywords": [
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
+      ],
+      "question_text": "How does the approach presented in paper 2602.19984 differ from the methodologies and findings discussed in the prior works 2408.03747, 2211.05244, 2506.20574, and 2411.13919?",
+      "human_notes": "This question requires a detailed comparison of the methodologies and findings of the specified papers, necessitating a close reading of both the current paper and the prior works."
+    },
+    {
+      "question_id": "Q039",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.19984",
+      "gold_cited_arxiv_ids": [
+        "2602.19984",
+        "2408.03747",
+        "2211.05244",
+        "2506.20574",
+        "2411.13919"
+      ],
+      "gold_answer_keywords": [
+        "2602.19984",
+        "2408.03747",
+        "2211.05244",
+        "2506.20574",
+        "2411.13919",
+        "evidence",
+        "support",
+        "claim"
+      ],
+      "question_text": "What evidence does paper 2602.19984 cite to support its claim regarding the effectiveness of the proposed method, and how do the citations from papers 2408.03747, 2211.05244, 2506.20574, and 2411.13919 contribute to this support?",
+      "human_notes": "This question requires the reader to examine the references within paper 2602.19984 and the cited papers to understand the basis of the claims made."
+    },
+    {
+      "question_id": "Q040",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2602.19237",
+      "gold_cited_arxiv_ids": [
+        "2506.10707",
+        "2402.16785",
+        "2405.01147",
+        "2403.14608"
+      ],
+      "gold_answer_keywords": [
+        "adaptation",
+        "extension",
+        "method section",
+        "modifications",
+        "improvements"
+      ],
+      "question_text": "How does the method presented in paper 2602.19237 adapt or extend the techniques outlined in the method section of paper 2506.10707, and what specific modifications or improvements are made in comparison to the approaches discussed in papers 2402.16785, 2405.01147, and 2403.14608?",
+      "human_notes": "This question requires a detailed reading of the method sections of both the primary paper and the cited works to identify specific adaptations and extensions."
+    },
+    {
+      "question_id": "Q041",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.19237",
+      "gold_cited_arxiv_ids": [
+        "2506.10707",
+        "2402.16785",
+        "2405.01147",
+        "2403.14608"
+      ],
+      "gold_answer_keywords": [
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
+      ],
+      "question_text": "How does the approach presented in paper 2602.19237 differ from the methodologies and findings outlined in the prior works 2506.10707, 2402.16785, 2405.01147, and 2403.14608?",
+      "human_notes": "This question requires a detailed comparison of the methodologies and findings of the specified papers, necessitating a close reading of both the new paper and the prior works."
+    },
+    {
+      "question_id": "Q042",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.19237",
+      "gold_cited_arxiv_ids": [
+        "2506.10707",
+        "2402.16785",
+        "2405.01147",
+        "2403.14608"
+      ],
+      "gold_answer_keywords": [
+        "evidence",
+        "support",
+        "claims",
+        "method",
+        "citation"
+      ],
+      "question_text": "What specific evidence does paper 2602.19237 cite from papers 2506.10707, 2402.16785, 2405.01147, and 2403.14608 to support its claims regarding the effectiveness of the proposed method?",
+      "human_notes": "This question requires the reader to look into the cited papers to find the specific evidence referenced in paper 2602.19237."
+    },
+    {
+      "question_id": "Q043",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2602.20658",
+      "gold_cited_arxiv_ids": [
+        "2402.02651",
+        "2412.19954",
+        "2408.00714"
+      ],
+      "gold_answer_keywords": [
+        "adaptation",
+        "methodology",
+        "modifications",
+        "enhancements",
+        "comparison"
+      ],
+      "question_text": "How does paper 2602.20658 adapt or extend the methodology presented in paper 2402.02651, and what specific modifications or enhancements are made compared to the methods described in papers 2412.19954 and 2408.00714?",
+      "human_notes": "This question requires a detailed reading of the methods sections in both the primary paper and the cited works to identify specific adaptations and extensions."
+    },
+    {
+      "question_id": "Q044",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.20658",
+      "gold_cited_arxiv_ids": [
+        "2402.02651",
+        "2412.19954",
+        "2408.00714"
+      ],
+      "gold_answer_keywords": [
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
+      ],
+      "question_text": "How does the approach presented in paper 2602.20658 differ from the methodologies and findings discussed in prior works 2402.02651, 2412.19954, and 2408.00714?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify specific differences."
+    },
+    {
+      "question_id": "Q045",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.20658",
+      "gold_cited_arxiv_ids": [
+        "2402.02651",
+        "2412.19954",
+        "2408.00714"
+      ],
+      "gold_answer_keywords": [
+        "evidence",
+        "support",
+        "claims",
+        "methodology",
+        "citation"
+      ],
+      "question_text": "What specific evidence does paper 2602.20658 cite from papers 2402.02651, 2412.19954, and 2408.00714 to support its claims regarding the effectiveness of the proposed methodology?",
+      "human_notes": "This question requires the reader to look into the references of paper 2602.20658 and trace back to the cited papers to find the supporting evidence."
+    },
+    {
+      "question_id": "Q046",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2602.18786",
+      "gold_cited_arxiv_ids": [
+        "2512.13060",
+        "2511.03279",
+        "2511.04158",
+        "2511.21561",
+        "2509.18113"
+      ],
+      "gold_answer_keywords": [
+        "adaptation",
+        "extension",
+        "methodology",
+        "2512.13060",
+        "method section"
+      ],
+      "question_text": "How does paper 2602.18786 adapt or extend the methodology presented in paper 2512.13060, and what specific modifications or enhancements are detailed in the method section of both papers?",
+      "human_notes": "This question requires a close reading of the method sections of both papers to identify specific adaptations or extensions made in 2602.18786 based on the methodology of 2512.13060."
+    },
+    {
+      "question_id": "Q047",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.18786",
+      "gold_cited_arxiv_ids": [
+        "2512.13060",
+        "2511.03279",
+        "2511.04158",
+        "2511.21561",
+        "2509.18113"
+      ],
+      "gold_answer_keywords": [
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
+      ],
+      "question_text": "How does the approach presented in paper 2602.18786 differ from the methodologies and findings outlined in the prior works 2512.13060, 2511.03279, 2511.04158, 2511.21561, and 2509.18113?",
+      "human_notes": "This question requires a detailed comparison of the methodologies and findings of the two sets of papers, necessitating a close reading of both to identify specific differences."
+    },
+    {
+      "question_id": "Q048",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.18786",
+      "gold_cited_arxiv_ids": [
+        "2512.13060",
+        "2511.03279",
+        "2511.04158",
+        "2511.21561",
+        "2509.18113"
+      ],
+      "gold_answer_keywords": [
+        "evidence",
+        "citation",
+        "support",
+        "claim",
+        "2602.18786",
+        "2512.13060",
+        "2511.03279",
+        "2511.04158"
+      ],
+      "question_text": "What specific evidence does paper 2602.18786 cite from papers 2512.13060, 2511.03279, 2511.04158, 2511.21561, and 2509.18113 to support its claims regarding [specific claim]?",
+      "human_notes": "This question requires the reader to examine the citations in paper 2602.18786 and trace back to the referenced papers to find the supporting evidence."
+    }
+  ]
 }

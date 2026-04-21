@@ -102,36 +102,31 @@ def _save_doc(doc: dict, path: Path) -> None:
 # ---------- D-07 invariant ----------
 
 def _has_min_in_corpus_cites(seed_arxiv_id: str, reader, min_cites: int = MIN_IN_CORPUS_CITES) -> bool:
-    """Return True iff the seed has >=min_cites in-corpus cited papers with non-empty sections.
+    """Return True iff the seed has >=min_cites in-corpus cited papers.
 
-    A cited paper counts iff ``reader.head(aid).get("sections")`` is truthy OR
-    ``reader.sections(aid).get("sections")`` is non-empty. Mirrors the
-    shared_conventions invariant in 08-01-PLAN.md.
+    D-20 (Phase 8): an in-corpus cited paper counts if it has ``in_corpus=True`` and
+    a resolvable ``arxiv_id``. We no longer require the cited paper's sections to
+    be populated -- the agent receives ``{title, abstract, year, arxiv_id}`` from
+    ``reader.head(aid)`` which is sufficient to ground method-dependency/comparative/
+    claim-grounding questions in the A/B eval. This relaxes the stricter invariant
+    in 08-01-PLAN.md, because our 105k-paper corpus is metadata-mostly and only
+    ~160 papers have parsed sections.
     """
     try:
         refs = (reader.references(seed_arxiv_id) or {}).get("references", [])
     except Exception as exc:
         logger.warning("references(%s) failed: %s", seed_arxiv_id, exc)
         return False
-    ok_cites = 0
-    for r in refs:
-        if not r.get("in_corpus") or not r.get("arxiv_id"):
-            continue
-        try:
-            head = reader.head(r["arxiv_id"]) or {}
-            if head.get("sections"):
-                ok_cites += 1
-                continue
-            sec = reader.sections(r["arxiv_id"]) or {}
-            if sec.get("sections"):
-                ok_cites += 1
-        except Exception:
-            continue
+    ok_cites = sum(1 for r in refs if r.get("in_corpus") and r.get("arxiv_id"))
     return ok_cites >= min_cites
 
 
 def _in_corpus_cited_arxiv_ids(seed_arxiv_id: str, reader, cap: int = GOLD_CITES_CAP) -> list[str]:
-    """Return up to ``cap`` in-corpus arxiv_ids from the seed's references with non-empty sections."""
+    """Return up to ``cap`` in-corpus arxiv_ids from the seed's references.
+
+    D-20: only requires ``in_corpus=True`` and a resolvable ``arxiv_id``; section
+    presence is NOT required (see ``_has_min_in_corpus_cites`` for rationale).
+    """
     try:
         refs = (reader.references(seed_arxiv_id) or {}).get("references", [])
     except Exception as exc:
@@ -141,12 +136,7 @@ def _in_corpus_cited_arxiv_ids(seed_arxiv_id: str, reader, cap: int = GOLD_CITES
     for r in refs:
         if not r.get("in_corpus") or not r.get("arxiv_id"):
             continue
-        try:
-            head = reader.head(r["arxiv_id"]) or {}
-            if head.get("sections"):
-                ids.append(r["arxiv_id"])
-        except Exception:
-            continue
+        ids.append(r["arxiv_id"])
         if len(ids) >= cap:
             break
     return ids
@@ -168,15 +158,17 @@ def promote_candidate(question_id: str, candidates_path: Path, questions_path: P
     if cand is None:
         raise KeyError(f"question_id={question_id} not in {candidates_path}")
 
-    # D-07 re-validation at promote time.
+    # D-20 re-validation at promote time: only require head() returns a body
+    # (paper exists in corpus). We do NOT require non-empty sections -- see
+    # _has_min_in_corpus_cites for rationale.
     for aid in cand.get("gold_cited_arxiv_ids", []):
         try:
             head = reader.head(aid) or {}
         except Exception as exc:
             raise ValueError(f"gold cite {aid} could not be validated: {exc}") from exc
-        if not head.get("sections"):
+        if not head or not (head.get("title") or head.get("arxiv_id") or head.get("paper_id")):
             raise ValueError(
-                f"gold cite {aid} no longer in-corpus with sections (D-07 violated)"
+                f"gold cite {aid} no longer resolvable in corpus (D-20 violated)"
             )
 
     if any(q.get("question_id") == question_id for q in qs["questions"]):

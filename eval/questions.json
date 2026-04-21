@@ -4,542 +4,624 @@
     {
       "question_id": "Q001",
       "question_type": "method-dependency",
-      "seed_arxiv_id": "2601.18685",
+      "seed_arxiv_id": "2602.19770",
       "gold_cited_arxiv_ids": [
-        "2412.11399",
-        "2411.17411",
-        "2602.07152"
+        "2503.07914",
+        "2501.09967",
+        "2402.01761"
       ],
       "gold_answer_keywords": [
         "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "extension",
+        "method",
+        "2503.07914",
+        "2501.09967",
+        "2402.01761"
       ],
-      "question_text": "How does paper 2601.18685 (subject: cs.LG) adapt or extend a method it attributes to 2412.11399, 2411.17411, 2602.07152? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2602.19770 adapt or extend the techniques outlined in the method sections of the cited works 2503.07914, 2501.09967, and 2402.01761?",
+      "human_notes": "This question requires a detailed reading of the method sections in both the main paper and the cited works to identify specific adaptations or extensions."
     },
     {
       "question_id": "Q002",
-      "question_type": "method-dependency",
-      "seed_arxiv_id": "2602.10119",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.19770",
       "gold_cited_arxiv_ids": [
-        "2411.17411",
-        "2603.02810",
-        "2210.09226"
+        "2503.07914",
+        "2501.09967",
+        "2402.01761"
       ],
       "gold_answer_keywords": [
-        "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "How does paper 2602.10119 (subject: cs.LG) adapt or extend a method it attributes to 2411.17411, 2603.02810, 2210.09226? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2602.19770 differ from the methodologies and findings discussed in papers 2503.07914, 2501.09967, and 2402.01761?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify specific differences."
     },
     {
       "question_id": "Q003",
-      "question_type": "method-dependency",
-      "seed_arxiv_id": "2603.03810",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.19770",
       "gold_cited_arxiv_ids": [
-        "2501.18731",
-        "2602.04373",
-        "2602.13712"
+        "2503.07914",
+        "2501.09967",
+        "2402.01761"
       ],
       "gold_answer_keywords": [
-        "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "evidence",
+        "support",
+        "claims",
+        "methodology",
+        "citation",
+        "2602.19770",
+        "2503.07914",
+        "2501.09967"
       ],
-      "question_text": "How does paper 2603.03810 (subject: cs.LG) adapt or extend a method it attributes to 2501.18731, 2602.04373, 2602.13712? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2602.19770 cite from papers 2503.07914, 2501.09967, and 2402.01761 to support its claims regarding the effectiveness of the proposed methodology?",
+      "human_notes": "This question requires the reader to look into the citations of paper 2602.19770 and trace back to the mentioned papers to find the supporting evidence."
     },
     {
       "question_id": "Q004",
       "question_type": "method-dependency",
-      "seed_arxiv_id": "2602.16887",
+      "seed_arxiv_id": "2602.08290",
       "gold_cited_arxiv_ids": [
-        "2506.23339",
-        "2603.03802",
-        "2602.20658"
+        "2310.19287",
+        "2307.10492",
+        "2405.03636",
+        "2401.03552"
       ],
       "gold_answer_keywords": [
         "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "extension",
+        "methodology",
+        "2310.19287",
+        "modifications",
+        "enhancements"
       ],
-      "question_text": "How does paper 2602.16887 (subject: cs.LG) adapt or extend a method it attributes to 2506.23339, 2603.03802, 2602.20658? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does paper 2602.08290 adapt or extend the methodology presented in paper 2310.19287, and what specific modifications or enhancements are detailed in the method section of both papers?",
+      "human_notes": "This question requires a close reading of the method sections of both papers to identify specific changes or improvements made in 2602.08290 compared to 2310.19287."
     },
     {
       "question_id": "Q005",
-      "question_type": "method-dependency",
-      "seed_arxiv_id": "2602.08086",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.08290",
       "gold_cited_arxiv_ids": [
-        "2505.05736",
-        "2304.14347",
-        "2204.05138"
+        "2310.19287",
+        "2307.10492",
+        "2405.03636",
+        "2401.03552"
       ],
       "gold_answer_keywords": [
-        "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "How does paper 2602.08086 (subject: cs.LG) adapt or extend a method it attributes to 2505.05736, 2304.14347, 2204.05138? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2602.08290 differ from the methodologies and findings outlined in the prior works 2310.19287, 2307.10492, 2405.03636, and 2401.03552?",
+      "human_notes": "This question requires a detailed comparison of the methodologies and findings of the specified papers, necessitating a close reading of both the new paper and the prior works."
     },
     {
       "question_id": "Q006",
-      "question_type": "method-dependency",
-      "seed_arxiv_id": "2602.10458",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.08290",
       "gold_cited_arxiv_ids": [
-        "2602.06519",
-        "2602.19770",
-        "2512.22426"
+        "2310.19287",
+        "2307.10492",
+        "2405.03636",
+        "2401.03552"
       ],
       "gold_answer_keywords": [
-        "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "2310.19287",
+        "2307.10492",
+        "2405.03636",
+        "2401.03552",
+        "evidence",
+        "support",
+        "methodology"
       ],
-      "question_text": "How does paper 2602.10458 (subject: cs.LG) adapt or extend a method it attributes to 2602.06519, 2602.19770, 2512.22426? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2602.08290 cite from papers 2310.19287, 2307.10492, 2405.03636, and 2401.03552 to support its claims regarding the effectiveness of the proposed methodology?",
+      "human_notes": "This question requires the reader to look into the references of paper 2602.08290 and trace back the citations to the specified papers to find the supporting evidence."
     },
     {
       "question_id": "Q007",
       "question_type": "method-dependency",
-      "seed_arxiv_id": "2501.18731",
+      "seed_arxiv_id": "2603.06271",
       "gold_cited_arxiv_ids": [
-        "2603.00181",
-        "2602.22261",
-        "2602.10458"
+        "2506.13585",
+        "2602.15763",
+        "2602.02276"
       ],
       "gold_answer_keywords": [
         "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "extension",
+        "method section",
+        "2506.13585",
+        "2602.15763",
+        "2602.02276"
       ],
-      "question_text": "How does paper 2501.18731 (subject: cs.LG) adapt or extend a method it attributes to 2603.00181, 2602.22261, 2602.10458? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2603.06271 adapt or extend the techniques outlined in the method section of paper 2506.13585, and what specific modifications or improvements are made in comparison to the approaches discussed in papers 2602.15763 and 2602.02276?",
+      "human_notes": "This question requires a detailed reading of the method sections of the cited papers to identify specific adaptations or extensions made in 2603.06271."
     },
     {
       "question_id": "Q008",
-      "question_type": "method-dependency",
-      "seed_arxiv_id": "2602.13712",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2603.06271",
       "gold_cited_arxiv_ids": [
-        "2602.19410",
-        "2602.00130",
-        "2602.05967"
+        "2506.13585",
+        "2602.15763",
+        "2602.02276"
       ],
       "gold_answer_keywords": [
-        "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "How does paper 2602.13712 (subject: cs.LG) adapt or extend a method it attributes to 2602.19410, 2602.00130, 2602.05967? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2603.06271 differ from the methodologies and findings discussed in papers 2506.13585, 2602.15763, and 2602.02276?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify specific differences."
     },
     {
       "question_id": "Q009",
-      "question_type": "method-dependency",
-      "seed_arxiv_id": "2510.26376",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2603.06271",
       "gold_cited_arxiv_ids": [
-        "2404.03208",
-        "2211.01315",
-        "2504.19715"
+        "2506.13585",
+        "2602.15763",
+        "2602.02276"
       ],
       "gold_answer_keywords": [
-        "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "2506.13585",
+        "2602.15763",
+        "2602.02276",
+        "evidence",
+        "support",
+        "claims",
+        "effectiveness",
+        "proposed method"
       ],
-      "question_text": "How does paper 2510.26376 (subject: cs.LG) adapt or extend a method it attributes to 2404.03208, 2211.01315, 2504.19715? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2603.06271 cite from papers 2506.13585, 2602.15763, and 2602.02276 to support its claims regarding the effectiveness of the proposed method?",
+      "human_notes": "This question requires the reader to look into the references of paper 2603.06271 and trace back the citations to the specified papers to find the supporting evidence."
     },
     {
       "question_id": "Q010",
       "question_type": "method-dependency",
-      "seed_arxiv_id": "2602.05087",
+      "seed_arxiv_id": "2601.11616",
       "gold_cited_arxiv_ids": [
-        "2602.08290",
-        "2405.04605",
-        "2506.03317"
+        "2506.08764",
+        "2506.23266",
+        "2510.14436",
+        "2411.01016",
+        "2410.06270"
       ],
       "gold_answer_keywords": [
         "adaptation",
-        "architecture",
-        "inherits",
-        "method-transfer"
+        "extension",
+        "method section",
+        "2506.08764",
+        "modifications",
+        "improvements"
       ],
-      "question_text": "How does paper 2602.05087 (subject: cs.LG) adapt or extend a method it attributes to 2602.08290, 2405.04605, 2506.03317? Identify the specific component borrowed and any modifications introduced.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2601.11616 adapt or extend the techniques outlined in the method section of paper 2506.08764, and what specific modifications or improvements are made?",
+      "human_notes": "This question requires a detailed reading of the method sections of both papers to identify specific adaptations or extensions."
     },
     {
       "question_id": "Q011",
       "question_type": "comparative",
-      "seed_arxiv_id": "2406.01523",
+      "seed_arxiv_id": "2601.11616",
       "gold_cited_arxiv_ids": [
-        "2506.03317",
-        "2602.15888",
-        "2602.05387"
+        "2506.08764",
+        "2506.23266",
+        "2510.14436",
+        "2411.01016",
+        "2410.06270"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "How does the approach in paper 2406.01523 (subject: cs.LG) differ from that of 2506.03317, 2602.15888, 2602.05387? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2601.11616 differ from the methodologies and findings discussed in the prior works 2506.08764, 2506.23266, 2510.14436, 2411.01016, and 2410.06270?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the two sets of papers, necessitating a close reading of both to identify specific differences."
     },
     {
       "question_id": "Q012",
-      "question_type": "comparative",
-      "seed_arxiv_id": "2506.16782",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2601.11616",
       "gold_cited_arxiv_ids": [
-        "2603.00060",
-        "2602.11194",
-        "2505.05736"
+        "2506.08764",
+        "2506.23266",
+        "2510.14436",
+        "2411.01016",
+        "2410.06270"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "2506.08764",
+        "2506.23266",
+        "2510.14436",
+        "2411.01016",
+        "2410.06270"
       ],
-      "question_text": "How does the approach in paper 2506.16782 (subject: cs.LG) differ from that of 2603.00060, 2602.11194, 2505.05736? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2601.11616 cite from papers 2506.08764, 2506.23266, 2510.14436, 2411.01016, and 2410.06270 to support its claims regarding [specific claim]?",
+      "human_notes": "This question requires the reader to examine the citations in paper 2601.11616 and then look up the referenced papers to find the supporting evidence."
     },
     {
       "question_id": "Q013",
-      "question_type": "comparative",
-      "seed_arxiv_id": "2304.14347",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2602.07152",
       "gold_cited_arxiv_ids": [
-        "2603.03810",
-        "2506.20102",
-        "2602.20658"
+        "2212.04687",
+        "2301.12318",
+        "2406.12091",
+        "2501.12948",
+        "2402.05232"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "adaptation",
+        "extension",
+        "method",
+        "techniques",
+        "modifications",
+        "improvements"
       ],
-      "question_text": "How does the approach in paper 2304.14347 (subject: cs.LG) differ from that of 2603.03810, 2506.20102, 2602.20658? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2602.07152 adapt or extend the techniques outlined in the method section of paper 2212.04687, and what specific modifications or improvements are made in the context of the research problem addressed?",
+      "human_notes": "This question requires a detailed reading of the method sections of both papers to identify specific changes and enhancements made in the newer paper."
     },
     {
       "question_id": "Q014",
       "question_type": "comparative",
-      "seed_arxiv_id": "2602.05387",
+      "seed_arxiv_id": "2602.07152",
       "gold_cited_arxiv_ids": [
-        "2603.04443",
-        "2602.05053",
-        "2510.00244"
+        "2212.04687",
+        "2301.12318",
+        "2406.12091",
+        "2501.12948",
+        "2402.05232"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "How does the approach in paper 2602.05387 (subject: cs.LG) differ from that of 2603.04443, 2602.05053, 2510.00244? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2602.07152 differ from the methodologies and findings outlined in the prior works 2212.04687, 2301.12318, 2406.12091, 2501.12948, and 2402.05232?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify specific differences."
     },
     {
       "question_id": "Q015",
-      "question_type": "comparative",
-      "seed_arxiv_id": "2506.23339",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2602.07152",
       "gold_cited_arxiv_ids": [
-        "2404.05748",
-        "2602.06907",
-        "2602.10119"
+        "2212.04687",
+        "2301.12318",
+        "2406.12091",
+        "2501.12948",
+        "2402.05232"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "2212.04687",
+        "2301.12318",
+        "2406.12091",
+        "2501.12948",
+        "2402.05232"
       ],
-      "question_text": "How does the approach in paper 2506.23339 (subject: cs.LG) differ from that of 2404.05748, 2602.06907, 2602.10119? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2602.07152 cite from papers 2212.04687, 2301.12318, 2406.12091, 2501.12948, and 2402.05232 to support its claims?",
+      "human_notes": "This question requires the reader to look into the references of paper 2602.07152 and trace the citations to the specified papers to find the supporting evidence."
     },
     {
       "question_id": "Q016",
-      "question_type": "comparative",
-      "seed_arxiv_id": "2506.03317",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2505.11578",
       "gold_cited_arxiv_ids": [
-        "2602.04911",
-        "2601.10181",
-        "2602.04782"
+        "2402.12365",
+        "2312.00752",
+        "2403.14608",
+        "2402.17177",
+        "2402.00789"
       ],
       "gold_answer_keywords": [
+        "adaptation",
+        "extension",
+        "method",
         "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "2402.12365"
       ],
-      "question_text": "How does the approach in paper 2506.03317 (subject: cs.LG) differ from that of 2602.04911, 2601.10181, 2602.04782? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2505.11578 adapt or extend the approach outlined in the method section of paper 2402.12365?",
+      "human_notes": "This question specifically targets the method section of the cited paper to ensure that the answer requires a detailed reading of the methodology."
     },
     {
       "question_id": "Q017",
       "question_type": "comparative",
-      "seed_arxiv_id": "2602.05861",
+      "seed_arxiv_id": "2505.11578",
       "gold_cited_arxiv_ids": [
-        "2602.10967",
-        "2602.15890",
-        "2602.15740"
+        "2402.12365",
+        "2312.00752",
+        "2403.14608",
+        "2402.17177",
+        "2402.00789"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "How does the approach in paper 2602.05861 (subject: cs.LG) differ from that of 2602.10967, 2602.15890, 2602.15740? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2505.11578 differ from the methodologies and findings discussed in the prior works 2402.12365, 2312.00752, 2403.14608, 2402.17177, and 2402.00789?",
+      "human_notes": "This question requires a detailed comparison of the methodologies and findings of the two sets of papers, necessitating a close reading of both to identify specific differences."
     },
     {
       "question_id": "Q018",
-      "question_type": "comparative",
-      "seed_arxiv_id": "2603.06271",
+      "question_type": "claim-grounding",
+      "seed_arxiv_id": "2505.11578",
       "gold_cited_arxiv_ids": [
-        "2510.20714",
-        "2312.02462",
-        "2602.08577"
+        "2402.12365",
+        "2312.00752",
+        "2403.14608",
+        "2402.17177",
+        "2402.00789"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "evidence",
+        "support",
+        "claims",
+        "methodology",
+        "citations"
       ],
-      "question_text": "How does the approach in paper 2603.06271 (subject: cs.LG) differ from that of 2510.20714, 2312.02462, 2602.08577? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2505.11578 cite from papers 2402.12365, 2312.00752, 2403.14608, 2402.17177, and 2402.00789 to support its claims regarding the effectiveness of the proposed methodology?",
+      "human_notes": "This question requires the reader to look into the references of paper 2505.11578 and trace back the cited papers to find the specific evidence mentioned."
     },
     {
       "question_id": "Q019",
-      "question_type": "comparative",
-      "seed_arxiv_id": "2204.05138",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2603.04443",
       "gold_cited_arxiv_ids": [
-        "2602.04757",
-        "2602.07031",
-        "2603.06271"
+        "2505.03434",
+        "2504.08930",
+        "2507.18910"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "adaptation",
+        "extension",
+        "method section",
+        "2505.03434",
+        "modifications",
+        "improvements",
+        "2504.08930",
+        "2507.18910"
       ],
-      "question_text": "How does the approach in paper 2204.05138 (subject: cs.LG) differ from that of 2602.04757, 2602.07031, 2603.06271? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2603.04443 adapt or extend the techniques outlined in the method section of paper 2505.03434, and what specific modifications or improvements are made compared to the approaches discussed in papers 2504.08930 and 2507.18910?",
+      "human_notes": "This question requires a detailed reading of the method sections of the cited papers to identify specific adaptations or extensions made in paper 2603.04443."
     },
     {
       "question_id": "Q020",
       "question_type": "comparative",
-      "seed_arxiv_id": "2601.10181",
+      "seed_arxiv_id": "2603.04443",
       "gold_cited_arxiv_ids": [
-        "2602.06446",
-        "2602.08577",
-        "2602.08290"
+        "2505.03434",
+        "2504.08930",
+        "2507.18910"
       ],
       "gold_answer_keywords": [
-        "comparison",
-        "differs",
-        "trade-off",
-        "architecture"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "How does the approach in paper 2601.10181 (subject: cs.LG) differ from that of 2602.06446, 2602.08577, 2602.08290? Contrast assumptions, architecture choices, and evaluated settings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2603.04443 differ from the methodologies and findings outlined in papers 2505.03434, 2504.08930, and 2507.18910?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify specific differences."
     },
     {
       "question_id": "Q021",
       "question_type": "claim-grounding",
-      "seed_arxiv_id": "2410.20061",
+      "seed_arxiv_id": "2603.04443",
       "gold_cited_arxiv_ids": [
-        "2404.09896",
-        "2308.09730",
-        "2603.06271"
+        "2505.03434",
+        "2504.08930",
+        "2507.18910"
       ],
       "gold_answer_keywords": [
         "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "support",
+        "claim",
+        "2603.04443",
+        "2505.03434",
+        "2504.08930",
+        "2507.18910"
       ],
-      "question_text": "What evidence from 2404.09896, 2308.09730, 2603.06271 does paper 2410.20061 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2603.04443 cite from papers 2505.03434, 2504.08930, and 2507.18910 to support its claim regarding the effectiveness of the proposed method?",
+      "human_notes": "This question requires the reader to look into the references of paper 2603.04443 and trace back to the cited papers to find the supporting evidence."
     },
     {
       "question_id": "Q022",
-      "question_type": "claim-grounding",
-      "seed_arxiv_id": "2402.07462",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2403.08802",
       "gold_cited_arxiv_ids": [
-        "2602.05861",
-        "2602.23303",
-        "2602.22228"
+        "2507.03034",
+        "2402.17177",
+        "2304.10701",
+        "2311.18252"
       ],
       "gold_answer_keywords": [
-        "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "adaptation",
+        "extension",
+        "method section",
+        "2507.03034",
+        "2402.17177",
+        "2304.10701",
+        "2311.18252"
       ],
-      "question_text": "What evidence from 2602.05861, 2602.23303, 2602.22228 does paper 2402.07462 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2403.08802 adapt or extend the techniques outlined in the method section of paper 2507.03034, and what specific modifications or enhancements are made in comparison to the approaches discussed in papers 2402.17177, 2304.10701, and 2311.18252?",
+      "human_notes": "This question requires a detailed reading of the method sections of both papers to identify specific adaptations or extensions."
     },
     {
       "question_id": "Q023",
-      "question_type": "claim-grounding",
-      "seed_arxiv_id": "2602.10801",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2403.08802",
       "gold_cited_arxiv_ids": [
-        "2504.19715",
-        "2603.05024",
-        "2602.20658"
+        "2507.03034",
+        "2402.17177",
+        "2304.10701",
+        "2311.18252"
       ],
       "gold_answer_keywords": [
-        "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "What evidence from 2504.19715, 2603.05024, 2602.20658 does paper 2602.10801 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2403.08802 differ from the methodologies and findings outlined in papers 2507.03034, 2402.17177, 2304.10701, and 2311.18252?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify key differences."
     },
     {
       "question_id": "Q024",
       "question_type": "claim-grounding",
-      "seed_arxiv_id": "2602.17689",
+      "seed_arxiv_id": "2403.08802",
       "gold_cited_arxiv_ids": [
-        "2601.11616",
-        "2511.00246",
-        "2602.18786"
+        "2507.03034",
+        "2402.17177",
+        "2304.10701",
+        "2311.18252"
       ],
       "gold_answer_keywords": [
         "evidence",
+        "support",
+        "claims",
+        "methodology",
         "citation",
-        "empirical",
-        "supports"
+        "2403.08802",
+        "2507.03034",
+        "2402.17177"
       ],
-      "question_text": "What evidence from 2601.11616, 2511.00246, 2602.18786 does paper 2602.17689 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2403.08802 cite from papers 2507.03034, 2402.17177, 2304.10701, and 2311.18252 to support its claims regarding the effectiveness of the proposed methodology?",
+      "human_notes": "This question requires the reader to look into the citations of paper 2403.08802 and trace the references to the other papers mentioned to find the supporting evidence."
     },
     {
       "question_id": "Q025",
-      "question_type": "claim-grounding",
-      "seed_arxiv_id": "2603.00968",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2602.00130",
       "gold_cited_arxiv_ids": [
-        "2602.07478",
-        "2602.00130",
-        "2602.12380"
+        "2405.07987",
+        "2505.12540",
+        "2510.26745"
       ],
       "gold_answer_keywords": [
-        "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "adaptation",
+        "methodology",
+        "modifications",
+        "enhancements",
+        "comparison"
       ],
-      "question_text": "What evidence from 2602.07478, 2602.00130, 2602.12380 does paper 2603.00968 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does paper 2602.00130 adapt or extend the methodology presented in paper 2405.07987, and what specific modifications or enhancements are made compared to the methods outlined in papers 2505.12540 and 2510.26745?",
+      "human_notes": "This question requires a detailed reading of the methods sections in both the primary paper and the cited works to identify specific adaptations and extensions."
     },
     {
       "question_id": "Q026",
-      "question_type": "claim-grounding",
-      "seed_arxiv_id": "2505.05736",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2602.00130",
       "gold_cited_arxiv_ids": [
-        "2602.20164",
-        "2502.19115",
-        "2602.22533"
+        "2405.07987",
+        "2505.12540",
+        "2510.26745"
       ],
       "gold_answer_keywords": [
-        "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "What evidence from 2602.20164, 2502.19115, 2602.22533 does paper 2505.05736 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2602.00130 differ from the methodologies and findings discussed in papers 2405.07987, 2505.12540, and 2510.26745?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of both the new paper and the prior works to identify key differences."
     },
     {
       "question_id": "Q027",
       "question_type": "claim-grounding",
-      "seed_arxiv_id": "2602.16739",
+      "seed_arxiv_id": "2602.00130",
       "gold_cited_arxiv_ids": [
-        "2602.06503",
-        "2603.03810",
-        "2310.14629"
+        "2405.07987",
+        "2505.12540",
+        "2510.26745"
       ],
       "gold_answer_keywords": [
         "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "support",
+        "claims",
+        "impact",
+        "X",
+        "Y"
       ],
-      "question_text": "What evidence from 2602.06503, 2603.03810, 2310.14629 does paper 2602.16739 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2602.00130 cite from papers 2405.07987, 2505.12540, and 2510.26745 to support its claims regarding the impact of X on Y?",
+      "human_notes": "This question requires the reader to look into the references of paper 2602.00130 and trace back to the cited papers to find the relevant evidence."
     },
     {
       "question_id": "Q028",
-      "question_type": "claim-grounding",
-      "seed_arxiv_id": "2403.08802",
+      "question_type": "method-dependency",
+      "seed_arxiv_id": "2506.06308",
       "gold_cited_arxiv_ids": [
-        "2602.19237",
-        "2602.17708",
-        "2602.16737"
+        "2205.03990",
+        "2211.10873",
+        "2310.05227"
       ],
       "gold_answer_keywords": [
-        "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "adaptation",
+        "extension",
+        "method",
+        "techniques",
+        "comparison",
+        "cited works"
       ],
-      "question_text": "What evidence from 2602.19237, 2602.17708, 2602.16737 does paper 2403.08802 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the method presented in paper 2506.06308 adapt or extend the techniques outlined in the method sections of the cited works 2205.03990, 2211.10873, and 2310.05227?",
+      "human_notes": "This question requires a detailed reading of the method sections in both the main paper and the cited works to identify specific adaptations or extensions."
     },
     {
       "question_id": "Q029",
-      "question_type": "claim-grounding",
-      "seed_arxiv_id": "2504.18310",
+      "question_type": "comparative",
+      "seed_arxiv_id": "2506.06308",
       "gold_cited_arxiv_ids": [
-        "2602.06446",
-        "2601.20346",
-        "2602.15740"
+        "2205.03990",
+        "2211.10873",
+        "2310.05227"
       ],
       "gold_answer_keywords": [
-        "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "approach",
+        "methodology",
+        "findings",
+        "differences",
+        "comparison"
       ],
-      "question_text": "What evidence from 2602.06446, 2601.20346, 2602.15740 does paper 2504.18310 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "How does the approach presented in paper 2506.06308 differ from the methodologies and findings discussed in papers 2205.03990, 2211.10873, and 2310.05227?",
+      "human_notes": "This question requires a detailed comparison of the approaches taken in the specified papers, necessitating a close reading of each to identify key differences."
     },
     {
       "question_id": "Q030",
       "question_type": "claim-grounding",
-      "seed_arxiv_id": "2603.00181",
+      "seed_arxiv_id": "2506.06308",
       "gold_cited_arxiv_ids": [
-        "2603.02810",
-        "2601.18685",
-        "2407.12226"
+        "2205.03990",
+        "2211.10873",
+        "2310.05227"
       ],
       "gold_answer_keywords": [
         "evidence",
-        "citation",
-        "empirical",
-        "supports"
+        "support",
+        "methodology",
+        "citations",
+        "2506.06308",
+        "2205.03990",
+        "2211.10873",
+        "2310.05227"
       ],
-      "question_text": "What evidence from 2603.02810, 2601.18685, 2407.12226 does paper 2603.00181 (subject: cs.LG) cite to support its methodological or empirical claims? Trace the specific claim back to the cited paper's findings.",
-      "human_notes": "Auto-generated via --deterministic-fill (no LLM call; gold cites drawn from benchmark/sample.json pool, so corpus membership holds by construction)."
+      "question_text": "What specific evidence does paper 2506.06308 cite from papers 2205.03990, 2211.10873, and 2310.05227 to support its claims regarding the effectiveness of the proposed methodology?",
+      "human_notes": "This question requires the reader to look into the cited papers to find the specific evidence that supports the claims made in paper 2506.06308."
     }
   ]
 }
