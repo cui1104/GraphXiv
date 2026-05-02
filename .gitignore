@@ -26,7 +26,7 @@ build/
 .ipynb_checkpoints/
 dats 5990 docs/
 report/build/
-.planning/report/
+.planning/
 
 # Phase 8 eval run outputs (D-29): regenerate via `python eval/run_eval.py`
 eval/results/run_*/
