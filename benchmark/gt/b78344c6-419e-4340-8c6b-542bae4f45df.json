@@ -45,16 +45,18 @@
       "sec_num": ""
     },
     {
-      "text": "Predicting Cohen’s κ",
+      "text": "Predicting Cohen\u2019s \u03ba",
       "sec_num": ""
     },
     {
-      "text": "Correlation between model confidence and κ",
+      "text": "Correlation between model confidence and \u03ba",
       "sec_num": ""
     }
   ],
   "figure_count": 6,
   "formula_count": 0,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 41,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "authoryear"
 }

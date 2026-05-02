@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# graphxiv - project CLI entrypoint.
+#
+# Thin wrapper so you can run:
+#
+#     ./graphxiv ask 2602.19770 "your question"
+#     ./graphxiv demo Q001
+#     ./graphxiv questions
+#
+# To use it as a bare `graphxiv` command from anywhere, either
+#   1) add this directory to your PATH:
+#        export PATH="$(pwd):$PATH"
+#   2) or symlink it into a bin dir already on PATH:
+#        ln -s "$(pwd)/graphxiv" ~/bin/graphxiv
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Prefer an activated venv; otherwise fall back to the first python3 on PATH.
+PY="${PYTHON:-python3}"
+
+# Run from the repo root so `cli.graphxiv` resolves as a package regardless
+# of where the user invoked us from.
+cd "$HERE"
+exec "$PY" -m cli.graphxiv "$@"

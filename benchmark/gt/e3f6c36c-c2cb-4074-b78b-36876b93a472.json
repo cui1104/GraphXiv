@@ -53,7 +53,7 @@
       "sec_num": "F"
     },
     {
-      "text": "Investigation of dominant factors’ influence",
+      "text": "Investigation of dominant factors\u2019 influence",
       "sec_num": "G"
     },
     {
@@ -87,6 +87,8 @@
   ],
   "figure_count": 4,
   "formula_count": 27,
-  "reference_count": 27,
-  "page_count": 10
+  "reference_count": 4,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }

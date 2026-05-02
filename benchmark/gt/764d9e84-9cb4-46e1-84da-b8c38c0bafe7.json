@@ -53,7 +53,7 @@
       "sec_num": "IV.A"
     },
     {
-      "text": "Meteorology–Power generation conversion",
+      "text": "Meteorology\u2013Power generation conversion",
       "sec_num": "IV.B"
     },
     {
@@ -79,6 +79,8 @@
   ],
   "figure_count": 10,
   "formula_count": 17,
-  "reference_count": 34,
-  "page_count": 9
+  "reference_count": 35,
+  "page_count": 9,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "bracket"
 }

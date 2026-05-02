@@ -22,12 +22,22 @@ __all__ = [
     "RateLimitError",
     "NotFoundError",
     "ServerError",
+    "Agent",
 ]
 
-# Try to import agent components if langgraph is available
-try:
-    from .agent.agent import Agent
-    __all__.append("Agent")
-except ImportError:
-    # Agent functionality not available without langgraph
-    pass
+
+def __getattr__(name):
+    """Lazily expose optional agent components.
+
+    Reader-only imports should not initialize LangGraph, OpenAI, or tiktoken.
+    Those dependencies are only needed when callers explicitly request Agent.
+    """
+    if name == "Agent":
+        try:
+            from .agent.agent import Agent
+        except ImportError as exc:
+            raise ImportError(
+                "Agent functionality requires optional agent dependencies."
+            ) from exc
+        return Agent
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

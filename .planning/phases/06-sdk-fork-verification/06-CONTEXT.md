@@ -27,7 +27,7 @@ Fork deepxiv_sdk, update it to point at this backend, verify all existing SDK Re
   - `raw(arxiv_id)` / `json(arxiv_id)` → `GET {base_url}/arxiv/{arxiv_id}/full`
   - `pmc_head(pmc_id)` → `GET {base_url}/pmc/{pmc_id}/head`
   - `pmc_full(pmc_id)` / `pmc_json(pmc_id)` → `GET {base_url}/pmc/{pmc_id}/full`
-  - `search(query, ...)` → `GET {base_url}/search?q={query}&limit={size}&search_mode={mode}`
+  - `search(query, ...)` → `GET {base_url}/arxiv/search?q={query}&limit={size}&search_mode={mode}` (corrected: actual route is `/arxiv/search` per routes/search.py)
 - **D-06:** Methods that don't map to this backend (`websearch`, `semantic_scholar`, `trending`, `biomed_*`, `social_impact`, `markdown`, `preview`) raise `NotImplementedError` with a clear message — they are not removed (preserves API surface for future phases)
 - **D-07:** Default `base_url` changed from `"https://data.rag.ac.cn"` to `"http://localhost:8000"`
 

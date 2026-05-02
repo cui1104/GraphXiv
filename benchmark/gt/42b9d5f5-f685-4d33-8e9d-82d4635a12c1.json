@@ -17,11 +17,11 @@
       "sec_num": "2.1"
     },
     {
-      "text": "Moderating effect of ESG on EP, particularly regarding emissions reduc tion, is contingent on the firm’s legitimacy environment. Firms that practice strong legitimacy may choose to achieve both social and economic gains",
+      "text": "Moderating effect of ESG on EP, particularly regarding emissions reduc tion, is contingent on the firm\u2019s legitimacy environment. Firms that practice strong legitimacy may choose to achieve both social and economic gains",
       "sec_num": "2.2"
     },
     {
-      "text": "To fill the gap in the literature, this study examines whether firms’ involvement in ESGC weakens the link between BGD and EP.",
+      "text": "To fill the gap in the literature, this study examines whether firms\u2019 involvement in ESGC weakens the link between BGD and EP.",
       "sec_num": "2.3"
     },
     {
@@ -71,6 +71,8 @@
   ],
   "figure_count": 2,
   "formula_count": 9,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 55,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "authoryear"
 }

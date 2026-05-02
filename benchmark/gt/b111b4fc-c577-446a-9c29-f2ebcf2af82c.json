@@ -61,11 +61,11 @@
       "sec_num": "III"
     },
     {
-      "text": "Evaluation of Models’ Performance on Clinical Data",
+      "text": "Evaluation of Models\u2019 Performance on Clinical Data",
       "sec_num": "III.A."
     },
     {
-      "text": "Evaluation of Models’ Performance on Virtual Data",
+      "text": "Evaluation of Models\u2019 Performance on Virtual Data",
       "sec_num": "III.B."
     },
     {
@@ -83,6 +83,8 @@
   ],
   "figure_count": 9,
   "formula_count": 0,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 59,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "bracket"
 }

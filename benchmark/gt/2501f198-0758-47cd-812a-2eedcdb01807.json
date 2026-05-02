@@ -87,6 +87,8 @@
   ],
   "figure_count": 9,
   "formula_count": 12,
-  "reference_count": 30,
-  "page_count": 10
+  "reference_count": 28,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "authoryear"
 }

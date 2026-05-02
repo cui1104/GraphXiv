@@ -166,7 +166,14 @@ def promote_candidate(question_id: str, candidates_path: Path, questions_path: P
             head = reader.head(aid) or {}
         except Exception as exc:
             raise ValueError(f"gold cite {aid} could not be validated: {exc}") from exc
-        if not head or not (head.get("title") or head.get("arxiv_id") or head.get("paper_id")):
+        has_body = bool(
+            head.get("title")
+            or head.get("arxiv_id")
+            or head.get("paper_id")
+            or head.get("abstract")
+            or head.get("sections")
+        )
+        if not head or not has_body:
             raise ValueError(
                 f"gold cite {aid} no longer resolvable in corpus (D-20 violated)"
             )

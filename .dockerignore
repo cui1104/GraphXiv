@@ -1,6 +1,12 @@
 data/
 .planning/
 .git/
+.env
+.env.*
+.DS_Store
+.claude/
+dats 5990 docs/
+report/build/
 __pycache__/
 *.pyc
 *.pyo
@@ -10,3 +16,5 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+*.log
+*.bak

@@ -71,6 +71,8 @@
   ],
   "figure_count": 14,
   "formula_count": 2,
-  "reference_count": 11,
-  "page_count": 6
+  "reference_count": 10,
+  "page_count": 6,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "bracket"
 }

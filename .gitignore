@@ -1,4 +1,6 @@
 .env
+.env.*
+!.env.example
 __pycache__/
 *.pyc
 *.pyo
@@ -6,13 +8,30 @@ __pycache__/
 data/
 *.egg-info/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 dist/
 build/
 *.so
+*.log
+*.bak
+*.tmp
+*.sqlite
+*.sqlite3
+*.db
 .DS_Store
+.claude/
+.ipynb_checkpoints/
+dats 5990 docs/
+report/build/
+.planning/report/
 
 # Phase 8 eval run outputs (D-29): regenerate via `python eval/run_eval.py`
 eval/results/run_*/
+!eval/results/run_20260421_201456/
+!eval/results/run_20260421_201456/**
 eval/results/runs.jsonl
 eval/results/scores.jsonl
 eval/results/*.jsonl

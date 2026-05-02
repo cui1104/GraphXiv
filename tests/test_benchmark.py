@@ -107,7 +107,45 @@ def test_table_completeness_absent():
 
 def test_normalize_heading_strips_punctuation():
     from benchmark.metrics import normalize_heading
-    assert normalize_heading("1. Introduction!") == {"1", "introduction"}
+    # Leading arabic section number "1." is stripped by the prefix rule.
+    assert normalize_heading("1. Introduction!") == {"introduction"}
+
+
+def test_normalize_heading_strips_section_number_arabic():
+    from benchmark.metrics import normalize_heading, heading_matched
+    assert normalize_heading("3. Methodology") == {"methodology"}
+    assert normalize_heading("3.1. Dataset") == {"dataset"}
+    assert normalize_heading("3.1.2 Sub-Sub") == {"subsub"}
+    assert heading_matched("3. Methodology", ["Methodology"]) is True
+    assert heading_matched("3.1 Dataset Collection", ["Dataset Collection"]) is True
+
+
+def test_normalize_heading_strips_section_number_roman():
+    from benchmark.metrics import normalize_heading, heading_matched
+    assert normalize_heading("III. Methodology") == {"methodology"}
+    assert normalize_heading("IV. Experimental Results") == {"experimental", "results"}
+    assert heading_matched("III. Methodology", ["METHODOLOGY"]) is True
+    assert heading_matched("VIII. Conclusion", ["Conclusion"]) is True
+
+
+def test_normalize_heading_strips_single_letter_subsection():
+    from benchmark.metrics import normalize_heading, heading_matched
+    assert normalize_heading("A. ResNet50") == {"resnet50"}
+    assert heading_matched("A. ResNet50", ["ResNet50"]) is True
+
+
+def test_normalize_heading_preserves_leading_article():
+    """'A Survey of ...' must NOT be treated as section 'A' — no trailing period."""
+    from benchmark.metrics import normalize_heading
+    assert normalize_heading("A Survey of GANs") == {"a", "survey", "of", "gans"}
+    assert normalize_heading("V Experiments") == {"v", "experiments"}  # roman without period preserved
+
+
+def test_normalize_heading_chapter_section_prefix():
+    from benchmark.metrics import normalize_heading, heading_matched
+    assert normalize_heading("Chapter 3. Results") == {"results"}
+    assert normalize_heading("Section 2 Methods") == {"methods"}
+    assert heading_matched("Chapter 3. Results", ["Results"]) is True
 
 
 # ---- CSV schema tests (Plan 07-02.5 — v2 schema supersedes D-17) ----
@@ -123,7 +161,9 @@ def test_csv_schema_columns():
       - benchmark.csv has v1 schema       → skip (pre-overhaul file; Task 6 will
                                            regenerate). Detected by presence of
                                            "heading_match_rate" column.
-      - benchmark.csv has v2 schema       → assert column set + 600 rows.
+      - benchmark.csv has v2 schema       → assert column set + 900 rows
+                                           (150 papers × 6 conditions:
+                                           mineru/grobid/docling + router_t5/8/10).
     """
     csv_path = os.path.join(os.path.dirname(__file__), "..", "benchmark", "results", "benchmark.csv")
     if not os.path.exists(csv_path):
@@ -144,7 +184,7 @@ def test_csv_schema_columns():
             f"missing={expected - field_set}, extra={field_set - expected}"
         )
         rows = list(reader)
-        assert len(rows) == 600, f"expected 600 rows (150 papers × 4 conditions), got {len(rows)}"
+        assert len(rows) == 900, f"expected 900 rows (150 papers × 6 conditions), got {len(rows)}"
 
 
 def test_csv_columns_literal_v2_spec():
@@ -165,11 +205,15 @@ def test_csv_columns_literal_v2_spec():
         "heading_precision", "heading_recall", "heading_f1",
         # Hierarchy (router's differentiator)
         "hierarchy_f1",
-        # Content richness
+        # Content richness — raw counts + symmetric precision/recall/f1
+        # (penalizes over- AND under-extraction per count_match_precision_recall_f1)
         "body_token_count",
         "figure_count_parser", "figure_count_gt",
+        "figure_precision", "figure_recall", "figure_f1",
         "formula_count_parser", "formula_count_gt",
+        "formula_precision", "formula_recall", "formula_f1",
         "reference_count_parser", "reference_count_gt",
+        "reference_precision", "reference_recall", "reference_f1",
         # Tables + coherence
         "table_presence", "table_structural_completeness",
         "coherent_section_pct",
@@ -181,8 +225,8 @@ def test_csv_columns_literal_v2_spec():
         f"extra={set(CSV_COLUMNS) - expected}"
     )
     # Column count sanity — catches stray duplicates.
-    assert len(CSV_COLUMNS) == len(expected) == 24, (
-        f"expected 24 columns, got {len(CSV_COLUMNS)}"
+    assert len(CSV_COLUMNS) == len(expected) == 33, (
+        f"expected 33 columns, got {len(CSV_COLUMNS)}"
     )
 
 
@@ -475,6 +519,40 @@ def test_struct_count_handles_non_int_gracefully():
     assert count_figures({"figure_count": "7"}) == 7   # coerced
     assert count_formulas({"formula_count": None}) == 0
     assert count_references({"reference_count": "not a number"}) == 0
+
+
+# ---- count_match_precision_recall_f1 (symmetric count agreement) ----
+
+def test_count_match_perfect_agreement():
+    from benchmark.metrics import count_match_precision_recall_f1
+    assert count_match_precision_recall_f1(10, 10) == (1.0, 1.0, 1.0)
+
+
+def test_count_match_over_extraction_penalized():
+    # GROBID's paper-2 case: parser=21, gt=17 → precision 17/21, recall 1.0
+    from benchmark.metrics import count_match_precision_recall_f1
+    p, r, f1 = count_match_precision_recall_f1(21, 17)
+    assert abs(p - 17 / 21) < 1e-9
+    assert r == 1.0
+    assert f1 < 1.0  # over-extraction dings f1
+
+
+def test_count_match_under_extraction_penalized():
+    p, r, f1 = __import__("benchmark.metrics", fromlist=["count_match_precision_recall_f1"]).count_match_precision_recall_f1(10, 20)
+    assert p == 1.0
+    assert r == 0.5
+    assert 0.0 < f1 < 1.0
+
+
+def test_count_match_both_zero_is_vacuous_perfect():
+    from benchmark.metrics import count_match_precision_recall_f1
+    assert count_match_precision_recall_f1(0, 0) == (1.0, 1.0, 1.0)
+
+
+def test_count_match_one_zero_is_total_mismatch():
+    from benchmark.metrics import count_match_precision_recall_f1
+    assert count_match_precision_recall_f1(0, 5) == (0.0, 0.0, 0.0)
+    assert count_match_precision_recall_f1(5, 0) == (0.0, 0.0, 0.0)
 
 
 # ---- Sample selection tests (enabled in Task 3) ----

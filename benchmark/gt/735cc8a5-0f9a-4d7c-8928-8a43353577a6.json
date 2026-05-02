@@ -37,7 +37,7 @@
       "sec_num": ""
     },
     {
-      "text": "Cross-Attention: Group–Molecule Interactions.",
+      "text": "Cross-Attention: Group\u2013Molecule Interactions.",
       "sec_num": ""
     },
     {
@@ -59,6 +59,8 @@
   ],
   "figure_count": 1,
   "formula_count": 13,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 32,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }

@@ -4,6 +4,10 @@ Unit tests for the Reader class (local backend fork).
 All tests mock HTTP via unittest.mock.patch on Reader._make_request.
 No live backend required. No imports from app.*.
 """
+import os
+import subprocess
+import sys
+
 import pytest
 from unittest.mock import patch, MagicMock
 from deepxiv_sdk import Reader
@@ -29,6 +33,26 @@ def test_custom_base_url_trailing_slash_stripped():
     """Trailing slash is stripped from base_url."""
     r = Reader(base_url="http://example.com/")
     assert r.base_url == "http://example.com"
+
+
+def test_package_reader_import_does_not_load_agent_stack():
+    """Reader-only package imports must not import optional agent/tiktoken stack."""
+    code = (
+        "import sys; "
+        "from deepxiv_sdk.reader import Reader; "
+        "print('deepxiv_sdk.agent.agent' in sys.modules)"
+    )
+    env = os.environ.copy()
+    env["PYTHONPATH"] = os.getcwd() + os.pathsep + env.get("PYTHONPATH", "")
+    result = subprocess.run(
+        [sys.executable, "-c", code],
+        cwd=os.getcwd(),
+        env=env,
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    assert result.stdout.strip() == "False"
 
 
 # ---------------------------------------------------------------------------

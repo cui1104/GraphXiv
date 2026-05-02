@@ -13,11 +13,11 @@
       "sec_num": "2"
     },
     {
-      "text": "Vision–Language Pre-Training",
+      "text": "Vision\u2013Language Pre-Training",
       "sec_num": "2.1"
     },
     {
-      "text": "Medical Vision–Language Models",
+      "text": "Medical Vision\u2013Language Models",
       "sec_num": "2.2"
     },
     {
@@ -63,6 +63,8 @@
   ],
   "figure_count": 1,
   "formula_count": 4,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 48,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }

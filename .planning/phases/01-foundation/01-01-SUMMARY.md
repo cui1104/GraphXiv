@@ -100,7 +100,7 @@ Each task was committed atomically:
 1. **Task 1: Project scaffold, Docker Compose, and Dockerfile** - `772e981` (feat)
 2. **Task 2: Wave 0 test stubs (conftest.py and test_infra.py)** - `10dcbae` (feat)
 
-**Plan metadata:** _(to be set after final commit)_
+**Plan metadata:** `e444ffa` (docs: complete plan)
 
 ## Files Created/Modified
 
@@ -162,6 +162,10 @@ These stubs are **intentional** — they exist to satisfy TestCeleryQueues tests
 - Plan 03 (Celery skeleton) can proceed: celery_app.py is configured, task stub files exist with correct names, queues and routes are defined
 - Plans 02 and 03 can run in parallel — no file conflicts
 - `docker compose up` will bring all 5 services healthy once NVIDIA Container Toolkit is installed on host
+
+## Self-Check: PASSED
+
+All 19 created files exist on disk. All 3 commits (772e981, 10dcbae, e444ffa) verified in git log. No missing items.
 
 ---
 *Phase: 01-foundation*

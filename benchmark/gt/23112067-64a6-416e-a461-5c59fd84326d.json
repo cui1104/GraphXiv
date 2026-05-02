@@ -19,6 +19,8 @@
   ],
   "figure_count": 0,
   "formula_count": 0,
-  "reference_count": 9,
-  "page_count": 3
+  "reference_count": 8,
+  "page_count": 3,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }

@@ -8,6 +8,7 @@ D-19 (table completeness 0.0/0.5/1.0), and two-column detection (Pattern 6).
 """
 
 import os
+import re
 import string
 import sys
 
@@ -21,14 +22,36 @@ from app.tasks.parse_helpers import _sentence_length_degraded
 # Heading match (D-10)
 # ============================================================
 
+# Strip a leading section-number prefix before tokenising.
+# Handles three patterns that parsers commonly inline into heading text while
+# GT v2 stores the section number separately:
+#   - "3. Methodology", "3.1. Sub-topic" (arabic with optional dots/periods)
+#   - "IV. Results", "III. Methodology"   (roman with trailing period)
+#   - "A. Ablation"                        (single uppercase letter with period)
+#   - "Chapter 3. Results", "Section 2 Methods"
+# Bare "A Survey of ..." or "V Experiments" (no period after the letter/roman)
+# is left alone to avoid stripping legitimate first words.
+_SEC_NUM_PREFIX = re.compile(
+    r"^\s*(?:"
+    r"(?:Chapter|Section|Part|Appendix)\s+\d+(?:\.\d+)*\.?|"
+    r"\d+(?:\.\d+)*\.?|"
+    r"[IVXLC]{1,6}\.|"
+    r"[A-Z]\."
+    r")\s+(?=\S)"
+)
+
+
 def normalize_heading(h: str) -> set:
-    """Lowercase + strip punctuation, return set of non-empty tokens.
+    """Lowercase + strip leading section numbers + strip punctuation → token set.
 
     Example:
-        normalize_heading("1. Introduction!") == {"1", "introduction"}
+        normalize_heading("III. Methodology") == {"methodology"}
+        normalize_heading("3.1. Dataset")     == {"dataset"}
+        normalize_heading("A Survey of GANs") == {"a", "survey", "of", "gans"}
     """
     if not h:
         return set()
+    h = _SEC_NUM_PREFIX.sub("", h)
     h = h.lower()
     h = h.translate(str.maketrans("", "", string.punctuation))
     return {t for t in h.split() if t}
@@ -212,27 +235,33 @@ def _section_pairs(sections: list) -> list:
 # ============================================================
 
 def body_token_count(sections: list) -> int:
-    """Sum of tiktoken cl100k_base token counts across section.text.
+    """Sum token counts across section.text.
 
     Matches the encoder used in app/tasks/normalize.py::_compute_token_count
     for consistency with the production pipeline. Returns 0 if sections is
     empty or all texts are blank.
-
-    tiktoken is imported lazily to keep this module import-cheap (metrics.py
-    is imported by the test suite).
     """
     if not sections:
         return 0
-    import tiktoken  # lazy
-    enc = tiktoken.get_encoding("cl100k_base")
     total = 0
     for sec in sections:
         if not isinstance(sec, dict):
             continue
         text = sec.get("text") or ""
         if text and text.strip():
-            total += len(enc.encode(text))
+            total += _token_count(text)
     return total
+
+
+def _token_count(text: str) -> int:
+    """Count tokens with tiktoken when available, otherwise a deterministic fallback."""
+    try:
+        import tiktoken  # lazy
+
+        enc = tiktoken.get_encoding("cl100k_base")
+        return len(enc.encode(text))
+    except Exception:
+        return len(re.findall(r"\w+|[^\w\s]", text))
 
 
 # ============================================================
@@ -273,6 +302,34 @@ def count_references(struct_counts: dict | None) -> int:
         return int(val)
     except (TypeError, ValueError):
         return 0
+
+
+def count_match_precision_recall_f1(parser: int, gt: int) -> tuple[float, float, float]:
+    """Symmetric precision/recall/f1 for integer count comparison.
+
+    Penalizes both over-extraction (low precision) and under-extraction (low
+    recall). Used for figure/formula/reference counts where the previous
+    schema stored raw numbers — GROBID over-extracting figures (parser=21,
+    gt=17) was invisible as a quality signal under count-only reporting.
+
+    Formula:
+        tp = min(parser, gt)
+        precision = tp / parser   (fraction of parser hits that are real)
+        recall    = tp / gt       (fraction of gt items the parser found)
+        f1        = 2pr / (p + r)
+
+    Edge cases:
+        parser == 0 and gt == 0 -> (1.0, 1.0, 1.0)  (perfect vacuous agreement)
+        exactly one is 0        -> (0.0, 0.0, 0.0)  (total mismatch)
+    """
+    if parser == 0 and gt == 0:
+        return 1.0, 1.0, 1.0
+    if parser == 0 or gt == 0:
+        return 0.0, 0.0, 0.0
+    tp = min(parser, gt)
+    p = tp / parser
+    r = tp / gt
+    return p, r, 2 * p * r / (p + r)
 
 
 # ============================================================
@@ -332,11 +389,22 @@ def _table_completeness_score(has_caption: bool, has_headers: bool, has_data_row
 def table_completeness_docling(table_item, doc) -> float:
     """Score a Docling TableItem per D-19.
 
+    Docling's TableItem exposes captions via a `captions: list[RefItem]` attribute
+    and a `caption_text(doc=doc)` method — NOT a `caption` attribute. Earlier code
+    read `getattr(table_item, "caption", None)` which always returned None,
+    collapsing every Docling table's completeness score to 0.0.
+
     Uses table_item.export_to_dataframe(doc=doc) — Pitfall 9: doc kwarg is REQUIRED.
     """
     try:
         df = table_item.export_to_dataframe(doc=doc)
-        has_caption = bool(getattr(table_item, "caption", None))
+        caps = getattr(table_item, "captions", None) or []
+        has_caption = len(caps) > 0
+        if not has_caption and hasattr(table_item, "caption_text"):
+            try:
+                has_caption = bool((table_item.caption_text(doc=doc) or "").strip())
+            except Exception:
+                pass
         has_headers = (
             len(df.columns) > 0
             and not all(str(c).startswith("Unnamed") for c in df.columns)

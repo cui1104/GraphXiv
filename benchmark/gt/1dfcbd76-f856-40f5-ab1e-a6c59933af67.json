@@ -97,7 +97,7 @@
       "sec_num": "VI"
     },
     {
-      "text": "Deconstructing the “Circular Reasoning” Critique",
+      "text": "Deconstructing the \u201cCircular Reasoning\u201d Critique",
       "sec_num": "A"
     },
     {
@@ -111,6 +111,8 @@
   ],
   "figure_count": 2,
   "formula_count": 4,
-  "reference_count": 67,
-  "page_count": 6
+  "reference_count": 39,
+  "page_count": 6,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "bracket"
 }

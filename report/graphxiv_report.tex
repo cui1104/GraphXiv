@@ -1,0 +1,376 @@
+\documentclass[10pt]{article}
+
+\usepackage[top=0.82in,bottom=0.82in,left=0.9in,right=0.9in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[numbers,sort&compress]{natbib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\lstdefinestyle{terminal}{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  framerule=0.3pt,
+  rulecolor=\color{black!35},
+  xleftmargin=0.5em,
+  xrightmargin=0.5em
+}
+
+\title{GraphXiv: End-to-End Data Engineering and Knowledge Graph Construction for Academic Literature with an LLM Retrieval Agent}
+\author{Hengtao (Henry) Cui\\\texttt{henrycui@seas.upenn.edu}}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+GraphXiv is an end-to-end academic literature ingestion and retrieval system that converts arXiv papers into a local, queryable backend for LLM research agents. The project addresses a practical gap in current agentic literature tools: progressive paper reading is useful, but reproducible local infrastructure for parsing, storing, searching, and evaluating papers remains difficult to assemble. GraphXiv builds that infrastructure around a Dockerized backend, PostgreSQL storage with vector search support, a parser-routing layer, benchmark tooling, and a terminal-first agent interface. The main engineering contribution is a configurable PDF parser router that balances runtime and layout-aware extraction quality across GROBID, MinerU, Docling, and router variants. On a 150-paper benchmark with 900 parser-condition rows, MinerU and Docling substantially outperformed GROBID on visual/document-structure metrics such as figure precision, formula F1, and table structural completeness, but they required 47.3 and 41.9 seconds per document respectively. Router-T10 reduced runtime to 20.7 seconds per document while still improving selected figure and formula metrics over GROBID. The downstream GraphXiv CLI exposes backend health checks, BM25 corpus search, paper listing, cached evaluation replay, and live citation-aware question answering. In a 30-question evaluation, the citation-aware agent improved mean judged answer correctness by 3.933 points, faithfulness by 3.967 points, citation coverage by 3.900 points, and completeness by 3.967 points over a title-only baseline.
+\end{abstract}
+
+\section{Project Description and Background}
+
+LLM agents are increasingly used to search, compare, and synthesize scientific papers, but academic PDFs are a poor direct substrate for such agents. A paper is visually structured for human readers, while an agent needs stable identifiers, section boundaries, references, captions, formulas, and token-budget-aware access paths. Loading an entire PDF or raw text dump into a model is costly and brittle: it spends context on irrelevant sections, weakens evidence lookup, and makes it hard to test whether the answer is grounded in the cited literature.
+
+The scale of the literature makes this an infrastructure problem rather than a small parsing inconvenience. OpenAlex describes scholarly research as a graph with ``hundreds of millions'' of works and reports a catalog of 474 million scholarly works in its public help materials \citep{openalexabout,openalexconcepts}. At that scale, an expensive parser cannot be applied blindly to every document in an interactive development workflow. At the same time, many useful papers and reports in domains such as biomedicine, finance, policy, and industry research still circulate primarily as PDFs rather than as clean LaTeX sources or normalized XML. A scalable academic agent therefore needs a routing policy: use fast structured extraction when it is sufficient, but keep OCR and layout-aware parsing available when the PDF contains visual structure that text-only extraction is likely to miss.
+
+DeepXiv-SDK is a recent example of an agent-first paper interface. Its technical report frames the same bottleneck as a data-access problem and proposes layered access to scientific literature through normalized JSON, service APIs, CLI/MCP/Python tools, and a built-in agent \citep{qian2026deepxiv}. Its public SDK also emphasizes a progressive workflow: search first, inspect brief metadata or paper heads, then read sections only when needed \citep{deepxivgithub}. GraphXiv borrows this core idea of progressive paper reading, but changes the ownership boundary. Instead of depending on a remotely hosted corpus service whose data construction backend is not reproducible from the SDK alone, GraphXiv builds a local backend that can ingest, parse, normalize, store, search, and evaluate papers under the user's control.
+
+The project therefore has two linked goals. The first is data engineering: build a reproducible academic-literature backend that turns PDFs into machine-readable records. The second is agent evaluation: expose that backend through a terminal CLI and measure whether citation-aware tool use improves answers to paper-comparison questions. In this practicum setting, the system is not only a research prototype but also an engineering artifact. It includes Docker services, REST endpoints, a PostgreSQL database, parser tasks, benchmark scripts, cached evaluation outputs, and a CLI that can be tested from a terminal.
+
+The central technical question is how to parse papers fast enough for practical ingestion while preserving enough structure for downstream retrieval. Existing parsers make different tradeoffs. GROBID is a mature machine-learning system for converting scholarly PDFs into structured TEI \citep{grobid}; in GraphXiv it serves as the fast structured-PDF path for regular born-digital scholarly PDFs where the text layer and publication structure are clean. For image-heavy, scanned, table-heavy, or visually complex PDFs, the project relies on OCR/layout-aware parsers. MinerU explicitly targets precise document content extraction with OCR, layout detection, formula recognition, and postprocessing rules \citep{wang2024mineru}. Docling provides an open-source document conversion toolkit powered by specialized AI models for layout analysis and table structure recognition, exporting richly structured representations for downstream processing \citep{livathinos2025docling}. GraphXiv therefore treats parser selection as a routing problem instead of assuming that one parser dominates across all PDF layouts.
+
+\section{Data}
+
+\subsection{Project Corpus}
+
+GraphXiv uses scholarly papers as the primary data object. At the broad motivation level, the relevant data universe is not a small static collection: OpenAlex reports hundreds of millions of scholarly works, connected by authors, institutions, venues, concepts, and citations \citep{openalexabout,openalexconcepts}. GraphXiv does not attempt to ingest that entire universe. Instead, it implements and evaluates the backend on a controlled local corpus so that parser behavior, retrieval behavior, and agent behavior can be measured before scaling.
+
+The 150-paper benchmark sample is produced by the project script \path{benchmark/select_sample.py}. The script queries the local database for successfully parsed papers that also have an available PDF asset, classifies column layout using parser-quality and PDF-layout signals, and samples with random seed 42. The intended sampling dimensions are source type, subject, and column layout. In the realized benchmark corpus used here, the available candidates after filtering produced 150 arXiv papers from \texttt{cs.LG}, all classified as single-column. Each paper is evaluated under six parser conditions: GROBID, MinerU, Docling, Router-T5, Router-T8, and Router-T10. This produces 900 benchmark rows. Because the router is designed to decide when OCR/layout-aware parsing is worth its runtime cost, the report focuses on metrics aligned with that objective: visual/layout extraction quality and seconds per document. Because the realized corpus is single-column arXiv PDFs, the results are strongest for born-digital arXiv-style papers and should not be overgeneralized to publisher PDFs or scanned archival documents.
+
+\subsection{Evaluation Data}
+
+The agent evaluation uses 30 citation-grounded questions split evenly across claim-grounding, comparative, and method-dependency tasks. Each question has gold in-corpus cited paper identifiers. This makes the evaluation suitable for testing whether an agent can move from a seed paper to the cited works needed to answer a comparative or dependency question. The cached demonstration data is also used by the CLI so that representative side-by-side output can be shown without requiring a live LLM call.
+
+The data used in this report therefore has three layers. The first layer is the paper corpus and parsed records. The second layer is parser benchmark output, which measures extraction behavior across parser choices. The third layer is evaluation output, which measures how retrieval tools change LLM answers. Separating these layers is important because parser quality, retrieval quality, and answer quality are related but not identical.
+
+\section{Methodology}
+
+\subsection{DeepXiv Method and GraphXiv Adaptation}
+
+DeepXiv's public SDK frames scientific-paper access as an agent interface problem rather than only as a search problem. Its README describes two core workflows: search plus progressive content access, and trending or popularity signals \citep{deepxivgithub}. The first workflow is the most relevant for GraphXiv. Instead of loading a full paper immediately, DeepXiv exposes a reading ladder: search for candidate papers, inspect a brief summary, inspect the paper head for structure and token distribution, read selected sections such as Introduction, Method, Experiments, or Results, and only then request the full paper when the task requires it. The SDK exposes this pattern through CLI commands, Python \texttt{Reader} methods, MCP tools, and an optional built-in agent. It also supports source switching across arXiv, bioRxiv, and medRxiv, filtering by metadata, optional reranking, and JSON output for programmatic agent use.
+
+GraphXiv adapts that method rather than copying it directly. The borrowed idea is the workflow principle: an agent should read papers progressively under a token budget. The adaptation is in the data-engineering substrate. DeepXiv provides an SDK over an external retrieval service; GraphXiv builds the local backend that produces and serves the data. This changes the research question from ``can an agent call a paper-reading API?'' to ``can we build an open local pipeline that parses PDFs, constructs citation-aware records, exposes search and reader tools, and evaluates whether those tools improve answers?'' In practical terms, GraphXiv keeps the progressive access ladder but adds three local contributions: a Dockerized ingestion backend, a parser router for choosing between fast structured extraction and OCR/layout-aware extraction, and an evaluation harness that compares title-only answers with citation-aware tool use.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{DeepXiv workflow idea and GraphXiv adaptation.}
+\label{tab:deepxiv-graphxiv}
+\begin{tabular}{p{0.20\linewidth}p{0.33\linewidth}p{0.37\linewidth}}
+\toprule
+Aspect & DeepXiv & GraphXiv adaptation \\
+\midrule
+Access pattern & Progressive search, metadata inspection, section reading, and full-paper escalation. & Keeps the progressive reading ladder but serves it from a local backend. \\
+Backend ownership & SDK calls an external literature service; corpus construction is not reproducible from the SDK alone. & Docker, Postgres, parser jobs, and cached eval artifacts are owned locally. \\
+Parsing layer & Parser and normalization backend are abstracted away from the public SDK workflow. & Parser router chooses among GROBID, MinerU, and Docling before normalization. \\
+Evaluation role & Demonstrates agent-oriented paper access. & Measures parser tradeoffs and tool-access gains on cached local experiments. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{System Architecture}
+
+GraphXiv is organized as a local academic paper backend plus a forked SDK/CLI layer. The backend uses FastAPI for HTTP endpoints, Celery workers for asynchronous parsing and normalization jobs, Redis for task coordination, and PostgreSQL as the system of record. PostgreSQL is paired with pgvector, which supports vector similarity search inside Postgres while preserving ordinary relational features such as joins and transactions \citep{pgvector}. The Docker setup starts the API, worker, Redis, PostgreSQL, and GROBID services together, so the terminal workflow can check backend readiness before running search or agent queries.
+
+\begin{figure}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{ccccc}
+\fbox{\begin{minipage}{0.15\linewidth}\centering PDFs\\metadata\end{minipage}} &
+$\rightarrow$ &
+\fbox{\begin{minipage}{0.22\linewidth}\centering Parser router\\GROBID/MinerU/Docling\end{minipage}} &
+$\rightarrow$ &
+\fbox{\begin{minipage}{0.23\linewidth}\centering Normalized records\\sections/references\end{minipage}} \\
+&& $\downarrow$ && $\downarrow$ \\
+\fbox{\begin{minipage}{0.15\linewidth}\centering Benchmark\\cached eval\end{minipage}} &
+$\leftarrow$ &
+\fbox{\begin{minipage}{0.22\linewidth}\centering Parser outputs\\quality/runtime logs\end{minipage}} &
+$\rightarrow$ &
+\fbox{\begin{minipage}{0.23\linewidth}\centering PostgreSQL/pgvector\\FastAPI/Reader/CLI\end{minipage}} \\
+\end{tabular}
+\caption{Compact GraphXiv architecture. The parser router is the main engineering boundary: it selects the extraction path before normalized records are stored and exposed to the CLI and retrieval agent.}
+\label{fig:architecture}
+\end{figure}
+
+At ingestion time, paper metadata and PDFs enter the pipeline, parser tasks convert PDFs into structured outputs, and normalization tasks write canonical paper records, sections, references, and retrieval fields. The retrieval layer supports lexical search and can be extended with vector and hybrid search. The CLI currently defaults to BM25 lexical search for \texttt{graphxiv search}; BM25 is a standard probabilistic ranking model for term-based retrieval \citep{robertson2009bm25}. This default is appropriate for a terminal smoke test because it does not require a live embedding request and makes query behavior easy to inspect.
+
+\subsection{Backend Connection and API-Key Setup}
+
+The working development path is intentionally terminal-first. The user starts Docker, waits for the compose stack to report healthy services, then uses the CLI to check the system state. The backend connection is controlled by the local base URL, normally \texttt{http://localhost:8000}. The CLI's doctor command verifies that the SDK reader can import without pulling in the optional agent stack, that \texttt{/health} is reachable, and that cached evaluation replay data exists. For live LLM runs, \texttt{OPENAI\_API\_KEY} must be set in the terminal environment before invoking \texttt{graphxiv ask}. The key is not needed for BM25 search, paper listing, backend health checks, or cached demo replay.
+
+This separation matters for reproducibility. A benchmark or parser smoke test should not fail simply because an LLM key is absent. Conversely, a live agent run should fail clearly when the key is missing rather than silently falling back to a cached answer. GraphXiv therefore treats the local backend and the LLM provider as separate dependencies: Docker provides the paper database, parser services, and REST API; the environment variable provides access to live answer generation.
+
+\begin{lstlisting}[style=terminal,caption={Minimal terminal setup for live local testing.}]
+$ docker compose up -d
+$ curl http://localhost:8000/health
+{"status":"ok"}
+
+$ export OPENAI_API_KEY=sk-...
+$ ./graphxiv doctor
+$ ./graphxiv search "confusion matrix interpretability" --limit 5
+$ ./graphxiv ask 2602.19770 "How does this paper extend its cited works?"
+\end{lstlisting}
+
+\subsection{Knowledge Graph Construction}
+
+The project title refers to knowledge graph construction because the parsed database is not only a bag of text chunks. Each paper becomes a typed node with metadata, abstract text, section records, parser provenance, and token counts. References are normalized into citation edges from a seed paper to cited works where identifiers can be resolved. Section records then provide evidence nodes that can be retrieved by paper ID and section name. This representation supports graph-style traversals such as ``start from paper A, enumerate cited papers, load their method sections, and compare them against paper A's method.'' The Q001 demo in Section~5 follows exactly this pattern.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{GraphXiv lightweight graph schema.}
+\label{tab:kg-schema}
+\begin{tabular}{p{0.20\linewidth}p{0.36\linewidth}p{0.34\linewidth}}
+\toprule
+Object or edge & Stored fields & Downstream role \\
+\midrule
+Paper node & arXiv ID, title, abstract, source, parser status, token counts. & Stable entry point for search, listing, and reader calls. \\
+Section node & Paper ID, section name, hierarchy depth, normalized text. & Evidence unit for progressive reading and targeted agent context. \\
+Citation edge & Source paper ID, cited identifier, reference metadata when resolved. & Lets the agent traverse from seed papers to cited works. \\
+Parser provenance & Parser name, router threshold, runtime, errors, output paths. & Supports benchmark audit and parser-routing analysis. \\
+Retrieval view & BM25 fields, optional vector fields, paper/section joins. & Serves CLI search and future hybrid retrieval. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The graph is still lightweight rather than a full ontology. It does not attempt to extract claims, tasks, datasets, or method entities into a semantic schema. That is a deliberate scope decision. The report focuses on the lower-level data engineering layer required before higher-level scientific knowledge extraction is reliable: clean paper metadata, stable paper IDs, section boundaries, reference edges, parser provenance, and searchable text.
+
+\subsection{Parser Router}
+
+The parser benchmark evaluates six conditions: standalone MinerU, standalone GROBID, standalone Docling, and three router thresholds. The router is PDF-first and counts tables before selecting a parser. In Router-T5, Router-T8, and Router-T10, the ``T'' means table-count threshold: if the detected table count is greater than 5, 8, or 10 respectively, the paper is routed to MinerU; otherwise, it is routed to GROBID. Lower thresholds send more papers to MinerU and preserve more OCR/layout-aware extraction, while higher thresholds send more papers to GROBID and reduce runtime. After parsing, the pipeline applies a dot-count hierarchy reconstruction step to recover section depth where possible.
+
+This design reflects a practical observation from the benchmark. GROBID is very fast, but MinerU and Docling are stronger on layout-aware dimensions such as figures, formulas, and table structure. MinerU and Docling are therefore necessary for difficult PDFs, but their runtime cost makes them expensive as universal defaults. The router is not a claim that a simple rule always beats every parser. It is a tunable engineering mechanism for deciding when OCR/layout-aware parsing is worth the extra cost.
+
+\subsection{Benchmark Design}
+
+The parsing benchmark contains 900 rows: 150 deep-learning papers across six parser conditions. Ground truth was generated with Gemini 2.5 Flash vision from 120 DPI page images, capped at 10 pages per paper, using a schema that records headings, figure counts, formula counts, and reference counts. These labels should be interpreted as vision-model-assisted proxy ground truth rather than manual annotation. The benchmark reports precision, recall, and F1 for headings, figures, formulas, and references, plus coherence, table structural completeness, body token count, wall-clock seconds per document, and parser error counts.
+
+The sample is intentionally narrow: all 150 papers are arXiv papers in \texttt{cs.LG}, and all are single-column after the project filters. This makes the benchmark useful for the target project corpus, but it limits claims about multi-column scientific PDFs. For example, it cannot empirically rank the parsers on IEEE/ACM two-column layouts.
+
+\subsection{Evaluation Design}
+
+The retrieval-agent evaluation is designed as a paired comparison. For each question, the baseline and agent answer the same prompt. The baseline receives minimal title/abstract-style context and no tools, while the agent can call GraphXiv reader tools. This design isolates the effect of backend access: the model family and evaluation questions remain fixed, and the main experimental difference is whether the system can inspect paper structure and citation edges.
+
+The question set intentionally emphasizes cases where citation access should matter. Method-dependency questions ask how a seed paper adapts or extends cited methods. Comparative questions require distinctions across multiple cited works. Claim-grounding questions require evidence from the cited literature. These are not generic paper-summary prompts; they are stress tests for whether the local backend lets the agent move from a seed paper to its cited context.
+
+\section{Results and Analysis}
+
+\subsection{Parser Benchmark}
+
+Table~\ref{tab:parser-summary} reports the layout-sensitive metrics most directly tied to the parser-routing objective. Table-SC denotes table structural completeness. A non-specialist reader can read the table as follows: GROBID is much faster, but MinerU and Docling are better at extracting visual and structural content from PDFs. MinerU improves figure precision, formula F1, and table structural completeness over GROBID; Docling improves the same metrics while also producing the best formula scores. This is the performance gap the router is designed to address.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Layout-sensitive parser metrics aligned with the router objective. Table-SC means table structural completeness; higher is better except runtime.}
+\label{tab:parser-summary}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Condition & Head-R & Fig-P & Form-P & Form-R & Form-F1 & Table-SC & sec/doc \\
+\midrule
+GROBID & 0.731 & 0.650 & 0.633 & 0.706 & 0.629 & 0.528 & 3.2 \\
+MinerU & 0.847 & 0.806 & 0.712 & 0.777 & 0.718 & 0.609 & 47.3 \\
+Docling & 0.863 & 0.768 & 0.741 & 0.822 & 0.755 & 0.642 & 41.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The router threshold analysis is shown in Table~\ref{tab:router}. Router-T5 routes more papers to MinerU and preserves more layout-aware extraction quality, but it is slower. Router-T10 routes fewer papers to MinerU and is the fastest router setting. Importantly, even Router-T10 remains above GROBID on the figure and formula metrics that define the router's layout-aware objective while reducing runtime by more than half compared with MinerU and Docling. This is the intended tradeoff: keep OCR/layout-aware parsing in the system, but avoid paying its full cost on every document.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Router threshold comparison on layout-sensitive objective metrics.}
+\label{tab:router}
+\begin{tabular}{llrrrrr}
+\toprule
+Condition & MinerU route & Fig-P & Form-P & Form-R & Form-F1 & sec/doc \\
+\midrule
+GROBID & -- & 0.650 & 0.633 & 0.706 & 0.629 & 3.2 \\
+Router-T5 & $>$ 5 tables & 0.706 & 0.656 & 0.749 & 0.665 & 29.3 \\
+Router-T8 & $>$ 8 tables & 0.710 & 0.658 & 0.745 & 0.660 & 24.4 \\
+Router-T10 & $>$ 10 tables & 0.688 & 0.656 & 0.734 & 0.654 & 20.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These results also show why a router is more practical than a winner-take-all parser choice. GROBID alone is attractive for a large ingestion job because it is extremely fast. However, its lower figure precision, formula extraction, and table structural completeness matter for papers where visual artifacts are part of the scientific contribution. MinerU and Docling are stronger on these visual-structure dimensions, but their runtimes make them expensive as universal defaults. A threshold router turns this into a configurable policy rather than a hard-coded parser preference.
+
+\subsection{Retrieval Agent Evaluation}
+
+The second experiment evaluates whether the parsed backend helps an LLM answer citation-grounded questions. The evaluation contains 30 curated questions split evenly across claim-grounding, comparative, and method-dependency categories. Each question has at least two in-corpus gold cited arXiv IDs. The comparison is paired: \texttt{title\_only} answers with no tools, while \texttt{with\_tools} can call the GraphXiv reader tools to inspect references, papers, sections, and full text. This should be interpreted as a tool-access evaluation rather than a comparison against a strong retrieval baseline. The judge used \texttt{gpt-4o-mini} with temperature 0.0 and a strict JSON rubric.
+
+Table~\ref{tab:agent-eval} shows large gains for the citation-aware condition. Mean judged answer correctness increased from 1.000 to 4.933, faithfulness from 1.000 to 4.967, citation coverage from 1.000 to 4.900, and completeness from 1.000 to 4.967. Every paired delta was positive across all 30 questions. The deterministic citation-coverage cross-check agreed strongly with the judge scores, which reduces the risk that the judge merely rewarded plausible but ungrounded answers.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Agent evaluation summary over 30 citation-grounded questions. Scores are on a 1--5 scale.}
+\label{tab:agent-eval}
+\begin{tabular}{lrrr}
+\toprule
+Dimension & title\_only mean & with\_tools mean & Mean delta \\
+\midrule
+Answer correctness & 1.000 & 4.933 & 3.933 \\
+Faithfulness & 1.000 & 4.967 & 3.967 \\
+Citation coverage & 1.000 & 4.900 & 3.900 \\
+Completeness & 1.000 & 4.967 & 3.967 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The cost is substantial. The \texttt{title\_only} condition averaged 1.602 seconds, 460.1 tokens, and zero tool calls. The \texttt{with\_tools} condition averaged 24.015 seconds, 26,717.8 tokens, and 9.20 tool calls. This result supports the project design rather than contradicting it: citation-aware answering is more expensive, so the system needs progressive access and tool traces to spend that cost only when the question requires grounding.
+
+\subsection{Engineering Interpretation}
+
+The benchmark and agent results should be read together. Parser quality affects agent quality because broken sections, missing formulas, and lost figure/table structure reduce what the reader tools can fetch. A citation-aware agent does not only need a list of paper IDs; it needs enough structured content to answer questions about methods, experiments, and evidence. GROBID alone gives a fast first pass, but it is not the best representation for visually complex PDFs. MinerU and Docling preserve more of that structure, and Router-T10 keeps part of that advantage while reducing runtime enough for local experimentation.
+
+\subsection{BM25 Retrieval Rationale}
+
+GraphXiv currently uses BM25 as the default CLI search mode rather than making semantic embedding search the main reported retrieval result. This choice is methodological as well as practical. BM25 is deterministic, cheap, and easy to reproduce from the local database; it does not require a live embedding API call, model-version choice, or cosine-similarity index tuning. That makes it a cleaner smoke test for whether the backend is connected and whether the parsed corpus is searchable. Semantic embedding and hybrid retrieval remain important future work, especially for paraphrased questions and concept-level queries, but adding them to this report would mix parser-routing evaluation with embedding-model evaluation. The current report therefore treats BM25 as a controlled lexical baseline rather than as the final retrieval design.
+
+\section{CLI Demonstrations}
+
+The CLI is important because it makes the system testable without opening a notebook or a web app. The first smoke test checks whether the SDK import path, backend health endpoint, API key state, and cached evaluation data are available.
+
+\begin{lstlisting}[style=terminal,caption={Backend readiness check.}]
+$ ./graphxiv doctor
+GRAPHXIV · DOCTOR
+
+OK   SDK Reader import works without loading agent stack
+     base_url=http://localhost:8000
+OK   Backend health endpoint is reachable
+     {"status":"ok"}
+OK   OPENAI_API_KEY is set for live `graphxiv ask` runs
+OK   Cached eval replay data is present
+     cached replay directory found
+\end{lstlisting}
+
+The search command defaults to BM25 lexical retrieval. This is a useful baseline because the result can be inspected immediately and compared with vector or hybrid retrieval later.
+
+\begin{lstlisting}[style=terminal,caption={BM25 corpus search from the local backend.}]
+$ ./graphxiv search "confusion matrix interpretability" --limit 5
+GRAPHXIV · SEARCH: 'confusion matrix interpretability'
+
+1. 2510.20019 Machine Learning-Based Localization Accuracy of RFID...
+2. 2505.07033 Outperformance Score: A Universal Standardization...
+3. 2512.10973 TECM*: A Data-Driven Assessment to Reinforcement...
+4. 2602.10967 Healthy Harvests: A Comparative Look at Guava...
+5. 2403.09548 Breast Cancer Classification Using Gradient...
+\end{lstlisting}
+
+The evaluation corpus can also be inspected from the CLI. This command lists the ten seed papers used by the cached demo set, including the GRAPHIC paper used in the representative question below.
+
+\begin{lstlisting}[style=terminal,caption={Seed papers available for demo questions.}]
+$ ./graphxiv papers --titles
+GRAPHXIV · 10 SEED PAPERS IN EVAL CORPUS
+
+2602.19770 (3 questions) The Confusion is Real: GRAPHIC - A Network
+Science Approach to Confusion...
+2603.04443 (3 questions) AMV-L: Lifecycle-Managed Agent Memory...
+2603.06271 (3 questions) Agentic retrieval-augmented reasoning...
+\end{lstlisting}
+
+The cached demo illustrates the progressive-reading workflow inside GraphXiv's local backend. The baseline sees only seed-paper title and abstract context. The agent retrieves references, loads cited papers, reads sections, and escalates to full-paper access only when needed.
+
+\begin{lstlisting}[style=terminal,caption={Citation-aware cached replay for question Q001.}]
+$ ./graphxiv demo Q001
+question_type: method-dependency
+seed paper: 2602.19770
+gold cites: 2503.07914, 2501.09967, 2402.01761
+
+BASELINE · title_only (no tools)
+latency=1.76s | tokens=419 | tool_calls=0 |
+cites_mentioned=3/3 | judge=[ac=1 fa=1 cc=1 co=1]
+
+CITATION-AWARE · with_tools
+latency=48.88s | tokens=49786 | tool_calls=13 |
+cites_fetched=3/3 | judge=[ac=5 fa=5 cc=5 co=5]
+
+Tool trace:
+ 1. get_references   arxiv_id='2602.19770'
+ 2. load_paper       arxiv_id='2503.07914'
+ 3. load_paper       arxiv_id='2501.09967'
+ 4. load_paper       arxiv_id='2402.01761'
+ 5. load_paper       arxiv_id='2602.19770'
+ 6. read_section     arxiv_id='2602.19770'
+ 7. read_section     arxiv_id='2503.07914'
+ 8. read_section     arxiv_id='2501.09967'
+ 9. read_section     arxiv_id='2402.01761'
+10. get_full_paper   arxiv_id='2602.19770'
+
+SIDE-BY-SIDE SUMMARY
+answer words:   36 -> 690
+cites fetched:  0/3 -> 3/3
+tool calls:     0 -> 13
+latency (s):    1.76 -> 48.88
+\end{lstlisting}
+
+This transcript demonstrates the practical difference between merely mentioning cited paper IDs and actually fetching cited papers. The baseline repeats the IDs but cannot explain the relationship among methods. The citation-aware run touches all three gold cited papers and produces a longer comparative answer. For ad-hoc live \texttt{graphxiv ask} runs, the CLI should not display a \texttt{cites fetched 0/0} row unless a gold citation set exists; otherwise that metric is undefined rather than zero performance.
+
+\section{Reproducibility}
+
+The project keeps raw experiment outputs and generated findings inside the repository tree. The parser benchmark evidence comes from \path{benchmark/results/benchmark.csv} and \path{benchmark/FINDINGS.md}. The agent evaluation evidence comes from a cached evaluation run under \path{eval/results/} and \path{eval/FINDINGS.md}. The cached CLI replay reads from those evaluation outputs, so the demonstration can be reproduced without making a live LLM call.
+
+For future publication, the reproducibility package should distinguish three artifact classes. First, source code and scripts should be committed normally. Second, small derived tables such as findings markdown files and summary CSVs should be included because they make the report auditable. Third, large PDFs, database volumes, secret-bearing \texttt{.env} files, API keys, and temporary parser outputs should be excluded or moved to documented external storage. This cleanup is especially important before pushing the project to GitHub.
+
+The minimum reproduction checklist is:
+\begin{enumerate}[leftmargin=1.5em,itemsep=0.2em]
+  \item Start the Docker stack and confirm \texttt{/health}.
+  \item Run \texttt{./graphxiv doctor} to verify the backend, SDK import path, API key state, and cached replay data.
+  \item Run \texttt{./graphxiv search} to confirm local corpus retrieval.
+  \item Run \texttt{./graphxiv demo Q001} to replay the cached citation-aware comparison.
+  \item Re-run benchmark analysis from the CSV if benchmark tables need to be regenerated.
+\end{enumerate}
+
+\section{Conclusions and Limitations}
+
+GraphXiv shows that the progressive-reading idea can be implemented as a local, reproducible backend rather than only as a remote literature service. The parser router is the most important contribution. It gives the ingestion pipeline a tunable policy for deciding when to spend expensive parser compute and when to rely on a fast structured parser. In the current corpus, Router-T10 is the strongest router setting: it is much faster than MinerU and Docling while still improving selected figure and formula metrics over GROBID.
+
+The agent experiment shows that citation-aware tool access can substantially improve answer quality on citation-grounded questions. However, the improvement is not free. The with-tools condition is slower and token-heavy, and many cited papers in the corpus are metadata-only. The experiment therefore measures the value of any Reader access over no Reader access more strongly than it measures perfect section-level grounding over shallow grounding. This is still useful for a practicum system: it verifies that the backend and tools change the agent's behavior in the intended direction.
+
+The main limitations are corpus coverage, parser ground truth, and external validity. The benchmark has no two-column papers, so multi-column failure modes remain qualitative. The ground truth is capped at 10 pages and generated by a vision model, so formula and figure counts can be lower bounds rather than complete labels. The benchmark also contains an important tradeoff: Router-T10 does not replace the need for stronger OCR/layout-aware parsers; it reduces how often those expensive parsers need to be used. Its value is deployment balance, configurability, and selected quality recovery under runtime constraints.
+
+Future work should expand the corpus to include two-column conference papers, add parser-specific failure labels, evaluate vector and hybrid retrieval against BM25, and run a larger live-agent study after more cited papers have parsed full text. The code release step should also remove secrets, document Docker setup, include CLI smoke tests, and publish benchmark/evaluation artifacts in a reproducible directory layout.
+
+\subsection{Threats to Validity}
+
+There are four main threats to validity. First, the parser benchmark is domain-specific. A \texttt{cs.LG} arXiv sample may not represent biomedical articles, scanned documents, publisher PDFs, or multi-column conference proceedings. Second, the benchmark's vision-generated ground truth is useful for rapid evaluation but is not a manually adjudicated gold standard. Third, the agent evaluation uses an LLM judge. The deterministic citation-coverage cross-check helps, but judged correctness and faithfulness still depend on the rubric and judge model. Fourth, the cached replay demonstrates a controlled evaluation run; live \texttt{graphxiv ask} behavior can vary with model version, API latency, prompt changes, and parser coverage in the local database.
+
+These threats do not invalidate the project, but they define the scope of the claims. GraphXiv can claim a working local backend, a measured parser-routing tradeoff, and strong evidence that citation-aware tool access improves a curated set of citation-grounded questions. It should not claim general superiority across all PDF layouts, all domains, or all research-agent tasks without a larger benchmark.
+
+\section{Links to Code Repositories}
+
+The public project repository is:
+\begin{lstlisting}[style=terminal]
+GitHub: https://github.com/cui1104/GraphXiv
+\end{lstlisting}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

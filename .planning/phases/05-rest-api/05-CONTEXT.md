@@ -48,7 +48,7 @@ Build and expose all REST API endpoints that the deepxiv_sdk `Reader` class cons
 
 ### Response schemas
 - **D-22:** Pydantic v2 models for all response types — field names exactly match FEATURES.md schema (HeadResponse, BriefResponse, SectionsResponse, FullResponse, SearchResponse, PmcHeadResponse, PmcFullResponse, ReferencesResponse, CitedByResponse, RelatedResponse)
-- **D-23:** SQLAlchemy 2.x async queries (AsyncSession) for non-blocking DB access under concurrent requests
+- **D-23:** Sync `SessionLocal` with FastAPI's built-in threadpool (sync `def` handlers) — no `asyncpg`/AsyncSession dependency. FastAPI automatically runs sync handlers in a thread pool, which is functionally equivalent for this use case and matches the existing synchronous DB infrastructure.
 
 ### Claude's Discretion
 - Exact Pydantic model inheritance structure (whether Head/Brief share a base model)

@@ -47,6 +47,8 @@
   ],
   "figure_count": 5,
   "formula_count": 4,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 2,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }

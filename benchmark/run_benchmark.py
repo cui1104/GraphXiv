@@ -15,12 +15,70 @@ import csv
 import json
 import logging
 import os
+import re
 import shutil
 import sys
 import tempfile
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+# Transformers v5 removed `find_pruneable_heads_and_indices` and `prune_linear_layer`
+# from both `transformers.pytorch_utils` and `transformers.modeling_utils`. magic-pdf's
+# bundled unimernet + layoutlmv3 still import them. Shim them back before magic-pdf's
+# formula/layout models import. Reference impl copied from transformers 4.x.
+try:
+    import transformers.pytorch_utils as _tpu  # type: ignore[import-untyped]
+    import transformers.modeling_utils as _tmu  # type: ignore[import-untyped]
+    import torch as _torch  # type: ignore[import-not-found]
+    from torch import nn as _nn  # type: ignore[import-not-found]
+
+    if not hasattr(_tpu, "find_pruneable_heads_and_indices"):
+        def _find_pruneable_heads_and_indices(heads, n_heads, head_size, already_pruned_heads):
+            mask = _torch.ones(n_heads, head_size)
+            heads = set(heads) - already_pruned_heads
+            for head in heads:
+                head = head - sum(1 if h < head else 0 for h in already_pruned_heads)
+                mask[head] = 0
+            mask = mask.view(-1).contiguous().eq(1)
+            index = _torch.arange(len(mask))[mask].long()
+            return heads, index
+
+        _tpu.find_pruneable_heads_and_indices = _find_pruneable_heads_and_indices
+        _tmu.find_pruneable_heads_and_indices = _find_pruneable_heads_and_indices
+
+    if not hasattr(_tpu, "prune_linear_layer"):
+        def _prune_linear_layer(layer, index, dim=0):
+            index = index.to(layer.weight.device)
+            W = layer.weight.index_select(dim, index).clone().detach()
+            b = None
+            if layer.bias is not None:
+                if dim == 1:
+                    b = layer.bias.clone().detach()
+                else:
+                    b = layer.bias[index].clone().detach()
+            new_size = list(layer.weight.size())
+            new_size[dim] = len(index)
+            new_layer = _nn.Linear(new_size[1], new_size[0], bias=layer.bias is not None).to(layer.weight.device)
+            new_layer.weight.requires_grad = False
+            new_layer.weight.copy_(W.contiguous())
+            new_layer.weight.requires_grad = True
+            if layer.bias is not None and b is not None:
+                new_layer.bias.requires_grad = False
+                new_layer.bias.copy_(b.contiguous())
+                new_layer.bias.requires_grad = True
+            return new_layer
+
+        _tpu.prune_linear_layer = _prune_linear_layer
+        _tmu.prune_linear_layer = _prune_linear_layer
+
+    if not hasattr(_tpu, "meshgrid"):
+        def _meshgrid(*tensors, indexing="ij"):
+            return _torch.meshgrid(*tensors, indexing=indexing)
+        _tpu.meshgrid = _meshgrid
+except Exception:
+    pass
 
 from benchmark.metrics import (  # type: ignore[import]
     coherent_section_pct,
@@ -29,6 +87,7 @@ from benchmark.metrics import (  # type: ignore[import]
     compute_hierarchy_f1,
     count_figures,
     count_formulas,
+    count_match_precision_recall_f1,
     count_references,
     table_completeness_docling,
     table_completeness_grobid,
@@ -55,8 +114,11 @@ CSV_COLUMNS = [
     # Content richness.
     "body_token_count",
     "figure_count_parser", "figure_count_gt",
+    "figure_precision", "figure_recall", "figure_f1",
     "formula_count_parser", "formula_count_gt",
+    "formula_precision", "formula_recall", "formula_f1",
     "reference_count_parser", "reference_count_gt",
+    "reference_precision", "reference_recall", "reference_f1",
     # Unchanged orthogonal signals.
     "table_presence", "table_structural_completeness",
     "coherent_section_pct",
@@ -64,7 +126,12 @@ CSV_COLUMNS = [
     "error",
 ]
 
-CONDITIONS = ["mineru", "grobid", "docling", "router"]
+# Router is swept across thresholds to see the latency/quality tradeoff from
+# sending fewer papers to slow MinerU. Each router_tN variant is treated as a
+# distinct condition (separate rows, separate timings, separate p/r/f1) — the
+# child parsers (mineru/grobid/docling) still run only once per paper.
+CONDITIONS = ["mineru", "grobid", "docling", "router_t5", "router_t8", "router_t10"]
+ROUTER_SWEEP_THRESHOLDS = [5, 8, 10]
 
 GROBID_TIMEOUT_SECONDS = 90  # Pitfall 6
 
@@ -91,13 +158,97 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 # Condition: MinerU standalone (Pattern 5; mirrors parse_pdf_mineru)
 # ============================================================
 
+# Match a leading arabic/roman section number on a MinerU heading string so
+# text_level-based headings carry sec_num like GROBID's <div n> attribute.
+# "3. Introduction" → ("3", "Introduction"); "III. Results" → ("III", "Results").
+_MINERU_HEADING_SECNUM = re.compile(
+    r"^\s*(\d+(?:\.\d+)*|[IVXLC]{1,6})\.?\s+(.+)"
+)
+
+
+def _mineru_split_heading_secnum(text: str) -> tuple:
+    """Extract (sec_num, clean_text) from a MinerU heading string.
+
+    Returns (None, text) if no section-number prefix present.
+    """
+    if not text:
+        return None, text
+    m = _MINERU_HEADING_SECNUM.match(text.strip())
+    if not m:
+        return None, text.strip()
+    return m.group(1), m.group(2).strip()
+
+
+# Bibliography entry detector: "N. Author..." where Author starts with uppercase.
+# MinerU inlines multiple refs on one line, so we count via findall not line split.
+_BIB_ENTRY_RE = re.compile(r"(?:^|\s)(\d+)\.\s+[A-Z]")
+# Reference / bibliography section heading (H1 or H2 in MinerU markdown).
+_REF_HEADING_RE = re.compile(r"^\s*#{1,3}\s*(references?|bibliography)\s*$", re.IGNORECASE | re.MULTILINE)
+# Formula regexes for the markdown output. MinerU emits display math as `$$...$$`
+# blocks when formula-config.enable is true; also `\[...\]` and `\begin{equation}`.
+_FORMULA_DISPLAY_RE = re.compile(r"\$\$[\s\S]+?\$\$")
+_FORMULA_BRACKET_RE = re.compile(r"\\\[[\s\S]+?\\\]")
+_FORMULA_ENV_RE = re.compile(r"\\begin\{(equation|align|gather|multline)\*?\}")
+
+
+def _count_mineru_references(md_text: str) -> int:
+    """Count bibliography entries after the last References / Bibliography heading.
+
+    Returns 0 if no such heading is found. Matches `N. Capitalized...` entries
+    that appear after the last matching heading in `md_text`. The inline form
+    `... 2024. 3. Hartigan JA,` is captured because the regex is whitespace-
+    anchored (not line-anchored).
+    """
+    if not md_text:
+        return 0
+    # Use last match so mid-document citations like "See references [1, 2]" don't hijack.
+    matches = list(_REF_HEADING_RE.finditer(md_text))
+    if not matches:
+        return 0
+    tail = md_text[matches[-1].end():]
+    return len(_BIB_ENTRY_RE.findall(tail))
+
+
+def _count_mineru_formulas(md_text: str, content_list: list) -> int:
+    """Count displayed formulas.
+
+    Primary signal: MinerU's `interline_equation` items in content_list (when
+    formula-config.enable is true). Fallback: regex over the markdown for
+    `$$...$$`, `\\[ ... \\]`, and LaTeX equation environments. Captures the
+    common cases without inline-math false positives ("$x$" in prose text is
+    not counted; GT only counts displayed formulas too).
+    """
+    n = sum(1 for it in content_list if it.get("type") in ("interline_equation", "equation", "formula"))
+    if n:
+        return n
+    if not md_text:
+        return 0
+    return (
+        len(_FORMULA_DISPLAY_RE.findall(md_text))
+        + len(_FORMULA_BRACKET_RE.findall(md_text))
+        + len(_FORMULA_ENV_RE.findall(md_text))
+    )
+
+
 def run_mineru_standalone(pdf_path: str) -> tuple:
     """Call magic-pdf on raw PDF, return (sections, content_list, struct_counts).
 
-    Lazy imports per project convention (Pitfall 1).
-    sections: list[{heading, sec_num, text}] — sec_num preserved from MinerU content_list
-    content_list: full MinerU output (for table_completeness_mineru)
-    struct_counts: {figure_count, formula_count, table_count}
+    MinerU v1.x content_list emits only `text`, `image`, and `table` item types;
+    headings are distinguished by `text_level` (1/2/3) on text items, NOT by a
+    dedicated `title` type. We detect headings via text_level and parse any
+    leading section-number prefix to populate sec_num (downstream consumers:
+    router's _apply_dot_count_hierarchy).
+
+    Structural counts:
+      - figures:    type == "image"
+      - tables:     type == "table"
+      - formulas:   interline_equation items + regex on markdown display math
+      - references: bibliography entries after the last References heading
+
+    Returns:
+      sections:      list[{heading, sec_num, text}] — sec_num parsed from heading text
+      content_list:  raw MinerU output (consumed by table_completeness_mineru)
+      struct_counts: {figure_count, formula_count, reference_count, table_count}
     """
     from magic_pdf.config.enums import SupportedPdfParseMethod  # type: ignore[import-untyped]
     from magic_pdf.data.data_reader_writer import FileBasedDataWriter  # type: ignore[import-untyped]
@@ -124,19 +275,32 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
         pipe.dump_md(output_writer, "output.md", "images")
         with open(os.path.join(output_dir, "content_list.json")) as f:
             content_list = json.load(f)
+        md_path = os.path.join(output_dir, "output.md")
+        md_text = ""
+        if os.path.exists(md_path):
+            with open(md_path) as f:
+                md_text = f.read()
 
-        # Primary: extract headings from content_list title/text_title types (Pitfall 5).
-        # Preserve sec_num (if MinerU emitted it) on the section dict.
+        # Primary: text items whose text_level is a positive int are headings.
+        # Extract sec_num from the heading text if a leading number prefix exists.
         sections = []
         current = None
         for item in content_list:
             t = item.get("type", "")
-            if t in ("title", "text_title"):
+            lvl = item.get("text_level")
+            is_heading = (
+                t == "text"
+                and isinstance(lvl, int)
+                and lvl >= 1
+            )
+            if is_heading:
                 if current:
                     sections.append(current)
+                raw_text = item.get("text", "").strip()
+                sec_num, clean = _mineru_split_heading_secnum(raw_text)
                 current = {
-                    "heading": item.get("text", ""),
-                    "sec_num": item.get("sec_num"),
+                    "heading": clean,
+                    "sec_num": sec_num,
                     "text": "",
                 }
             elif t == "text" and current is not None:
@@ -144,45 +308,37 @@ def run_mineru_standalone(pdf_path: str) -> tuple:
         if current:
             sections.append(current)
 
-        # Fallback: if no headings found via type, parse markdown # headers.
-        # Markdown fallback does not carry sec_num (MinerU has no hierarchy info in md).
-        if not sections:
-            md_path = os.path.join(output_dir, "output.md")
-            if os.path.exists(md_path):
-                with open(md_path) as f:
-                    md_lines = f.readlines()
-                current = None
-                for line in md_lines:
-                    stripped = line.rstrip()
-                    if stripped.startswith("#"):
-                        if current:
-                            sections.append(current)
-                        heading = stripped.lstrip("#").strip()
-                        if heading:
-                            current = {"heading": heading, "sec_num": None, "text": ""}
-                    elif current is not None and stripped:
-                        current["text"] = (current["text"] + " " + stripped).strip()
-                if current:
-                    sections.append(current)
+        # Fallback: some PDFs emit no text_level — use markdown # headers.
+        # Markdown fallback loses sec_num unless it's in the heading text itself.
+        if not sections and md_text:
+            md_lines = md_text.splitlines()
+            current = None
+            for line in md_lines:
+                stripped = line.rstrip()
+                if stripped.startswith("#"):
+                    if current:
+                        sections.append(current)
+                    heading = stripped.lstrip("#").strip()
+                    if heading:
+                        sec_num, clean = _mineru_split_heading_secnum(heading)
+                        current = {"heading": clean, "sec_num": sec_num, "text": ""}
+                elif current is not None and stripped:
+                    current["text"] = (current["text"] + " " + stripped).strip()
+            if current:
+                sections.append(current)
 
-        # Count structural items from content_list (figures, formulas, tables).
-        # MinerU content_list item types: "image"/"figure", "equation", "table".
-        figure_count = sum(
-            1 for it in content_list
-            if it.get("type") in ("image", "figure")
-        )
-        formula_count = sum(
-            1 for it in content_list
-            if it.get("type") in ("equation", "formula", "interline_equation")
-        )
+        # Structural counts.
+        figure_count = sum(1 for it in content_list if it.get("type") in ("image", "figure"))
         table_count = sum(1 for it in content_list if it.get("type") == "table")
+        formula_count = _count_mineru_formulas(md_text, content_list)
+        reference_count = _count_mineru_references(md_text)
         struct_counts = {
             "figure_count": figure_count,
             "formula_count": formula_count,
+            "reference_count": reference_count,
             "table_count": table_count,
         }
 
-        # Pass full content_list to table_completeness_mineru
         return sections, content_list, struct_counts
     finally:
         shutil.rmtree(output_dir, ignore_errors=True)
@@ -258,6 +414,34 @@ def run_grobid_standalone(pdf_path: str) -> tuple:
 # Condition: Docling standalone (Pattern 1; Pitfalls 1, 2, 9)
 # ============================================================
 
+# Docling has no dedicated reference label; detect the References section by a
+# section_header text match, then count list_item (and as a fallback, plain
+# text) items until the next section_header or end-of-doc.
+_DOCLING_REF_HEADING_RE = re.compile(r"^(references?|bibliography|works\s+cited)\b", re.IGNORECASE)
+
+
+def _count_docling_references(texts) -> int:
+    in_scope = False
+    list_items = 0
+    text_items = 0
+    for item in texts:
+        label = str(getattr(item, "label", "")).lower()
+        raw = (getattr(item, "text", "") or "").strip()
+        if "section_header" in label:
+            if _DOCLING_REF_HEADING_RE.match(raw):
+                in_scope = True
+                continue
+            in_scope = False
+        elif in_scope:
+            if "list_item" in label:
+                list_items += 1
+            elif label == "text":
+                text_items += 1
+    # Prefer list_items when present (Docling's canonical bibliography format);
+    # fall back to plain text items for layouts where references aren't listed.
+    return list_items if list_items > 0 else text_items
+
+
 def run_docling_standalone(pdf_path: str) -> tuple:
     """Call Docling DocumentConverter on CUDA. Return (sections, tables, doc, struct_counts).
 
@@ -323,19 +507,22 @@ def run_docling_standalone(pdf_path: str) -> tuple:
 
     # Count structural items from the Docling document.
     # - figure_count: len(doc.pictures)
-    # - table_count: len(doc.tables)
-    # - formula_count: texts with formula label
-    # - reference_count: texts with bibliography/reference label or list items inside reference section
+    # - table_count:  len(doc.tables)
+    # - formula_count: texts with formula/equation label (Docling emits dedicated "formula" label)
+    # - reference_count: Docling has NO dedicated reference label — we locate the
+    #                    last section_header matching References/Bibliography and
+    #                    count list_item texts that appear after it until the next
+    #                    section_header (or end-of-doc).
     tables = list(doc.tables)
     pictures = list(getattr(doc, "pictures", []) or [])
     formula_count = 0
-    reference_count = 0
     for item in doc.texts:
         label = str(getattr(item, "label", "")).lower()
         if "formula" in label or "equation" in label:
             formula_count += 1
-        if "reference" in label or "bibliography" in label:
-            reference_count += 1
+
+    reference_count = _count_docling_references(doc.texts)
+
     struct_counts = {
         "figure_count": len(pictures),
         "formula_count": formula_count,
@@ -404,7 +591,14 @@ def _apply_dot_count_hierarchy(sections: list) -> list:
 # Condition: Router (D-03 logic: count PDF tables, route to GROBID or MinerU)
 # ============================================================
 
-TABLE_THRESHOLD = 3  # D-03: ≤3 tables → GROBID, >3 tables → MinerU
+def _router_threshold_for(condition: str) -> int:
+    """Extract N from condition 'router_tN'; default to 5 for plain 'router'."""
+    if condition.startswith("router_t"):
+        try:
+            return int(condition.split("_t", 1)[1])
+        except ValueError:
+            pass
+    return int(os.environ.get("ROUTER_TABLE_THRESHOLD", "5"))
 
 def _count_pdf_tables(pdf_path: str) -> int:
     """Count tables in PDF via pymupdf heuristic (number of detected table blocks)."""
@@ -420,19 +614,23 @@ def _count_pdf_tables(pdf_path: str) -> int:
     return table_count
 
 
-def run_router_standalone(pdf_path: str) -> tuple:
+def run_router_standalone(pdf_path: str, threshold: int = 5) -> tuple:
     """Route PDF to GROBID or MinerU per D-03: count tables, pick parser.
 
-    ≤3 tables → GROBID (fast, sufficient for text-heavy papers)
-    >3 tables → MinerU (heavy layout model for table/formula-rich papers)
+    ≤threshold tables → GROBID (fast, sufficient for text-heavy papers)
+    >threshold tables → MinerU (heavy layout model for table/formula-rich papers)
 
     Returns (sections, tables, parser_used, struct_counts).
 
     THIS IS THE ONLY CONDITION that applies `_apply_dot_count_hierarchy` — the router's
     rule-based hierarchy reconstruction is its claimed unique win (04-CONTEXT D-02).
+
+    `threshold` is swept across {5, 8, 10} via CONDITIONS router_tN variants to
+    show the quality/latency tradeoff (pymupdf over-counts tables, so higher
+    thresholds route more papers to fast GROBID).
     """
     n_tables = _count_pdf_tables(pdf_path)
-    if n_tables <= TABLE_THRESHOLD:
+    if n_tables <= threshold:
         sections, tei_bytes, struct_counts = run_grobid_standalone(pdf_path)
         table_scores = table_completeness_grobid(tei_bytes) if tei_bytes else []
         parser_used = "grobid"
@@ -545,13 +743,27 @@ def _fill_heading_metrics(row: dict, parser_sections: list, gt_payload: dict) ->
 
 
 def _fill_struct_columns(row: dict, struct_counts: dict, gt_payload: dict) -> None:
-    """Populate figure/formula/reference counts from parser and GT."""
+    """Populate figure/formula/reference counts + precision/recall/f1.
+
+    The precision/recall/f1 triple penalizes both over- and under-extraction
+    (see count_match_precision_recall_f1 docstring). Raw counts are kept so
+    analyze_results.py can still compute ratios, medians, etc.
+    """
     row["figure_count_parser"] = count_figures(struct_counts)
     row["formula_count_parser"] = count_formulas(struct_counts)
     row["reference_count_parser"] = count_references(struct_counts)
     row["figure_count_gt"] = int(gt_payload.get("figure_count") or 0)
     row["formula_count_gt"] = int(gt_payload.get("formula_count") or 0)
     row["reference_count_gt"] = int(gt_payload.get("reference_count") or 0)
+
+    for name in ("figure", "formula", "reference"):
+        p, r, f1 = count_match_precision_recall_f1(
+            row[f"{name}_count_parser"],
+            row[f"{name}_count_gt"],
+        )
+        row[f"{name}_precision"] = round(p, 4)
+        row[f"{name}_recall"] = round(r, 4)
+        row[f"{name}_f1"] = round(f1, 4)
 
 
 def _build_row(entry: dict, condition: str) -> dict:
@@ -573,10 +785,19 @@ def _build_row(entry: dict, condition: str) -> dict:
         "body_token_count": 0,
         "figure_count_parser": 0,
         "figure_count_gt": 0,
+        "figure_precision": 0.0,
+        "figure_recall": 0.0,
+        "figure_f1": 0.0,
         "formula_count_parser": 0,
         "formula_count_gt": 0,
+        "formula_precision": 0.0,
+        "formula_recall": 0.0,
+        "formula_f1": 0.0,
         "reference_count_parser": 0,
         "reference_count_gt": 0,
+        "reference_precision": 0.0,
+        "reference_recall": 0.0,
+        "reference_f1": 0.0,
         "table_presence": 0,
         "table_structural_completeness": 0.0,
         "coherent_section_pct": 0.0,
@@ -654,10 +875,11 @@ def _build_row(entry: dict, condition: str) -> dict:
             row["table_presence"] = 1 if tables else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
 
-        elif condition == "router":
+        elif condition == "router" or condition.startswith("router_t"):
             if not pdf_path or not os.path.exists(pdf_path):
                 raise RuntimeError(f"pdf_missing: {pdf_path}")
-            sections, table_scores, parser_used, struct_counts = run_router_standalone(pdf_path)
+            threshold = _router_threshold_for(condition)
+            sections, table_scores, parser_used, struct_counts = run_router_standalone(pdf_path, threshold=threshold)
             # Router sections carry depth (from _apply_dot_count_hierarchy) — this is
             # what makes hierarchy_f1 non-zero for router while standalone conditions score 0.
             _fill_heading_metrics(row, sections, gt_payload)
@@ -666,7 +888,7 @@ def _build_row(entry: dict, condition: str) -> dict:
             _fill_struct_columns(row, struct_counts, gt_payload)
             row["table_presence"] = 1 if table_scores else 0
             row["table_structural_completeness"] = (sum(table_scores) / len(table_scores)) if table_scores else 0.0
-            logger.info("router picked %s (%d tables detected)", parser_used, _count_pdf_tables(pdf_path))
+            logger.info("%s picked %s (threshold=%d)", condition, parser_used, threshold)
 
         else:
             raise ValueError(f"unknown condition: {condition}")
@@ -729,7 +951,7 @@ def main() -> int:
     # so a targeted re-run doesn't destroy results from other conditions.
     tmp_path = CSV_PATH + ".tmp"
     with open(tmp_path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS, extrasaction="ignore")
+        writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         for r in existing_rows:
             row_cond = r.get("condition")

@@ -89,7 +89,7 @@
       "sec_num": "ii"
     },
     {
-      "text": "Model’s performance on force signals in Y-direction",
+      "text": "Model\u2019s performance on force signals in Y-direction",
       "sec_num": "b"
     },
     {
@@ -99,6 +99,8 @@
   ],
   "figure_count": 4,
   "formula_count": 5,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 28,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }

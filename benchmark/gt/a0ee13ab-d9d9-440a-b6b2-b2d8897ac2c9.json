@@ -41,12 +41,14 @@
       "sec_num": "6.1"
     },
     {
-      "text": "Training algorithm — the backpropagation method",
+      "text": "Training algorithm \u2014 the backpropagation method",
       "sec_num": "6.2"
     }
   ],
   "figure_count": 4,
   "formula_count": 6,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 50,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }

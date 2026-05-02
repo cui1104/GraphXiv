@@ -12,7 +12,8 @@ Seven phases on a strict critical path: stand up the infrastructure, crawl the c
 - [x] **Phase 4: Normalizer + Storage** - All parser outputs mapped to unified deepxiv_sdk JSON schema and upserted to PostgreSQL (completed 2026-04-15)
 - [x] **Phase 5: REST API** - All 7 FastAPI endpoints serving correct JSON with Redis caching (completed 2026-04-16)
 - [x] **Phase 6: SDK Fork + Verification** - Forked deepxiv_sdk passes full test suite against this backend and ships one new capability (completed 2026-04-16)
-- [ ] **Phase 7: Benchmark** - MinerU vs GROBID vs Docling vs this system's router evaluated on 150 DL papers with written findings report
+- [x] **Phase 7: Benchmark** - MinerU vs GROBID vs Docling vs Router (T5/T8/T10 thresholds) evaluated on 150 DL papers; Router-T10 recommended as production deployment condition (completed 2026-04-21)
+- [ ] **Phase 8: Agent Evaluation** - Empirical A/B evaluation of the citation-aware Agent (SDK-04) against a titles-only baseline on a 30+ question set; paired LLM-as-judge scoring + findings report
 
 ---
 
@@ -145,8 +146,27 @@ Plans:
 
 Plans:
 - [x] 07-01-PLAN.md — Wave 0 scaffold (benchmark/ directory, metrics library, stratified select_sample.py, tests/test_benchmark.py, requirements-benchmark.txt, Dockerfile update)
-- [ ] 07-02-PLAN.md — Ground truth (Claude Opus vision, create_gt.py) + four-condition runner (run_benchmark.py) producing benchmark/results/benchmark.csv with 600 rows
-- [ ] 07-03-PLAN.md — Findings report (analyze_results.py, benchmark/FINDINGS.md with 5 required sections + parser recommendation, analysis.ipynb with matplotlib charts)
+- [x] 07-02-PLAN.md — Ground truth (Claude Opus vision, create_gt.py) + four-condition runner (run_benchmark.py) producing benchmark/results/benchmark.csv with 600 rows
+- [x] 07-02.5-PLAN.md — Metric & GT overhaul (heading P/R/F1, hierarchy_f1, figure/formula/reference counts, v2 GT schema, 900-row 6-condition CSV)
+- [x] 07-03-PLAN.md — Findings report (analyze_results.py 419 lines, FINDINGS.md 204 lines, analysis.ipynb 10 matplotlib cells; Router-T10 recommended deployment condition) (completed 2026-04-21)
+
+---
+
+### Phase 8: Agent Evaluation
+**Goal**: Empirically demonstrate the citation-aware Agent (SDK-04) outperforms a titles-only baseline on a held-out question set, and recommend a default `citation_depth` based on the measured quality/cost tradeoff.
+**Depends on**: Phase 6 (SDK fork with citation-aware Agent already shipped)
+**Requirements**: EVAL-01, EVAL-02, EVAL-03, EVAL-04
+**Success Criteria** (what must be TRUE):
+  1. A reproducible QA set of ≥30 questions, each grounded in a specific corpus paper + cited-paper evidence, is committed at `eval/questions.json` with construction method documented.
+  2. `eval/run_eval.py` executes both conditions (baseline Agent: `get_references` + `get_cited_by` only; citation-aware Agent: `fetch_cited_paper_sections`, depth≥1) on the same questions with identical LLM + seed and records answers, tool traces, tokens, and wallclock to `eval/results/runs.jsonl`.
+  3. `eval/score.py` runs an LLM-as-judge with a documented rubric (answer_correctness, faithfulness, citation_coverage, completeness on 1–5 scale) and emits per-question, per-condition scores with justifications to `eval/results/scores.jsonl`.
+  4. `eval/FINDINGS.md` + `eval/notebook/eval_analysis.ipynb` document paired win-rate, mean-score deltas per dimension, cost/latency overhead, failure modes, and a default-depth recommendation.
+**Plans**: 3 plans
+
+Plans:
+- [x] 08-01-PLAN.md — Evaluation scaffold + question set construction (`eval/` directory layout, `eval/questions.json` with ≥30 curated questions, `eval/rubric.md`, test scaffold with fixtures)
+- [ ] 08-02-PLAN.md — Paired A/B runner (`eval/run_eval.py`) that runs baseline + citation-aware agents on the question set, logs tool traces and token/latency metrics, writes `eval/results/runs.jsonl`
+- [ ] 08-03-PLAN.md — LLM-as-judge scorer (`eval/score.py`), analysis notebook + `eval/FINDINGS.md` with paired win-rate, score deltas, cost tradeoff, and default-depth recommendation
 
 ---
 
@@ -163,4 +183,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 7 is par
 | 4. Normalizer + Storage | 2/2 | Complete    | 2026-04-15 |
 | 5. REST API | 3/3 | Complete   | 2026-04-16 |
 | 6. SDK Fork + Verification | 3/3 | Complete   | 2026-04-16 |
-| 7. Benchmark | 1/3 | In Progress|  |
+| 7. Benchmark | 4/4 | ✓ Complete | Router-T10 recommended deployment condition |
+| 8. Agent Evaluation | 0/3 | ○ Pending | citation-aware vs titles-only baseline, paired A/B with LLM-as-judge |

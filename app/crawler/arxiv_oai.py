@@ -85,15 +85,20 @@ def _parse_arxiv_records(xml_text: str) -> list[dict]:
         try:
             # arXivRaw metadata lives inside <metadata><arXivRaw>...</arXivRaw></metadata>
             # The inner element may be namespace-qualified or bare — use local-name xpath.
-            meta_elem = record.find(".//{*}arXivRaw") or record.find(".//arXivRaw")
+            meta_elem = record.find(".//{*}arXivRaw")
+            if meta_elem is None:
+                meta_elem = record.find(".//arXivRaw")
 
-            def _text(tag: str) -> str | None:
+            def _text(tag: str, _meta: object = meta_elem) -> str | None:
                 """Extract text of first child with matching local name."""
-                if meta_elem is not None:
-                    # Namespace-aware search first
-                    el = meta_elem.find(f"{{*}}{tag}") or meta_elem.find(tag)
-                    if el is not None and el.text:
-                        return el.text.strip()
+                if _meta is None:
+                    return None
+                # Try namespace-wildcard first (handles any namespace including OAI)
+                el = _meta.find(f"{{*}}{tag}")
+                if el is None:
+                    el = _meta.find(tag)
+                if el is not None and el.text:
+                    return el.text.strip()
                 return None
 
             raw_id = _text("id")

@@ -89,7 +89,7 @@
       "sec_num": ""
     },
     {
-      "text": "Análisis",
+      "text": "An\u00e1lisis",
       "sec_num": "4.2.1"
     },
     {
@@ -279,6 +279,8 @@
   ],
   "figure_count": 0,
   "formula_count": 0,
-  "reference_count": 0,
-  "page_count": 10
+  "reference_count": 49,
+  "page_count": 10,
+  "reference_count_source": "full_pdf_regex",
+  "reference_count_format": "number"
 }
