@@ -171,7 +171,7 @@ This design reflects a practical observation from the benchmark. GROBID is very 
 
 The parsing benchmark contains 900 rows: 150 deep-learning papers across six parser conditions. Ground truth was generated with Gemini 2.5 Flash vision from 120 DPI page images, capped at 10 pages per paper, using a schema that records headings, figure counts, formula counts, and reference counts. These labels should be interpreted as vision-model-assisted proxy ground truth rather than manual annotation. The benchmark reports precision, recall, and F1 for headings, figures, formulas, and references, plus coherence, table structural completeness, body token count, wall-clock seconds per document, and parser error counts.
 
-The sample is intentionally narrow: all 150 papers are arXiv papers in \texttt{cs.LG}, and all are single-column after the project filters. This makes the benchmark useful for the target project corpus, but it limits claims about multi-column scientific PDFs. For example, it cannot empirically rank the parsers on IEEE/ACM two-column layouts.
+The sample is intentionally narrow: all 150 papers are arXiv papers in \texttt{cs.LG}, and all are single-column after the project filters. This makes the benchmark useful for the target project corpus, but it limits claims about multi-column scientific PDFs. Annotation cost is also a practical constraint: producing high-quality page-level labels for parser evaluation is expensive, so the project does not support very large-scale annotation in its current form. For example, the benchmark cannot empirically rank the parsers on IEEE/ACM two-column layouts.
 
 \subsection{Evaluation Design}
 
