@@ -427,7 +427,22 @@ The exact executable sources are:
 The main templates are summarized below.
 
 \paragraph{Question drafting.}
-Candidate questions are drafted by \texttt{gpt-4o-mini} with temperature 0.0 and seed 42 using a JSON schema requiring \texttt{question\_text}, \texttt{gold\_answer\_keywords}, and \texttt{human\_notes}. The three user-prompt templates ask for: (1) how a seed paper adapts or extends cited methods; (2) how the seed paper differs from prior work; and (3) what evidence the seed paper cites to support a specific claim. Candidates are promoted only after in-corpus cited arXiv IDs are validated.
+Candidate questions are drafted by \texttt{gpt-4o-mini} with temperature 0.0, seed 42, and a strict JSON schema requiring \texttt{question\_text}, \texttt{gold\_answer\_keywords}, and \texttt{human\_notes}. The system message is:
+\begin{lstlisting}[style=terminal]
+You draft research-paper questions that require citation reading. Return JSON matching the provided schema exactly.
+\end{lstlisting}
+The user prompt depends on question type:
+\begin{lstlisting}[style=terminal]
+method-dependency:
+Draft a single research question that asks how paper {seed} adapts or extends the method from one of its cited works, specifically drawing on {cited}. Keep it answerable only by actually reading the cited paper's method section.
+
+comparative:
+Draft a single research question that asks how paper {seed}'s approach DIFFERS from prior work {cited}. Keep it answerable only by reading both papers.
+
+claim-grounding:
+Draft a single research question that asks what evidence paper {seed} cites to support a specific claim, where the cited evidence is in {cited}. Keep it answerable only by citation traversal.
+\end{lstlisting}
+Candidates are promoted only after in-corpus cited arXiv IDs are validated.
 
 \paragraph{Title-only baseline.}
 \begin{lstlisting}[style=terminal]
@@ -443,12 +458,54 @@ Question: {question_text}
 
 \paragraph{Citation-aware agent.}
 The with-tools condition uses the SDK agent system prompt \path{sdk/deepxiv_sdk/agent/prompts.py}. The prompt gives the agent paper-search and reader tools, then instructs a progressive ReAct workflow: search or load metadata first, inspect section summaries and token counts, read targeted sections when needed, avoid unnecessary full-paper loading, and cite papers by title and arXiv ID in the final answer. The evaluation records the prompt tag \texttt{deepxiv\_sdk.agent.prompts.get\_system\_prompt} plus the question text in the prompt hash so prompt drift is detectable.
+\begin{lstlisting}[style=terminal]
+Role: intelligent research assistant specialized in analyzing arXiv papers.
+Tools: search_papers, load_paper, read_section, get_full_paper, get_paper_preview.
+Workflow: Think -> Act -> Observe -> repeat -> Answer.
+Critical token-budget rules:
+- load_paper returns token counts for each section and total paper.
+- Never load full papers or sections with >10,000 tokens without strong justification.
+- Try metadata and section TLDRs before loading full content.
+- Prefer specific sections or previews over full-paper access.
+Final answers should be information-dense, structured, concise, and cite papers by title and arXiv ID.
+\end{lstlisting}
 
 \paragraph{LLM judge.}
-The judge prompt presents the question, gold cited arXiv IDs, two answers in deterministic randomized A/B order, and compact tool-call summaries. It asks \texttt{gpt-4o-mini} to return strict JSON with four integer 1--5 scores for each answer: \texttt{answer\_correctness}, \texttt{faithfulness}, \texttt{citation\_coverage}, and \texttt{completeness}. The rubric anchors are stored in \path{eval/rubric.md}. A deterministic counter separately computes the fraction of gold cited IDs touched by tool calls to cross-check the judge's citation-coverage score.
+The judge uses \texttt{gpt-4o-mini}, temperature 0.0, seed 42, max 1024 output tokens, and a strict JSON schema. It presents the question, gold cited arXiv IDs, two answers in deterministic randomized A/B order, and compact tool-call summaries. The system prompt is:
+\begin{lstlisting}[style=terminal]
+You are a careful grader of research-paper Q&A answers. You will be shown a question, the gold set of arxiv IDs that should be cited, and TWO candidate answers (A and B) with their associated tool-call summaries. Score EACH answer independently on the four 1-5 dimensions defined in the rubric below.
+
+Return STRICT JSON matching the schema. Do not add commentary outside JSON. Do NOT anchor on whether an answer is labelled A or B — order is randomized per question.
+\end{lstlisting}
+The user payload contains \texttt{question\_text}, \texttt{question\_type}, \texttt{gold\_cited\_arxiv\_ids}, \texttt{answer\_a.answer\_text}, \texttt{answer\_a.tool\_calls\_summary}, \texttt{answer\_b.answer\_text}, and \texttt{answer\_b.tool\_calls\_summary}. The JSON schema requires \texttt{answer\_correctness}, \texttt{faithfulness}, \texttt{citation\_coverage}, \texttt{completeness}, and \texttt{notes} for both answers. The rubric anchors are:
+\begin{itemize}[leftmargin=1.5em,itemsep=0.1em]
+  \item \texttt{answer\_correctness}: 1 = non-responsive or contradicts known ground truth; 5 = precise, complete, and factually consistent with cited-paper evidence.
+  \item \texttt{faithfulness}: 1 = unsupported hallucination; 5 = every substantive claim is directly supported by retrieved tool results.
+  \item \texttt{citation\_coverage}: 1 = zero gold cited papers touched; 5 = more than 75\% of gold cited papers loaded or section-fetched.
+  \item \texttt{completeness}: 1 = only one aspect addressed; 5 = every subpart addressed at publication-style depth.
+\end{itemize}
+A deterministic counter separately computes the fraction of gold cited IDs touched by tool calls to cross-check the judge's citation-coverage score.
 
 \paragraph{Benchmark ground-truth extraction.}
-Ground truth is generated by rendering up to 10 pages per PDF at 120 DPI and sending the page images to \texttt{gemini-2.5-flash}. The prompt asks for a single valid JSON object with exactly these keys: \texttt{headings}, \texttt{figure\_count}, \texttt{formula\_count}, and \texttt{reference\_count}. Heading objects contain cleaned heading text and the printed section number. The prompt forbids paper titles, figure/table captions, commentary, and markdown fences, and tells the model to count distinct figures, displayed equations, and bibliography entries visible in the rendered pages.
+Ground truth is generated by rendering up to 10 pages per PDF at 120 DPI and sending the page images to \texttt{gemini-2.5-flash}. The benchmark prompt is:
+\begin{lstlisting}[style=terminal]
+You are reading an academic paper (rendered page-by-page as images). Extract the paper's structural inventory and return it as a single JSON object.
+
+Required JSON keys (exact spelling, no extra top-level keys):
+- "headings": a JSON array of section-heading objects, in the order the headings appear. Each object has:
+  - "text": heading text without leading numbering/punctuation.
+  - "sec_num": numeric/dotted section number as a string exactly as printed, or "" if no explicit number.
+- "figure_count": integer count of distinct figures, including labelled subfigures once each. Do not include tables.
+- "formula_count": integer count of displayed numbered or centered equations. Do not count inline math.
+- "reference_count": integer count of entries in the References/Bibliography list.
+
+Rules:
+- Do not include the paper title in headings.
+- Do not include figure/table captions in headings.
+- Do not include commentary, prose, or markdown fences.
+- Entire response must be valid JSON beginning with "{" and ending with "}".
+- If only the first ~10 pages are visible, still do your best with what is visible.
+\end{lstlisting}
 
 \bibliographystyle{plainnat}
 \bibliography{references}
