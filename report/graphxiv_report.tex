@@ -372,6 +372,84 @@ The public project repository is:
 GitHub: https://github.com/cui1104/GraphXiv/tree/master
 \end{lstlisting}
 
+\appendix
+
+\section{Evaluation Questions and Prompt Templates}
+
+\subsection{Curated Question Set}
+
+The 30 agent-evaluation questions come from \path{eval/questions.json}. They are organized as ten repeated triples of method-dependency, comparative, and claim-grounding questions. Each row records the seed paper, the in-corpus cited papers treated as the gold citation set, and the question text used for both the title-only and citation-aware conditions.
+
+{\footnotesize\sloppy
+\begin{enumerate}[leftmargin=1.2em,itemsep=0.15em]
+  \item \textbf{Q001} (\texttt{method-dependency}; seed \texttt{2602.19770}; cites \texttt{2503.07914}, \texttt{2501.09967}, \texttt{2402.01761}): How does the method presented in paper 2602.19770 adapt or extend the techniques outlined in the method sections of the cited works 2503.07914, 2501.09967, and 2402.01761?
+  \item \textbf{Q002} (\texttt{comparative}; seed \texttt{2602.19770}; cites \texttt{2503.07914}, \texttt{2501.09967}, \texttt{2402.01761}): How does the approach presented in paper 2602.19770 differ from the methodologies and findings discussed in papers 2503.07914, 2501.09967, and 2402.01761?
+  \item \textbf{Q003} (\texttt{claim-grounding}; seed \texttt{2602.19770}; cites \texttt{2503.07914}, \texttt{2501.09967}, \texttt{2402.01761}): What specific evidence does paper 2602.19770 cite from papers 2503.07914, 2501.09967, and 2402.01761 to support its claims regarding the effectiveness of the proposed methodology?
+  \item \textbf{Q004} (\texttt{method-dependency}; seed \texttt{2602.08290}; cites \texttt{2310.19287}, \texttt{2307.10492}, \texttt{2405.03636}, \texttt{2401.03552}): How does paper 2602.08290 adapt or extend the methodology presented in paper 2310.19287, and what specific modifications or enhancements are detailed in the method section of both papers?
+  \item \textbf{Q005} (\texttt{comparative}; seed \texttt{2602.08290}; cites \texttt{2310.19287}, \texttt{2307.10492}, \texttt{2405.03636}, \texttt{2401.03552}): How does the approach presented in paper 2602.08290 differ from the methodologies and findings outlined in the prior works 2310.19287, 2307.10492, 2405.03636, and 2401.03552?
+  \item \textbf{Q006} (\texttt{claim-grounding}; seed \texttt{2602.08290}; cites \texttt{2310.19287}, \texttt{2307.10492}, \texttt{2405.03636}, \texttt{2401.03552}): What specific evidence does paper 2602.08290 cite from papers 2310.19287, 2307.10492, 2405.03636, and 2401.03552 to support its claims regarding the effectiveness of the proposed methodology?
+  \item \textbf{Q007} (\texttt{method-dependency}; seed \texttt{2603.06271}; cites \texttt{2506.13585}, \texttt{2602.15763}, \texttt{2602.02276}): How does the method presented in paper 2603.06271 adapt or extend the techniques outlined in the method section of paper 2506.13585, and what specific modifications or improvements are made in comparison to the approaches discussed in papers 2602.15763 and 2602.02276?
+  \item \textbf{Q008} (\texttt{comparative}; seed \texttt{2603.06271}; cites \texttt{2506.13585}, \texttt{2602.15763}, \texttt{2602.02276}): How does the approach presented in paper 2603.06271 differ from the methodologies and findings discussed in papers 2506.13585, 2602.15763, and 2602.02276?
+  \item \textbf{Q009} (\texttt{claim-grounding}; seed \texttt{2603.06271}; cites \texttt{2506.13585}, \texttt{2602.15763}, \texttt{2602.02276}): What specific evidence does paper 2603.06271 cite from papers 2506.13585, 2602.15763, and 2602.02276 to support its claims regarding the effectiveness of the proposed method?
+  \item \textbf{Q010} (\texttt{method-dependency}; seed \texttt{2601.11616}; cites \texttt{2506.08764}, \texttt{2506.23266}, \texttt{2510.14436}, \texttt{2411.01016}, \texttt{2410.06270}): How does the method presented in paper 2601.11616 adapt or extend the techniques outlined in the method section of paper 2506.08764, and what specific modifications or improvements are made?
+  \item \textbf{Q011} (\texttt{comparative}; seed \texttt{2601.11616}; cites \texttt{2506.08764}, \texttt{2506.23266}, \texttt{2510.14436}, \texttt{2411.01016}, \texttt{2410.06270}): How does the approach presented in paper 2601.11616 differ from the methodologies and findings discussed in the prior works 2506.08764, 2506.23266, 2510.14436, 2411.01016, and 2410.06270?
+  \item \textbf{Q012} (\texttt{claim-grounding}; seed \texttt{2601.11616}; cites \texttt{2506.08764}, \texttt{2506.23266}, \texttt{2510.14436}, \texttt{2411.01016}, \texttt{2410.06270}): What specific evidence does paper 2601.11616 cite from papers 2506.08764, 2506.23266, 2510.14436, 2411.01016, and 2410.06270 to support its claims regarding [specific claim]?
+  \item \textbf{Q013} (\texttt{method-dependency}; seed \texttt{2602.07152}; cites \texttt{2212.04687}, \texttt{2301.12318}, \texttt{2406.12091}, \texttt{2501.12948}, \texttt{2402.05232}): How does the method presented in paper 2602.07152 adapt or extend the techniques outlined in the method section of paper 2212.04687, and what specific modifications or improvements are made in the context of the research problem addressed?
+  \item \textbf{Q014} (\texttt{comparative}; seed \texttt{2602.07152}; cites \texttt{2212.04687}, \texttt{2301.12318}, \texttt{2406.12091}, \texttt{2501.12948}, \texttt{2402.05232}): How does the approach presented in paper 2602.07152 differ from the methodologies and findings outlined in the prior works 2212.04687, 2301.12318, 2406.12091, 2501.12948, and 2402.05232?
+  \item \textbf{Q015} (\texttt{claim-grounding}; seed \texttt{2602.07152}; cites \texttt{2212.04687}, \texttt{2301.12318}, \texttt{2406.12091}, \texttt{2501.12948}, \texttt{2402.05232}): What specific evidence does paper 2602.07152 cite from papers 2212.04687, 2301.12318, 2406.12091, 2501.12948, and 2402.05232 to support its claims?
+  \item \textbf{Q016} (\texttt{method-dependency}; seed \texttt{2505.11578}; cites \texttt{2402.12365}, \texttt{2312.00752}, \texttt{2403.14608}, \texttt{2402.17177}, \texttt{2402.00789}): How does the method presented in paper 2505.11578 adapt or extend the approach outlined in the method section of paper 2402.12365?
+  \item \textbf{Q017} (\texttt{comparative}; seed \texttt{2505.11578}; cites \texttt{2402.12365}, \texttt{2312.00752}, \texttt{2403.14608}, \texttt{2402.17177}, \texttt{2402.00789}): How does the approach presented in paper 2505.11578 differ from the methodologies and findings discussed in the prior works 2402.12365, 2312.00752, 2403.14608, 2402.17177, and 2402.00789?
+  \item \textbf{Q018} (\texttt{claim-grounding}; seed \texttt{2505.11578}; cites \texttt{2402.12365}, \texttt{2312.00752}, \texttt{2403.14608}, \texttt{2402.17177}, \texttt{2402.00789}): What specific evidence does paper 2505.11578 cite from papers 2402.12365, 2312.00752, 2403.14608, 2402.17177, and 2402.00789 to support its claims regarding the effectiveness of the proposed methodology?
+  \item \textbf{Q019} (\texttt{method-dependency}; seed \texttt{2603.04443}; cites \texttt{2505.03434}, \texttt{2504.08930}, \texttt{2507.18910}): How does the method presented in paper 2603.04443 adapt or extend the techniques outlined in the method section of paper 2505.03434, and what specific modifications or improvements are made compared to the approaches discussed in papers 2504.08930 and 2507.18910?
+  \item \textbf{Q020} (\texttt{comparative}; seed \texttt{2603.04443}; cites \texttt{2505.03434}, \texttt{2504.08930}, \texttt{2507.18910}): How does the approach presented in paper 2603.04443 differ from the methodologies and findings outlined in papers 2505.03434, 2504.08930, and 2507.18910?
+  \item \textbf{Q021} (\texttt{claim-grounding}; seed \texttt{2603.04443}; cites \texttt{2505.03434}, \texttt{2504.08930}, \texttt{2507.18910}): What specific evidence does paper 2603.04443 cite from papers 2505.03434, 2504.08930, and 2507.18910 to support its claim regarding the effectiveness of the proposed method?
+  \item \textbf{Q022} (\texttt{method-dependency}; seed \texttt{2403.08802}; cites \texttt{2507.03034}, \texttt{2402.17177}, \texttt{2304.10701}, \texttt{2311.18252}): How does the method presented in paper 2403.08802 adapt or extend the techniques outlined in the method section of paper 2507.03034, and what specific modifications or enhancements are made in comparison to the approaches discussed in papers 2402.17177, 2304.10701, and 2311.18252?
+  \item \textbf{Q023} (\texttt{comparative}; seed \texttt{2403.08802}; cites \texttt{2507.03034}, \texttt{2402.17177}, \texttt{2304.10701}, \texttt{2311.18252}): How does the approach presented in paper 2403.08802 differ from the methodologies and findings outlined in papers 2507.03034, 2402.17177, 2304.10701, and 2311.18252?
+  \item \textbf{Q024} (\texttt{claim-grounding}; seed \texttt{2403.08802}; cites \texttt{2507.03034}, \texttt{2402.17177}, \texttt{2304.10701}, \texttt{2311.18252}): What specific evidence does paper 2403.08802 cite from papers 2507.03034, 2402.17177, 2304.10701, and 2311.18252 to support its claims regarding the effectiveness of the proposed methodology?
+  \item \textbf{Q025} (\texttt{method-dependency}; seed \texttt{2602.00130}; cites \texttt{2405.07987}, \texttt{2505.12540}, \texttt{2510.26745}): How does paper 2602.00130 adapt or extend the methodology presented in paper 2405.07987, and what specific modifications or enhancements are made compared to the methods outlined in papers 2505.12540 and 2510.26745?
+  \item \textbf{Q026} (\texttt{comparative}; seed \texttt{2602.00130}; cites \texttt{2405.07987}, \texttt{2505.12540}, \texttt{2510.26745}): How does the approach presented in paper 2602.00130 differ from the methodologies and findings discussed in papers 2405.07987, 2505.12540, and 2510.26745?
+  \item \textbf{Q027} (\texttt{claim-grounding}; seed \texttt{2602.00130}; cites \texttt{2405.07987}, \texttt{2505.12540}, \texttt{2510.26745}): What specific evidence does paper 2602.00130 cite from papers 2405.07987, 2505.12540, and 2510.26745 to support its claims regarding the impact of X on Y?
+  \item \textbf{Q028} (\texttt{method-dependency}; seed \texttt{2506.06308}; cites \texttt{2205.03990}, \texttt{2211.10873}, \texttt{2310.05227}): How does the method presented in paper 2506.06308 adapt or extend the techniques outlined in the method sections of the cited works 2205.03990, 2211.10873, and 2310.05227?
+  \item \textbf{Q029} (\texttt{comparative}; seed \texttt{2506.06308}; cites \texttt{2205.03990}, \texttt{2211.10873}, \texttt{2310.05227}): How does the approach presented in paper 2506.06308 differ from the methodologies and findings discussed in papers 2205.03990, 2211.10873, and 2310.05227?
+  \item \textbf{Q030} (\texttt{claim-grounding}; seed \texttt{2506.06308}; cites \texttt{2205.03990}, \texttt{2211.10873}, \texttt{2310.05227}): What specific evidence does paper 2506.06308 cite from papers 2205.03990, 2211.10873, and 2310.05227 to support its claims regarding the effectiveness of the proposed methodology?
+\end{enumerate}
+}
+
+\subsection{Prompt and Evaluation Templates}
+
+The exact executable sources are:
+{\footnotesize
+\begin{itemize}[leftmargin=1.5em,itemsep=0.05em]
+  \item \path{eval/build_questions.py}, \path{eval/run_eval.py}, \path{eval/score.py}, and \path{eval/rubric.md}
+  \item \path{sdk/deepxiv_sdk/agent/prompts.py} and \path{benchmark/create_gt.py}
+\end{itemize}
+}
+The main templates are summarized below.
+
+\paragraph{Question drafting.}
+Candidate questions are drafted by \texttt{gpt-4o-mini} with temperature 0.0 and seed 42 using a JSON schema requiring \texttt{question\_text}, \texttt{gold\_answer\_keywords}, and \texttt{human\_notes}. The three user-prompt templates ask for: (1) how a seed paper adapts or extends cited methods; (2) how the seed paper differs from prior work; and (3) what evidence the seed paper cites to support a specific claim. Candidates are promoted only after in-corpus cited arXiv IDs are validated.
+
+\paragraph{Title-only baseline.}
+\begin{lstlisting}[style=terminal]
+System: You are a research assistant. Answer the user's question using ONLY the paper title and abstract provided below. You have no other tools or access to any other paper, cited work, or section body. If answering requires information not present in the title or abstract, say so explicitly rather than speculating.
+
+User:
+Paper arXiv ID: {seed_arxiv_id}
+Title: {seed_title}
+Abstract: {seed_abstract}
+
+Question: {question_text}
+\end{lstlisting}
+
+\paragraph{Citation-aware agent.}
+The with-tools condition uses the SDK agent system prompt \path{sdk/deepxiv_sdk/agent/prompts.py}. The prompt gives the agent paper-search and reader tools, then instructs a progressive ReAct workflow: search or load metadata first, inspect section summaries and token counts, read targeted sections when needed, avoid unnecessary full-paper loading, and cite papers by title and arXiv ID in the final answer. The evaluation records the prompt tag \texttt{deepxiv\_sdk.agent.prompts.get\_system\_prompt} plus the question text in the prompt hash so prompt drift is detectable.
+
+\paragraph{LLM judge.}
+The judge prompt presents the question, gold cited arXiv IDs, two answers in deterministic randomized A/B order, and compact tool-call summaries. It asks \texttt{gpt-4o-mini} to return strict JSON with four integer 1--5 scores for each answer: \texttt{answer\_correctness}, \texttt{faithfulness}, \texttt{citation\_coverage}, and \texttt{completeness}. The rubric anchors are stored in \path{eval/rubric.md}. A deterministic counter separately computes the fraction of gold cited IDs touched by tool calls to cross-check the judge's citation-coverage score.
+
+\paragraph{Benchmark ground-truth extraction.}
+Ground truth is generated by rendering up to 10 pages per PDF at 120 DPI and sending the page images to \texttt{gemini-2.5-flash}. The prompt asks for a single valid JSON object with exactly these keys: \texttt{headings}, \texttt{figure\_count}, \texttt{formula\_count}, and \texttt{reference\_count}. Heading objects contain cleaned heading text and the printed section number. The prompt forbids paper titles, figure/table captions, commentary, and markdown fences, and tells the model to count distinct figures, displayed equations, and bibliography entries visible in the rendered pages.
+
 \bibliographystyle{plainnat}
 \bibliography{references}
 
