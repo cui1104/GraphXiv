@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 
-\usepackage[top=0.82in,bottom=0.82in,left=0.9in,right=0.9in]{geometry}
+\usepackage[top=0.68in,bottom=0.68in,left=0.78in,right=0.78in]{geometry}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{enumitem}
@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{multicol}
 \usepackage[numbers,sort&compress]{natbib}
 
 \hypersetup{
@@ -18,14 +19,16 @@
 }
 
 \lstdefinestyle{terminal}{
-  basicstyle=\ttfamily\footnotesize,
+  basicstyle=\ttfamily\scriptsize,
   breaklines=true,
   columns=fullflexible,
   frame=single,
   framerule=0.3pt,
   rulecolor=\color{black!35},
   xleftmargin=0.5em,
-  xrightmargin=0.5em
+  xrightmargin=0.5em,
+  aboveskip=0.35em,
+  belowskip=0.35em
 }
 
 \title{GraphXiv: End-to-End Data Engineering and Knowledge Graph Construction for Academic Literature with an LLM Retrieval Agent}
@@ -345,6 +348,7 @@ GitHub: https://github.com/cui1104/GraphXiv/tree/master
 
 
 \appendix
+\footnotesize
 
 \section{Evaluation Questions and Prompt Templates}
 
@@ -352,8 +356,9 @@ GitHub: https://github.com/cui1104/GraphXiv/tree/master
 
 The 30 agent-evaluation questions are organized as ten repeated triples of method-dependency, comparative, and claim-grounding questions. Each row records the seed paper, the in-corpus cited papers treated as the gold citation set, and the question text used for both the title-only and citation-aware conditions.
 
-{\footnotesize\sloppy
-\begin{enumerate}[leftmargin=1.2em,itemsep=0.15em]
+{\scriptsize\sloppy
+\begin{multicols}{2}
+\begin{enumerate}[leftmargin=1.0em,itemsep=0.05em,topsep=0pt,parsep=0pt]
   \item \textbf{Q001} (\texttt{method-dependency}; seed \texttt{2602.19770}; cites \texttt{2503.07914}, \texttt{2501.09967}, \texttt{2402.01761}): How does the method presented in paper 2602.19770 adapt or extend the techniques outlined in the method sections of the cited works 2503.07914, 2501.09967, and 2402.01761?
   \item \textbf{Q002} (\texttt{comparative}; seed \texttt{2602.19770}; cites \texttt{2503.07914}, \texttt{2501.09967}, \texttt{2402.01761}): How does the approach presented in paper 2602.19770 differ from the methodologies and findings discussed in papers 2503.07914, 2501.09967, and 2402.01761?
   \item \textbf{Q003} (\texttt{claim-grounding}; seed \texttt{2602.19770}; cites \texttt{2503.07914}, \texttt{2501.09967}, \texttt{2402.01761}): What specific evidence does paper 2602.19770 cite from papers 2503.07914, 2501.09967, and 2402.01761 to support its claims regarding the effectiveness of the proposed methodology?
@@ -385,6 +390,7 @@ The 30 agent-evaluation questions are organized as ten repeated triples of metho
   \item \textbf{Q029} (\texttt{comparative}; seed \texttt{2506.06308}; cites \texttt{2205.03990}, \texttt{2211.10873}, \texttt{2310.05227}): How does the approach presented in paper 2506.06308 differ from the methodologies and findings discussed in papers 2205.03990, 2211.10873, and 2310.05227?
   \item \textbf{Q030} (\texttt{claim-grounding}; seed \texttt{2506.06308}; cites \texttt{2205.03990}, \texttt{2211.10873}, \texttt{2310.05227}): What specific evidence does paper 2506.06308 cite from papers 2205.03990, 2211.10873, and 2310.05227 to support its claims regarding the effectiveness of the proposed methodology?
 \end{enumerate}
+\end{multicols}
 }
 
 \subsection{Prompt and Evaluation Templates}
@@ -449,7 +455,7 @@ You are a careful grader of research-paper Q&A answers. You will be shown a ques
 
 Return STRICT JSON matching the schema. Do not add commentary outside JSON. Do NOT anchor on whether an answer is labelled A or B — order is randomized per question.
 \end{lstlisting}
-The user payload contains \texttt{question\_text}, \texttt{question\_type}, \texttt{gold\_cited\_arxiv\_ids}, \texttt{answer\_a.answer\_text}, \texttt{answer\_a.tool\_calls\_summary}, \texttt{answer\_b.answer\_text}, and \texttt{answer\_b.tool\_calls\_summary}. The JSON schema requires \texttt{answer\_correctness}, \texttt{faithfulness}, \texttt{citation\_coverage}, \texttt{completeness}, and \texttt{notes} for both answers. The rubric anchors are:
+The user payload contains the question text/type, gold cited arXiv IDs, both answer texts, and compact tool-call summaries. The JSON schema requires four scores plus notes for both answers. The rubric anchors are:
 \begin{itemize}[leftmargin=1.5em,itemsep=0.1em]
   \item \texttt{answer\_correctness}: 1 = non-responsive or contradicts known ground truth; 5 = precise, complete, and factually consistent with cited-paper evidence.
   \item \texttt{faithfulness}: 1 = unsupported hallucination; 5 = every substantive claim is directly supported by retrieved tool results.
